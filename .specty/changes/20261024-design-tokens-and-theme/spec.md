@@ -47,7 +47,7 @@ The design system's foundations exist with the plan's final values: the «Mantel
   - files: assets/fonts/**, pubspec.yaml, lib/design/tokens/typography.dart, test/design/tokens_test.dart
   - ac: AC2
   - verify: fvm flutter analyze && fvm flutter test test/design
-- [ ] T2: Palette, spacing and motion tokens
+- [x] T2: Palette, spacing and motion tokens
   - files: lib/design/tokens/palette.dart, lib/design/tokens/spacing.dart, lib/design/tokens/motion.dart, test/design/tokens_test.dart
   - ac: AC1, AC4
   - verify: fvm flutter analyze && fvm flutter test test/design
