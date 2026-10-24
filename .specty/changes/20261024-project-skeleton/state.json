@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261024-project-skeleton",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261024-project-skeleton",
   "baseCommit": "02350c2bcf53d9cb049aa1707c9f9f060209f028",
   "revision": 1,
@@ -52,12 +52,23 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "72e4eadd2bf70fc289f52d21ac49cb9175766b31",
+      "attempts": 1,
       "startedAt": "2026-10-24T21:36:04.898Z",
       "doneAt": "2026-10-24T21:38:01.012Z",
-      "summary": "Pinned Flutter 3.47.8 in .fvmrc, wrote pubspec with the plan's dependencies (solver settled on freezed 4.0.1 and build_runner 2.16.1), Flutter .gitignore plus fvm and generated code."
+      "summary": "Pinned Flutter 3.47.8 in .fvmrc, wrote pubspec with the plan's dependencies (solver settled on freezed 4.0.1 and build_runner 2.16.1), Flutter .gitignore plus fvm and generated code.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [
+        "pubspec.yaml"
+      ],
+      "attempts": 1,
+      "baseCommit": "5ee4ff02b26c3ea96cc4be5f25c60eecf5f2807d",
+      "startedAt": "2026-10-24T21:38:01.556Z",
+      "doneAt": "2026-10-24T21:42:02.308Z",
+      "summary": "very_good_analysis without public_member_api_docs plus riverpod_lint plugin; build.yaml for json/freezed; slang.yaml (es base, namespaces, braces); minimal MaterialApp from material_ui with a passing smoke test."
     }
   },
   "pending": {

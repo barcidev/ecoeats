@@ -78,7 +78,7 @@ The Flutter project exists with the toolchain the plan fixes: Flutter 3.47.8 pin
   - ac: AC1
   - verify: fvm flutter pub get
   - type: chore
-- [ ] T2: Configure lints and code generation, and render the minimal app
+- [x] T2: Configure lints and code generation, and render the minimal app
   - files: analysis_options.yaml, build.yaml, slang.yaml, lib/main.dart, test/smoke_test.dart
   - ac: AC2, AC3
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test

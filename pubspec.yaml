@@ -8,12 +8,12 @@ environment:
   flutter: ">=3.47.8"
 
 dependencies:
-  flutter:
-    sdk: flutter
   auto_route: ^11.2.0
   cached_network_image: ^4.0.5
   cupertino_ui: ^1.1.4
   dio: ^5.11.1
+  flutter:
+    sdk: flutter
   flutter_native_splash: ^2.4.8
   flutter_riverpod: ^3.4.3
   flutter_secure_storage: ^11.2.0
@@ -28,11 +28,11 @@ dependencies:
   slang_flutter: ^4.19.0
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   auto_route_generator: ^10.6.0
   build_runner: ^2.16.1
   flutter_launcher_icons: ^0.14.4
+  flutter_test:
+    sdk: flutter
   freezed: ^4.0.1
   json_serializable: ^6.15.2
   mocktail: ^1.0.5

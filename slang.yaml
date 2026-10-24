@@ -1,0 +1,11 @@
+base_locale: es
+fallback_strategy: base_locale
+input_directory: lib/i18n
+input_file_pattern: .i18n.yaml
+output_directory: lib/i18n/gen
+output_file_name: strings.g.dart
+namespaces: true
+string_interpolation: braces
+timestamp: false
+pluralization:
+  auto: cardinal
