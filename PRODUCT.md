@@ -26,4 +26,4 @@ App móvil para clientes de EcoEats en teléfonos iOS y Android, en orientación
 
 ## Constraints
 
-<!-- Any constraints? (deadlines, budget, rules, compatibility…) -->
+Ninguna adicional a lo indicado en Stack y Deployment.

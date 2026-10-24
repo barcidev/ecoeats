@@ -6,6 +6,13 @@
   "branch": "specty/20261024-design-tokens-and-theme",
   "baseCommit": "929be24b6b023fa4ad1a3633dcea05e73fad6058",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:eb6952cb880a1fc38c0d805b4a154c231141a3b57925c314ea49f9de8dbeee6b",
+    "at": "2026-10-24T21:47:35.311Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 13,
@@ -34,7 +41,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "a87a796782762cdb6827ec1626ae305c1c396f39",
+      "startedAt": "2026-10-24T21:47:47.956Z",
+      "doneAt": "2026-10-24T21:49:23.647Z",
+      "summary": "Bundled Fraunces (roman and italic) and Instrument Sans variable fonts with OFL licenses; EcoType scale sets wght/opsz/SOFT axes explicitly, WONK only on displayWonk, tabular numeric style."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -43,12 +60,5 @@
     "A": 4,
     "AC": 4,
     "T": 3
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:eb6952cb880a1fc38c0d805b4a154c231141a3b57925c314ea49f9de8dbeee6b",
-    "at": "2026-10-24T21:47:35.311Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

@@ -43,7 +43,7 @@ The design system's foundations exist with the plan's final values: the «Mantel
 
 ## Tasks
 
-- [ ] T1: Bundle the fonts and define the type scale
+- [x] T1: Bundle the fonts and define the type scale
   - files: assets/fonts/**, pubspec.yaml, lib/design/tokens/typography.dart, test/design/tokens_test.dart
   - ac: AC2
   - verify: fvm flutter analyze && fvm flutter test test/design
