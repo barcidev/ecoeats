@@ -55,3 +55,22 @@ The design system's foundations exist with the plan's final values: the «Mantel
   - files: lib/design/theme.dart, test/design/theme_test.dart
   - ac: AC2, AC3
   - verify: fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+The palettes, type scale, spacing, radii and motion tokens exist with the plan's values, together with a light and dark `ecoTheme`. Fraunces and Instrument Sans are bundled as variable fonts.
+
+### Deviations
+
+- `PRODUCT.md` got its «Constraints» answer («Ninguna adicional…») in this change, because the main checkout must stay clean for closings.
+
+### Decisions
+
+- Every text style sets its `wght` axis explicitly besides `fontWeight`, because not every platform maps one to the other on variable fonts.
+- `context.palette` falls back to Mantel when no theme carries the extension, so widget tests without a theme still render.
+
+### Follow-ups
+
+- The routes change wires `ecoTheme` into `MaterialApp.router`.

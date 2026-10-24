@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261024-design-tokens-and-theme",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261024-design-tokens-and-theme",
   "baseCommit": "929be24b6b023fa4ad1a3633dcea05e73fad6058",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:eb6952cb880a1fc38c0d805b4a154c231141a3b57925c314ea49f9de8dbeee6b",
@@ -15,10 +15,10 @@
   },
   "size": {
     "level": "L",
-    "score": 13,
+    "score": 18,
     "adjust": 0,
     "reasons": [
-      "9 files",
+      "14 files",
       "2 modules",
       "changes dependencies"
     ]
@@ -62,12 +62,12 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "9e0c2d05c02bd56c9bc97adf8413ad0d3c2098c3",
+      "attempts": 1,
       "startedAt": "2026-10-24T21:51:16.934Z",
       "doneAt": "2026-10-24T21:52:32.197Z",
-      "summary": "ecoTheme(brightness) maps the palette to a ColorScheme (achiote primary and error), the type scale to TextTheme, NoSplash, hairline dividers, transparent status bar and squircle bottom sheets, with EcoPalette as extension."
+      "summary": "ecoTheme(brightness) maps the palette to a ColorScheme (achiote primary and error), the type scale to TextTheme, NoSplash, hairline dividers, transparent status bar and squircle bottom sheets, with EcoPalette as extension.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -78,5 +78,6 @@
     "A": 4,
     "AC": 4,
     "T": 3
-  }
+  },
+  "closingSubmittedAt": "2026-10-24T21:52:43.355Z"
 }
