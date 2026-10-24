@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "id": "20261024-design-tokens-and-theme",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261024-design-tokens-and-theme",
+  "baseCommit": "929be24b6b023fa4ad1a3633dcea05e73fad6058",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 13,
+    "adjust": 0,
+    "reasons": [
+      "9 files",
+      "2 modules",
+      "changes dependencies"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:edc16a30f3ce1d5847e4b05f2ed03bf805a0d02d95db3a5b0d125b5873df9d7f",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:261cd928f2c63ce050e72a0e08c327234bbf46420f93e00c5391aa7d6cf52335",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:f260bf341fe781536a9522fe9f2e89f52f6eca1a9d076355e7965fdb96c1b922",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:d31bc822a2b577651156644cbb314b7c2e4349f8d13ba1858a9846936b291a4b",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 4,
+    "T": 3
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:eb6952cb880a1fc38c0d805b4a154c231141a3b57925c314ea49f9de8dbeee6b",
+    "at": "2026-10-24T21:47:35.311Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
