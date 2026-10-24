@@ -6,6 +6,13 @@
   "branch": "specty/20261024-project-skeleton",
   "baseCommit": "02350c2bcf53d9cb049aa1707c9f9f060209f028",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:92bf58ee4d53ae4911adcd283351bdfdd9dee21aa6507aae930edbac3206d9d3",
+    "at": "2026-10-24T21:36:04.459Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 14,
@@ -42,7 +49,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "72e4eadd2bf70fc289f52d21ac49cb9175766b31",
+      "startedAt": "2026-10-24T21:36:04.898Z",
+      "doneAt": "2026-10-24T21:38:01.012Z",
+      "summary": "Pinned Flutter 3.47.8 in .fvmrc, wrote pubspec with the plan's dependencies (solver settled on freezed 4.0.1 and build_runner 2.16.1), Flutter .gitignore plus fvm and generated code."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -52,12 +69,5 @@
     "AC": 3,
     "T": 2,
     "R": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:92bf58ee4d53ae4911adcd283351bdfdd9dee21aa6507aae930edbac3206d9d3",
-    "at": "2026-10-24T21:36:04.459Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

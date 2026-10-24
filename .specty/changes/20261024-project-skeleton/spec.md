@@ -73,7 +73,7 @@ The Flutter project exists with the toolchain the plan fixes: Flutter 3.47.8 pin
 
 ## Tasks
 
-- [ ] T1: Pin Flutter and resolve the dependencies
+- [x] T1: Pin Flutter and resolve the dependencies
   - files: .fvmrc, .gitignore, .metadata, pubspec.yaml, pubspec.lock
   - ac: AC1
   - verify: fvm flutter pub get
