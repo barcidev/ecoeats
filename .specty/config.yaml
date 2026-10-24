@@ -1,0 +1,22 @@
+# Specty configuration. Reference: docs/formats.md §6
+version: 1
+language: en
+mode: individual
+# Paths under the flow: code that needs an approved spec.
+governed: ["**"]
+# Free paths: documentation and non-code files.
+ignored: ["**/*.md","docs/**"]
+# Paths never approved automatically, weighed in the size.
+sensitive: ["**/migrations/**","**/auth/**",".github/**","**/.env*","**/infra/**"]
+verify:
+  timeoutSec: 600
+scope:
+  implicitTests: true
+  generated: []
+  autoApprove: tests-and-generated
+policy:
+  tests: recommended
+retro:
+  mode: agent
+git:
+  branchPerChange: true
