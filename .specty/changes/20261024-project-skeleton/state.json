@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "20261024-project-skeleton",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261024-project-skeleton",
+  "baseCommit": "02350c2bcf53d9cb049aa1707c9f9f060209f028",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 14,
+    "adjust": 0,
+    "reasons": [
+      "10 files",
+      "2 modules",
+      "changes dependencies"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:ea7f2c5e9043f6413829a5edf27e6a3db2d4f3a57228fc82afc06d1ad3223807",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:6cce9c1266cf293827c0ad72739704e20bd6ca54717144abcafe24614da25237",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:daf1f52d93842e70961cd12f52bebc511a05ad81546ab4c3f08016cb38d514c0",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:bf536f44649fb472cf67893a1f04268cebfb64dfb2eee5e1e55f5f75c39c3b15",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:130edc3b2d73810515cdbb2797d83574eff2e01fd86223bb5f318ee09b5bfe50",
+      "decision": "implicit"
+    },
+    "A6": {
+      "hash": "sha256:075a4c2403e15d0b383a31f15d2be7379c824c6706d01c85035002a2a7c1d881",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 6,
+    "AC": 3,
+    "T": 2,
+    "R": 1
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:92bf58ee4d53ae4911adcd283351bdfdd9dee21aa6507aae930edbac3206d9d3",
+    "at": "2026-10-24T21:36:04.459Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
