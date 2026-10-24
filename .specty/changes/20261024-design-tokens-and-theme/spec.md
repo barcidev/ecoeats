@@ -51,7 +51,7 @@ The design system's foundations exist with the plan's final values: the «Mantel
   - files: lib/design/tokens/palette.dart, lib/design/tokens/spacing.dart, lib/design/tokens/motion.dart, test/design/tokens_test.dart
   - ac: AC1, AC4
   - verify: fvm flutter analyze && fvm flutter test test/design
-- [ ] T3: Light and dark themes
+- [x] T3: Light and dark themes
   - files: lib/design/theme.dart, test/design/theme_test.dart
   - ac: AC2, AC3
   - verify: fvm flutter analyze && fvm flutter test

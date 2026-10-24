@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261024-design-tokens-and-theme",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261024-design-tokens-and-theme",
   "baseCommit": "929be24b6b023fa4ad1a3633dcea05e73fad6058",
   "revision": 1,
@@ -53,12 +53,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "d76463d61575fe0a921785ac1b96d80f4eaddeff",
+      "attempts": 1,
       "startedAt": "2026-10-24T21:49:24.077Z",
       "doneAt": "2026-10-24T21:51:16.185Z",
-      "summary": "EcoPalette ThemeExtension with Mantel/Fogón values, lerp/copyWith and context.palette; Space/Radii with squircle borders; Motion durations, emphasized curve, 380/30 spring, capped stagger and reduced()."
+      "summary": "EcoPalette ThemeExtension with Mantel/Fogón values, lerp/copyWith and context.palette; Space/Radii with squircle borders; Motion durations, emphasized curve, 380/30 spring, capped stagger and reduced().",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "9e0c2d05c02bd56c9bc97adf8413ad0d3c2098c3",
+      "startedAt": "2026-10-24T21:51:16.934Z",
+      "doneAt": "2026-10-24T21:52:32.197Z",
+      "summary": "ecoTheme(brightness) maps the palette to a ColorScheme (achiote primary and error), the type scale to TextTheme, NoSplash, hairline dividers, transparent status bar and squircle bottom sheets, with EcoPalette as extension."
     }
   },
   "pending": {
