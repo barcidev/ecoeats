@@ -86,3 +86,25 @@ The Flutter project exists with the toolchain the plan fixes: Flutter 3.47.8 pin
 ## Risks
 
 - R1: Some version from the plan does not exist or does not solve with Dart 3.13.7. Mitigation: pin the newest compatible version and note it in the task.
+
+## Closing
+
+### Summary
+
+The Flutter project builds with Flutter 3.47.8 pinned by `.fvmrc`. All the plan's dependencies resolve, very_good_analysis and riverpod_lint run clean, and build_runner and slang are configured. A minimal `material_ui` app renders and its smoke test passes.
+
+### Deviations
+
+- `flutter_localizations` is not a dependency: `material_ui` 1.8 ships its own `GlobalMaterialLocalizations`.
+- `flutter_native_splash` is a regular dependency, not a dev one, so `main.dart` can call `preserve()`.
+- `build.yaml` sets only json_serializable and freezed options; riverpod and auto_route use their defaults.
+
+### Decisions
+
+- The solver settled by itself on freezed 4.0.1 and build_runner 2.16.1, so nothing is pinned explicitly.
+- Constructors use Dart 3.13's `new` shorthand, which very_good_analysis 11 requires (`unnecessary_type_name_in_constructor`).
+
+### Follow-ups
+
+- The next change adds `android/` and `ios/` with the native configuration.
+- `.specty/config.yaml` has no `verify.default` or `verify.full`; the person may add `fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test`.
