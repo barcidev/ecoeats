@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "20261026-a-rejected-code-keeps-its-deadline-in-sight-and",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-a-rejected-code-keeps-its-deadline-in-sight-and",
+  "baseCommit": "4e1e710df3384ed0ad8aba3f076a90f7b25b459b",
+  "revision": 1,
+  "size": {
+    "level": "M",
+    "score": 8,
+    "adjust": 0,
+    "reasons": [
+      "2 archivos",
+      "2 rutas sensibles"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:d2c6e935ec5c26b216d159883831f459191f043503d0905f31651c40d3df37be",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:478d3d669efa3408a65440fd753c2ed2beed121988d78d3152397ad13744785c",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 2,
+    "AC": 4,
+    "T": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:9c58d5c2b487af32afdca0682ddb9afc8d6422303e323a92511575cd2fb7322a",
+    "at": "2026-10-26T14:51:57.049Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
