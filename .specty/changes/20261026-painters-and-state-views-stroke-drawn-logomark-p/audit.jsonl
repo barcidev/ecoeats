@@ -1,0 +1,3 @@
+{"ts":"2026-10-26T10:36:39.076Z","actor":"agent","tool":"claude-code","event":"change.created","data":{"kind":"standard","branch":"specty/20261026-painters-and-state-views-stroke-drawn-logomark-p","epic":"20261025-design-motion-brand-and-discover-agent-c","slice":"C3"}}
+{"ts":"2026-10-26T10:39:47.702Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":1,"hash":"sha256:b9f0f39de2603585e5d07ab4f1c713a248a0fc8f0918c12cb66a90871544c2bc","size":"M","warnings":0}}
+{"ts":"2026-10-26T10:39:48.072Z","actor":"agent","tool":"claude-code","event":"spec.approved","data":{"revision":1,"hash":"sha256:b9f0f39de2603585e5d07ab4f1c713a248a0fc8f0918c12cb66a90871544c2bc","channel":"delegated","delegated":true}}

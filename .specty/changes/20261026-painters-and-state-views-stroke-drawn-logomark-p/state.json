@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "20261026-painters-and-state-views-stroke-drawn-logomark-p",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-painters-and-state-views-stroke-drawn-logomark-p",
+  "baseCommit": "6e9bedcffa218b0289779be12568bb45bfebb992",
+  "revision": 1,
+  "size": {
+    "level": "M",
+    "score": 5,
+    "adjust": 0,
+    "reasons": [
+      "5 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:9fdeafb1cd0d1f9f2326aadf4555e13f0198c851f096538ad22826835fe2f3c4",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:daf5bd92d983977e1546eb6ac807adc1141b559eb4f390f7edb29250186a7e7c",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:2c6deef50d519f4ecffebec09fef304158946c7958fbc363fc3ab19d2cfc087c",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:92fc682dfdfdce9178f6c233c438ef8808158161b1e8a791caa052835abb9b43",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:6e6dd4f05cd2b4d007ef6014bb83967da20e3a41e6cd3bc120fc84af9dcac38c",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 4,
+    "T": 3,
+    "R": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:b9f0f39de2603585e5d07ab4f1c713a248a0fc8f0918c12cb66a90871544c2bc",
+    "at": "2026-10-26T10:39:48.059Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
