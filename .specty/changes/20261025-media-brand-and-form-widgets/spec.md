@@ -56,7 +56,7 @@ The rest of the design contracts exist with a simple but working implementation:
   - files: lib/design/widgets/eco_text_field.dart, lib/design/widgets/shake.dart, lib/design/widgets/mask_reveal_text.dart, test/design/widgets/form_motion_test.dart
   - ac: AC3, AC4
   - verify: fvm flutter analyze && fvm flutter test test/design
-- [ ] T3: GrainOverlay, LogoMark, gallery and Discover placeholder with its reveal route
+- [x] T3: GrainOverlay, LogoMark, gallery and Discover placeholder with its reveal route
   - files: lib/design/widgets/grain_overlay.dart, lib/design/painters/logo_mark.dart, lib/design/gallery/design_gallery_page.dart, lib/features/discover/presentation/discover_page.dart, lib/features/discover/presentation/discover_route.dart, test/features/discover/discover_route_test.dart
   - ac: AC5
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test

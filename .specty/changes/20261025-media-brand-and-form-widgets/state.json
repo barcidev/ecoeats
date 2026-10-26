@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-media-brand-and-form-widgets",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-media-brand-and-form-widgets",
   "baseCommit": "cfd131a2ee2d5ad3844d05ca8c9b7dd16ba7e361",
   "revision": 1,
@@ -52,12 +52,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "1b9c771786e7532699e72e04fe6e2aa4fe0b8807",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:58:04.568Z",
       "doneAt": "2026-10-26T01:00:11.177Z",
-      "summary": "EcoTextField (overline label, underline that turns achiote on error, animated error line, autofill and formatters), Shake on trigger change with haptic and damped swings, MaskRevealText sliding each line out of a clip with a 120 ms gap."
+      "summary": "EcoTextField (overline label, underline that turns achiote on error, animated error line, autofill and formatters), Shake on trigger change with haptic and damped swings, MaskRevealText sliding each line out of a clip with a 120 ms gap.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "f67bfd44dd2bbf761d33f91d83fdfe2325aa0987",
+      "startedAt": "2026-10-26T01:00:12.183Z",
+      "doneAt": "2026-10-26T01:04:44.051Z",
+      "summary": "GrainOverlay (fixed-seed dots), LogoMark drawing its rim by progress with the leaf growing in, debug DesignGalleryPage with a light/dark switch, DiscoverPage placeholder taking revealOrigin, revealRoute with CircleRevealClipper (fade with reduced motion)."
     }
   },
   "pending": {
