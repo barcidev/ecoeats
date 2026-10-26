@@ -60,7 +60,7 @@ Forms, headlines and placeholders get the motion and texture of printed matter. 
   - files: lib/design/widgets/mask_reveal_text.dart, test/design/widgets/form_motion_test.dart
   - ac: AC2
   - verify: fvm flutter test test/design/widgets/form_motion_test.dart
-- [ ] T3: Shared-shimmer Skeleton and runtime-noise GrainOverlay, with widget tests
+- [x] T3: Shared-shimmer Skeleton and runtime-noise GrainOverlay, with widget tests
   - files: lib/design/widgets/skeleton.dart, lib/design/widgets/grain_overlay.dart, test/design/widgets/surfaces_test.dart
   - ac: AC3, AC4, AC5
   - verify: fvm dart run build_runner build -d && fvm dart run slang && fvm flutter analyze && fvm flutter test

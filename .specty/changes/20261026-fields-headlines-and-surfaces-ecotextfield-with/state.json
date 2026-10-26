@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-fields-headlines-and-surfaces-ecotextfield-with",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-fields-headlines-and-surfaces-ecotextfield-with",
   "baseCommit": "ce4122ec8618e40aef328cebc92d593fd02f5bff",
   "revision": 1,
@@ -61,12 +61,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "27914a977682080aaf70af4d42b813553be89e8c",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:31:38.801Z",
       "doneAt": "2026-10-26T10:32:35.406Z",
-      "summary": "MaskRevealText's slots now reach 0.3 em past the line box and each line starts low enough to clear them, so accents and descenders are never cut; staggered rise and reduced motion kept."
+      "summary": "MaskRevealText's slots now reach 0.3 em past the line box and each line starts low enough to clear them, so accents and descenders are never cut; staggered rise and reduced motion kept.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "56c8de431634b9b183647f828fdb90d7efef23b1",
+      "startedAt": "2026-10-26T10:32:35.801Z",
+      "doneAt": "2026-10-26T10:35:39.653Z",
+      "summary": "Skeleton paints through a RenderBox whose light band comes from the frame clock and its screen position, so all blocks shine in step; GrainOverlay tiles a seeded 256 px runtime noise image through an ImageShader, made once."
     }
   },
   "pending": {
