@@ -38,3 +38,22 @@ Al escribir nombres y apellidos en el registro, el teclado empieza cada palabra 
   - files: lib/features/auth/presentation/register_page.dart
   - ac: AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test
+
+## Cierre
+
+### Resumen
+
+`EcoTextField` recibe un `textCapitalization` opcional (por defecto `none`, así ningún campo existente cambia) y lo pasa a su campo de texto. En el paso 1 del registro, nombres y apellidos empiezan cada palabra en mayúscula; el documento no. Un test de `EcoTextField` y uno del registro; la suite completa (421 tests) y `flutter analyze` pasan.
+
+### Desviaciones
+
+- El `build` de `EcoTextField` (134 líneas) se partió en `_field`, `_label`, `_underline` y `_errorLine`, y el mensaje de cada campo del paso 1 del registro pasó a `_aboutMessage`: la revisión `function-lines` de Specty limita a 50 líneas toda función que el cambio toca. Es una extracción sin cambios de comportamiento; los tests de `EcoTextField` siguen pasando.
+- La verificación completa corrió con el Flutter fijado por fvm primero en el PATH.
+
+### Decisiones
+
+- Solo nombres y apellidos capitalizan; el documento puede llevar letras de un pasaporte y el correo nunca debe capitalizarse.
+
+### Pendientes
+
+- Ninguno.

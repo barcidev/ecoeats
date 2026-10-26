@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261026-names-start-with-a-capital-in-the-registration-f",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-names-start-with-a-capital-in-the-registration-f",
   "baseCommit": "8407dcb0912ac28e5126413a3b4800e4295438a2",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:992566f45aefee2c2c14f1218d94662c19badcc36f4fe61db55bc50b178297b9",
@@ -41,12 +41,12 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "e7808cc4828de42e79076c2857ba1e1d385b1551",
+      "attempts": 1,
       "startedAt": "2026-10-26T15:05:41.604Z",
       "doneAt": "2026-10-26T15:07:15.577Z",
-      "summary": "First and last names in registration start each word with a capital; the step 1 field message moved to its own method."
+      "summary": "First and last names in registration start each word with a capital; the step 1 field message moved to its own method.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -57,5 +57,6 @@
     "A": 1,
     "AC": 3,
     "T": 2
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T15:07:40.193Z"
 }
