@@ -46,3 +46,16 @@ home:
     other: "{n} dishes"
 detail:
   gone: This dish is off the menu now.
+  goneHint: We took it off recently; there's more waiting for you.
+  backToMenu: Back to the menu
+  close: Close
+  featured: House favorite
+  fromMenu: From the menu
+  rating: "{rating} out of 5"
+  nutrition: Nutrition
+  perServing: Per serving
+  carbohydrates: Carbohydrates
+  proteins: Protein
+  grams: "{grams} g"
+  macro: "{name}, {grams} g"
+  ingredients: Ingredients

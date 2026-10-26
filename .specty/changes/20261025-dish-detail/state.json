@@ -6,6 +6,13 @@
   "branch": "specty/20261025-dish-detail",
   "baseCommit": "3c222dde75585a0b9a2a6be6379ca5dba3fc1de4",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:7d198b35dd3f0cd7ef1cddd7ba11aad4735ff75bf112ce88ff740528f177ca53",
+    "at": "2026-10-26T02:41:39.374Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 9,
@@ -37,7 +44,19 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [
+        "test/features/dishes/presentation/preview/**"
+      ],
+      "attempts": 1,
+      "baseCommit": "5a1b1f7295cedeef2fd465e2d68df40ff648f89f",
+      "startedAt": "2026-10-26T02:41:39.697Z",
+      "doneAt": "2026-10-26T02:46:17.110Z",
+      "summary": "Detail page: stretching parallax photo header under the source's hero tag with rounded shoulders, content rising 120 ms in (overline, name, «4,9 de 5» stars, price, description), maíz/aguacate macro bars with counting figures, numbered ingredients, gone and error states."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -46,12 +65,5 @@
     "A": 5,
     "AC": 5,
     "T": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:7d198b35dd3f0cd7ef1cddd7ba11aad4735ff75bf112ce88ff740528f177ca53",
-    "at": "2026-10-26T02:41:39.374Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

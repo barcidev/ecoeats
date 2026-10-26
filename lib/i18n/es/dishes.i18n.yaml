@@ -46,3 +46,16 @@ home:
     other: "{n} platos"
 detail:
   gone: Este plato ya no está en la carta.
+  goneHint: Lo sacamos hace poco; hay más esperándote.
+  backToMenu: Volver a la carta
+  close: Cerrar
+  featured: Destacado de la casa
+  fromMenu: De la carta
+  rating: "{rating} de 5"
+  nutrition: Nutrición
+  perServing: Por porción
+  carbohydrates: Carbohidratos
+  proteins: Proteínas
+  grams: "{grams} g"
+  macro: "{name}, {grams} g"
+  ingredients: Ingredientes
