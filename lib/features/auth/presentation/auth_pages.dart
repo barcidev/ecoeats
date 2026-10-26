@@ -16,8 +16,9 @@ import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 
 export 'package:ecoeats/features/auth/presentation/login_page.dart';
+export 'package:ecoeats/features/auth/presentation/register_page.dart';
 
-// The register and recover pages are still phase 0 placeholders; each page
+// The recover page is still a phase 0 placeholder; each page
 // that agent A builds lives in its own file and is exported from here, where
 // the router looks for it.
 
@@ -426,15 +427,6 @@ class _WelcomePageState extends State<WelcomePage>
       ),
     );
   }
-}
-
-@RoutePage()
-class RegisterPage extends StatelessWidget {
-  const new({super.key});
-
-  @override
-  Widget build(BuildContext context) =>
-      AuthPanel(title: context.t.auth.register.title, children: const []);
 }
 
 @RoutePage()

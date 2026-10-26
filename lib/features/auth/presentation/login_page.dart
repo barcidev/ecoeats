@@ -4,7 +4,6 @@ import 'package:ecoeats/core/session/session_controller.dart';
 import 'package:ecoeats/design/tokens/eco_icons.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/tokens/spacing.dart';
-import 'package:ecoeats/design/tokens/typography.dart';
 import 'package:ecoeats/design/widgets/eco_button.dart';
 import 'package:ecoeats/design/widgets/eco_text_field.dart';
 import 'package:ecoeats/design/widgets/pressable.dart';
@@ -104,7 +103,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     return AuthPanel(
       title: t.auth.login.title,
       subtitle: t.auth.login.subtitle,
-      footer: _Footer(
+      footer: PanelFooter(
         question: t.auth.login.noAccount,
         action: t.auth.login.createOne,
         onPressed: () => context.router.replacePath('register'),
@@ -158,12 +157,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         ),
         Align(
           alignment: .centerRight,
-          child: _TextLink(
+          child: TextLink(
             label: t.auth.login.forgot,
             onPressed: busy ? null : () => context.router.pushPath('recover'),
           ),
         ),
-        _FormMessage(_formMessage(t, state)),
+        FormMessage(_formMessage(t, state)),
         const SizedBox(height: Space.lg),
         _submitButton(t, state, busy),
       ],
@@ -223,103 +222,5 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       ValidationFailure(:final fieldErrors) when fieldErrors.isNotEmpty => null,
       final failure => failureMessage(failure, t),
     };
-  }
-}
-
-/// One line under the form for what the API answered, announced to screen
-/// readers when it appears.
-class _FormMessage extends StatelessWidget {
-  const new(this.message);
-
-  final String? message;
-
-  @override
-  Widget build(BuildContext context) {
-    final palette = context.palette;
-    final text = message;
-    return AnimatedSize(
-      duration: const Duration(milliseconds: 160),
-      alignment: .topLeft,
-      child: text == null
-          ? const SizedBox(width: double.infinity)
-          : Padding(
-              padding: const EdgeInsets.only(top: Space.sm),
-              child: Semantics(
-                liveRegion: true,
-                child: Row(
-                  crossAxisAlignment: .start,
-                  children: [
-                    Icon(
-                      EcoIcons.warningCircle,
-                      size: 18,
-                      color: palette.achiote,
-                    ),
-                    const SizedBox(width: Space.xs),
-                    Expanded(
-                      child: Text(
-                        text,
-                        style: EcoType.bodySmall.copyWith(
-                          color: palette.achiote,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-    );
-  }
-}
-
-class _TextLink extends StatelessWidget {
-  const new({required this.label, required this.onPressed});
-
-  final String label;
-  final VoidCallback? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    final palette = context.palette;
-    return Pressable(
-      onPressed: onPressed,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: Space.sm),
-        child: Text(
-          label,
-          style: EcoType.label.copyWith(
-            color: palette.ink,
-            decoration: TextDecoration.underline,
-            decorationColor: palette.line,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _Footer extends StatelessWidget {
-  const new({
-    required this.question,
-    required this.action,
-    required this.onPressed,
-  });
-
-  final String question;
-  final String action;
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: .center,
-      children: [
-        Text(
-          question,
-          style: EcoType.bodySmall.copyWith(color: context.palette.muted),
-        ),
-        const SizedBox(width: Space.xs),
-        _TextLink(label: action, onPressed: onPressed),
-      ],
-    );
   }
 }
