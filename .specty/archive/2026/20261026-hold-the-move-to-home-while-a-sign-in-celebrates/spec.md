@@ -42,3 +42,22 @@ A sign-in screen can finish its celebration (the button's drawn check, then the 
   - files: lib/app.dart, test/app_test.dart
   - ac: AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/app.dart test/app_test.dart && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+`signInHoldProvider` (in `core/session/sign_in_hold.dart`) lets a sign-in screen ask the app to wait before moving to Home: `hold()` before sending the credentials, `release()` once its celebration covers the app or the attempt fails. `app.dart` awaits `wait()` only when a session starts; `wait()` returns at once without a hold, on release, or 3 s after the session started. Moves to the welcome stay immediate. 4 unit tests and 1 app test (the stack stays on the auth shell while held and becomes Home on release); the whole suite (415 tests) and `flutter analyze` pass.
+
+### Deviations
+
+- None.
+
+### Decisions
+
+- The hold is a plain class behind a keep-alive provider: nothing renders from it, so it needs no state notifications.
+- The app test checks the router's stack, not the screen's texts: the welcome stays in the tree during Home's transition, so texts alone could not tell the two apart.
+
+### Follow-ups
+
+- Login and registration hold before sending and release from the button's `onSuccess` sweep (next change).

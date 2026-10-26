@@ -7,3 +7,6 @@
 {"ts":"2026-10-26T14:28:55.651Z","actor":"agent","tool":"claude-code","event":"task.started","data":{"task":"T2","baseCommit":"839b0fefd5cb4a4f01fad4f7eb8f3f581f3c8bac"}}
 {"ts":"2026-10-26T14:30:49.788Z","actor":"specty","event":"task.verified","data":{"task":"T2","cmd":"fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/app.dart test/app_test.dart && fvm flutter analyze && fvm flutter test","exit":0,"ms":46817,"tree":"sha256:b970e0bfaf6a5ea7a7cc2f6d6e8abc2d74f98eba724b8f49da4c6e6a4eaed0a7"}}
 {"ts":"2026-10-26T14:30:50.036Z","actor":"agent","tool":"claude-code","event":"task.completed","data":{"task":"T2","summary":"The app awaits the sign-in hold before replacing the stack with Home; moves to the welcome stay immediate; app test for a held sign-in."}}
+{"ts":"2026-10-26T14:30:50.835Z","actor":"agent","tool":"claude-code","event":"change.accepted","data":{"revision":1,"delegated":true}}
+{"ts":"2026-10-26T14:30:57.591Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":2,"hash":"sha256:51a02b36981bb982af6238100ca14114c0079e897b3636f3c529d82e3cfd72ef","size":"M","warnings":1}}
+{"ts":"2026-10-26T14:30:58.069Z","actor":"agent","tool":"claude-code","event":"change.closed","data":{"delegated":true}}
