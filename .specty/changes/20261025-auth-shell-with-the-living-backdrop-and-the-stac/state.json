@@ -49,12 +49,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "3b6e643d5542ac9360389239fd3cdbfdd71008fe",
+      "attempts": 1,
       "startedAt": "2026-10-26T02:15:05.790Z",
       "doneAt": "2026-10-26T02:15:48.604Z",
-      "summary": "Bundled the seed photos of Ajiaco, Sancocho and Arroz atollado (1000×2000, quality 60) under assets/photos with their Unsplash credits, and declared the folder in pubspec.yaml."
+      "summary": "Bundled the seed photos of Ajiaco, Sancocho and Arroz atollado (1000×2000, quality 60) under assets/photos with their Unsplash credits, and declared the folder in pubspec.yaml.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "229be375f4b0cd88e52d1dde4f45ec160de5928b",
+      "startedAt": "2026-10-26T02:15:48.880Z",
+      "doneAt": "2026-10-26T02:23:16.767Z",
+      "summary": "Living backdrop (three photos with Ken Burns and crossfade, two rounds after a still intro, scrim and grain) that persists across the nested auth router and steps back to 0.94 and darker under a panel; stacked-sheet transition; sheet-shaped panels; relative paths from the welcome."
     }
   },
   "pending": {

@@ -48,7 +48,7 @@ The first thing a guest sees feels like the product: three Colombian dishes fill
   - ac: AC1
   - verify: fvm flutter pub get && test -f assets/photos/ajiaco.jpg && test -f assets/photos/sancocho.jpg && test -f assets/photos/arroz_atollado.jpg
   - type: chore
-- [ ] T2: Living backdrop, persistent shell and stacked-sheet transition, with widget tests in test/features/auth/presentation/auth_shell_test.dart
+- [x] T2: Living backdrop, persistent shell and stacked-sheet transition, with widget tests in test/features/auth/presentation/auth_shell_test.dart
   - files: lib/features/auth/presentation/auth_pages.dart, lib/features/auth/presentation/auth_transitions.dart
   - ac: AC1, AC2, AC3, AC5, AC6
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth/presentation

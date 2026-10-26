@@ -1,8 +1,12 @@
+import 'dart:async';
+import 'dart:math' as math;
+
 import 'package:auto_route/auto_route.dart';
 import 'package:ecoeats/core/network/app_failure.dart';
 import 'package:ecoeats/core/session/session_controller.dart';
 import 'package:ecoeats/design/painters/logo_mark.dart';
 import 'package:ecoeats/design/tokens/eco_icons.dart';
+import 'package:ecoeats/design/tokens/motion.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/tokens/spacing.dart';
 import 'package:ecoeats/design/tokens/typography.dart';
@@ -13,22 +17,259 @@ import 'package:ecoeats/design/widgets/pressable.dart';
 import 'package:ecoeats/design/widgets/toast.dart';
 import 'package:ecoeats/i18n/failure_text.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
-// Phase 0 placeholders. They keep the routes alive until agent A replaces
-// them; only the login works, so the catalog can be reached.
+// The login, register and recover pages are still phase 0 placeholders; each
+// one moves to its own file when agent A builds it.
 
-/// Hosts the auth pages over one background that stays put between them.
+/// Hosts the auth pages over one living backdrop that never restarts between
+/// them; while a panel is open, the photo steps back behind it.
 @RoutePage()
 class AuthShellPage extends StatelessWidget {
   const new({super.key});
 
+  @visibleForTesting
+  static const backdropKey = Key('auth-backdrop');
+
+  @visibleForTesting
+  static const photoKey = Key('auth-backdrop-photo');
+
+  @visibleForTesting
+  static const shadeKey = Key('auth-backdrop-shade');
+
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: context.palette.paper,
-      child: const GrainOverlay(child: AutoRouter()),
+    final light = Theme.of(context).brightness == .light;
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      // The top scrim keeps the photo dark under the status bar in both
+      // themes; the bottom fades into paper, so that bar follows the theme.
+      value: SystemUiOverlayStyle.light.copyWith(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarIconBrightness: light ? .dark : .light,
+        systemNavigationBarContrastEnforced: false,
+      ),
+      child: GrainOverlay(
+        child: AutoRouter(
+          builder: (context, content) => Stack(
+            fit: .expand,
+            children: [
+              _AuthBackdrop(
+                key: backdropKey,
+                receded: context.router.pageCount > 1,
+              ),
+              content,
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Three dishes from the API seed. Each one zooms and drifts slowly, then
+/// crossfades into the next; [receded] shrinks and darkens the photo the way
+/// a card steps back under a sheet.
+class _AuthBackdrop extends StatefulWidget {
+  const new({required this.receded, super.key});
+
+  final bool receded;
+
+  @override
+  State<_AuthBackdrop> createState() => _AuthBackdropState();
+}
+
+class _AuthBackdropState extends State<_AuthBackdrop>
+    with SingleTickerProviderStateMixin {
+  static const _photos = [
+    'assets/photos/ajiaco.jpg',
+    'assets/photos/sancocho.jpg',
+    'assets/photos/arroz_atollado.jpg',
+  ];
+
+  // Where each photo drifts from and to, so consecutive ones move apart.
+  static const _drift = [
+    (Alignment(-0.4, -0.3), Alignment(0.3, 0.2)),
+    (Alignment(0.4, 0.2), Alignment(-0.2, -0.3)),
+    (Alignment(0, 0.4), Alignment(0, -0.3)),
+  ];
+
+  static const _cycleLength = Duration(seconds: 7);
+
+  /// The last part of each cycle, when the next photo fades in over it.
+  static const _handover = 0.18;
+
+  // Two rounds through the photos, then the first one rests: an endless loop
+  // would keep the GPU busy for someone who left the app on the welcome.
+  static const _rounds = 2;
+
+  // The photo holds still while the welcome draws its logo and reveals its
+  // headline: one movement at a time.
+  static const _stillAtFirst = Duration(milliseconds: 1400);
+
+  static const _depthScale = 0.06;
+  static const _depthShade = 0.45;
+
+  // What shows around the photo when it shrinks: the stove, in both themes.
+  static final Color _behind = EcoPalette.fogon.paper;
+
+  late final _cycle = AnimationController(vsync: this, duration: _cycleLength)
+    ..addStatusListener(_onCycleEnd);
+  var _index = 0;
+  var _cycles = 0;
+  Timer? _start;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    for (final photo in _photos) {
+      unawaited(precacheImage(_image(photo), context));
+    }
+    _start ??= Timer(_stillAtFirst, _cycle.forward);
+  }
+
+  @override
+  void dispose() {
+    _start?.cancel();
+    _cycle.dispose();
+    super.dispose();
+  }
+
+  void _onCycleEnd(AnimationStatus status) {
+    if (status != .completed) return;
+    _cycles++;
+    setState(() => _index = (_index + 1) % _photos.length);
+    if (_cycles < _photos.length * _rounds) {
+      _cycle.forward(from: 0);
+    } else {
+      _cycle.value = 0;
+    }
+  }
+
+  // Decoded at the screen's width plus the zoom's margin, never larger than
+  // the file: three full photos at native size would waste memory.
+  ImageProvider _image(String photo) {
+    final pixels =
+        MediaQuery.sizeOf(context).width *
+        MediaQuery.devicePixelRatioOf(context);
+    final width = (pixels * 1.15).round();
+    return ResizeImage(AssetImage(photo), width: math.min(width, 1000));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final reduced = Motion.reduced(context);
+    return TweenAnimationBuilder<double>(
+      tween: Tween(end: widget.receded ? 1 : 0),
+      duration: Motion.slow,
+      curve: Motion.emphasized,
+      child: Stack(
+        fit: .expand,
+        children: [
+          AnimatedBuilder(
+            animation: _cycle,
+            builder: (context, _) => _photosAt(_cycle.value, reduced: reduced),
+          ),
+          const _Scrim(),
+        ],
+      ),
+      builder: (context, depth, photos) => ColoredBox(
+        color: _behind,
+        child: Transform.scale(
+          key: AuthShellPage.photoKey,
+          scale: reduced ? 1 : 1 - _depthScale * depth,
+          child: ClipRSuperellipse(
+            borderRadius: .circular(reduced ? 0 : Radii.lg * depth),
+            clipBehavior: depth == 0 ? .none : .antiAlias,
+            child: Stack(
+              fit: .expand,
+              children: [
+                photos!,
+                ColoredBox(
+                  key: AuthShellPage.shadeKey,
+                  color: Colors.black.withValues(alpha: _depthShade * depth),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Both photos stay in the tree under keyed opacities, so the incoming one
+  // keeps its decoded image when it becomes the current one.
+  Widget _photosAt(double t, {required bool reduced}) {
+    final next = (_index + 1) % _photos.length;
+    final handover = ((t - (1 - _handover)) / _handover).clamp(0.0, 1.0);
+    return Stack(
+      fit: .expand,
+      children: [
+        for (final (index, opacity, progress) in [
+          (_index, 1.0, reduced ? 0.0 : t),
+          (next, Curves.easeInOut.transform(handover), 0.0),
+        ])
+          Opacity(
+            key: ValueKey(_photos[index]),
+            opacity: opacity,
+            child: _photo(index, progress),
+          ),
+      ],
+    );
+  }
+
+  Widget _photo(int index, double progress) {
+    final (from, to) = _drift[index];
+    return Transform.scale(
+      scale: 1.04 + 0.08 * progress,
+      alignment: .lerp(from, to, progress),
+      child: Image(
+        image: _image(_photos[index]),
+        fit: .cover,
+        gaplessPlayback: true,
+        excludeFromSemantics: true,
+      ),
+    );
+  }
+}
+
+/// Darkens the top for the status bar and lets the photo settle into paper
+/// at the bottom, where the welcome's words and actions sit.
+class _Scrim extends StatelessWidget {
+  const new();
+
+  @override
+  Widget build(BuildContext context) {
+    final paper = context.palette.paper;
+    return Stack(
+      fit: .expand,
+      children: [
+        const DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: .topCenter,
+              end: Alignment(0, -0.45),
+              colors: [Color(0x73000000), Color(0x00000000)],
+            ),
+          ),
+        ),
+        DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: const Alignment(0, -0.15),
+              end: .bottomCenter,
+              colors: [
+                paper.withValues(alpha: 0),
+                paper.withValues(alpha: 0.88),
+                paper,
+              ],
+              stops: const [0, 0.55, 1],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -59,13 +300,13 @@ class WelcomePage extends StatelessWidget {
               const Spacer(),
               EcoButton(
                 label: t.signIn,
-                onPressed: () => context.router.pushPath('/auth/login'),
+                onPressed: () => context.router.pushPath('login'),
               ),
               const SizedBox(height: Space.sm),
               EcoButton(
                 label: t.createAccount,
                 variant: .secondary,
-                onPressed: () => context.router.pushPath('/auth/register'),
+                onPressed: () => context.router.pushPath('register'),
               ),
             ],
           ),
@@ -170,9 +411,26 @@ class _AuthPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final palette = context.palette;
+    // A sheet over the backdrop: the photo stays visible above its top edge.
+    return Padding(
+      padding: EdgeInsets.only(top: MediaQuery.paddingOf(context).top + 40),
+      child: DecoratedBox(
+        decoration: ShapeDecoration(
+          color: palette.paper,
+          shape: const RoundedSuperellipseBorder(
+            borderRadius: .vertical(top: .circular(Radii.lg)),
+          ),
+        ),
+        child: _panelBody(context, palette),
+      ),
+    );
+  }
+
+  Widget _panelBody(BuildContext context, EcoPalette palette) {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
+        top: false,
         child: AutofillGroup(
           child: ListView(
             padding: const EdgeInsets.all(Space.gutter),
