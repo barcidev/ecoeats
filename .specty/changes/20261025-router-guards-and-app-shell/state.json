@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "20261025-router-guards-and-app-shell",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261025-router-guards-and-app-shell",
+  "baseCommit": "88670f751e4c3bae7af960ff5adc4fc25ce8ac32",
+  "revision": 1,
+  "size": {
+    "level": "M",
+    "score": 10,
+    "adjust": 0,
+    "reasons": [
+      "7 files",
+      "2 modules"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:13addb58f692759c581c26f8e431c4370d0f457a69b3d8a43957c513ef0d9d81",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:fc29076c5216d30d12e4aa0e100c1e6cc35483a5cc2ef23dedea1c476a5bfc9c",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:9c0cd2eeb0b317790d5872b43ae2c4e0938104770e9f1f0a789c323f8a368b1c",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:60e9e9e8ee718506353b5525367b5f845b599091e7b0deb4f7139991915206ed",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:498c69bf370622e6aad8cc1085418a57e3dc72d0f9895c0f553916b64ef52609",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 5,
+    "T": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:c213656b1f4da237a07d6faba8fff9296e9e47454aae7d41b2e4fd0229b08fd2",
+    "at": "2026-10-26T01:24:15.489Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
