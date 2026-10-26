@@ -250,4 +250,60 @@ void main() {
       expect(slide.position.value, Offset.zero);
     }
   });
+  group('MaskRevealText', () {
+    const lines = ['Sábado, Ñame', 'y yuca, sin afán.'];
+    const style = TextStyle(fontSize: 48, height: 1.04);
+
+    Finder masks() => find.descendant(
+      of: find.byType(MaskRevealText),
+      matching: find.byType(ClipRect),
+    );
+
+    // How far a line still sits below the top of its mask.
+    double drop(WidgetTester tester, int index) =>
+        tester.getTopLeft(find.text(lines[index])).dy -
+        tester.getTopLeft(masks().at(index)).dy;
+
+    testWidgets('its masks leave room for accents and descenders', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        _app(const MaskRevealText(lines: lines, style: style)),
+      );
+      await tester.pumpAndSettle();
+      for (var index = 0; index < lines.length; index++) {
+        final mask = tester.widget<ClipRect>(masks().at(index));
+        final size = tester.getSize(masks().at(index));
+        final clip = mask.clipper!.getClip(size);
+        expect(clip.top, lessThanOrEqualTo(-48 * 0.25));
+        expect(clip.bottom, greaterThanOrEqualTo(size.height + 48 * 0.25));
+        expect(drop(tester, index), 0);
+      }
+    });
+
+    testWidgets('each line rises after the one above it', (tester) async {
+      await tester.pumpWidget(
+        _app(const MaskRevealText(lines: lines, style: style)),
+      );
+      await tester.pump();
+      // Hidden below its mask before it starts.
+      expect(drop(tester, 0), greaterThan(48 * 1.04));
+      await tester.pump(const Duration(milliseconds: 200));
+      expect(drop(tester, 0), lessThan(drop(tester, 1)));
+      await tester.pumpAndSettle();
+      expect(drop(tester, 1), 0);
+    });
+
+    testWidgets('with reduced motion every line shows at once', (tester) async {
+      await tester.pumpWidget(
+        _app(
+          const MaskRevealText(lines: lines, style: style),
+          reduceMotion: true,
+        ),
+      );
+      await tester.pump();
+      expect(drop(tester, 0), 0);
+      expect(drop(tester, 1), 0);
+    });
+  });
 }

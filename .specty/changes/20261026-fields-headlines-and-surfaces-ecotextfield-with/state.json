@@ -50,14 +50,23 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [
-        "lib/design/widgets/eco_button.dart"
-      ],
-      "attempts": 1,
       "baseCommit": "19089f8c695318627452221a3001878e3c765884",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:26:48.054Z",
       "doneAt": "2026-10-26T10:31:38.448Z",
-      "summary": "EcoTextField: uppercase label rests on the line and rises with focus or text, underline inks from the left, errors slide in and leave at once; no zero-length AnimatedSize under reduced motion (also fixed in EcoButton, S1)."
+      "summary": "EcoTextField: uppercase label rests on the line and rises with focus or text, underline inks from the left, errors slide in and leave at once; no zero-length AnimatedSize under reduced motion (also fixed in EcoButton, S1).",
+      "scopeExtra": [
+        "lib/design/widgets/eco_button.dart"
+      ]
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "27914a977682080aaf70af4d42b813553be89e8c",
+      "startedAt": "2026-10-26T10:31:38.801Z",
+      "doneAt": "2026-10-26T10:32:35.406Z",
+      "summary": "MaskRevealText's slots now reach 0.3 em past the line box and each line starts low enough to clear them, so accents and descenders are never cut; staggered rise and reduced motion kept."
     }
   },
   "pending": {

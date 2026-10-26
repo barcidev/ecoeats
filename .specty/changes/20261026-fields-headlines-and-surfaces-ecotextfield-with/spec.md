@@ -56,7 +56,7 @@ Forms, headlines and placeholders get the motion and texture of printed matter. 
   - files: lib/design/widgets/eco_text_field.dart, test/design/widgets/form_motion_test.dart
   - ac: AC1
   - verify: fvm flutter test test/design/widgets/form_motion_test.dart test/features/auth
-- [ ] T2: MaskRevealText whose masks keep descenders and accents, with widget tests
+- [x] T2: MaskRevealText whose masks keep descenders and accents, with widget tests
   - files: lib/design/widgets/mask_reveal_text.dart, test/design/widgets/form_motion_test.dart
   - ac: AC2
   - verify: fvm flutter test test/design/widgets/form_motion_test.dart
