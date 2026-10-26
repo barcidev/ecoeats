@@ -29,9 +29,6 @@ abstract final class Validators {
     return null;
   }
 
-  /// The address as the API stores it.
-  static String normalizeEmail(String value) => value.trim().toLowerCase();
-
   /// First names and last names share their rules.
   static FieldIssue? names(String value) =>
       _requiredText(value, maxLength: maxNameLength);

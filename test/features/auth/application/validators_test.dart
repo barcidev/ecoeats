@@ -1,4 +1,5 @@
 import 'package:ecoeats/features/auth/application/validators.dart';
+import 'package:ecoeats/features/auth/data/auth_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -31,11 +32,9 @@ void main() {
       expect(Validators.email('a$atLimit'), FieldIssue.tooLong);
     });
 
+    // The one normalization the app sends, kept next to the email rules.
     test('normalizes to the trimmed lowercase address', () {
-      expect(
-        Validators.normalizeEmail('  Jorge@Gmail.COM '),
-        'jorge@gmail.com',
-      );
+      expect(normalizeEmail('  Jorge@Gmail.COM '), 'jorge@gmail.com');
     });
   });
 
