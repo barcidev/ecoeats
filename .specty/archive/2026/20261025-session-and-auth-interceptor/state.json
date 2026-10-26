@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-session-and-auth-interceptor",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-session-and-auth-interceptor",
   "baseCommit": "39e58a3b18b3e64c6dce0b9e50fa29a899139bf7",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:8dc82f624c83882cd24520baf6e40310b2360e0f82f56151ded60327ffb95041",
@@ -60,12 +60,12 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "2714f07ec62af27ee110db0434b044f09da3eb58",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:37:39.996Z",
       "doneAt": "2026-10-26T00:38:54.870Z",
-      "summary": "AuthInterceptor adds the Bearer token (read from TokenStore per request) except on /api/securities and /health, and calls onUnauthorized on a 401 that carried a token; dioProvider wires it to SessionController."
+      "summary": "AuthInterceptor adds the Bearer token (read from TokenStore per request) except on /api/securities and /health, and calls onUnauthorized on a 401 that carried a token; dioProvider wires it to SessionController.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -76,5 +76,6 @@
     "A": 4,
     "AC": 6,
     "T": 3
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T00:39:16.897Z"
 }

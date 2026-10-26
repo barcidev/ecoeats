@@ -58,3 +58,22 @@ The app keeps one session: the 24 h JWT is stored securely, restored at start (a
   - files: lib/core/network/auth_interceptor.dart, lib/core/network/dio_provider.dart, test/core/network/auth_interceptor_test.dart
   - ac: AC5, AC6
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+The session lives in a keepAlive `SessionController`. It restores a live token at start and drops expired or corrupt ones, and it offers login, register with auto-login and logout. Every authenticated request carries the Bearer token, and a 401 on one closes the session and raises `SessionExpired` exactly once.
+
+### Deviations
+
+- `/health` is also treated as public by the interceptor, besides `/api/securities/*`.
+
+### Decisions
+
+- `onUnauthorized` closes the session synchronously before deleting the token, so concurrent 401s raise the signal once.
+- A `clockProvider` makes expiry testable without waiting.
+
+### Follow-ups
+
+- The routes change listens to `sessionExpiredProvider` to show the toast and re-evaluates the guards on session changes.
