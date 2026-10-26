@@ -49,7 +49,7 @@ The app has one way to talk to the EcoEats API and one vocabulary for what goes 
 
 ## Tasks
 
-- [ ] T1: AppFailure, error mapping and retry policy
+- [x] T1: AppFailure, error mapping and retry policy
   - files: lib/core/network/app_failure.dart, lib/core/network/error_mapper.dart, lib/core/network/retry.dart, test/core/network/error_mapper_test.dart
   - ac: AC1, AC2
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/core
