@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "20261026-hold-the-move-to-home-while-a-sign-in-celebrates",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-hold-the-move-to-home-while-a-sign-in-celebrates",
+  "baseCommit": "9ffecc64076591e32a9044cea5764e703d3a3c7a",
+  "revision": 1,
+  "size": {
+    "level": "M",
+    "score": 5,
+    "adjust": 0,
+    "reasons": [
+      "3 files",
+      "2 modules"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:b5f750a531871fde67e5a711cd3edcf5bd58b11c0ed30d2f2b02d7f7eb11f7c8",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:9af85f54d845f3a2340c0d50b5b4d478be0fff12e5cf0eedc899bb34dbc6b775",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:658de26551416777b520c43cfc9facf223074e23496b9d0f62f4996f57eec396",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 3,
+    "AC": 3,
+    "T": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:33668f0083cd9bc068a23b8117d875aa001b969d6c1663e717d47d03fc3d17be",
+    "at": "2026-10-26T14:27:45.763Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
