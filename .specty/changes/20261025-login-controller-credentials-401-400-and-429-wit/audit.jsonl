@@ -1,0 +1,3 @@
+{"ts":"2026-10-26T01:04:17.600Z","actor":"agent","tool":"claude-code","event":"change.created","data":{"kind":"standard","branch":"specty/20261025-login-controller-credentials-401-400-and-429-wit","epic":"20261025-access-and-account-agent-a","slice":"C4"}}
+{"ts":"2026-10-26T01:07:36.557Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":1,"hash":"sha256:f81b47d76a397a8aee0f4456e33d63c80490d272b9a715dd0e51e7c97aeb275e","size":"L","warnings":2}}
+{"ts":"2026-10-26T01:07:36.994Z","actor":"agent","tool":"claude-code","event":"spec.approved","data":{"revision":1,"hash":"sha256:f81b47d76a397a8aee0f4456e33d63c80490d272b9a715dd0e51e7c97aeb275e","channel":"delegated","delegated":true}}

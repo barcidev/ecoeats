@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "20261025-login-controller-credentials-401-400-and-429-wit",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261025-login-controller-credentials-401-400-and-429-wit",
+  "baseCommit": "136eaaf984fa2a9fc77d18f15ac54b3cf5e0536c",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 13,
+    "adjust": 0,
+    "reasons": [
+      "3 files",
+      "3 sensitive paths"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:c2f51f2b9b816ce9e0888b2c904fce45e45f99c98fd0a1f2d827ac2522192b50",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:9ad89c789f4e68a98f9dea6a8fff2591d56b606305b32eac6640d958a847267d",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:3284a4a683424deb72818c3f0609e1a240ff80b351716d4510c28c1af5644ab9",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 3,
+    "AC": 7,
+    "T": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:f81b47d76a397a8aee0f4456e33d63c80490d272b9a715dd0e51e7c97aeb275e",
+    "at": "2026-10-26T01:07:36.983Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
