@@ -46,3 +46,24 @@ Al entrar o crear la cuenta, el botón celebra antes de soltar la pantalla: se a
   - files: lib/features/auth/presentation/login_page.dart, lib/features/auth/presentation/register_page.dart
   - ac: AC1, AC2, AC3, AC4, AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test
+
+## Cierre
+
+### Resumen
+
+Login y registro celebran en su botón: al tener éxito pasan `success: state.succeeded` al `EcoButton`, que se abre y dibuja su check, y desde `onSuccess` nace la barrida achiote en el centro del botón, donde está el check. Antes de enviar, cada pantalla toma el hold de `signInHoldProvider`; la barrida lo suelta cuando el disco cubre la app (`AchioteSweep.play` ahora avisa con `onCovered`), y entonces la app pasa a Home bajo la barrida, que luego se desvanece. Un intento fallido o una pantalla que se cierra sueltan el hold, y con movimiento reducido no hay barrida y se suelta al instante. 3 tests nuevos (2 de la barrida, 1 del login) y los de éxito de login y registro reescritos para el nuevo orden; la suite completa (418 tests) y `flutter analyze` pasan.
+
+### Desviaciones
+
+- El registro recibe el mismo cambio que el login, como dice A4, aunque el pedido nombraba solo el login.
+- La verificación completa de `.specty/config.yaml` (`flutter analyze && flutter test`) usa el Flutter global (3.44.8), que no resuelve las dependencias; la aceptación se corrió con el Flutter fijado por fvm (3.47.8) primero en el PATH.
+
+### Decisiones
+
+- El fin del crecimiento de la barrida se lee del valor de la animación, porque el estado de un `Interval` sigue al de toda la animación y solo llega a «completado» al final.
+- La barrida nace del centro del botón con el radio de su mitad: el check está centrado, así que el disco sale de él y parece que el botón mismo se expande.
+
+### Pendientes
+
+- Conviene que `verify` en `.specty/config.yaml` use `fvm flutter`, para que la verificación completa corra con el SDK del proyecto (archivo protegido: lo cambia la persona).
+- Ver la celebración completa en un simulador (check, barrida y Home debajo).
