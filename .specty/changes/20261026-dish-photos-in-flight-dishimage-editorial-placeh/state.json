@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "id": "20261026-dish-photos-in-flight-dishimage-editorial-placeh",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-dish-photos-in-flight-dishimage-editorial-placeh",
+  "baseCommit": "36f68820fff7af8d5b426470b2206da1ec2c4e7d",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 11,
+    "adjust": 0,
+    "reasons": [
+      "9 files",
+      "2 modules"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:d1c7e3dbf119061f6a3c0dae7fbd125809888c18c552a0919cefa508938eb112",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:5b740b2a96863bb39b5492f380191d391ecc71d0584819c3948041fbb33e3a50",
+      "decision": "confirmed"
+    },
+    "A3": {
+      "hash": "sha256:5e4ad085dcb227d90a631aa2a28dc8297b40f0f0adc51c854758250d906e560d",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:daa3abda1977a624608e0acf409e24836e76ee453d9de2acdc8f1b30cf2c5736",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:d434d4426a05b0cb64a0e4d8caedd607b7c28750a09fdde277c1d99631204bde",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 4,
+    "T": 3,
+    "R": 3
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:a041f59677e57b9c11daea3755311e1c939c1fc134b417612d3a4dea525fd3f6",
+    "at": "2026-10-26T10:58:34.137Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
