@@ -58,3 +58,24 @@ Visual QA gets one place to look at the whole design system. In debug builds, th
 
 - R1: Switching `LocaleSettings` inside a test can wait on English's deferred library. Mitigation: tests load both languages inside `runAsync` first, as the app harness does.
 - R2: The screenshots may reveal visual problems in widgets of earlier slices. Mitigation: small fixes go through a scope request with their reason; larger ones become their own change.
+
+## Closing
+
+### Summary
+
+The debug gallery shows every design component with the app's real copy, in sections. The motion pieces can be replayed: the button's loading → success cycle, the drawn mark, the masked headline, the shake and the toasts. Pinned pills switch language (restored on close) and theme (local to the gallery). `tool/qa/screens_test.dart` renders the gallery, Home, Discover and a dish's detail in Spanish and English, light and dark, in the real fonts with the paper grain, into `build/qa/`. The full suite passes with 408 tests.
+
+### Deviations
+
+- The script also captures Home and the detail, since they show the redesigned widgets in context. Discover's captures use dishes without photo URLs: with real async, the image cache looks for a disk that tests do not have.
+- Reviewing the screenshots led to gallery polish (pills on the gutter, demo controls without the quiet button's padding, the grain clipped to its card) and a fix in the gallery tests, which scrolled a pill row (`Scrollable.last`) instead of the gallery's list. Each came through a scope request.
+
+### Decisions
+
+- The paper grain's tile is decoded in `setUpAll`, in real time. Inside a test's fake time it never finishes, which is why grain never shows in widget tests.
+- Section names and demo controls are in English for designers. Everything else comes from the translations, so the language switch is a real check.
+
+### Follow-ups
+
+- Found by the screenshots: Discover's first-time hint sat on top of «Ver plato ↑», and the first tap on that button only dismissed the hint. It is fixed in its own quick change right after this slice (Discover's module).
+- Screenshots on a device need the shared test account; the user can take them from `/_gallery` and Discover.
