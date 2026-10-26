@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-media-brand-and-form-widgets",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-media-brand-and-form-widgets",
   "baseCommit": "cfd131a2ee2d5ad3844d05ca8c9b7dd16ba7e361",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:969867be44a0b6d21371aaac7b9c625a8e1618d6b0ed334ee33c3fee984eb87d",
@@ -61,12 +61,12 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "f67bfd44dd2bbf761d33f91d83fdfe2325aa0987",
+      "attempts": 1,
       "startedAt": "2026-10-26T01:00:12.183Z",
       "doneAt": "2026-10-26T01:04:44.051Z",
-      "summary": "GrainOverlay (fixed-seed dots), LogoMark drawing its rim by progress with the leaf growing in, debug DesignGalleryPage with a light/dark switch, DiscoverPage placeholder taking revealOrigin, revealRoute with CircleRevealClipper (fade with reduced motion)."
+      "summary": "GrainOverlay (fixed-seed dots), LogoMark drawing its rim by progress with the leaf growing in, debug DesignGalleryPage with a light/dark switch, DiscoverPage placeholder taking revealOrigin, revealRoute with CircleRevealClipper (fade with reduced motion).",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -77,5 +77,6 @@
     "A": 4,
     "AC": 5,
     "T": 3
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T01:04:55.523Z"
 }

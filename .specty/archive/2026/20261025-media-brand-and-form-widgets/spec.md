@@ -60,3 +60,22 @@ The rest of the design contracts exist with a simple but working implementation:
   - files: lib/design/widgets/grain_overlay.dart, lib/design/painters/logo_mark.dart, lib/design/gallery/design_gallery_page.dart, lib/features/discover/presentation/discover_page.dart, lib/features/discover/presentation/discover_route.dart, test/features/discover/discover_route_test.dart
   - ac: AC5
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+The remaining design contracts exist with a working implementation: DishImage with its editorial placeholder and a stable cache key, DishHero, EcoTextField, GrainOverlay, Shake, MaskRevealText, LogoMark and the debug gallery. Discover exists as a placeholder page with its circular reveal route.
+
+### Deviations
+
+- `lib/design` tokens and theme are still not dart-formatted; formatting them stays for a change that owns those files.
+
+### Decisions
+
+- `revealRoute` takes the origin as a parameter, so the router passes `DiscoverRouteArgs.revealOrigin` without the route depending on generated code.
+- The Discover placeholder's close button reads Material's localized «Close», since its own copy comes with the i18n change.
+
+### Follow-ups
+
+- The routes change registers DiscoverRoute with `revealRoute` and the gallery only in debug.
