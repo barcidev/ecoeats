@@ -1,6 +1,10 @@
 # Launcher icons, generated from the brand sources that
 # tool/brand/export_brand_test.dart draws with LogoMark. Regenerate with:
 #   fvm dart run flutter_launcher_icons
+#   git checkout -- ios/Runner.xcodeproj/project.pbxproj
+# The second line undoes a bug of 0.14: it sets every ASSETCATALOG_* build
+# setting to the icon's name, breaking the Swift asset symbols one. The icon
+# keeps the default name, AppIcon, so the project needs no change at all.
 flutter_launcher_icons:
   image_path: assets/brand/icon.png
 
@@ -14,4 +18,7 @@ flutter_launcher_icons:
   # inset would shrink it to a third of the icon.
   adaptive_icon_foreground_inset: 0
 
-  ios: false
+  ios: true
+  # The App Store refuses icons with transparency; the source is opaque
+  # already, this keeps it so.
+  remove_alpha_ios: true

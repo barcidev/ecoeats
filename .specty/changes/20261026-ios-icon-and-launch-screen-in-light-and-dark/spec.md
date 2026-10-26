@@ -39,7 +39,7 @@ On iOS, EcoEats shows its mark before the first frame, as on Android. The home s
 
 ## Tasks
 
-- [ ] T1: iOS app icon from the brand icon
+- [x] T1: iOS app icon from the brand icon
   - files: flutter_launcher_icons.yaml, ios/Runner/Assets.xcassets
   - ac: AC1
   - verify: fvm dart run flutter_launcher_icons
