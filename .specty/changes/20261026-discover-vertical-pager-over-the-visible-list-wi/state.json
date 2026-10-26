@@ -6,6 +6,13 @@
   "branch": "specty/20261026-discover-vertical-pager-over-the-visible-list-wi",
   "baseCommit": "1ec4d2cd80a3705e5fa7358b52d5a3bdc3572009",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ea6cdf5ea5156470e50ec964db045a2b56d5923f1802c806e65574e581f8915b",
+    "at": "2026-10-26T11:05:49.901Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 13,
@@ -46,7 +53,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "4262e44ba4011ec92da7a47aac5296930c1654a7",
+      "startedAt": "2026-10-26T11:05:50.242Z",
+      "doneAt": "2026-10-26T11:07:19.160Z",
+      "summary": "Discover copy in Spanish and English (featured overline, page summary, empty state, hint dismiss) and DiscoverHint, a SharedPreferences-backed flag that hides the hint for good once dismissed."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -56,12 +73,5 @@
     "AC": 7,
     "T": 4,
     "R": 3
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:ea6cdf5ea5156470e50ec964db045a2b56d5923f1802c806e65574e581f8915b",
-    "at": "2026-10-26T11:05:49.901Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

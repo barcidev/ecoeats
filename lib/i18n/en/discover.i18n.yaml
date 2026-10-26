@@ -1,4 +1,10 @@
 title: Discover mode
 hint: Swipe up for the next one.
+hintDismiss: Got it, hide the hint
 seeDish: See dish ↑
 counter: "{current} / {total}"
+featured: House favorite
+page: "{name}. {price}. Rated {rating} out of 5."
+empty:
+  title: Nothing to discover right now.
+  message: These filters leave no dishes. Loosen one or clear the search.
