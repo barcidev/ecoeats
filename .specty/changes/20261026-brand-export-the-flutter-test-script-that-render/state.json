@@ -2,10 +2,17 @@
   "schema": 1,
   "id": "20261026-brand-export-the-flutter-test-script-that-render",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-brand-export-the-flutter-test-script-that-render",
   "baseCommit": "439bf5e76a18b16a6fcb0a0a2d9064569cb90dbd",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:77a86aff1b909d5f917a3a7d6899d412ff799422bebc356eceda9f467a59b542",
+    "at": "2026-10-26T11:30:45.150Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "S",
     "score": 2,
@@ -40,7 +47,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "85e041ba9d0ade9991a88d2ec46a3ab77ad0d3ba",
+      "startedAt": "2026-10-26T11:30:45.471Z",
+      "doneAt": "2026-10-26T11:32:46.498Z",
+      "summary": "tool/brand/export_brand_test.dart renders LogoMark into assets/brand: 1024 px logo, opaque icon, adaptive foreground and monochrome, light/dark splash (768) and Android 12 splash (1152, mark 640), then checks sizes, backgrounds and the inked rim."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -50,12 +67,5 @@
     "AC": 3,
     "T": 1,
     "R": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:77a86aff1b909d5f917a3a7d6899d412ff799422bebc356eceda9f467a59b542",
-    "at": "2026-10-26T11:30:45.150Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

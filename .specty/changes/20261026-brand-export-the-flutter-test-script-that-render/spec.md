@@ -46,7 +46,7 @@ The brand's image files come out of the same painter the app draws its logo with
 
 ## Tasks
 
-- [ ] T1: The export script and its checks, and the rendered brand sources
+- [x] T1: The export script and its checks, and the rendered brand sources
   - files: tool/brand/export_brand_test.dart, assets/brand/*.png
   - ac: AC1, AC2, AC3
   - verify: fvm flutter test tool/brand/export_brand_test.dart && fvm flutter analyze && fvm flutter test
