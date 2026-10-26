@@ -42,7 +42,7 @@ On Android, EcoEats looks like itself before its first frame. The launcher shows
   - files: flutter_launcher_icons.yaml, android/app/src/main/res/**
   - ac: AC1
   - verify: fvm dart run flutter_launcher_icons
-- [ ] T2: Light and dark splash, Android 12+ included, built and seen on the emulator
+- [x] T2: Light and dark splash, Android 12+ included, built and seen on the emulator
   - files: flutter_native_splash.yaml, android/app/src/main/res/**
   - ac: AC1, AC2, AC3
   - verify: fvm dart run flutter_native_splash:create && fvm flutter build apk --debug && fvm flutter analyze && fvm flutter test

@@ -1,0 +1,24 @@
+# The native splash, from the brand sources that
+# tool/brand/export_brand_test.dart draws with LogoMark. main.dart keeps it up
+# until the stored session is known. Regenerate with:
+#   fvm dart run flutter_native_splash:create
+flutter_native_splash:
+  # «Mantel» paper by day, «Fogón» paper by night.
+  color: "#F4EEE4"
+  image: assets/brand/splash.png
+  color_dark: "#14110E"
+  image_dark: assets/brand/splash_dark.png
+
+  # Android 12+ draws its own splash: the mark inside its 768 px circle.
+  android_12:
+    image: assets/brand/splash_android12.png
+    color: "#F4EEE4"
+    image_dark: assets/brand/splash_android12_dark.png
+    color_dark: "#14110E"
+
+  android: true
+  # The generator rewrites the manifest's activity; without this it drops the
+  # app's portrait lock.
+  android_screen_orientation: portrait
+  ios: false
+  web: false

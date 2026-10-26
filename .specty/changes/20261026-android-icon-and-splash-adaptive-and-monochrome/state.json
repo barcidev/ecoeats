@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-android-icon-and-splash-adaptive-and-monochrome",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-android-icon-and-splash-adaptive-and-monochrome",
   "baseCommit": "11a0b5797e0a4fd7a761c0be09513685a5f51c31",
   "revision": 1,
@@ -42,12 +42,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "39e6460712fee1c6753894fb474cbe38321e1ecd",
+      "attempts": 1,
       "startedAt": "2026-10-26T11:33:54.008Z",
       "doneAt": "2026-10-26T11:34:24.621Z",
-      "summary": "flutter_launcher_icons.yaml generates the legacy launcher icon from icon.png and an API 26+ adaptive icon (foreground over #F4EEE4 paper, monochrome layer), with no extra inset since the sources keep the safe zone."
+      "summary": "flutter_launcher_icons.yaml generates the legacy launcher icon from icon.png and an API 26+ adaptive icon (foreground over #F4EEE4 paper, monochrome layer), with no extra inset since the sources keep the safe zone.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "d230b160aa4709a7d5c61004e5670aefc1549fc3",
+      "startedAt": "2026-10-26T11:34:24.883Z",
+      "doneAt": "2026-10-26T11:38:13.031Z",
+      "summary": "flutter_native_splash.yaml draws the mark on Mantel/Fogón paper for the classic and the Android 12+ splash, keeps the portrait lock (android_screen_orientation); seen on the Pixel 9 emulator in light and dark, with the adaptive icon in the drawer."
     }
   },
   "pending": {
