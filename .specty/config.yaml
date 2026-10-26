@@ -1,6 +1,6 @@
 # Specty configuration. Reference: docs/formats.md §6
 version: 1
-language: en
+language: es
 mode: individual
 # Paths under the flow: code that needs an approved spec.
 governed: ["**"]
@@ -11,6 +11,8 @@ sensitive:
   ["**/migrations/**", "**/auth/**", ".github/**", "**/.env*", "**/infra/**"]
 verify:
   timeoutSec: 600
+  default: "flutter test"
+  full: "flutter analyze && flutter test"
 scope:
   implicitTests: true
   generated: []

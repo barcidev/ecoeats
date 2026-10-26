@@ -1,19 +1,29 @@
 # ecoeats
 
 <!-- specty:begin id=project -->
-## Project (detected by Specty)
-- Stack: not detected
+## Proyecto (detectado por Specty)
+- Stack: Dart (flutter, flutter)
+- Comandos:
+  - Tests: `flutter test`
+  - Lint: `flutter analyze`
 <!-- specty:end id=project -->
 
 <!-- specty:begin id=flow -->
-## Workflow (Specty)
-This repository uses Specty. Before creating, modifying or deleting code, run `specty next` and follow its output up to the `NEXT:` line.
-- If the user asks for a change and none is active, `specty next` tells you how to create the spec.
-- Each change lives in its own folder (a worktree): after `specty new`, work in the folder it names, not in the main one.
-- Complete each task with `specty task done <id>`; do not run `git commit` yourself.
-- If you need a file outside the task's scope, request it with `specty scope add`.
-- Approving, accepting and closing are done by the user in their terminal; ask them and end your turn. Only when `NEXT:` tells you to (delegated mode) do you run them yourself.
-- If the `specty` command does not exist, use `npx -y @baquia-dev/specty <command>`. Never use `npx specty`: it is another package.
+## Flujo de trabajo (Specty)
+Este repositorio usa Specty. Antes de crear, modificar o borrar código, ejecuta `specty next` y sigue su salida hasta la línea `SIGUIENTE:`. Habla con el usuario en español.
+- Si el usuario pide un cambio y no hay uno activo, `specty next` te indica cómo crear la spec.
+- Cada cambio vive en su propia carpeta (una worktree): tras `specty new`, trabaja en la carpeta que indica, no en la principal.
+- Completa cada tarea con `specty task done <id>`; no ejecutes `git commit` tú mismo.
+- Si necesitas un archivo fuera del alcance de la tarea, pídelo con `specty scope add`.
+- Aprobar, aceptar y cerrar lo hace el usuario en su terminal; tú se lo pides y terminas tu turno. Solo si `SIGUIENTE:` te lo pide (modo delegado), los ejecutas tú.
+- Si el comando `specty` no existe, usa `npx -y @baquia-dev/specty <comando>`. Nunca uses `npx specty`: es otro paquete.
+
+## Reglas (Specty)
+- Antes de reportar una tarea como terminada, ejecuta `specty check --changed --spec` y corrige todos los fallos. No reportes con fallos pendientes.
+- Antes de crear un módulo, caso de uso, componente o pantalla, busca uno equivalente en el repo y replica su estructura.
+- Localiza el código con búsquedas dirigidas por símbolo o texto y lee solo los fragmentos necesarios, no archivos completos.
+- Edita con cambios puntuales; no reescribas archivos completos para cambios pequeños.
+- Reporte final breve: qué cambió, qué se verificó y qué queda pendiente.
 <!-- specty:end id=flow -->
 
 ## Map
