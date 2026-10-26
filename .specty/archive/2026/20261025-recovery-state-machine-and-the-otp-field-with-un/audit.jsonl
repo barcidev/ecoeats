@@ -7,3 +7,6 @@
 {"ts":"2026-10-26T00:58:25.306Z","actor":"agent","tool":"claude-code","event":"task.started","data":{"task":"T2","baseCommit":"93cfd08e92bf178ed907983fa0d0e6507d4aa2d1"}}
 {"ts":"2026-10-26T01:02:13.434Z","actor":"specty","event":"task.verified","data":{"task":"T2","cmd":"fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth","exit":0,"ms":54969,"tree":"sha256:890da8495b7dca5c744a75c191e7a559af22e3eef20c8f44a8103e68a27f524a"}}
 {"ts":"2026-10-26T01:02:13.594Z","actor":"agent","tool":"claude-code","event":"task.completed","data":{"task":"T2","summary":"OtpField: one hidden text field drawn as six squircle boxes with digit-only paste and one-time-code autofill, a single completion report, and an error that clears with a haptic; 8 widget tests."}}
+{"ts":"2026-10-26T01:03:06.124Z","actor":"agent","tool":"claude-code","event":"change.accepted","data":{"revision":1,"delegated":true}}
+{"ts":"2026-10-26T01:03:16.964Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":2,"hash":"sha256:ff9c1ab29c22fc8c13d73f31d92402fc658874bdc5136aa3e8c2655abe47b0cd","size":"L","warnings":2}}
+{"ts":"2026-10-26T01:03:19.358Z","actor":"agent","tool":"claude-code","event":"change.closed","data":{"delegated":true}}

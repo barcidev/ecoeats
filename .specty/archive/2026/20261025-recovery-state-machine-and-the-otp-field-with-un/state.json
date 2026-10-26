@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-recovery-state-machine-and-the-otp-field-with-un",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-recovery-state-machine-and-the-otp-field-with-un",
   "baseCommit": "39e58a3b18b3e64c6dce0b9e50fa29a899139bf7",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:83584b250fdcff153e3b914f5c47c850f1be64939765b97cf6a0facf744d4a82",
@@ -56,12 +56,12 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "93cfd08e92bf178ed907983fa0d0e6507d4aa2d1",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:58:25.306Z",
       "doneAt": "2026-10-26T01:02:13.591Z",
-      "summary": "OtpField: one hidden text field drawn as six squircle boxes with digit-only paste and one-time-code autofill, a single completion report, and an error that clears with a haptic; 8 widget tests."
+      "summary": "OtpField: one hidden text field drawn as six squircle boxes with digit-only paste and one-time-code autofill, a single completion report, and an error that clears with a haptic; 8 widget tests.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -73,5 +73,6 @@
     "AC": 10,
     "T": 2,
     "R": 1
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T01:03:16.960Z"
 }

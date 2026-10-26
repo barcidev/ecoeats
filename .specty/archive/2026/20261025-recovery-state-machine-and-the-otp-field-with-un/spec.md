@@ -58,3 +58,26 @@ Password recovery has its logic ready before its screens: a `recoveryController`
 ## Risks
 
 - R1: The device clock and the server's disagree, so a code may still be valid when the local deadline says it expired, or the reverse. Mitigation: the local deadline only blocks the obvious case; any server rejection wins.
+
+## Closing
+
+### Summary
+
+`recoveryController` walks the recovery flow as a freezed sealed state (`RecoveryEmail`, `RecoveryCode`, `RecoveryPassword`, `RecoveryDone`). The code step holds the 15-minute deadline, the 60 s resend wait, the five attempts and a `CodeIssue` (rejected, locked, expired). A 429 on any step keeps `blockedUntil`. A reset answered with 400 and no field errors returns to the code step marked expired. Deadlines come from `clockProvider`. `OtpField` draws six squircle boxes over one hidden text field: digits only, paste and one-time-code autofill, one completion report per code, and an error that clears the field with a haptic. 19 unit tests and 8 widget tests; the whole suite (110 tests) and `flutter analyze` pass.
+
+### Deviations
+
+- None.
+
+### Decisions
+
+- `back()` covers both steps back (code → email with the email filled, new password → code keeping its deadlines), so the screens need one action for the back arrow.
+- A code the API rejects after its local deadline counts as expired, not rejected, because the API answers the same `false` for both.
+- The caret in the active box is still, not blinking: an endless animation would keep the screen from settling and make tests hang.
+- The two groups of three boxes have a wider gap between them, so the code reads as «482 913».
+
+### Follow-ups
+
+- C8 wraps `OtpField` in the design `Shake` when the code is rejected, keys it by the code's deadline so a resend starts it empty, and adds the masked email.
+- `clockProvider` lives in `features/auth/application`; it can move to `core` when the agents are integrated.
+- `Validators.normalizeEmail` (C1) and `normalizeEmail` in `auth_repository.dart` (phase 0) do the same; one of them can go when a slice touches validators again.
