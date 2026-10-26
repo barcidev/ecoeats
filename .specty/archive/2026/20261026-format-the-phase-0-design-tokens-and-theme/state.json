@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-format-the-phase-0-design-tokens-and-theme",
   "kind": "quick",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-format-the-phase-0-design-tokens-and-theme",
   "baseCommit": "3fd74fbe33a3534377a5da4e128cc4c12f0b0f1b",
   "revision": 1,
@@ -25,12 +25,12 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "451397e6df2203c00ea50e42a7dbb8f1472edde7",
+      "attempts": 1,
       "startedAt": "2026-10-26T15:28:50.304Z",
       "doneAt": "2026-10-26T15:31:07.578Z",
-      "summary": "Formatted lib/design/theme.dart and the motion and spacing tokens with dart format; only line breaks changed."
+      "summary": "Formatted lib/design/theme.dart and the motion and spacing tokens with dart format; only line breaks changed.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -39,5 +39,21 @@
   },
   "maxIds": {
     "T": 1
+  },
+  "integration": {
+    "target": "main",
+    "commit": "8a8d9867802cbc98f575aa71bc20454efcdd3392",
+    "reason": "verify",
+    "conflicts": [],
+    "paths": [
+      "lib/design/theme.dart",
+      "lib/design/tokens/motion.dart",
+      "lib/design/tokens/spacing.dart"
+    ],
+    "at": "2026-10-26T15:36:51.424Z",
+    "resolved": {
+      "commit": "b490a15",
+      "at": "2026-10-26T15:37:53.191Z"
+    }
   }
 }

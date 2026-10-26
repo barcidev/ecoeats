@@ -20,3 +20,9 @@ Tres archivos de la fase 0 no pasan `dart format` y hacen fallar la revisión de
   - files: lib/design/theme.dart, lib/design/tokens/motion.dart, lib/design/tokens/spacing.dart
   - verify: fvm dart format --output=none --set-exit-if-changed . && fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
   - type: style
+
+## Cierre
+
+### Resumen
+
+Formatted lib/design/theme.dart and the motion and spacing tokens with dart format; only line breaks changed.
