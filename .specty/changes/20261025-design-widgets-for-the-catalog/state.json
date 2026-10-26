@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-design-widgets-for-the-catalog",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-design-widgets-for-the-catalog",
   "baseCommit": "169e4b95e06609208696559e671a84601d078b6c",
   "revision": 1,
@@ -51,12 +51,23 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "b09e8113bf71203ed2f4e9a4950573dd5684426a",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:48:39.598Z",
       "doneAt": "2026-10-26T00:50:11.697Z",
-      "summary": "PlateIllustration (plate, fork, knife and a leaf in the accent), pulsing Skeleton blocks (still with reduced motion), StateView with kind-tinted illustration, texts, footnote and a ticking cooldown that enables the action at zero."
+      "summary": "PlateIllustration (plate, fork, knife and a leaf in the accent), pulsing Skeleton blocks (still with reduced motion), StateView with kind-tinted illustration, texts, footnote and a ticking cooldown that enables the action at zero.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [
+        "lib/design/tokens/eco_icons.dart"
+      ],
+      "attempts": 1,
+      "baseCommit": "8891707f4504481acd438edca649b05ac43fc1e6",
+      "startedAt": "2026-10-26T00:50:12.313Z",
+      "doneAt": "2026-10-26T00:53:47.429Z",
+      "summary": "SegmentedPills (scrolling pills with selected semantics), fractional RatingStars, single top Toast with tones; EcoIcons reads Phosphor fonts through const IconData because phosphor_flutter 2.1 does not compile on Flutter 3.47."
     }
   },
   "pending": {
@@ -66,6 +77,7 @@
   "maxIds": {
     "A": 4,
     "AC": 5,
-    "T": 3
+    "T": 3,
+    "S": 1
   }
 }

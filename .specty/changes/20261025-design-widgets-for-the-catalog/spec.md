@@ -55,7 +55,7 @@ The design widgets the catalog builds on exist with their final public API and a
   - files: lib/design/painters/plate_illustration.dart, lib/design/widgets/skeleton.dart, lib/design/widgets/state_view.dart, test/design/widgets/state_view_test.dart
   - ac: AC3, AC5
   - verify: fvm flutter analyze && fvm flutter test test/design
-- [ ] T3: SegmentedPills, RatingStars and Toast
+- [x] T3: SegmentedPills, RatingStars and Toast
   - files: lib/design/widgets/segmented_pills.dart, lib/design/widgets/rating_stars.dart, lib/design/widgets/toast.dart, test/design/widgets/selection_test.dart
   - ac: AC4, AC5
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
