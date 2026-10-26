@@ -112,7 +112,7 @@ class DiscoverClose extends StatelessWidget {
 }
 
 /// The first-time hint: a quiet pill with an arrow that nods upward a few
-/// times. A tap hides it.
+/// times. A tap hides it; a swipe that starts on it turns the page.
 class DiscoverHintBubble extends StatefulWidget {
   const new({required this.onDismiss, super.key});
 
@@ -149,44 +149,59 @@ class _DiscoverHintBubbleState extends State<DiscoverHintBubble>
   @override
   Widget build(BuildContext context) {
     final t = context.t.discover;
-    return Pressable(
-      semanticLabel: '${t.hint} ${t.hintDismiss}',
-      onPressed: widget.onDismiss,
-      child: DecoratedBox(
-        decoration: ShapeDecoration(
-          color: _onPhoto.paper.withValues(alpha: 0.6),
-          shape: StadiumBorder(
-            side: BorderSide(color: _onPhoto.ink.withValues(alpha: 0.2)),
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: Space.md,
-            vertical: Space.sm,
-          ),
-          child: Row(
-            mainAxisSize: .min,
-            spacing: Space.xs,
-            children: [
-              AnimatedBuilder(
-                animation: _nod,
-                builder: (context, child) => Transform.translate(
-                  offset: Offset(
-                    0,
-                    -Curves.easeInOut.transform(_nod.value) * Space.xs,
+    // Translucent all the way down: a tap dismisses the hint, but a swipe
+    // that starts on it still reaches the pager below, which a Pressable
+    // (opaque, a sibling on top) would swallow.
+    return Semantics(
+      button: true,
+      label: '${t.hint} ${t.hintDismiss}',
+      excludeSemantics: true,
+      onTap: widget.onDismiss,
+      child: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: widget.onDismiss,
+        child: IgnorePointer(
+          child: DecoratedBox(
+            decoration: ShapeDecoration(
+              color: _onPhoto.paper.withValues(alpha: 0.6),
+              shape: StadiumBorder(
+                side: BorderSide(color: _onPhoto.ink.withValues(alpha: 0.2)),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: Space.md,
+                vertical: Space.sm,
+              ),
+              child: Row(
+                mainAxisSize: .min,
+                spacing: Space.xs,
+                children: [
+                  AnimatedBuilder(
+                    animation: _nod,
+                    builder: (context, child) => Transform.translate(
+                      offset: Offset(
+                        0,
+                        -Curves.easeInOut.transform(_nod.value) * Space.xs,
+                      ),
+                      child: child,
+                    ),
+                    child: Icon(
+                      EcoIcons.arrowUp,
+                      size: 18,
+                      color: _onPhoto.maiz,
+                    ),
                   ),
-                  child: child,
-                ),
-                child: Icon(EcoIcons.arrowUp, size: 18, color: _onPhoto.maiz),
+                  // Larger text and other languages wrap instead of spilling.
+                  Flexible(
+                    child: Text(
+                      t.hint,
+                      style: EcoType.bodySmall.copyWith(color: _onPhoto.ink),
+                    ),
+                  ),
+                ],
               ),
-              // Larger text and other languages wrap instead of spilling.
-              Flexible(
-                child: Text(
-                  t.hint,
-                  style: EcoType.bodySmall.copyWith(color: _onPhoto.ink),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),

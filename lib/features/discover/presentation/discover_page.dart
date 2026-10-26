@@ -159,12 +159,15 @@ class _DiscoverPageState extends ConsumerState<DiscoverPage> {
                 right: Space.xs,
                 child: DiscoverClose(onPressed: _close),
               ),
+              // A coach mark a little below the middle of the photo: above
+              // the dish's words and its button, never on them. Around the
+              // pill, touches still reach the pager.
               if (walking && showHint && dishes.length > 1)
-                Positioned(
+                Positioned.fill(
                   left: Space.gutter,
                   right: Space.gutter,
-                  bottom: padding.bottom + Space.xl,
-                  child: Center(
+                  child: Align(
+                    alignment: const Alignment(0, 0.08),
                     child: DiscoverHintBubble(
                       onDismiss: () => unawaited(
                         ref.read(discoverHintProvider.notifier).dismiss(),

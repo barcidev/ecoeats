@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:ecoeats/design/widgets/dish_image.dart';
+import 'package:ecoeats/design/widgets/pressable.dart';
+import 'package:ecoeats/features/discover/presentation/discover_chrome.dart';
 import 'package:ecoeats/features/discover/presentation/discover_page.dart';
 import 'package:ecoeats/features/discover/presentation/discover_slide.dart';
 import 'package:ecoeats/features/dishes/application/catalog_filter.dart';
@@ -159,6 +161,38 @@ void main() {
     unawaited(container.read(appRouterProvider).push(DiscoverRoute()));
     await _wait(tester);
     expect(find.byType(DiscoverPage), findsOneWidget);
+    expect(find.text(_hint), findsNothing);
+  });
+
+  testWidgets('the hint stays off «Ver plato», whose first tap opens it', (
+    tester,
+  ) async {
+    await _openDiscover(tester, hintSeen: false);
+    final hint = tester.getRect(find.byType(DiscoverHintBubble));
+    final button = tester.getRect(
+      find.ancestor(
+        of: find.text('Ver plato'),
+        matching: find.byType(Pressable),
+      ),
+    );
+    expect(hint.overlaps(button), isFalse);
+
+    await tester.tap(find.text('Ver plato'));
+    await _wait(tester);
+    expect(find.byType(DishDetailPage), findsOneWidget);
+  });
+
+  testWidgets('a swipe that starts on the hint still turns the page', (
+    tester,
+  ) async {
+    await _openDiscover(tester, hintSeen: false);
+    await tester.flingFrom(
+      tester.getCenter(find.byType(DiscoverHintBubble)),
+      const Offset(0, -400),
+      1500,
+    );
+    await _wait(tester);
+    expect(find.text('02 / 12'), findsOneWidget);
     expect(find.text(_hint), findsNothing);
   });
 

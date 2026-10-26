@@ -2,10 +2,17 @@
   "schema": 1,
   "id": "20261026-discover-s-first-time-hint-no-longer-covers-ver",
   "kind": "quick",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-discover-s-first-time-hint-no-longer-covers-ver",
   "baseCommit": "a6219d222fbc1a9db9fa0f1123ae9eba77d1f4f5",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:6f4c71c7ed1bc2ee2fae2b3a8fe87453a50a15f26e6ec2ed11e742931934d95b",
+    "at": "2026-10-26T11:27:01.352Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "S",
     "score": 2,
@@ -15,19 +22,25 @@
     ]
   },
   "items": {},
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [
+        "lib/features/discover/presentation/discover_chrome.dart"
+      ],
+      "attempts": 1,
+      "baseCommit": "5ed35eb567ae0065a9b67da67d34946c8d92a8b4",
+      "startedAt": "2026-10-26T11:27:01.707Z",
+      "doneAt": "2026-10-26T11:29:38.482Z",
+      "summary": "The hint floats just below the photo's middle, off the words and «Ver plato», and is translucent to hits (IgnorePointer inside a translucent detector): a tap dismisses it, a swipe starting on it turns the page."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
   },
   "maxIds": {
-    "T": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:6f4c71c7ed1bc2ee2fae2b3a8fe87453a50a15f26e6ec2ed11e742931934d95b",
-    "at": "2026-10-26T11:27:01.352Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
+    "T": 1,
+    "S": 1
   }
 }

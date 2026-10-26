@@ -17,6 +17,6 @@ The first time Discover opens, its swipe-up hint sat at the bottom, right on top
 
 ## Tasks
 
-- [ ] T1: Float the first-time hint off the button, with tests
+- [x] T1: Float the first-time hint off the button, with tests
   - files: lib/features/discover/presentation/discover_page.dart, test/features/discover/discover_page_test.dart
   - verify: fvm flutter test test/features/discover
