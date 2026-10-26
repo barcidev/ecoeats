@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-the-three-recovery-screens-masked-email-countdow",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-the-three-recovery-screens-masked-email-countdow",
   "baseCommit": "fcae91ba50c73a5cb2f03b72faa2875f851ee80b",
   "revision": 1,
@@ -61,12 +61,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "56eaf54ab509db493db7129a386d9927f41fbc1b",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:03:57.502Z",
       "doneAt": "2026-10-26T10:05:04.496Z",
-      "summary": "Login waits for recovery's result: the returned email fills its field, the password clears and takes focus; covered by a full recovery round-trip widget test."
+      "summary": "Login waits for recovery's result: the returned email fills its field, the password clears and takes focus; covered by a full recovery round-trip widget test.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "7abc28556d226ae9b2f87663c8b825dbd5d2fe44",
+      "startedAt": "2026-10-26T10:05:04.827Z",
+      "doneAt": "2026-10-26T10:07:05.078Z",
+      "summary": "Removed the unused shell.photoCredit key from the Spanish and English auth copy; the credit lives in assets/photos/CREDITS.md."
     }
   },
   "pending": {

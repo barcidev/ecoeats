@@ -52,7 +52,7 @@ A customer who forgot their password gets back in from the app: they ask for a c
   - files: lib/features/auth/presentation/login_page.dart
   - ac: AC4, AC6
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth
-- [ ] T3: Remove the unused photo credit from the auth copy
+- [x] T3: Remove the unused photo credit from the auth copy
   - files: lib/i18n/es/auth.i18n.yaml, lib/i18n/en/auth.i18n.yaml
   - ac: AC6
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
