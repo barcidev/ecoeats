@@ -46,12 +46,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "4a7ca6c774552cf9779efd9237915c4205e4383b",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:21:43.117Z",
       "doneAt": "2026-10-26T00:26:02.718Z",
-      "summary": "Sealed freezed AppFailure (offline, timeout, unauthorized, validation, conflict with field, notFound, rateLimited, server with request id, unknown) and isTransient; mapDioError/toFailure; retryPolicy retries only transient failures, twice."
+      "summary": "Sealed freezed AppFailure (offline, timeout, unauthorized, validation, conflict with field, notFound, rateLimited, server with request id, unknown) and isTransient; mapDioError/toFailure; retryPolicy retries only transient failures, twice.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "f25d09b7b7545dc95d7fbc7bd44a8e7b942111ee",
+      "startedAt": "2026-10-26T00:26:02.980Z",
+      "doneAt": "2026-10-26T00:28:08.710Z",
+      "summary": "Env.apiBaseUrl from dart-define (production default); request()/readEnvelope() turn every error into AppFailure; keepAlive dioProvider with 10/15 s timeouts and JSON headers; warmUp() pings /health ignoring 503 and lost connections; FakeHttpAdapter for tests."
     }
   },
   "pending": {
