@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "id": "20261025-translations-setup",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261025-translations-setup",
+  "baseCommit": "6b3579552014437bd023486b037bed23cbe5bcdd",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 17,
+    "adjust": 0,
+    "reasons": [
+      "15 files",
+      "changes dependencies"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:ab172ecf046bcabe69c13b7b66d14432832d9f0bded5a27288a9c60f13091a54",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:fbaf417efd1a3d9cbf5da1e4f580cf78145a143c66616ea3e9c6b87aac25288a",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:fa22c122eb847806f832e587fbb7afaa51176e6d95b4162849c0e8aa43fa1311",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:399542fcadf0eb6ad06f471f0772f5058ab8940e1a109220cb54563f1c7398c3",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 4,
+    "T": 3
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:6a739f854829fb8b9139dfa4378eded6748c936f5b4f2cbdff0378c6d835b972",
+    "at": "2026-10-26T01:07:42.906Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
