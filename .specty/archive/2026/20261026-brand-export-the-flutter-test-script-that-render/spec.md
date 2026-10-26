@@ -54,3 +54,22 @@ The brand's image files come out of the same painter the app draws its logo with
 ## Risks
 
 - R1: Anti-aliasing at the canvas edges could leave the icon's corners slightly transparent. Mitigation: the opaque icon paints its background over the whole canvas first, and the check samples the corner pixel.
+
+## Closing
+
+### Summary
+
+The brand's image sources now come from the app's own `LogoMark` painter. `fvm flutter test tool/brand/export_brand_test.dart` writes eight PNGs to `assets/brand/`: the 1024 px logo, the opaque iOS icon, the Android adaptive foreground and monochrome layers, the light and dark splash, and the light and dark Android 12 splash. A second test reads them back and checks sizes, backgrounds and the inked rim. The regular test run does not touch them.
+
+### Deviations
+
+- None.
+
+### Decisions
+
+- The logo fills its 1024 px canvas, because `LogoMark` already insets its stroke. The other sources keep the proportions the platforms need: 64 % on the opaque icon, 56 % inside the adaptive safe zone, a 512 px mark on the 768 px splash, and 640 px inside Android 12's 768 px circle.
+- The monochrome layer draws rim and leaf in one ink, and the vein stays cut out, so Android 13 can tint it.
+
+### Follow-ups
+
+- C8 and C9 feed these sources to `flutter_launcher_icons` and `flutter_native_splash`.
