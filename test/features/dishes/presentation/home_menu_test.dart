@@ -86,10 +86,8 @@ void main() {
   });
 
   testWidgets('pulling the menu down fetches it again', (tester) async {
-    final arepa = sampleDish('mote').copyWith(
-      id: 'arepa',
-      name: 'Arepa de Huevo',
-    );
+    final arepa = sampleDish('mote')
+        .copyWith(id: 'arepa', name: 'Arepa de Huevo');
     final repository = MockDishRepository();
     var calls = 0;
     when(repository.fetchAll).thenAnswer(

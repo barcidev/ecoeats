@@ -34,6 +34,11 @@ sort:
   mostProtein: Más proteína
 row:
   semantics: "{name}. {price}. Calificación {rating}. {protein} g de proteína."
+empty:
+  search: "Nada en la carta con «{query}»."
+  searchHint: Prueba con otro plato o con un ingrediente.
+  category: Nada en esta categoría por ahora.
+  showAll: Ver toda la carta
 home:
   carta: La carta
   count:

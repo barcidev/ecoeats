@@ -34,6 +34,11 @@ sort:
   mostProtein: Most protein
 row:
   semantics: "{name}. {price}. Rated {rating}. {protein} g of protein."
+empty:
+  search: "Nothing on the menu for “{query}”."
+  searchHint: Try another dish or an ingredient.
+  category: Nothing in this category for now.
+  showAll: See the whole menu
 home:
   carta: The menu
   count:

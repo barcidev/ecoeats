@@ -61,6 +61,7 @@ Future<ProviderContainer> bootApp(
   DishRepository? repository,
   DateTime? now,
   AppLocale locale = AppLocale.es,
+  bool settle = true,
 }) async {
   tester.view.physicalSize = const Size(1179, 2556);
   tester.view.devicePixelRatio = 3;
@@ -79,6 +80,9 @@ Future<ProviderContainer> bootApp(
   }
   final clock = now ?? DateTime(2026, 10, 24, 9);
   final container = ProviderContainer.test(
+    // Failures stay visible: the app's own policy retries only transient
+    // ones, and tests drive retries by hand.
+    retry: (_, _) => null,
     overrides: [
       sessionControllerProvider.overrideWith(
         () => FakeSession(initial: session ?? signedIn(now: clock)),
@@ -95,6 +99,10 @@ Future<ProviderContainer> bootApp(
       child: TranslationProvider(child: const App()),
     ),
   );
-  await tester.pumpAndSettle();
+  if (settle) {
+    await tester.pumpAndSettle();
+  } else {
+    await tester.pump();
+  }
   return container;
 }

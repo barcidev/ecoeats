@@ -53,7 +53,7 @@ follows:
   - files: lib/features/dishes/presentation/home/home_page.dart, test/features/dishes/presentation/home_menu_test.dart
   - ac: AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes
-- [ ] T3: Skeleton, empty and failure states
+- [x] T3: Skeleton, empty and failure states
   - files: lib/features/dishes/presentation/home/home_states.dart, lib/features/dishes/presentation/home/home_page.dart, lib/i18n/es/dishes.i18n.yaml, lib/i18n/en/dishes.i18n.yaml, test/features/dishes/presentation/home_states_test.dart
   - ac: AC4, AC5, AC6
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
