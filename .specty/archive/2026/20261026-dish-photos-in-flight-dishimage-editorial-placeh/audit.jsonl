@@ -10,3 +10,6 @@
 {"ts":"2026-10-26T11:01:43.558Z","actor":"agent","tool":"claude-code","event":"task.started","data":{"task":"T3","baseCommit":"6c34803414f50b4c9b420640ce82b15c77f175a0"}}
 {"ts":"2026-10-26T11:03:18.943Z","actor":"specty","event":"task.verified","data":{"task":"T3","cmd":"fvm dart run build_runner build -d && fvm dart run slang && fvm flutter analyze && fvm flutter test","exit":0,"ms":21571,"tree":"sha256:9738824f6e4b7b0ae3a0eb09f35bfac8afa8b8194c3464b5a20eeacb48dfa404"}}
 {"ts":"2026-10-26T11:03:19.061Z","actor":"agent","tool":"claude-code","event":"task.completed","data":{"task":"T3","summary":"Carousel card, menu row and detail headline wrap the dish name in DishNameHero under dishNameHeroTag; the detail body gets the page's hero source; a detail test checks the names cross mid-flight and land."}}
+{"ts":"2026-10-26T11:03:22.841Z","actor":"agent","tool":"claude-code","event":"change.accepted","data":{"revision":1,"delegated":true}}
+{"ts":"2026-10-26T11:03:33.192Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":2,"hash":"sha256:ba8fb8d5ad2c6d51ab9f9910933fc0c9a9c4049bf927d814cbee137e32b834b4","size":"L","warnings":1}}
+{"ts":"2026-10-26T11:03:33.363Z","actor":"agent","tool":"claude-code","event":"change.closed","data":{"delegated":true}}

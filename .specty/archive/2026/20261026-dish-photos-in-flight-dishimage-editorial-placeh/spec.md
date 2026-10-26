@@ -70,3 +70,24 @@ Opening a dish feels like one continuous object moving, not two screens swapping
 - R1: The detail's photo may still be loading when the flight lands, so the placeholder shows briefly before the photo fades in. Mitigation: the detail starts loading at push time, and the crossfade starts from the already loaded small photo; on a slow network the placeholder is the designed one, never grey.
 - R2: Names that wrap differently on the card and in the detail can shift at landing. Mitigation: the shuttle lays both names out in the flying box, and the crossfade hides the change of line breaks; checked on the longest seed name.
 - R3: The catalog tests find dish names by text. Mitigation: the names stay `Text` widgets with the same content, and T3 runs the whole suite.
+
+## Closing
+
+### Summary
+
+Opening a dish is now one continuous movement. The photo flies from the card or row to the detail, its corners bend from the card's radius to square, and the small photo melts into the large one. The dish's name flies alongside, growing from the card's type into the detail's Fraunces headline and back on close. The placeholder keeps its name-fixed colors and gains a soft light, and its existing behavior (Fraunces italic initials, 280 ms fade, broken-photo fallback) is now pinned by tests. The full suite passes with 387 tests.
+
+### Deviations
+
+- T3 gained a catalog test (`dish_detail_test.dart`), an implicit test next to the wired code. It checks that the two names cross mid-flight and that the name hero lands in the detail.
+
+### Decisions
+
+- Both shuttles read the two heroes' markers (`_Bend`, `_Name`) and order them as lower and upper by flight direction. The upper route's animation then drives the same blend whether the detail opens or closes.
+- Each name keeps its own font during the flight while its size, weight and color move toward the other's, and the two cross between 20 % and 80 %. This avoids the family swap that `TextStyle.lerp` makes halfway.
+- The name shuttle resets `DefaultTextStyle`, so text in the overlay never takes the app's error style.
+
+### Follow-ups
+
+- C6 uses `DishHero` and `DishNameHero` with the `discover` source for «Ver plato ↑».
+- On a slow network, the detail photo may still be loading at landing and its placeholder shows for a moment. If that is noticeable on device, the detail could precache its photo when a card is pressed (agent B's files).
