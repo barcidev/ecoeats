@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-catalog-domain-and-providers",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-catalog-domain-and-providers",
   "baseCommit": "91c2d608797b85cd6177471cfa7e4b6faae1a3c6",
   "revision": 1,
@@ -51,12 +51,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "ab85e96939f11256875cbff8d253db04ab9759ba",
+      "attempts": 1,
       "startedAt": "2026-10-26T02:05:00.079Z",
       "doneAt": "2026-10-26T02:07:01.614Z",
-      "summary": "Freezed DishFilter (query, category, sort) whose apply() keeps category and search matches and sorts A–Z, best rated, price up/down or most protein with the folded name breaking ties; DishCategory thresholds 35 g; twelve sample dishes for tests."
+      "summary": "Freezed DishFilter (query, category, sort) whose apply() keeps category and search matches and sorts A–Z, best rated, price up/down or most protein with the folded name breaking ties; DishCategory thresholds 35 g; twelve sample dishes for tests.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "08a40533711635f518cc7e8bf25dc30a96029c90",
+      "startedAt": "2026-10-26T02:07:02.166Z",
+      "doneAt": "2026-10-26T02:08:54.953Z",
+      "summary": "CatalogFilter notifier (search, clear, category, sort); visibleDishes and featuredDishes map the list's AsyncValue synchronously; dishDetail(id) streams the listed copy, then the server's, ending in notFound on a 404."
     }
   },
   "pending": {

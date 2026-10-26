@@ -57,7 +57,7 @@ The catalog's logic exists and is tested before any of its screens: ingredients 
   - files: lib/features/dishes/domain/dish_filter.dart, test/helpers/dish_fixtures.dart, test/features/dishes/domain/dish_filter_test.dart
   - ac: AC4
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes
-- [ ] T3: Catalog providers and dish detail
+- [x] T3: Catalog providers and dish detail
   - files: lib/features/dishes/application/catalog_filter.dart, lib/features/dishes/application/catalog_views.dart, lib/features/dishes/application/dish_detail_provider.dart, test/features/dishes/application/catalog_providers_test.dart
   - ac: AC5, AC6
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
