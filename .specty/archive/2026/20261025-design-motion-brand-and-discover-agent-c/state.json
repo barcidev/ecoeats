@@ -2,10 +2,17 @@
   "schema": 1,
   "id": "20261025-design-motion-brand-and-discover-agent-c",
   "kind": "epic",
-  "phase": "implementing",
+  "phase": "done",
   "branch": "specty/20261025-design-motion-brand-and-discover-agent-c",
   "baseCommit": "babf8ba8803349f991a4b9cb5c1e636408aaa798",
-  "revision": 1,
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:410b1f157adc7b15d67f6f8c9523ee671c3dc7b8e8887ce9a01c18c38f9b6857",
+    "at": "2026-10-26T10:03:32.749Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "tty"
+  },
   "size": {
     "level": "S",
     "score": 0,
@@ -71,11 +78,5 @@
     "C": 10,
     "R": 5
   },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:410b1f157adc7b15d67f6f8c9523ee671c3dc7b8e8887ce9a01c18c38f9b6857",
-    "at": "2026-10-26T10:03:32.749Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "tty"
-  }
+  "closingSubmittedAt": "2026-10-26T14:04:55.841Z"
 }

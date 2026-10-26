@@ -100,3 +100,37 @@ The app gets the finished, hand-made feel the plan asks for, as agent C describe
 - R3: Blur and full-screen photos can drop frames. Mitigation: the blur is clipped to the toast's own shape, Ken Burns runs only on the active page, decoding follows the shown size, and Discover and the hero are profiled with `flutter run --profile`.
 - R4: Names whose line breaks differ between card and detail may jump at the end of the flight. Mitigation: the shuttle lays out with the destination's width and line count, and C5 checks it on the longest seed name.
 - R5: The native platforms may land on `main` late. Mitigation: C8 and C9 are the only slices that depend on them, and they come last but one.
+
+## Closing
+
+### Summary
+
+Agent C's part of the plan is done in ten slices plus one quick fix, all merged into `main`.
+
+- **Shared widgets:** they move physically behind the same API (springs, a morphing button, chasing spinner, damped shake, floating labels and inked underlines, descender-safe masks, one shimmer for the whole screen, runtime paper grain, frosted swipeable toasts, a sliding pill indicator, exact fractional stars).
+- **Drawings:** the mark draws itself as one stroke, and each unhappy state has its own drawing on the same plate.
+- **Dish heroes:** photos fly between screens bending their corners, and names fly from cards into headlines.
+- **Discover:** an immersive vertical walk with its own reveal.
+- **Brand:** the brand files come from the mark's painter and feed the Android and iOS icons and splash screens, checked on the Pixel 9 emulator and the iPhone 15 Pro simulator.
+- **QA:** a debug gallery and a screenshot script cover visual QA in light, dark, Spanish and English.
+
+### Deviations
+
+- **Login sweep:** `EcoButton`'s «expand on success» stays inside the button, with a drawn check. Agent A already owned the full-screen achiote sweep.
+- **Finite motion:** Discover's Ken Burns is one push-in that then holds, and the hint nods three times. An existing catalog test settles after opening Discover, and endless motion never settles.
+- **Visual QA fixes:** the screenshot review found that Discover's hint covered «Ver plato» and swallowed swipes that started on it. A quick change (`20261026-discover-s-first-time-hint-no-longer-covers-ver`) moved it and made it translucent to drags.
+- **Generator bugs:** two generator bugs were worked around and documented in their configs. The splash generator dropped the Android portrait lock, and the icon generator rewrote every `ASSETCATALOG_*` Xcode setting.
+- **Specty:** the C8 closing hit a Specty limitation (glob matches in ignored paths inflating the size at closing). The person fixed it in Specty, and the closing went through without touching the spec.
+
+### Decisions
+
+- Every slice added API only through optional parameters, new classes or `@visibleForTesting` hooks, so agents A and B's screens kept compiling and passing at every merge.
+- The scope requests outside agent C's paths were few, all recorded: the catalog's name heroes in C5, and the Discover route tests in C6.
+
+### Follow-ups
+
+- **Device screenshots:** of Home, the detail and Discover with real photos, they need the shared test account (`/_gallery` and Discover).
+- **Login:** agent A can pass `success: state.succeeded` to the login button and start its sweep from `onSuccess`.
+- **Catalog stars:** the carousel and menu-row single stars could use the drawn star of `RatingStars` (agent B's files).
+- **Upstream:** report the `ASSETCATALOG_*` rewrite to flutter_launcher_icons.
+- **Specty:** add `verify.full` to `.specty/config.yaml` so acceptances run the whole suite.
