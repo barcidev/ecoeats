@@ -51,12 +51,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "99c3fea4200f690673950541be34e5f102dbcdd5",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:10:22.992Z",
       "doneAt": "2026-10-26T10:12:06.974Z",
-      "summary": "themeModeController and localeController: keep-alive async controllers persisted in shared_preferences; the locale one applies the choice through slang (device locale for Sistema); 8 unit tests."
+      "summary": "themeModeController and localeController: keep-alive async controllers persisted in shared_preferences; the locale one applies the choice through slang (device locale for Sistema); 8 unit tests.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "6ecd26919d8eaa899e5f615793d83ad8c1880256",
+      "startedAt": "2026-10-26T10:12:07.284Z",
+      "doneAt": "2026-10-26T10:13:29.830Z",
+      "summary": "The app follows themeModeController, and main waits for the stored appearance and language together with the session before removing the splash."
     }
   },
   "pending": {

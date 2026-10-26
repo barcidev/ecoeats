@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:ecoeats/core/session/session_controller.dart';
 import 'package:ecoeats/design/theme.dart';
 import 'package:ecoeats/design/widgets/toast.dart';
+import 'package:ecoeats/features/profile/application/theme_mode_controller.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:ecoeats/router/app_router.dart';
 
@@ -43,6 +44,7 @@ class App extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       theme: ecoTheme(.light),
       darkTheme: ecoTheme(.dark),
+      themeMode: ref.watch(themeModeControllerProvider).value ?? .system,
       locale: TranslationProvider.of(context).flutterLocale,
       supportedLocales: AppLocaleUtils.supportedLocales,
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
