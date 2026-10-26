@@ -61,3 +61,23 @@ The catalog's logic exists and is tested before any of its screens: ingredients 
   - files: lib/features/dishes/application/catalog_filter.dart, lib/features/dishes/application/catalog_views.dart, lib/features/dishes/application/dish_detail_provider.dart, test/features/dishes/application/catalog_providers_test.dart
   - ac: AC5, AC6
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+The catalog's logic is in place and tested. Ingredients are parsed respecting parentheses, the search ignores accents and «ñ» over names and ingredients, Unsplash photos are sized by buckets, and a freezed `DishFilter` covers the plan's categories and sorts. The providers expose the filter, the visible and featured dishes, and a detail stream that shows the listed copy first.
+
+### Deviations
+
+- None.
+
+### Decisions
+
+- `visibleDishes` and `featuredDishes` map the list's `AsyncValue` synchronously, so changing the filter never flashes a loading state.
+- `dishDetail` reads the list once instead of watching it, so a list refresh does not restart an open detail.
+- Twelve sample dishes in `test/helpers/dish_fixtures.dart` serve the next catalog tests, with Bandeja Paisa's photo broken as in production.
+
+### Follow-ups
+
+- Home, the carousel, the filters UI and the detail screen use these providers in the next changes.

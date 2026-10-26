@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-catalog-domain-and-providers",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-catalog-domain-and-providers",
   "baseCommit": "91c2d608797b85cd6177471cfa7e4b6faae1a3c6",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:afac1c8574987d625757d0256e1863dd5e419f5af7691800e162054f9b2e89db",
@@ -60,12 +60,12 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "08a40533711635f518cc7e8bf25dc30a96029c90",
+      "attempts": 1,
       "startedAt": "2026-10-26T02:07:02.166Z",
       "doneAt": "2026-10-26T02:08:54.953Z",
-      "summary": "CatalogFilter notifier (search, clear, category, sort); visibleDishes and featuredDishes map the list's AsyncValue synchronously; dishDetail(id) streams the listed copy, then the server's, ending in notFound on a 404."
+      "summary": "CatalogFilter notifier (search, clear, category, sort); visibleDishes and featuredDishes map the list's AsyncValue synchronously; dishDetail(id) streams the listed copy, then the server's, ending in notFound on a 404.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -76,5 +76,6 @@
     "A": 4,
     "AC": 6,
     "T": 3
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T02:09:07.730Z"
 }

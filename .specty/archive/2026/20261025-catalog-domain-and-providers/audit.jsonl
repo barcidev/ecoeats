@@ -10,3 +10,6 @@
 {"ts":"2026-10-26T02:07:02.167Z","actor":"agent","tool":"claude-code","event":"task.started","data":{"task":"T3","baseCommit":"08a40533711635f518cc7e8bf25dc30a96029c90"}}
 {"ts":"2026-10-26T02:08:54.879Z","actor":"specty","event":"task.verified","data":{"task":"T3","cmd":"fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test","exit":0,"ms":19128,"tree":"sha256:2d42e6be8e57b4e37f03356c5f146b2214980efdd004500b3e6a0be2e29152ae"}}
 {"ts":"2026-10-26T02:08:54.954Z","actor":"agent","tool":"claude-code","event":"task.completed","data":{"task":"T3","summary":"CatalogFilter notifier (search, clear, category, sort); visibleDishes and featuredDishes map the list's AsyncValue synchronously; dishDetail(id) streams the listed copy, then the server's, ending in notFound on a 404."}}
+{"ts":"2026-10-26T02:08:59.570Z","actor":"agent","tool":"claude-code","event":"change.accepted","data":{"revision":1,"delegated":true}}
+{"ts":"2026-10-26T02:09:07.731Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":2,"hash":"sha256:d3f048766cc213de5ed5e895444ca908c5009637b0f9d3543bd2284ba450bb45","size":"L","warnings":1}}
+{"ts":"2026-10-26T02:09:07.897Z","actor":"agent","tool":"claude-code","event":"change.closed","data":{"delegated":true}}
