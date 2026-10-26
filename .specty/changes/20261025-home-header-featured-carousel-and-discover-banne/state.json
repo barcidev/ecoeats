@@ -47,16 +47,25 @@
   "tasks": {
     "T1": {
       "status": "done",
+      "baseCommit": "5a5229493dd1f289b176d8cd8ec9868608d472f7",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:11:12.415Z",
+      "doneAt": "2026-10-26T02:17:11.305Z",
+      "summary": "Pinned SliverAppBar masthead (locale date, day-part greeting with first name, meal headline) that folds into a blurred bar with hairline; avatar opening ProfileSheet; pill search that filters and clears; Home lists visible dishes plainly for now.",
       "scopeExtra": [
         "test/helpers/app_harness.dart",
         "test/features/dishes/presentation/home_header_test.dart",
         "test/features/dishes/presentation/preview/**"
-      ],
+      ]
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
       "attempts": 1,
-      "baseCommit": "5a5229493dd1f289b176d8cd8ec9868608d472f7",
-      "startedAt": "2026-10-26T02:11:12.415Z",
-      "doneAt": "2026-10-26T02:17:11.305Z",
-      "summary": "Pinned SliverAppBar masthead (locale date, day-part greeting with first name, meal headline) that folds into a blurred bar with hairline; avatar opening ProfileSheet; pill search that filters and clears; Home lists visible dishes plainly for now."
+      "baseCommit": "eb1fcc86e1873018065e1165cba4566336a7321e",
+      "startedAt": "2026-10-26T02:17:11.583Z",
+      "doneAt": "2026-10-26T02:18:25.860Z",
+      "summary": "Header tests over the running app: night greeting, English date and greeting, nameless greeting, folding on scroll with the search still reachable, avatar to profile and search results; app harness with fake session, catalog and clock."
     }
   },
   "pending": {

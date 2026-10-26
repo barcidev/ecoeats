@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../../helpers/app_harness.dart';
+import '../../../helpers/dish_fixtures.dart';
 
 void main() {
   group('day parts', () {
@@ -27,6 +28,41 @@ void main() {
     expect(find.text('SÁBADO 24 DE OCTUBRE'), findsOneWidget);
     expect(find.text('Buenos días, Jorge.'), findsOneWidget);
     expect(find.text('¿Qué desayunamos hoy?'), findsOneWidget);
+  });
+
+  testWidgets('the night has its own greeting', (tester) async {
+    await bootApp(tester, now: DateTime(2026, 10, 24, 20));
+    expect(find.text('Buenas noches, Jorge.'), findsOneWidget);
+    expect(find.text('¿Qué se te antoja esta noche?'), findsOneWidget);
+  });
+
+  testWidgets('English reads the date and greeting its own way', (
+    tester,
+  ) async {
+    await bootApp(tester, now: DateTime(2026, 10, 24, 13), locale: .en);
+    expect(find.text('SATURDAY, OCTOBER 24'), findsOneWidget);
+    expect(find.text('Good afternoon, Jorge.'), findsOneWidget);
+    expect(find.text("What's for lunch today?"), findsOneWidget);
+  });
+
+  testWidgets('without a known name the greeting stands alone', (tester) async {
+    await bootApp(tester, session: signedIn(firstNames: null));
+    expect(find.text('Buenos días.'), findsOneWidget);
+  });
+
+  testWidgets('scrolling folds the masthead but keeps the search', (
+    tester,
+  ) async {
+    final longMenu = [
+      for (var round = 0; round < 4; round++)
+        for (final dish in sampleDishes)
+          dish.copyWith(id: '${dish.id}-$round', name: '${dish.name} $round'),
+    ];
+    await bootApp(tester, dishes: longMenu);
+    await tester.drag(find.text('Ajiaco Santafereño 0'), const Offset(0, -600));
+    await tester.pumpAndSettle();
+    expect(find.text('SÁBADO 24 DE OCTUBRE'), findsNothing);
+    expect(find.byType(EditableText).hitTestable(), findsOneWidget);
   });
 
   testWidgets('the avatar opens the profile', (tester) async {

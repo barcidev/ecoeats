@@ -50,7 +50,7 @@ The top of Home looks and behaves like the plan's editorial front page: a large 
   - files: lib/features/dishes/presentation/home/home_greeting.dart, lib/features/dishes/presentation/home/home_header.dart, lib/features/dishes/presentation/home/home_page.dart, lib/i18n/es/dishes.i18n.yaml, lib/i18n/en/dishes.i18n.yaml
   - ac: AC1, AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes test/i18n
-- [ ] T2: Header tests over the running app
+- [x] T2: Header tests over the running app
   - files: test/helpers/app_harness.dart, test/features/dishes/presentation/home_header_test.dart
   - ac: AC1, AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes
