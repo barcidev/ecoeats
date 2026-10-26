@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "20261026-selection-and-feedback-blurred-top-toast-with-sw",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-selection-and-feedback-blurred-top-toast-with-sw",
+  "baseCommit": "ee6314c66f4a39e7d182b73c98509970d3837b42",
+  "revision": 1,
+  "size": {
+    "level": "S",
+    "score": 4,
+    "adjust": 0,
+    "reasons": [
+      "4 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:9f189ca524bfdd1c286b67b44d89bedc81f8eb4141672eaf5cf748514a15bf58",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:b83e1a74815f29e478883696ddccd2421a40b2aaedee4e8cad7071bc17b12476",
+      "decision": "confirmed"
+    },
+    "A3": {
+      "hash": "sha256:99dbfd140f49c1cca1dc73a624907a3a2d6df153f9d669adfdecaeef60d60461",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:06d2010c00ba219ec351c411504dd1596a4217cd36772d7cee60819bf18ba510",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:4568085ed3dd98f37188f0ba939a4e167f9ea3aa7d9650e43494fca41ca02689",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 4,
+    "T": 3,
+    "R": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:5c23018b48c3eb23811bd4fc3461050a5ba135ffef52f88b940e2124571484d5",
+    "at": "2026-10-26T10:50:48.606Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
