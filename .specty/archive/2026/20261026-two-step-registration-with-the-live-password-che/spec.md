@@ -58,3 +58,26 @@ A new customer creates an account in two short steps, who they are (first names,
 ## Risks
 
 - R1: The account can be created and the automatic login then fail (a lost connection between both calls); trying again would answer 409 for the email. Mitigation: the 409 message on the email field is clear, and the user can sign in from login; the closing records it.
+
+## Closing
+
+### Summary
+
+Registration is the real two-step screen in `register_page.dart`, exported from `auth_pages.dart`. Step 1 asks for first names, last names and document; step 2 for email and password, with `PasswordRules` checking the length and byte rules live and a hint about accents and emoji near the limit. Each step checks its fields with a shake before moving on or sending; the back arrow on step 2 returns to step 1 keeping what was typed. `registerController` signs up through the session (which signs in and keeps the first names), names the fields a 400 or a 409 refused, and returns the form to the first step that holds one: a taken document lands on step 1 and a taken email on step 2, in the app's words, while a 400 shows the server's Spanish message only in Spanish. A 429 counts down on the button and a success plays the achiote sweep. 21 new tests (9 controller, 4 checklist, 8 screen); the whole suite (304 tests) and `flutter analyze` pass.
+
+### Deviations
+
+- Two scope additions for T3, both decided in delegated mode: `widgets/auth_panel.dart` and `login_page.dart` (S1), to share `FormMessage`, `TextLink` and `PanelFooter` instead of copying them, and `widgets/password_checklist.dart` (S2), to make each rule its own semantics node, as the form around it merged them.
+- The checklist widget is `PasswordRules`, because `PasswordChecklist` already names its model in `validators.dart`.
+
+### Decisions
+
+- A rule has three looks: met (aguacate check), pending (empty circle) for the length still missing, and broken (achiote x) for the byte limit that was passed.
+- The steps slide in from the side they come from and crossfade with reduced motion; both steps keep their controllers, so nothing typed is lost.
+- After a render review (step 1 with errors in light, step 2 with the checklist in dark) the layout stayed as built.
+
+### Follow-ups
+
+- `EcoTextField` has no `textCapitalization`, so names start in lowercase on the keyboard; agent C could add the optional parameter.
+- If the account is created but the automatic login fails, a second try answers 409 for the email; the user can then sign in from login.
+- `register_page.dart` has 349 code lines (warning past 300); a split into a step widget per file is possible if it grows.

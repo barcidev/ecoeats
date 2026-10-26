@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261026-two-step-registration-with-the-live-password-che",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-two-step-registration-with-the-live-password-che",
   "baseCommit": "dceb8fb16e74a7b6232a4d5d883dc461663f2ca1",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:54cdb6ae106f8b4405ab0b44d24a704a5463c65f3a07f9fbb5b08f6dcc7226b5",
@@ -69,16 +69,16 @@
     },
     "T3": {
       "status": "done",
+      "baseCommit": "375b69ed4b74408a5edc9a3b2fce6d3355db3378",
+      "attempts": 1,
+      "startedAt": "2026-10-26T09:43:00.366Z",
+      "doneAt": "2026-10-26T09:52:56.659Z",
+      "summary": "Two-step registration screen: per-step field checks with a shake, live password rules, refusals routed to their step and field (409 in the app's words, 400 in the server's Spanish), a 429 countdown and the achiote sweep; shared form pieces moved to auth_panel.dart.",
       "scopeExtra": [
         "lib/features/auth/presentation/widgets/auth_panel.dart",
         "lib/features/auth/presentation/login_page.dart",
         "lib/features/auth/presentation/widgets/password_checklist.dart"
-      ],
-      "attempts": 1,
-      "baseCommit": "375b69ed4b74408a5edc9a3b2fce6d3355db3378",
-      "startedAt": "2026-10-26T09:43:00.366Z",
-      "doneAt": "2026-10-26T09:52:56.659Z",
-      "summary": "Two-step registration screen: per-step field checks with a shake, live password rules, refusals routed to their step and field (409 in the app's words, 400 in the server's Spanish), a 429 countdown and the achiote sweep; shared form pieces moved to auth_panel.dart."
+      ]
     }
   },
   "pending": {
@@ -91,5 +91,6 @@
     "T": 3,
     "R": 1,
     "S": 2
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T09:53:13.198Z"
 }
