@@ -40,7 +40,7 @@ Every text the auth screens and the profile sheet will show exists in Spanish an
 
 ## Tasks
 
-- [ ] T1: Auth and profile copy in both languages, with their translation checks
+- [x] T1: Auth and profile copy in both languages, with their translation checks
   - files: lib/i18n/es/auth.i18n.yaml, lib/i18n/en/auth.i18n.yaml, lib/i18n/es/profile.i18n.yaml, lib/i18n/en/profile.i18n.yaml, test/i18n/translations_test.dart
   - ac: AC1, AC2, AC3, AC4
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/i18n

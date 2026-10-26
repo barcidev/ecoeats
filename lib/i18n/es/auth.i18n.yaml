@@ -1,9 +1,13 @@
+shell:
+  photoCredit: Foto de {author} en Unsplash
 welcome:
   headline: Comida colombiana, sin afán.
+  subline: Platos de siempre, con la nutrición a la vista.
   signIn: Entrar
   createAccount: Crear cuenta
 login:
   title: Hola otra vez.
+  subtitle: Entra para ver la carta.
   email: Correo
   password: Contraseña
   submit: Entrar
@@ -13,5 +17,68 @@ login:
   wrongCredentials: Correo o contraseña incorrectos.
 register:
   title: Crea tu cuenta.
+  step: Paso {current} de {total}
+  about:
+    title: Primero, cuéntanos quién eres.
+    firstNames: Nombres
+    lastNames: Apellidos
+    document: Número de documento
+    documentHint: Solo lo usamos para identificar tu cuenta.
+  access:
+    title: Ahora, con qué vas a entrar.
+    email: Correo
+    password: Contraseña
+  submit: Crear cuenta
+  haveAccount: ¿Ya tienes cuenta?
+  signIn: Entrar
 recover:
   title: Recupera tu contraseña.
+  email:
+    message: Escribe tu correo y te enviamos un código de 6 dígitos.
+    field: Correo
+    submit: Enviar código
+    notFound: No hay ninguna cuenta con ese correo.
+  code:
+    title: Revisa tu correo.
+    message: Escribe el código que enviamos a {email}.
+    field: Código de 6 dígitos
+    expiresIn: Vence en {time}
+    expired: El código venció. Pide uno nuevo.
+    rejected:
+      one: Ese código no coincide. Te queda {n} intento.
+      other: Ese código no coincide. Te quedan {n} intentos.
+    locked: Ya no quedan intentos con este código. Pide uno nuevo.
+    resend: Enviar otro código
+    resendIn: Otro código en {time}
+    resent: Te enviamos un código nuevo.
+    changeEmail: Usar otro correo
+  password:
+    title: Elige tu contraseña nueva.
+    field: Contraseña nueva
+    confirmation: Repite la contraseña
+    submit: Guardar contraseña
+  done:
+    title: Listo.
+    message: Ya puedes entrar con tu contraseña nueva.
+    action: Ir a entrar
+password:
+  show: Mostrar contraseña
+  hide: Ocultar contraseña
+  minLength: Al menos {min} caracteres
+  maxBytes: No demasiado larga
+  maxBytesHint: Las tildes y los emoji cuentan más.
+  met: Listo
+  missing: Falta
+fieldErrors:
+  emailRequired: Escribe tu correo.
+  emailInvalid: Revisa el correo; parece que le falta algo.
+  emailTooLong: El correo no puede pasar de {max} caracteres.
+  passwordRequired: Escribe tu contraseña.
+  passwordTooShort: Usa al menos {min} caracteres.
+  passwordTooLong: Es demasiado larga; las tildes y los emoji cuentan más.
+  firstNamesRequired: Escribe tus nombres.
+  lastNamesRequired: Escribe tus apellidos.
+  documentRequired: Escribe tu número de documento.
+  tooLong: No puede pasar de {max} caracteres.
+  confirmationRequired: Repite la contraseña.
+  confirmationMismatch: No coincide con la contraseña.
