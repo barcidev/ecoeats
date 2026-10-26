@@ -60,3 +60,25 @@ The login placeholder becomes the real screen: it checks the fields before sendi
 ## Risks
 
 - R1: If the sweep starts after the login page has left the tree, it has no context to draw from. Mitigation: the login controller reports success before the router rebuilds (the rebuild waits for the next frame), and the sweep only needs the overlay and the button's position, taken at that moment.
+
+## Closing
+
+### Summary
+
+Login is the real screen now, in `login_page.dart` and exported from `auth_pages.dart`. Fields are checked with C1's validators after the first try and then follow the typing; the email offers email and username autofill and the password can be shown. A 401 says «Correo o contraseña incorrectos.» under the form, a 400 puts each message on its field, other failures show their own words, and only refusals shake with a haptic. A 429 disables the button with «Intenta en m:ss» counting down from the app's clock. While sending, the button shows its spinner; on success the platform is asked to save the credentials and an achiote disc grows from the button over the whole app from the root overlay, then fades with Home beneath. «¿Olvidaste tu contraseña?» opens recovery over login and «Crear una» swaps login for registration. The sheet panel and a `Countdown` are shared in `widgets/auth_panel.dart`. 15 new widget tests; the whole suite (283 tests), phase 0's login tests unchanged, and `flutter analyze` pass.
+
+### Deviations
+
+- None.
+
+### Decisions
+
+- After a success the button rests disabled instead of keeping its spinner: the sweep covers it anyway, and an endless spinner would never let a page that is not navigated away (as in phase 0's tests) settle.
+- The panel got an optional `overline`, `subtitle` and a `footer` that rests at the bottom of a short page, for the step counter of registration and the links under the forms.
+- `Countdown` reads the core `clockProvider` and rounds up to the second, so the last second reads «0:01» and tests move time by hand.
+- Typing after an answer dismisses the failure; the 429 wait stays, as C4's controller keeps it.
+- Visual review on golden renders (empty submit, 401 in light, 429 in dark): field messages, the form message with its icon, the countdown button and the footer read well.
+
+### Follow-ups
+
+- `auth_pages.dart` is down to 447 lines; C6 and C8 move registration and recovery out the same way.

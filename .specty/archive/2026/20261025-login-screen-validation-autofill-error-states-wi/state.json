@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-login-screen-validation-autofill-error-states-wi",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-login-screen-validation-autofill-error-states-wi",
   "baseCommit": "babf8ba8803349f991a4b9cb5c1e636408aaa798",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:a5297d718c038bbaf7daa4805fa1012842452fd6cd0130ba2267d09b59ad32d3",
@@ -65,12 +65,12 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "432b256ed70a7f24d15c240727f1063e97fd4223",
+      "attempts": 1,
       "startedAt": "2026-10-26T09:22:32.594Z",
       "doneAt": "2026-10-26T09:27:58.329Z",
-      "summary": "Real login screen with live field checks, autofill, refusals that shake with a haptic, a 429 countdown on the button, and the achiote sweep on success; 10 widget tests."
+      "summary": "Real login screen with live field checks, autofill, refusals that shake with a haptic, a 429 countdown on the button, and the achiote sweep on success; 10 widget tests.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -82,5 +82,6 @@
     "AC": 8,
     "T": 3,
     "R": 1
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T09:28:11.147Z"
 }

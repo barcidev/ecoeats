@@ -10,3 +10,6 @@
 {"ts":"2026-10-26T09:22:32.595Z","actor":"agent","tool":"claude-code","event":"task.started","data":{"task":"T3","baseCommit":"432b256ed70a7f24d15c240727f1063e97fd4223"}}
 {"ts":"2026-10-26T09:27:58.169Z","actor":"specty","event":"task.verified","data":{"task":"T3","cmd":"fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test","exit":0,"ms":24341,"tree":"sha256:5ac21678332ef7ceb4c635a5679ce5be0b56a4a587465e2f6471c885cdeda901"}}
 {"ts":"2026-10-26T09:27:58.332Z","actor":"agent","tool":"claude-code","event":"task.completed","data":{"task":"T3","summary":"Real login screen with live field checks, autofill, refusals that shake with a haptic, a 429 countdown on the button, and the achiote sweep on success; 10 widget tests."}}
+{"ts":"2026-10-26T09:28:01.904Z","actor":"agent","tool":"claude-code","event":"change.accepted","data":{"revision":1,"delegated":true}}
+{"ts":"2026-10-26T09:28:11.149Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":2,"hash":"sha256:d7c5904b3aeed187a020596fb8a44037b5cdd71e0c9b59888f34ccfa6b3d9a8a","size":"L","warnings":3}}
+{"ts":"2026-10-26T09:28:11.337Z","actor":"agent","tool":"claude-code","event":"change.closed","data":{"delegated":true}}
