@@ -1,0 +1,10 @@
+appName: EcoEats
+loading: Cargando
+retryIn: Intenta en {time}
+actions:
+  retry: Reintentar
+  close: Cerrar
+  cancel: Cancelar
+  confirm: Confirmar
+  back: Volver
+  next: Continuar

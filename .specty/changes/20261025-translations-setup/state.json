@@ -6,6 +6,13 @@
   "branch": "specty/20261025-translations-setup",
   "baseCommit": "6b3579552014437bd023486b037bed23cbe5bcdd",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:6a739f854829fb8b9139dfa4378eded6748c936f5b4f2cbdff0378c6d835b972",
+    "at": "2026-10-26T01:07:42.906Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 17,
@@ -33,7 +40,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "1d5001659307aec7194d01def5dc506e173251de",
+      "startedAt": "2026-10-26T01:07:43.284Z",
+      "doneAt": "2026-10-26T01:10:06.498Z",
+      "summary": "common namespace in es/en (appName, loading, retryIn {time}, actions); yaml dev dependency; test that both languages define the same keys per namespace file."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -42,12 +59,5 @@
     "A": 4,
     "AC": 4,
     "T": 3
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:6a739f854829fb8b9139dfa4378eded6748c936f5b4f2cbdff0378c6d835b972",
-    "at": "2026-10-26T01:07:42.906Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

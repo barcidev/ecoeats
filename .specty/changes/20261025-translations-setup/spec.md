@@ -52,7 +52,7 @@ The app speaks Spanish (base) and English through slang, one namespace per owner
 
 ## Tasks
 
-- [ ] T1: Shared copy and key parity
+- [x] T1: Shared copy and key parity
   - files: pubspec.yaml, lib/i18n/es/common.i18n.yaml, lib/i18n/en/common.i18n.yaml, test/i18n/translations_test.dart
   - ac: AC1
   - verify: fvm dart run slang && fvm flutter analyze && fvm flutter test test/i18n
