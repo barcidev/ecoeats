@@ -6,6 +6,13 @@
   "branch": "specty/20261026-press-button-and-spinner-motion-spring-pressable",
   "baseCommit": "fcae91ba50c73a5cb2f03b72faa2875f851ee80b",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:b8072361399eea0b52ad0a5bad7c26b609365deea2be506fe02d651cfde765d4",
+    "at": "2026-10-26T10:11:58.444Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 7,
@@ -40,7 +47,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "d6604917c53e5c84f65d9a1a6187a3d32d9060a8",
+      "startedAt": "2026-10-26T10:11:58.841Z",
+      "doneAt": "2026-10-26T10:16:23.690Z",
+      "summary": "Pressable sinks and springs back with Motion.spring, keeping velocity, rests exactly at 1, plays a selection click and never scales with reduced motion (read in build, safe during teardown)."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -50,12 +67,5 @@
     "AC": 6,
     "T": 3,
     "R": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:b8072361399eea0b52ad0a5bad7c26b609365deea2be506fe02d651cfde765d4",
-    "at": "2026-10-26T10:11:58.444Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

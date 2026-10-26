@@ -55,7 +55,7 @@ The app's tap targets, main button, loader and refusal shake move like physical 
 
 ## Tasks
 
-- [ ] T1: Spring Pressable with haptic, with its widget tests
+- [x] T1: Spring Pressable with haptic, with its widget tests
   - files: lib/design/widgets/pressable.dart, test/design/widgets/pressable_test.dart
   - ac: AC1
   - verify: fvm flutter test test/design/widgets/pressable_test.dart
