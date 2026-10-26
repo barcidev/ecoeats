@@ -44,7 +44,7 @@ The catalog has its data: a freezed `Dish` read from the production contract (wi
 
 ## Tasks
 
-- [ ] T1: Dish model
+- [x] T1: Dish model
   - files: lib/features/dishes/domain/dish.dart, test/features/dishes/domain/dish_test.dart
   - ac: AC1
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes
