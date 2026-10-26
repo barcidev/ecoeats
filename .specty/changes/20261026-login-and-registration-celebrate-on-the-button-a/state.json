@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "20261026-login-and-registration-celebrate-on-the-button-a",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-login-and-registration-celebrate-on-the-button-a",
+  "baseCommit": "40efd7c2c197eca00a479f4d2be7af3bc49b4381",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 12,
+    "adjust": 0,
+    "reasons": [
+      "3 archivos",
+      "3 rutas sensibles"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:bf7eadeb0ae7a263423978d4e3affaa2fe25d55ca89db27d793b0fae0ac4e7db",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:26e82b86e6a2f96f9b1de559f39d3518c04e02c7372dc90253f3b927bf7d9590",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:0247b5b95e8af03527805b863e23d5b76aa92c6f78f83009a0e13de13facf5d7",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:6fc05a1ae2371191cb5ac1719ac4b51a12e5402a17ca111d3682e91c1acc6515",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:7cc51e4fcf00665d4060346232ca9ef37c2819316a9a986a00c41feb62e6ae02",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 5,
+    "T": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:e96caf68b73e77a8765c63d6399ec102f0e67ed256f79bf419449c64ebd09cbd",
+    "at": "2026-10-26T14:32:56.384Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
