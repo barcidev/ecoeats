@@ -6,6 +6,13 @@
   "branch": "specty/20261025-design-widgets-for-the-catalog",
   "baseCommit": "169e4b95e06609208696559e671a84601d078b6c",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:9c0c4ae0dc4326b66492f89543d4147038f58736f2d44c37de70c766b8cd9283",
+    "at": "2026-10-26T00:45:47.120Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 12,
@@ -32,7 +39,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "d11129c1e7eac18e89047001692b0b94b0594678",
+      "startedAt": "2026-10-26T00:45:47.443Z",
+      "doneAt": "2026-10-26T00:48:39.314Z",
+      "summary": "Pressable (scale on press, haptic, merged button semantics; a semanticLabel replaces the child's texts), PlateSpinner (spinning or progress rim, still with reduced motion), EcoButton primary/secondary/quiet with loading spinner and disabled dim."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -41,12 +58,5 @@
     "A": 4,
     "AC": 5,
     "T": 3
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:9c0c4ae0dc4326b66492f89543d4147038f58736f2d44c37de70c766b8cd9283",
-    "at": "2026-10-26T00:45:47.120Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

@@ -47,7 +47,7 @@ The design widgets the catalog builds on exist with their final public API and a
 
 ## Tasks
 
-- [ ] T1: Pressable, PlateSpinner and EcoButton
+- [x] T1: Pressable, PlateSpinner and EcoButton
   - files: lib/design/widgets/pressable.dart, lib/design/widgets/plate_spinner.dart, lib/design/widgets/eco_button.dart, test/design/widgets/pressable_test.dart
   - ac: AC1, AC2
   - verify: fvm flutter analyze && fvm flutter test test/design
