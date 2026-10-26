@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "20261026-two-step-registration-with-the-live-password-che",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-two-step-registration-with-the-live-password-che",
+  "baseCommit": "dceb8fb16e74a7b6232a4d5d883dc461663f2ca1",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 16,
+    "adjust": 0,
+    "reasons": [
+      "4 files",
+      "4 sensitive paths"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:a1e988f0d88a44bbbd26120ac3c040845c7043c4b15893d38138e0370c14a99c",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:b8fe179edaf4ac160991da5ebe6995c05177c4af3b0b7085526bb285e6ba509a",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:0122ffcffa6de912b1fc03dbf5faab6aaf5505432d3d5b2192e8bd1b1eb3f2b5",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:3ff3e2df63ca7685e2f18a222d0b8c9996b380534e708fd7ae7ea426d4c5db37",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:afc4eb3cffc3b474e49c0bd3046c63fcffd54789a2fe0257e40e58712935585c",
+      "decision": "implicit"
+    },
+    "A6": {
+      "hash": "sha256:effcb4d06a220740fd029e489f49594d99c343218c9d4033f62a62653f502af2",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 6,
+    "AC": 6,
+    "T": 3,
+    "R": 1
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:54cdb6ae106f8b4405ab0b44d24a704a5463c65f3a07f9fbb5b08f6dcc7226b5",
+    "at": "2026-10-26T09:40:03.136Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
