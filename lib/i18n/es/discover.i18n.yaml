@@ -1,4 +1,10 @@
 title: Modo descubrir
 hint: Desliza hacia arriba para ver el siguiente.
+hintDismiss: Entendido, ocultar la pista
 seeDish: Ver plato ↑
 counter: "{current} / {total}"
+featured: Destacado de la casa
+page: "{name}. {price}. Calificación de {rating} sobre 5."
+empty:
+  title: Nada que descubrir por ahora.
+  message: Con estos filtros no queda ningún plato. Quita uno o borra la búsqueda.

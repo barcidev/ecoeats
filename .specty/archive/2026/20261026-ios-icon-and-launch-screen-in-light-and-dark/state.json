@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "20261026-ios-icon-and-launch-screen-in-light-and-dark",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261026-ios-icon-and-launch-screen-in-light-and-dark",
+  "baseCommit": "106b782b0162718c4e4d99338b665790855f5f16",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:9c213e7e4ceff2581abd636ab73100624e299accc9998cd7d51bdb7dbc9d6378",
+    "at": "2026-10-26T13:58:48.017Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "S",
+    "score": 2,
+    "adjust": 0,
+    "reasons": [
+      "2 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:9c67e5c11cfe116c04724eb42568ef66460d35294fc6af4806dc970b52af6f7d",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:976159fea510e0147e53b960f341a44a53c6126ae1f6843b4e4cd073270796b9",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:59f7d3f1c86726103ef81db0e2788de5e41f95ba5b8f7cb6b6750a15293ad503",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:a30a2a5cb74d63e3e1692aae43773095526c579318b4f4ed19fd1c8364de1d80",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "8216957ccceb2a33216b04ea73c41b49c37aabed",
+      "attempts": 1,
+      "startedAt": "2026-10-26T13:58:48.416Z",
+      "doneAt": "2026-10-26T13:59:53.020Z",
+      "summary": "flutter_launcher_icons.yaml turns iOS on (alpha removed): the AppIcon set is drawn from the opaque brand icon. The generator's pbxproj bug (every ASSETCATALOG_* setting renamed) is documented in the config and undone in T2.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "7b4ac446038844473ea44e6ae6edd28f2608b973",
+      "attempts": 1,
+      "startedAt": "2026-10-26T13:59:53.300Z",
+      "doneAt": "2026-10-26T14:03:51.490Z",
+      "summary": "flutter_native_splash.yaml turns iOS on: launch screen with the mark on Mantel/Fogón paper, seen on the iPhone 15 Pro simulator in light and dark with the new icon on the home screen; Info.plist keeps languages and portrait, project.pbxproj restored.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 3,
+    "T": 2,
+    "R": 1
+  },
+  "closingSubmittedAt": "2026-10-26T14:04:06.554Z"
+}

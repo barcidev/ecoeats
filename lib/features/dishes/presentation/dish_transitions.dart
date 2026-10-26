@@ -8,6 +8,10 @@ enum HeroSource { carousel, list, discover }
 String dishHeroTag(String dishId, HeroSource source) =>
     'dish-$dishId-${source.name}';
 
+/// The dish's name flies along with its photo, under a tag of its own.
+String dishNameHeroTag(String dishId, HeroSource source) =>
+    '${dishHeroTag(dishId, source)}-name';
+
 Widget dishFadeTransition(
   BuildContext context,
   Animation<double> animation,

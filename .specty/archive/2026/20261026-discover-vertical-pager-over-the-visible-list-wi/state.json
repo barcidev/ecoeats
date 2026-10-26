@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "id": "20261026-discover-vertical-pager-over-the-visible-list-wi",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261026-discover-vertical-pager-over-the-visible-list-wi",
+  "baseCommit": "1ec4d2cd80a3705e5fa7358b52d5a3bdc3572009",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ea6cdf5ea5156470e50ec964db045a2b56d5923f1802c806e65574e581f8915b",
+    "at": "2026-10-26T11:05:49.901Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "L",
+    "score": 13,
+    "adjust": 0,
+    "reasons": [
+      "10 files",
+      "2 modules",
+      "4 tasks"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:5c8a94a540026c3d86f5367954948eee03ce09c612f51d3bfb62a9d6e87bffcf",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:7352f17939d07e27664f8a2e7adbc0e39fb629d6a2f5cca53faffc2e3296356a",
+      "decision": "confirmed"
+    },
+    "A3": {
+      "hash": "sha256:b4d4c87ccffb6e6092f6331ed02a3f406825ab8c3b97ed739a1447422788f1f1",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:bb0716350239f17fd71f8e5c54b1a209679719323f5703dab5a68abe58f49b8c",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:f23444bb76bbe41d654d2c1a13ea4d4f0a2e54a38e6a181d24e8e1d1f0e930e5",
+      "decision": "implicit"
+    },
+    "A6": {
+      "hash": "sha256:4aecea5bbcd6f4dfb41cf1becc3487988593dbdf6d2d74e6bf6c9c8eec4e8654",
+      "decision": "implicit"
+    },
+    "A7": {
+      "hash": "sha256:ac9f994626d69d328116f3f99ce00cfcc2ea9ae734c3aa195ae43698b94a2a55",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "4262e44ba4011ec92da7a47aac5296930c1654a7",
+      "attempts": 1,
+      "startedAt": "2026-10-26T11:05:50.242Z",
+      "doneAt": "2026-10-26T11:07:19.160Z",
+      "summary": "Discover copy in Spanish and English (featured overline, page summary, empty state, hint dismiss) and DiscoverHint, a SharedPreferences-backed flag that hides the hint for good once dismissed.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "149361bcdb27e771371a2c8c45efe48e48f035ff",
+      "attempts": 1,
+      "startedAt": "2026-10-26T11:07:19.421Z",
+      "doneAt": "2026-10-26T11:08:44.882Z",
+      "summary": "DiscoverSlide: full-bleed photo under the discover DishHero with a 9 s Ken Burns while active, words that lead (1.3) and a photo that trails within its 1.1 zoom, scrims, featured overline, flying name, price, stars, description and «Ver plato».",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "7c28594e97c4ffa7c5f82d0037850fb19aa12ce1",
+      "attempts": 1,
+      "startedAt": "2026-10-26T11:08:45.152Z",
+      "doneAt": "2026-10-26T11:11:35.042Z",
+      "summary": "DiscoverPage snapshots the visible list, pages vertically with implicit scrolling (next photo built offstage), ticks a light haptic and dismisses the hint per settled page, with counter, rail, close, hint bubble, loading, error and empty states in a dark room.",
+      "scopeExtra": []
+    },
+    "T4": {
+      "status": "done",
+      "baseCommit": "aa086d31e14b94903e739eb971e7f696fcec78df",
+      "attempts": 1,
+      "startedAt": "2026-10-26T11:11:35.304Z",
+      "doneAt": "2026-10-26T11:14:33.637Z",
+      "summary": "The reveal shades the growing circle's edge (RevealEdgePainter) and settles the page from 1.04; route tests run inside a ProviderScope with an empty catalog; Ken Burns is one 9 s push-in and the hint nods thrice, so Discover settles.",
+      "scopeExtra": [
+        "lib/features/discover/presentation/discover_slide.dart",
+        "lib/features/discover/presentation/discover_chrome.dart"
+      ]
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 7,
+    "AC": 7,
+    "T": 4,
+    "R": 3
+  },
+  "closingSubmittedAt": "2026-10-26T11:15:25.764Z"
+}

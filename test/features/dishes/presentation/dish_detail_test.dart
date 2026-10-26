@@ -58,6 +58,29 @@ void main() {
     );
   });
 
+  testWidgets('the name flies with the photo into the headline', (
+    tester,
+  ) async {
+    bool nameHero(Widget widget, String tag) =>
+        widget is Hero && widget.tag == tag;
+
+    await bootApp(tester, repository: _catalog());
+    await tester.tap(find.bySemanticsLabel(RegExp('^Destacado 1 de 4')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 150));
+    // Mid-flight, the card's name and the headline cross in the overlay.
+    expect(find.text('Bandeja Paisa'), findsNWidgets(2));
+    await tester.pumpAndSettle();
+    expect(
+      _inDetail(
+        find.byWidgetPredicate(
+          (widget) => nameHero(widget, 'dish-bandeja-carousel-name'),
+        ),
+      ),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('macros and numbered ingredients', (tester) async {
     final container = await bootApp(tester, repository: _catalog());
     unawaited(

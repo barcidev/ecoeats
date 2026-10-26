@@ -6,10 +6,21 @@ import 'package:ecoeats/design/widgets/state_view.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 
-Widget _app(Widget child, {Brightness brightness = .light}) => MaterialApp(
+Widget _app(
+  Widget child, {
+  Brightness brightness = .light,
+  bool reduceMotion = false,
+}) => MaterialApp(
   theme: ecoTheme(brightness),
+  builder: (context, child) => MediaQuery(
+    data: MediaQuery.of(context).copyWith(disableAnimations: reduceMotion),
+    child: child!,
+  ),
   home: Scaffold(body: child),
 );
+
+PlateIllustration _drawing(WidgetTester tester) =>
+    tester.widget<PlateIllustration>(find.byType(PlateIllustration));
 
 String _wait(Duration remaining) =>
     'Intenta en 0:${remaining.inSeconds.toString().padLeft(2, '0')}';
@@ -94,4 +105,65 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets('each kind has its own drawing', (tester) async {
+    const details = {
+      StateKind.empty: PlateDetail.crumbs,
+      StateKind.error: PlateDetail.smoke,
+      StateKind.offline: PlateDetail.cutCord,
+      StateKind.rateLimited: PlateDetail.hourglass,
+    };
+    for (final MapEntry(key: kind, value: detail) in details.entries) {
+      await tester.pumpWidget(_app(StateView(kind: kind, title: kind.name)));
+      expect(_drawing(tester).detail, detail, reason: kind.name);
+    }
+  });
+
+  testWidgets('it rises into place as it appears', (tester) async {
+    await tester.pumpWidget(
+      _app(const StateView(kind: .empty, title: 'Nada en la carta.')),
+    );
+    await tester.pump();
+    final arriving = tester.getTopLeft(find.text('Nada en la carta.'));
+    await tester.pumpAndSettle();
+    final settled = tester.getTopLeft(find.text('Nada en la carta.'));
+    expect(arriving.dy, greaterThan(settled.dy));
+  });
+
+  testWidgets('with reduced motion it is in place at once', (tester) async {
+    Widget view() => _app(
+      const StateView(kind: .empty, title: 'Nada en la carta.'),
+      reduceMotion: true,
+    );
+    await tester.pumpWidget(view());
+    await tester.pump();
+    final first = tester.getTopLeft(find.text('Nada en la carta.'));
+    await tester.pumpAndSettle();
+    expect(tester.getTopLeft(find.text('Nada en la carta.')), first);
+  });
+
+  testWidgets('the hourglass empties while the cooldown runs', (tester) async {
+    await tester.pumpWidget(
+      _app(
+        StateView(
+          kind: .rateLimited,
+          title: 'Vas muy rápido.',
+          actionLabel: 'Reintentar',
+          onAction: () {},
+          cooldown: const Duration(seconds: 4),
+          cooldownLabel: _wait,
+        ),
+      ),
+    );
+    expect(_drawing(tester).progress, 1);
+
+    await tester.pump(const Duration(seconds: 2));
+    await tester.pump(const Duration(seconds: 1));
+    expect(_drawing(tester).progress, lessThan(0.75));
+    expect(_drawing(tester).progress, greaterThan(0));
+
+    await tester.pump(const Duration(seconds: 2));
+    await tester.pumpAndSettle();
+    expect(_drawing(tester).progress, 0);
+  });
 }

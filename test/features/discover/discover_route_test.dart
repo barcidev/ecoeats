@@ -6,8 +6,28 @@ import 'package:ecoeats/design/theme.dart';
 import 'package:ecoeats/design/widgets/grain_overlay.dart';
 import 'package:ecoeats/features/discover/presentation/discover_page.dart';
 import 'package:ecoeats/features/discover/presentation/discover_route.dart';
+import 'package:ecoeats/features/dishes/data/dish_repository.dart';
+import 'package:ecoeats/i18n/gen/strings.g.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../helpers/app_harness.dart';
+
+/// Discover reads the catalog and speaks the app's languages. With nothing
+/// visible it rests on its empty state, so the route can settle: a page with
+/// dishes never does, since its photo keeps drifting.
+Widget _scope(Widget app) {
+  SharedPreferences.setMockInitialValues({'discover.hintSeen': true});
+  final catalog = MockDishRepository();
+  when(catalog.fetchAll).thenAnswer((_) async => []);
+  return ProviderScope(
+    overrides: [dishRepositoryProvider.overrideWithValue(catalog)],
+    child: TranslationProvider(child: app),
+  );
+}
 
 CircleRevealClipper _clipper(WidgetTester tester) =>
     tester.widget<ClipPath>(find.byType(ClipPath)).clipper!
@@ -40,19 +60,21 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      MaterialApp(
-        theme: ecoTheme(.light),
-        home: Builder(
-          builder: (context) => Center(
-            child: TextButton(
-              onPressed: () => Navigator.of(context).push(
-                revealRoute<void>(
-                  settings: const RouteSettings(name: 'discover'),
-                  origin: const Offset(40, 700),
-                  child: const DiscoverPage(),
+      _scope(
+        MaterialApp(
+          theme: ecoTheme(.light),
+          home: Builder(
+            builder: (context) => Center(
+              child: TextButton(
+                onPressed: () => Navigator.of(context).push(
+                  revealRoute<void>(
+                    settings: const RouteSettings(name: 'discover'),
+                    origin: const Offset(40, 700),
+                    child: const DiscoverPage(),
+                  ),
                 ),
+                child: const Text('open'),
               ),
-              child: const Text('open'),
             ),
           ),
         ),
@@ -86,11 +108,69 @@ void main() {
         const DiscoverPage(),
       ]) {
         await tester.pumpWidget(
-          MaterialApp(theme: ecoTheme(brightness), home: screen),
+          _scope(MaterialApp(theme: ecoTheme(brightness), home: screen)),
         );
         await tester.pump(const Duration(milliseconds: 500));
         expect(tester.takeException(), isNull);
       }
     });
   }
+
+  testWidgets('the growing edge is shaded and the page settles in scale', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _scope(
+        MaterialApp(
+          theme: ecoTheme(.light),
+          home: Builder(
+            builder: (context) => Center(
+              child: TextButton(
+                onPressed: () => Navigator.of(context).push(
+                  revealRoute<void>(
+                    settings: const RouteSettings(name: 'discover'),
+                    origin: const Offset(40, 700),
+                    child: const DiscoverPage(),
+                  ),
+                ),
+                child: const Text('open'),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.text('open'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 120));
+
+    final edge = tester
+        .widgetList<CustomPaint>(find.byType(CustomPaint))
+        .map((paint) => paint.foregroundPainter)
+        .whereType<RevealEdgePainter>()
+        .single;
+    expect(edge.fraction, inExclusiveRange(0, 1));
+    final settling = tester
+        .widget<Transform>(
+          find
+              .descendant(
+                of: find.byType(ClipPath),
+                matching: find.byType(Transform),
+              )
+              .first,
+        )
+        .transform
+        .entry(0, 0);
+    expect(settling, inExclusiveRange(1, 1.04));
+
+    await tester.pumpAndSettle();
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is CustomPaint &&
+            widget.foregroundPainter is RevealEdgePainter,
+      ),
+      findsNothing,
+    );
+  });
 }

@@ -2,28 +2,24 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:auto_route/auto_route.dart';
-import 'package:ecoeats/core/network/app_failure.dart';
-import 'package:ecoeats/core/session/session_controller.dart';
 import 'package:ecoeats/design/painters/logo_mark.dart';
-import 'package:ecoeats/design/tokens/eco_icons.dart';
 import 'package:ecoeats/design/tokens/motion.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/tokens/spacing.dart';
 import 'package:ecoeats/design/tokens/typography.dart';
 import 'package:ecoeats/design/widgets/eco_button.dart';
-import 'package:ecoeats/design/widgets/eco_text_field.dart';
 import 'package:ecoeats/design/widgets/grain_overlay.dart';
 import 'package:ecoeats/design/widgets/mask_reveal_text.dart';
-import 'package:ecoeats/design/widgets/pressable.dart';
-import 'package:ecoeats/design/widgets/toast.dart';
-import 'package:ecoeats/i18n/failure_text.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
-// The login, register and recover pages are still phase 0 placeholders; each
-// one moves to its own file when agent A builds it.
+export 'package:ecoeats/features/auth/presentation/login_page.dart';
+export 'package:ecoeats/features/auth/presentation/recover_page.dart';
+export 'package:ecoeats/features/auth/presentation/register_page.dart';
+
+// Each auth page lives in its own file and is exported from here, where the
+// router looks for it.
 
 /// Hosts the auth pages over one living backdrop that never restarts between
 /// them; while a panel is open, the photo steps back behind it.
@@ -424,148 +420,6 @@ class _WelcomePageState extends State<WelcomePage>
                   ],
                 ),
               ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-@RoutePage()
-class LoginPage extends ConsumerStatefulWidget {
-  const new({super.key});
-
-  @override
-  ConsumerState<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends ConsumerState<LoginPage> {
-  final _email = TextEditingController();
-  final _password = TextEditingController();
-  var _loading = false;
-
-  @override
-  void dispose() {
-    _email.dispose();
-    _password.dispose();
-    super.dispose();
-  }
-
-  // Success needs no navigation: the guards follow the session to Home.
-  Future<void> _submit() async {
-    final t = context.t;
-    setState(() => _loading = true);
-    try {
-      await ref
-          .read(sessionControllerProvider.notifier)
-          .login(email: _email.text, password: _password.text);
-    } on AppFailure catch (failure) {
-      if (!mounted) return;
-      final message = failure is UnauthorizedFailure
-          ? t.auth.login.wrongCredentials
-          : failureMessage(failure, t);
-      Toast.show(context, message, tone: .alert);
-    } finally {
-      if (mounted) setState(() => _loading = false);
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final t = context.t.auth.login;
-    return _AuthPanel(
-      title: t.title,
-      children: [
-        EcoTextField(
-          label: t.email,
-          controller: _email,
-          keyboardType: TextInputType.emailAddress,
-          textInputAction: TextInputAction.next,
-          autofillHints: const [AutofillHints.email],
-        ),
-        const SizedBox(height: Space.lg),
-        EcoTextField(
-          label: t.password,
-          controller: _password,
-          obscureText: true,
-          textInputAction: TextInputAction.done,
-          autofillHints: const [AutofillHints.password],
-          onSubmitted: (_) => _submit(),
-        ),
-        const SizedBox(height: Space.xl),
-        EcoButton(label: t.submit, loading: _loading, onPressed: _submit),
-      ],
-    );
-  }
-}
-
-@RoutePage()
-class RegisterPage extends StatelessWidget {
-  const new({super.key});
-
-  @override
-  Widget build(BuildContext context) =>
-      _AuthPanel(title: context.t.auth.register.title, children: const []);
-}
-
-@RoutePage()
-class RecoverPage extends StatelessWidget {
-  const new({super.key});
-
-  @override
-  Widget build(BuildContext context) =>
-      _AuthPanel(title: context.t.auth.recover.title, children: const []);
-}
-
-class _AuthPanel extends StatelessWidget {
-  const new({required this.title, required this.children});
-
-  final String title;
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    final palette = context.palette;
-    // A sheet over the backdrop: the photo stays visible above its top edge.
-    return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.paddingOf(context).top + 40),
-      child: DecoratedBox(
-        decoration: ShapeDecoration(
-          color: palette.raised,
-          shape: const RoundedSuperellipseBorder(
-            borderRadius: .vertical(top: .circular(Radii.lg)),
-          ),
-        ),
-        child: _panelBody(context, palette),
-      ),
-    );
-  }
-
-  Widget _panelBody(BuildContext context, EcoPalette palette) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: SafeArea(
-        top: false,
-        child: AutofillGroup(
-          child: ListView(
-            padding: const EdgeInsets.all(Space.gutter),
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Pressable(
-                  semanticLabel: context.t.common.actions.back,
-                  onPressed: () => context.router.maybePop(),
-                  child: Padding(
-                    padding: const EdgeInsets.all(Space.xs),
-                    child: Icon(EcoIcons.arrowLeft, color: palette.ink),
-                  ),
-                ),
-              ),
-              const SizedBox(height: Space.lg),
-              Text(title, style: EcoType.headline.copyWith(color: palette.ink)),
-              const SizedBox(height: Space.xl),
-              ...children,
             ],
           ),
         ),

@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "id": "20261026-press-button-and-spinner-motion-spring-pressable",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261026-press-button-and-spinner-motion-spring-pressable",
+  "baseCommit": "fcae91ba50c73a5cb2f03b72faa2875f851ee80b",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:b8072361399eea0b52ad0a5bad7c26b609365deea2be506fe02d651cfde765d4",
+    "at": "2026-10-26T10:11:58.444Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "M",
+    "score": 7,
+    "adjust": 0,
+    "reasons": [
+      "7 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:52da35b4465b5bfe0f2e3e3d1a120a8e5cfd2c3b2701d7904f2a89bfde42065e",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:b8fab9286809ec94eb5c101aab070eb7ea9fd59a8a97fe31ea4e931198dc4234",
+      "decision": "confirmed"
+    },
+    "A3": {
+      "hash": "sha256:438586dc92beb43d57ec97c1404042f75689bdb876d068da80c687b0c7c517e6",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:ddfa83387b74a133154c361e9511dd8fb55b481a09b26056a2a251f3769245af",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:6e74e82b7fb9642f796aa5f9988f37748f7fd159b197af35b0a86b8a6a3e6c63",
+      "decision": "implicit"
+    },
+    "A6": {
+      "hash": "sha256:052e95b31b7a88636cdc41a0fd6cca30e5a07375e8264f10c034b9cc21e7de4d",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "d6604917c53e5c84f65d9a1a6187a3d32d9060a8",
+      "attempts": 1,
+      "startedAt": "2026-10-26T10:11:58.841Z",
+      "doneAt": "2026-10-26T10:16:23.690Z",
+      "summary": "Pressable sinks and springs back with Motion.spring, keeping velocity, rests exactly at 1, plays a selection click and never scales with reduced motion (read in build, safe during teardown).",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "94798241f2e879cbeb731c26cc8740e02447a052",
+      "attempts": 1,
+      "startedAt": "2026-10-26T10:16:24.350Z",
+      "doneAt": "2026-10-26T10:18:52.714Z",
+      "summary": "PlateSpinner's arc now chases itself (eased head and tail, 1.25 turns per cycle, continuous across cycles, tested through plateSpinnerArc); Shake runs a loose damped spring with a medium haptic and rests exactly at 0.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "15fcab63bd8cec3ac7d29af45ee41fc0ab01bbf1",
+      "attempts": 1,
+      "startedAt": "2026-10-26T10:18:53.559Z",
+      "doneAt": "2026-10-26T10:24:29.246Z",
+      "summary": "EcoButton narrows into a spinning circle inside its full slot while loading, widens back with a drawn check on success (light haptic, onSuccess once), crossfades with reduced motion; no LayoutBuilder so intrinsic layouts keep working.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 6,
+    "AC": 6,
+    "T": 3,
+    "R": 2
+  },
+  "closingSubmittedAt": "2026-10-26T10:24:46.330Z"
+}

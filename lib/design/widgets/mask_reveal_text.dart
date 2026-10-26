@@ -4,7 +4,8 @@ import 'package:ecoeats/design/tokens/motion.dart';
 import 'package:flutter/widgets.dart';
 
 /// A headline that rises line by line from behind its own baseline, as if
-/// each line were slid out of a slot.
+/// each line were slid out of a slot. The slots reach past the line box, so
+/// accents and descenders are never cut.
 class MaskRevealText extends StatefulWidget {
   const new({
     required this.lines,
@@ -53,6 +54,14 @@ class _MaskRevealTextState extends State<MaskRevealText>
 
   @override
   Widget build(BuildContext context) {
+    final style = DefaultTextStyle.of(context).style.merge(widget.style);
+    final fontSize = style.fontSize ?? 14;
+    // Fraunces reaches about a quarter of its size past a tight line box,
+    // above (Á, Ñ) and below (g, y).
+    final overhang = fontSize * 0.3;
+    final lineHeight = fontSize * (style.height ?? 1.2);
+    // A line starts low enough that its accents clear the bottom of the slot.
+    final hidden = 1 + overhang * 2 / lineHeight;
     final total = _reveal.duration!.inMilliseconds;
     final span = Motion.slow.inMilliseconds / total;
     final align = switch (widget.textAlign) {
@@ -69,8 +78,9 @@ class _MaskRevealTextState extends State<MaskRevealText>
         children: [
           for (final (index, line) in widget.lines.indexed)
             ClipRect(
+              clipper: _Slot(overhang),
               child: SlideTransition(
-                position: Tween(begin: const Offset(0, 1), end: Offset.zero)
+                position: Tween(begin: Offset(0, hidden), end: Offset.zero)
                     .animate(
                       CurvedAnimation(
                         parent: _reveal,
@@ -93,4 +103,21 @@ class _MaskRevealTextState extends State<MaskRevealText>
       ),
     );
   }
+}
+
+class _Slot extends CustomClipper<Rect> {
+  const new(this.overhang);
+
+  final double overhang;
+
+  @override
+  Rect getClip(Size size) => Rect.fromLTRB(
+    -overhang,
+    -overhang,
+    size.width + overhang,
+    size.height + overhang,
+  );
+
+  @override
+  bool shouldReclip(_Slot oldClipper) => oldClipper.overhang != overhang;
 }

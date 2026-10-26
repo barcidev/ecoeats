@@ -6,6 +6,8 @@ import 'package:ecoeats/core/network/dio_provider.dart';
 import 'package:ecoeats/core/network/health.dart';
 import 'package:ecoeats/core/network/retry.dart';
 import 'package:ecoeats/core/session/session_controller.dart';
+import 'package:ecoeats/features/profile/application/locale_controller.dart';
+import 'package:ecoeats/features/profile/application/theme_mode_controller.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -23,11 +25,14 @@ Future<void> main() async {
   final container = ProviderContainer(retry: retryPolicy);
   unawaited(warmUp(container.read(dioProvider)));
 
-  // The splash stays up until the stored session is known, so the first frame
-  // is already the right screen instead of a flash of the welcome.
-  await container
-      .read(sessionControllerProvider.future)
-      .then<void>((_) {}, onError: (_) {});
+  // The splash stays up until the stored session, appearance and language are
+  // known, so the first frame is already the right screen in the right theme
+  // and language. Without stored choices, both follow the device.
+  await Future.wait([
+    container.read(sessionControllerProvider.future),
+    container.read(themeModeControllerProvider.future),
+    container.read(localeControllerProvider.future),
+  ]).then<void>((_) {}, onError: (_) {});
   FlutterNativeSplash.remove();
 
   runApp(

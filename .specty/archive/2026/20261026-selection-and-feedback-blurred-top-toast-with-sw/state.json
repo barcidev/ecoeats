@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "id": "20261026-selection-and-feedback-blurred-top-toast-with-sw",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261026-selection-and-feedback-blurred-top-toast-with-sw",
+  "baseCommit": "ee6314c66f4a39e7d182b73c98509970d3837b42",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:5c23018b48c3eb23811bd4fc3461050a5ba135ffef52f88b940e2124571484d5",
+    "at": "2026-10-26T10:50:48.606Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "S",
+    "score": 4,
+    "adjust": 0,
+    "reasons": [
+      "4 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:9f189ca524bfdd1c286b67b44d89bedc81f8eb4141672eaf5cf748514a15bf58",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:b83e1a74815f29e478883696ddccd2421a40b2aaedee4e8cad7071bc17b12476",
+      "decision": "confirmed"
+    },
+    "A3": {
+      "hash": "sha256:99dbfd140f49c1cca1dc73a624907a3a2d6df153f9d669adfdecaeef60d60461",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:06d2010c00ba219ec351c411504dd1596a4217cd36772d7cee60819bf18ba510",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:4568085ed3dd98f37188f0ba939a4e167f9ea3aa7d9650e43494fca41ca02689",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "304a97b25feeb1a7488cfdead17040d06a643068",
+      "attempts": 1,
+      "startedAt": "2026-10-26T10:50:49.048Z",
+      "doneAt": "2026-10-26T10:52:40.159Z",
+      "summary": "SegmentedPills measures the chosen pill after each frame and slides one ink stadium (AnimatedPositioned) to it, recolors labels, and centers the pick with ensureVisible; the pill paints its own ink until first measured.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "5f10f680c5633ac33930c84e6077419a389ed733",
+      "attempts": 1,
+      "startedAt": "2026-10-26T10:52:40.466Z",
+      "doneAt": "2026-10-26T10:53:47.884Z",
+      "summary": "RatingStars draws soft five-point stars that span their whole box (starPath), keeping one Align per star, so the filled share of the box is exactly the star's share: 4.7 fills 70 % of the fifth.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "8e2dea070512008d7674aac7c453245e97eb2f78",
+      "attempts": 1,
+      "startedAt": "2026-10-26T10:53:48.153Z",
+      "doneAt": "2026-10-26T10:55:45.834Z",
+      "summary": "Toast sits on a clipped BackdropFilter blur with translucent raised paper; a drag pauses its timer, a flick or 24 px drag throws it up with friction, a short drag springs back and restarts its full stay.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 4,
+    "T": 3,
+    "R": 2
+  },
+  "closingSubmittedAt": "2026-10-26T10:55:57.586Z"
+}

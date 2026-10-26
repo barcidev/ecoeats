@@ -1,19 +1,101 @@
 import 'package:ecoeats/design/painters/plate_illustration.dart';
 import 'package:ecoeats/design/theme.dart';
 import 'package:ecoeats/design/widgets/plate_spinner.dart';
+import 'package:ecoeats/design/widgets/pressable.dart';
 import 'package:ecoeats/design/widgets/rating_stars.dart';
 import 'package:ecoeats/design/widgets/segmented_pills.dart';
 import 'package:ecoeats/design/widgets/toast.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 
-Widget _app(Widget child, {Brightness brightness = .light}) => MaterialApp(
+Widget _app(
+  Widget child, {
+  Brightness brightness = .light,
+  bool reduceMotion = false,
+}) => MaterialApp(
   theme: ecoTheme(brightness),
+  builder: (context, child) => MediaQuery(
+    data: MediaQuery.of(context).copyWith(disableAnimations: reduceMotion),
+    child: child!,
+  ),
   home: Scaffold(body: Center(child: child)),
 );
 
+void _expectRect(Rect actual, Rect expected) {
+  expect(actual.left, closeTo(expected.left, 0.5));
+  expect(actual.top, closeTo(expected.top, 0.5));
+  expect(actual.width, closeTo(expected.width, 0.5));
+  expect(actual.height, closeTo(expected.height, 0.5));
+}
+
 void main() {
   group('SegmentedPills', () {
+    const filters = ['Todos', 'Destacados', 'Altos en proteína', 'Ligeros'];
+
+    Widget pills(
+      String selected, {
+      double width = 600,
+      bool reduceMotion = false,
+    }) => _app(
+      SizedBox(
+        width: width,
+        child: SegmentedPills<String>(
+          values: filters,
+          selected: selected,
+          labelOf: (value) => value,
+          onChanged: (_) {},
+          padding: EdgeInsets.zero,
+        ),
+      ),
+      reduceMotion: reduceMotion,
+    );
+
+    Rect indicator(WidgetTester tester) =>
+        tester.getRect(find.byKey(SegmentedPills.indicatorKey));
+
+    Rect pill(WidgetTester tester, String label) => tester.getRect(
+      find.ancestor(of: find.text(label), matching: find.byType(Pressable)),
+    );
+
+    testWidgets('one indicator slides and stretches to the picked pill', (
+      tester,
+    ) async {
+      await tester.pumpWidget(pills('Todos'));
+      await tester.pumpAndSettle();
+      _expectRect(indicator(tester), pill(tester, 'Todos'));
+
+      await tester.pumpWidget(pills('Ligeros'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final moving = indicator(tester);
+      expect(moving.left, greaterThan(pill(tester, 'Todos').left));
+      expect(moving.left, lessThan(pill(tester, 'Ligeros').left));
+
+      await tester.pumpAndSettle();
+      _expectRect(indicator(tester), pill(tester, 'Ligeros'));
+    });
+
+    testWidgets('the picked pill scrolls into view', (tester) async {
+      await tester.pumpWidget(pills('Todos', width: 200));
+      await tester.pumpAndSettle();
+      await tester.pumpWidget(pills('Ligeros', width: 200));
+      await tester.pumpAndSettle();
+      final row = tester.getRect(find.byType(SingleChildScrollView));
+      final picked = pill(tester, 'Ligeros');
+      expect(picked.left, greaterThanOrEqualTo(row.left));
+      expect(picked.right, lessThanOrEqualTo(row.right));
+      _expectRect(indicator(tester), picked);
+    });
+
+    testWidgets('with reduced motion the indicator jumps', (tester) async {
+      await tester.pumpWidget(pills('Todos', reduceMotion: true));
+      await tester.pumpAndSettle();
+      await tester.pumpWidget(pills('Ligeros', reduceMotion: true));
+      await tester.pump();
+      await tester.pump();
+      _expectRect(indicator(tester), pill(tester, 'Ligeros'));
+    });
+
     testWidgets('a tap reports its value', (tester) async {
       String? chosen;
       await tester.pumpWidget(
@@ -52,6 +134,43 @@ void main() {
       );
       semantics.dispose();
     });
+  });
+
+  test('a drawn star spans the whole width of its box', () {
+    final bounds = starPath(const Size.square(20)).getBounds();
+    expect(bounds.left, closeTo(0, 0.01));
+    expect(bounds.right, closeTo(20, 0.01));
+    expect(bounds.top, greaterThanOrEqualTo(0));
+    expect(bounds.bottom, lessThanOrEqualTo(20));
+  });
+
+  testWidgets('4.7 fills 70 % of the fifth star', (tester) async {
+    await tester.pumpWidget(_app(const RatingStars(rating: 4.7, size: 20)));
+    final fills = tester
+        .widgetList<Align>(
+          find.descendant(
+            of: find.byType(RatingStars),
+            matching: find.byType(Align),
+          ),
+        )
+        .map((align) => align.widthFactor!)
+        .toList();
+    expect(fills.take(4), everyElement(1));
+    expect(fills.last, closeTo(0.7, 1e-9));
+    // The fill clips a star as wide as its box, so 70 % of the box is 70 %
+    // of the star.
+    final lastFill = find
+        .descendant(
+          of: find
+              .descendant(
+                of: find.byType(RatingStars),
+                matching: find.byType(Align),
+              )
+              .last,
+          matching: find.byType(CustomPaint),
+        )
+        .first;
+    expect(tester.getSize(lastFill), const Size.square(20));
   });
 
   testWidgets('4.5 stars fill four and half of the fifth', (tester) async {
@@ -110,5 +229,77 @@ void main() {
     await tester.pump(const Duration(seconds: 4));
     await tester.pumpAndSettle();
     expect(find.text('Tu sesión venció.'), findsNothing);
+  });
+
+  group('Toast', () {
+    const note = 'Tu sesión venció.';
+
+    Future<void> showToast(WidgetTester tester, [String message = note]) async {
+      await tester.tap(find.text('show $message'));
+      await tester.pumpAndSettle();
+    }
+
+    Widget launcher(List<String> messages) => _app(
+      Builder(
+        builder: (context) => Column(
+          mainAxisSize: .min,
+          children: [
+            for (final message in messages)
+              TextButton(
+                onPressed: () => Toast.show(context, message),
+                child: Text('show $message'),
+              ),
+          ],
+        ),
+      ),
+    );
+
+    testWidgets('it sits over a blurred backdrop', (tester) async {
+      await tester.pumpWidget(launcher([note]));
+      await showToast(tester);
+      expect(
+        find.ancestor(
+          of: find.text(note),
+          matching: find.byType(BackdropFilter),
+        ),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('a flick up sends it away at once', (tester) async {
+      await tester.pumpWidget(launcher([note]));
+      await showToast(tester);
+      await tester.fling(find.text(note), const Offset(0, -60), 800);
+      await tester.pumpAndSettle();
+      expect(find.text(note), findsNothing);
+    });
+
+    testWidgets('a short drag springs back and it stays its full time', (
+      tester,
+    ) async {
+      await tester.pumpWidget(launcher([note]));
+      await showToast(tester);
+      final resting = tester.getTopLeft(find.text(note));
+
+      await tester.pump(const Duration(seconds: 2));
+      await tester.drag(find.text(note), const Offset(0, -10));
+      await tester.pumpAndSettle();
+      expect(tester.getTopLeft(find.text(note)), resting);
+
+      // The three seconds start again on release.
+      await tester.pump(const Duration(milliseconds: 2500));
+      expect(find.text(note), findsOneWidget);
+      await tester.pump(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
+      expect(find.text(note), findsNothing);
+    });
+
+    testWidgets('a new one replaces the one showing', (tester) async {
+      await tester.pumpWidget(launcher([note, 'Carta al día.']));
+      await showToast(tester);
+      await showToast(tester, 'Carta al día.');
+      expect(find.text(note), findsNothing);
+      expect(find.text('Carta al día.'), findsOneWidget);
+    });
   });
 }

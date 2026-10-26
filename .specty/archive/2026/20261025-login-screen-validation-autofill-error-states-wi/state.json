@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "id": "20261025-login-screen-validation-autofill-error-states-wi",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-login-screen-validation-autofill-error-states-wi",
+  "baseCommit": "babf8ba8803349f991a4b9cb5c1e636408aaa798",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:a5297d718c038bbaf7daa4805fa1012842452fd6cd0130ba2267d09b59ad32d3",
+    "at": "2026-10-26T03:23:14.566Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "L",
+    "score": 16,
+    "adjust": 0,
+    "reasons": [
+      "4 files",
+      "4 sensitive paths"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:d92199d5b2310f2b503cbb7a01531f417ae0ce3512341b0762e14967d8610d82",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:45f9f01e3166928f2f3a414de107a52c7b2127564d9a33306a26598d17bf2b6c",
+      "decision": "confirmed"
+    },
+    "A3": {
+      "hash": "sha256:44dcd3e2421d243a1704428e0a883d2f8fa1240cf6df016c976e6a0a0c338611",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:33539d6640512421f09bda525ae23d53f67c32f9a85dfce4ab11ca9c6868b014",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:1a9ddf17d70f4868c399fecb02e2d6d9c3ac500d4e422e21526dec5cb5a0a32f",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "8b9dc594cf42248c3fe0d9a9c21c02c95f850b25",
+      "attempts": 1,
+      "startedAt": "2026-10-26T03:23:18.937Z",
+      "doneAt": "2026-10-26T09:21:07.948Z",
+      "summary": "AuthPanel (sheet with overline, title, subtitle and a bottom footer) moved to its own file, and a Countdown that ticks each second from the app clock and reports the end once.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "9beed4db6d8d954931d76fcdbdf62358cd21595f",
+      "attempts": 1,
+      "startedAt": "2026-10-26T09:21:08.252Z",
+      "doneAt": "2026-10-26T09:22:32.311Z",
+      "summary": "AchioteSweep: an achiote disc in the root overlay that grows from the button to the farthest corner, holds while Home arrives and fades, outliving the route change; skipped with reduced motion.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "432b256ed70a7f24d15c240727f1063e97fd4223",
+      "attempts": 1,
+      "startedAt": "2026-10-26T09:22:32.594Z",
+      "doneAt": "2026-10-26T09:27:58.329Z",
+      "summary": "Real login screen with live field checks, autofill, refusals that shake with a haptic, a 429 countdown on the button, and the achiote sweep on success; 10 widget tests.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 8,
+    "T": 3,
+    "R": 1
+  },
+  "closingSubmittedAt": "2026-10-26T09:28:11.147Z"
+}

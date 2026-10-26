@@ -4,11 +4,14 @@ import 'package:ecoeats/core/session/session_controller.dart';
 import 'package:ecoeats/design/theme.dart';
 import 'package:ecoeats/design/widgets/plate_spinner.dart';
 import 'package:ecoeats/features/auth/presentation/auth_pages.dart';
+import 'package:ecoeats/features/profile/application/locale_controller.dart';
+import 'package:ecoeats/features/profile/application/theme_mode_controller.dart';
 import 'package:ecoeats/features/profile/presentation/profile_sheet.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class _FakeSession extends SessionController {
   new({this.initial, this.failure});
@@ -51,6 +54,12 @@ Widget _app(_FakeSession session, Widget home) => ProviderScope(
 );
 
 void main() {
+  // The test device speaks English; the stored choice keeps these in Spanish.
+  setUp(() {
+    SharedPreferences.setMockInitialValues({'profile.language': 'spanish'});
+    LocaleSettings.setLocaleSync(AppLocale.es);
+  });
+
   group('login placeholder', () {
     testWidgets('sends what was typed and shows it is working', (tester) async {
       final session = _FakeSession();
@@ -123,8 +132,69 @@ void main() {
       await open(tester, fake);
       await tester.tap(find.text('Cerrar sesión'));
       await tester.pumpAndSettle();
+      // Signing out asks first; the same words confirm it.
+      expect(find.text('¿Cerrar sesión?'), findsOneWidget);
+      await tester.tap(find.text('Cerrar sesión'));
+      await tester.pumpAndSettle();
       expect(fake.logouts, 1);
       expect(find.text('jorge@example.com'), findsNothing);
+    });
+
+    testWidgets('cancelling the sign-out changes nothing', (tester) async {
+      final fake = _FakeSession(initial: session);
+      await open(tester, fake);
+      await tester.tap(find.text('Cerrar sesión'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Cancelar'));
+      await tester.pumpAndSettle();
+
+      expect(fake.logouts, 0);
+      expect(find.text('¿Cerrar sesión?'), findsNothing);
+      expect(find.text('jorge@example.com'), findsOneWidget);
+      expect(find.text('Cerrar sesión'), findsOneWidget);
+    });
+
+    testWidgets('the last hour of a session reads as such', (tester) async {
+      await open(
+        tester,
+        _FakeSession(
+          initial: session.copyWith(
+            firstNames: null,
+            expiresAt: _now.add(const Duration(minutes: 40)),
+          ),
+        ),
+      );
+
+      expect(
+        find.text('Tu sesión vence en menos de una hora.'),
+        findsOneWidget,
+      );
+      expect(find.text('jorge@example.com'), findsOneWidget);
+    });
+
+    testWidgets('appearance and language change at once', (tester) async {
+      await open(tester, _FakeSession(initial: session));
+      final container = ProviderScope.containerOf(
+        tester.element(find.text('Tu perfil')),
+      );
+      expect(find.text('Español'), findsOneWidget);
+      expect(find.text('English'), findsOneWidget);
+
+      await tester.tap(find.text('Oscuro'));
+      await tester.pumpAndSettle();
+      expect(container.read(themeModeControllerProvider).value, ThemeMode.dark);
+
+      // English is a deferred library, which loads outside the fake clock.
+      await tester.tap(find.text('English'));
+      await tester.runAsync(
+        () => Future<void>.delayed(const Duration(milliseconds: 50)),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        container.read(localeControllerProvider).value,
+        LocaleChoice.english,
+      );
+      expect(find.text('Your profile'), findsOneWidget);
     });
   });
 }

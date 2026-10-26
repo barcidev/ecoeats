@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "20261026-native-platforms",
+  "kind": "quick",
+  "phase": "done",
+  "branch": "specty/20261026-native-platforms",
+  "baseCommit": "8a5149fc0f84b639c8abf6380cfff6da1643e488",
+  "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:b25c7ac8bb9811865fb44dff548e34fc366e47c29579eb34c8440efb0c1d0582",
+    "at": "2026-10-26T09:50:29.203Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "S",
+    "score": 3,
+    "adjust": 0,
+    "reasons": [
+      "3 files"
+    ]
+  },
+  "items": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "6957d4b056d0d3ed484eba8811a18a9eeefbeb91",
+      "attempts": 1,
+      "startedAt": "2026-10-26T09:50:29.589Z",
+      "doneAt": "2026-10-26T09:53:24.751Z",
+      "summary": "Android host project (from the cancelled change: INTERNET, EcoEats label, portrait, predictive back) and iOS host project from flutter create (EcoEats display name, es/en localizations, portrait); analyzer excludes both. APK and iOS simulator builds pass.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "T": 1
+  }
+}
