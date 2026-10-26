@@ -7,6 +7,8 @@ analyzer:
     - "**/*.gr.dart"
     - lib/i18n/gen/**
     - build/**
+    - android/**
+    - ios/**
   errors:
     # freezed puts @JsonKey on constructor parameters, which the analyzer flags.
     invalid_annotation_target: ignore

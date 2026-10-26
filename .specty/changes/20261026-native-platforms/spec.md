@@ -18,7 +18,7 @@ The app runs on Android and iOS. `flutter create` (3.47.8, `co.ecoeats.ecoeats`)
 
 ## Tasks
 
-- [ ] T1: Add both host projects and exclude them from analysis
+- [x] T1: Add both host projects and exclude them from analysis
   - files: analysis_options.yaml, android/**, ios/**
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test && fvm flutter build apk --debug && fvm flutter build ios --simulator --debug
   - type: chore
