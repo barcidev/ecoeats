@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-translations-setup",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-translations-setup",
   "baseCommit": "6b3579552014437bd023486b037bed23cbe5bcdd",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:6a739f854829fb8b9139dfa4378eded6748c936f5b4f2cbdff0378c6d835b972",
@@ -61,12 +61,12 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "4391809bb31436300a312271d9f4e40fc23832fb",
+      "attempts": 1,
       "startedAt": "2026-10-26T01:11:51.273Z",
       "doneAt": "2026-10-26T01:13:57.215Z",
-      "summary": "errors namespace complete in es/en (offline, timeout, 429, server with Ref. {id}, not found, unauthorized, session expired, validation, conflicts, unknown); failureCopy/failureMessage map AppFailure to it, using the server message only in Spanish as a fallback."
+      "summary": "errors namespace complete in es/en (offline, timeout, 429, server with Ref. {id}, not found, unauthorized, session expired, validation, conflicts, unknown); failureCopy/failureMessage map AppFailure to it, using the server message only in Spanish as a fallback.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -77,5 +77,6 @@
     "A": 4,
     "AC": 4,
     "T": 3
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T01:14:09.892Z"
 }

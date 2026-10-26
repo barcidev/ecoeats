@@ -10,3 +10,6 @@
 {"ts":"2026-10-26T01:11:51.282Z","actor":"agent","tool":"claude-code","event":"task.started","data":{"task":"T3","baseCommit":"4391809bb31436300a312271d9f4e40fc23832fb"}}
 {"ts":"2026-10-26T01:13:57.070Z","actor":"specty","event":"task.verified","data":{"task":"T3","cmd":"fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test","exit":0,"ms":14896,"tree":"sha256:8f909a499f51a08997c0357c7e2faf413a51aaa1cb617e7ecf9cad4af1d1eac2"}}
 {"ts":"2026-10-26T01:13:57.219Z","actor":"agent","tool":"claude-code","event":"task.completed","data":{"task":"T3","summary":"errors namespace complete in es/en (offline, timeout, 429, server with Ref. {id}, not found, unauthorized, session expired, validation, conflicts, unknown); failureCopy/failureMessage map AppFailure to it, using the server message only in Spanish as a fallback."}}
+{"ts":"2026-10-26T01:14:02.418Z","actor":"agent","tool":"claude-code","event":"change.accepted","data":{"revision":1,"delegated":true}}
+{"ts":"2026-10-26T01:14:09.893Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":2,"hash":"sha256:d9bb5404638edf725e26fb9058bde30eb10f22c2ee1e5b50a5759cf5870d645e","size":"L","warnings":2}}
+{"ts":"2026-10-26T01:14:10.317Z","actor":"agent","tool":"claude-code","event":"change.closed","data":{"delegated":true}}

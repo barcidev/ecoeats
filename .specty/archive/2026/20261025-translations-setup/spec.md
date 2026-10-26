@@ -65,3 +65,23 @@ The app speaks Spanish (base) and English through slang, one namespace per owner
   - files: lib/i18n/es/errors.i18n.yaml, lib/i18n/en/errors.i18n.yaml, lib/i18n/failure_text.dart, test/i18n/translations_test.dart
   - ac: AC1, AC3, AC4
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+slang generates the app's texts in Spanish (base) and English. `common` and `errors` are complete, and `auth`, `dishes`, `discover` and `profile` have their base keys for their owners. `failureCopy` and `failureMessage` give every `AppFailure` its own words.
+
+### Deviations
+
+- `pubspec.lock` is not listed in Files: Specty accepts it with its manifest, and listing it counted the root as a second module.
+
+### Decisions
+
+- Non-base locales are deferred libraries (slang's default `lazy`), so switching language must use `LocaleSettings.setLocale`.
+- A test reads the YAML files with `package:yaml` to keep both languages on the same keys.
+
+### Follow-ups
+
+- The routes change wraps the app in `TranslationProvider` and hands its locale to `MaterialApp.router`.
+- Agent A extends `auth` and `profile`; the catalog changes extend `dishes`.
