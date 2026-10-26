@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "20261026-fields-headlines-and-surfaces-ecotextfield-with",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-fields-headlines-and-surfaces-ecotextfield-with",
+  "baseCommit": "ce4122ec8618e40aef328cebc92d593fd02f5bff",
+  "revision": 1,
+  "size": {
+    "level": "M",
+    "score": 6,
+    "adjust": 0,
+    "reasons": [
+      "6 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:bd3d873eb8e63f26c242dbb05f9496c0a856928bd80d6e6f17fa1bc0311ab10c",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:c300dcd42f046e950d31e411a1e28646ab3a2dedd780df59cd0956d2c6d4af28",
+      "decision": "confirmed"
+    },
+    "A3": {
+      "hash": "sha256:9259ad7a026bc079bb61ed4147dd2dbd919d0134315809221a10aaf289bb8a79",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:81caea75d05e0548235453203402f4956e924830b6a0ab4a02c208b87adadb4b",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:b6a5aafcd9e959686dd431a6ecc17f772ea1727d07603f87e7e96268751cb384",
+      "decision": "implicit"
+    },
+    "A6": {
+      "hash": "sha256:65057a80589a8fcee7493f0eafadf15473d2c320598cfca4d30eb8df9dfd4a6a",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 6,
+    "AC": 5,
+    "T": 3,
+    "R": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ee0980500f97b4d14e3b6d06425d7d50685b4f5ee376f9c394a21c9a5febade7",
+    "at": "2026-10-26T10:26:47.661Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
