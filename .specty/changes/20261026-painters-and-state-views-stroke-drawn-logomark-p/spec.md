@@ -47,7 +47,7 @@ The brand mark and the app's drawings become finished line art. The logo draws i
 
 ## Tasks
 
-- [ ] T1: Stroke-drawn LogoMark with its well and a veined leaf, with tests for its stages
+- [x] T1: Stroke-drawn LogoMark with its well and a veined leaf, with tests for its stages
   - files: lib/design/painters/logo_mark.dart, test/design/painters_test.dart
   - ac: AC1
   - verify: fvm flutter test test/design/painters_test.dart test/features/auth/presentation/auth_shell_test.dart

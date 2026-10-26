@@ -6,6 +6,13 @@
   "branch": "specty/20261026-painters-and-state-views-stroke-drawn-logomark-p",
   "baseCommit": "6e9bedcffa218b0289779be12568bb45bfebb992",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:b9f0f39de2603585e5d07ab4f1c713a248a0fc8f0918c12cb66a90871544c2bc",
+    "at": "2026-10-26T10:39:48.059Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 5,
@@ -36,7 +43,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "0f8f761c76779d068a24903b36d7b2996ca94e02",
+      "startedAt": "2026-10-26T10:39:48.452Z",
+      "doneAt": "2026-10-26T10:43:44.386Z",
+      "summary": "LogoMark draws its rim from the top as one stroke (path metrics), then a lighter well, then a stalked leaf whose vein is cut out with BlendMode.clear; progress keeps its 0–1 meaning for the welcome."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -46,12 +63,5 @@
     "AC": 4,
     "T": 3,
     "R": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:b9f0f39de2603585e5d07ab4f1c713a248a0fc8f0918c12cb66a90871544c2bc",
-    "at": "2026-10-26T10:39:48.059Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }
