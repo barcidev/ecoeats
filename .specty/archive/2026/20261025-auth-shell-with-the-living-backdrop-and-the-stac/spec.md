@@ -61,3 +61,28 @@ The first thing a guest sees feels like the product: three Colombian dishes fill
 
 - R1: Three full-screen photos cost memory and a decode on first show. Mitigation: they are decoded at the screen's width, precached when the shell opens, and only two are painted at a time.
 - R2: An endless Ken Burns animation never lets a widget test settle. Mitigation: shell tests pump fixed durations instead of settling.
+
+## Closing
+
+### Summary
+
+The auth shell hosts its pages over a living backdrop: three seed photos (Ajiaco, Sancocho, Arroz atollado) bundled under `assets/photos/`, each zooming and drifting for 7 s and then crossfading into the next, under a top scrim, a fade into paper at the bottom and paper grain. The backdrop's state survives every page change, and while a panel is open the photo scales to 0.94, rounds its corners and darkens. Panels rise from the bottom as sheets, and the page beneath steps back (the welcome fades, a panel shrinks and lifts). The welcome plays one intro: the mark draws its plate rim next to the wordmark, the headline rises line by line under a mask, then the subline and the two actions arrive. Reduced motion keeps the photos still, turns the transitions into crossfades and shows the welcome at once. 8 widget tests; the whole suite (233 tests) and `flutter analyze` pass.
+
+### Deviations
+
+- `test/app_test.dart` (phase 0) found the headline as a single `Text`; with the line-by-line reveal it is two. With the user's approval its lookups now use the headline's semantics label, which still asserts that the whole headline is on screen.
+- The welcome had navigated with absolute paths (`/auth/login`), which pushed a second auth shell on the root router and restarted the backdrop; it now pushes relative paths (`login`, `register`) inside the shell.
+
+### Decisions
+
+- The backdrop runs two rounds (about 42 s) and then rests on the first photo, and it starts drifting only after the welcome's intro. That is one movement at a time and no endless GPU work on an idle screen, and it also lets the app tests settle before the 3 s session-expired toast leaves.
+- Photos are decoded at the screen's width plus the zoom margin (`ResizeImage`) and precached when the shell opens; both the current and the next photo stay in the tree under keyed opacities, so the handover never flashes.
+- After a render review in light and dark: the bottom scrim reaches 90 % paper at the headline's height, the top scrim darkens to 55 % for the status bar and the mark, and the panels use `raised` so a sheet stands out from the darkened photo in dark mode.
+- The shell reads the open panel from the nested router's `pageCount`, so the photo's depth follows pushes and pops without touching the router.
+
+### Follow-ups
+
+- `auth_pages.dart` has 491 code lines, close to the 500 limit: C5, C6 and C8 must move their page out of it before adding code, and the shell and welcome can move to their own files with them.
+- `shell.photoCredit` is unused (the credit lives in `assets/photos/CREDITS.md`); a slice that edits the auth copy should remove it.
+- With the auth child routes opaque (as the router declares them), the panel beneath a new sheet stops painting once the transition ends, so the stacked look lasts only during the transition. Making those routes non-opaque in `app_router.dart` would keep it.
+- Visual review was done on golden renders, since the repository has no native platforms yet; a check on a simulator is still pending.

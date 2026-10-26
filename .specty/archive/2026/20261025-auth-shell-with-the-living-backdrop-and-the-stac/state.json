@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-auth-shell-with-the-living-backdrop-and-the-stac",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-auth-shell-with-the-living-backdrop-and-the-stac",
   "baseCommit": "2b1367d7fe5f4786a7dfeba911ee1d3cb7000fa5",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:8c3fa6f43ac5b93019b7db1985201ed9e5c6b734b4a31e217badf588a9368e04",
@@ -15,10 +15,10 @@
   },
   "size": {
     "level": "L",
-    "score": 14,
+    "score": 18,
     "adjust": 0,
     "reasons": [
-      "4 files",
+      "8 files",
       "2 modules",
       "2 sensitive paths",
       "changes dependencies"
@@ -67,14 +67,14 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [
-        "test/app_test.dart"
-      ],
-      "attempts": 1,
       "baseCommit": "d380599adeae6bbd15b6830cbfc3c6c226c177a9",
+      "attempts": 1,
       "startedAt": "2026-10-26T02:23:17.041Z",
       "doneAt": "2026-10-26T03:11:02.377Z",
-      "summary": "Welcome intro on one timeline (logo rim, masked headline line by line, subline and actions), instant with reduced motion; app_test finds the headline by its semantics label."
+      "summary": "Welcome intro on one timeline (logo rim, masked headline line by line, subline and actions), instant with reduced motion; app_test finds the headline by its semantics label.",
+      "scopeExtra": [
+        "test/app_test.dart"
+      ]
     }
   },
   "pending": {
@@ -86,5 +86,6 @@
     "AC": 6,
     "T": 3,
     "R": 2
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T03:11:23.120Z"
 }
