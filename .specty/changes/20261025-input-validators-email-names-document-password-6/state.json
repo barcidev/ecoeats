@@ -2,10 +2,17 @@
   "schema": 1,
   "id": "20261025-input-validators-email-names-document-password-6",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-input-validators-email-names-document-password-6",
   "baseCommit": "a88f4e7f41d49a805fe625760b6ea3cb3a08dc69",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ca9cb0f45d6d212106093719838dcdea353cbe1f9388ff6e251e0ac063462d20",
+    "at": "2026-10-26T00:29:10.237Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 8,
@@ -37,7 +44,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "7935852982e15f43134d26b2cc27803f1f6d7b3f",
+      "startedAt": "2026-10-26T00:29:10.565Z",
+      "doneAt": "2026-10-26T00:30:44.525Z",
+      "summary": "FieldIssue reasons, Validators mirroring the API DTO rules (email ≤150 and normalized, names ≤100, document ≤30, login password presence, new password 6 chars to 72 UTF-8 bytes, confirmation, 6 ASCII digit code) and PasswordChecklist with per-rule results and bytes; 22 unit tests"
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -46,12 +63,5 @@
     "A": 5,
     "AC": 6,
     "T": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:ca9cb0f45d6d212106093719838dcdea353cbe1f9388ff6e251e0ac063462d20",
-    "at": "2026-10-26T00:29:10.237Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

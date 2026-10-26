@@ -40,7 +40,7 @@ The auth screens can check every field before sending it, with the same rules th
 
 ## Tasks
 
-- [ ] T1: Field validators, the password checklist and their unit tests
+- [x] T1: Field validators, the password checklist and their unit tests
   - files: lib/features/auth/application/validators.dart, test/features/auth/application/validators_test.dart
   - ac: AC1, AC2, AC3, AC4, AC5, AC6
   - verify: fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze lib/features/auth test/features/auth && fvm flutter test test/features/auth/application/validators_test.dart
