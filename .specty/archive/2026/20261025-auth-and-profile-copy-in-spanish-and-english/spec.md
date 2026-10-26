@@ -44,3 +44,22 @@ Every text the auth screens and the profile sheet will show exists in Spanish an
   - files: lib/i18n/es/auth.i18n.yaml, lib/i18n/en/auth.i18n.yaml, lib/i18n/es/profile.i18n.yaml, lib/i18n/en/profile.i18n.yaml, test/i18n/translations_test.dart
   - ac: AC1, AC2, AC3, AC4
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/i18n
+
+## Closing
+
+### Summary
+
+The `auth` and `profile` namespaces have every text of agent A's screens in Spanish and English: welcome with a subline and the photo credit, login, both registration steps, the three recovery steps (code expiry and resend countdowns, the rejected code with the attempts left in each language's plural, locked, expired, done), the password checklist and a message per field rule with its limit. The profile adds the session ending in less than an hour, the language names in their own language and the sign-out message. The translations test checks the plural, the language names and the limits; the whole suite (186 tests) passes.
+
+### Deviations
+
+- None.
+
+### Decisions
+
+- The keys phase 0 created keep their names and their values; only new keys were added.
+- Field messages are grouped in `fieldErrors`, with a shared `tooLong(max)` for names and the document, so each screen maps a `FieldIssue` without new keys.
+
+### Follow-ups
+
+- C3, C5, C6, C8 and C9 read these keys; a screen that needs another text requests the i18n files in its scope.

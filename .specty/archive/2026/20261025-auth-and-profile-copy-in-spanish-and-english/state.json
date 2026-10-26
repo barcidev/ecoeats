@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-auth-and-profile-copy-in-spanish-and-english",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-auth-and-profile-copy-in-spanish-and-english",
   "baseCommit": "27a9ee767d17d76944089a62bafa17717fefdc14",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:c7bf87627836c10c2950f3bb3db8e0e7bb57563cb334d6e7ba430e4a407fc4ed",
@@ -42,12 +42,12 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "c8443c42d87ec1add841f02fe8a6ef75c19af07d",
+      "attempts": 1,
       "startedAt": "2026-10-26T01:16:42.753Z",
       "doneAt": "2026-10-26T01:19:46.759Z",
-      "summary": "Auth copy (welcome, login, two-step register, three-step recovery with plural attempts, password checklist, a message per field rule) and profile copy (session expiry, appearance, languages in their own names, sign-out) in Spanish and English, with translation checks."
+      "summary": "Auth copy (welcome, login, two-step register, three-step recovery with plural attempts, password checklist, a message per field rule) and profile copy (session expiry, appearance, languages in their own names, sign-out) in Spanish and English, with translation checks.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -58,5 +58,6 @@
     "A": 4,
     "AC": 4,
     "T": 1
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T01:20:16.728Z"
 }
