@@ -46,6 +46,14 @@ Future<void> _openGallery(WidgetTester tester) async {
   await _wait(tester);
 }
 
+/// The gallery's own vertical list, not one of the pill rows inside it.
+final Finder _sections = find
+    .descendant(
+      of: find.byType(CustomScrollView),
+      matching: find.byType(Scrollable),
+    )
+    .first;
+
 Color _background(WidgetTester tester) => tester
     .widget<Scaffold>(
       find.descendant(
@@ -64,7 +72,7 @@ void main() {
 
   testWidgets('it shows every section', (tester) async {
     await _openGallery(tester);
-    final list = find.byType(Scrollable).last;
+    final list = _sections;
     for (final section in [
       'TYPE',
       'BUTTONS',
@@ -114,7 +122,7 @@ void main() {
           );
           await _wait(tester);
         }
-        final list = find.byType(Scrollable).last;
+        final list = _sections;
         await tester.scrollUntilVisible(
           find.text('PAPER'),
           400,

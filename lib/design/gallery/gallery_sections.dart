@@ -185,14 +185,18 @@ class GallerySections extends StatelessWidget {
         _Section('Paper', [
           SizedBox(
             height: 120,
-            child: GrainOverlay(
-              opacity: 0.08,
-              child: DecoratedBox(
-                decoration: ShapeDecoration(
-                  color: palette.raised,
-                  shape: RoundedSuperellipseBorder(
-                    borderRadius: const BorderRadius.all(.circular(Radii.lg)),
-                    side: BorderSide(color: palette.line),
+            // The grain covers its whole box; the card's own shape cuts it.
+            child: ClipRSuperellipse(
+              borderRadius: const BorderRadius.all(.circular(Radii.lg)),
+              child: GrainOverlay(
+                opacity: 0.08,
+                child: DecoratedBox(
+                  decoration: ShapeDecoration(
+                    color: palette.raised,
+                    shape: RoundedSuperellipseBorder(
+                      borderRadius: const BorderRadius.all(.circular(Radii.lg)),
+                      side: BorderSide(color: palette.line),
+                    ),
                   ),
                 ),
               ),
@@ -230,7 +234,8 @@ class _Section extends StatelessWidget {
   }
 }
 
-/// A demo control: small, quiet, and in the designers' language.
+/// A demo control: small, quiet, on the text's edge, and in the designers'
+/// language.
 class _Replay extends StatelessWidget {
   const new({required this.label, required this.onPressed});
 
@@ -240,11 +245,15 @@ class _Replay extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Align(
     alignment: Alignment.centerLeft,
-    child: EcoButton(
-      label: label,
-      variant: .quiet,
-      expand: false,
+    child: Pressable(
       onPressed: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: Space.sm),
+        child: Text(
+          label,
+          style: EcoType.label.copyWith(color: context.palette.achiote),
+        ),
+      ),
     ),
   );
 }

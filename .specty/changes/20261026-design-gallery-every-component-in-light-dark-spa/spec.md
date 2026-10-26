@@ -49,7 +49,7 @@ Visual QA gets one place to look at the whole design system. In debug builds, th
   - files: lib/design/gallery/design_gallery_page.dart, lib/design/gallery/gallery_sections.dart, test/design/gallery_test.dart
   - ac: AC1, AC2, AC4
   - verify: fvm flutter test test/design/gallery_test.dart test/features/discover/discover_route_test.dart
-- [ ] T2: The screenshot script for visual QA
+- [x] T2: The screenshot script for visual QA
   - files: tool/qa/screens_test.dart
   - ac: AC3
   - verify: fvm dart run build_runner build -d && fvm dart run slang && fvm flutter analyze && fvm flutter test && fvm flutter test tool/qa/screens_test.dart

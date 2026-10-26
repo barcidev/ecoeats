@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-design-gallery-every-component-in-light-dark-spa",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-design-gallery-every-component-in-light-dark-spa",
   "baseCommit": "54b1ecfdae45e98ed594b24235d652611948a1f0",
   "revision": 1,
@@ -42,12 +42,25 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "359dd5375b5c2ea6f198a32b1087864bd91a6c5a",
+      "attempts": 1,
       "startedAt": "2026-10-26T11:17:04.129Z",
       "doneAt": "2026-10-26T11:19:37.777Z",
-      "summary": "The gallery shows every component in sections with real app copy (type, buttons with a loading→success cycle, fields, pills and stars, toasts and shake, placeholders, spinners, skeletons and mark, plate details, all states with a 429 countdown, headline, grain), with pinned language and theme pills."
+      "summary": "The gallery shows every component in sections with real app copy (type, buttons with a loading→success cycle, fields, pills and stars, toasts and shake, placeholders, spinners, skeletons and mark, plate details, all states with a 429 countdown, headline, grain), with pinned language and theme pills.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [
+        "lib/design/gallery/design_gallery_page.dart",
+        "lib/design/gallery/gallery_sections.dart",
+        "test/design/gallery_test.dart"
+      ],
+      "attempts": 1,
+      "baseCommit": "517611fb283d985837e9d26b2480debd7525bb81",
+      "startedAt": "2026-10-26T11:19:38.046Z",
+      "doneAt": "2026-10-26T11:25:17.690Z",
+      "summary": "tool/qa/screens_test.dart renders the gallery (scrolled frames) and Home, Discover and the detail in es/en, light/dark, with real fonts and the grain tile, into build/qa; gallery polish and its tests' scrollable finder came from that review."
     }
   },
   "pending": {

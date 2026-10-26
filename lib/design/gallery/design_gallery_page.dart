@@ -62,6 +62,7 @@ class _DesignGalleryPageState extends State<DesignGalleryPage> {
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: Space.sm),
                       child: Column(
+                        crossAxisAlignment: .stretch,
                         spacing: Space.xs,
                         children: [
                           SegmentedPills<AppLocale>(
