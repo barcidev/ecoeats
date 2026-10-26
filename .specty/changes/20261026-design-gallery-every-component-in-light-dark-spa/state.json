@@ -6,6 +6,13 @@
   "branch": "specty/20261026-design-gallery-every-component-in-light-dark-spa",
   "baseCommit": "54b1ecfdae45e98ed594b24235d652611948a1f0",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:a08c8a849339efacf4119ffbeb40f7666c1056a2a06a23e4bb4901681f8cc5da",
+    "at": "2026-10-26T11:17:03.793Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "S",
     "score": 4,
@@ -32,7 +39,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "359dd5375b5c2ea6f198a32b1087864bd91a6c5a",
+      "startedAt": "2026-10-26T11:17:04.129Z",
+      "doneAt": "2026-10-26T11:19:37.777Z",
+      "summary": "The gallery shows every component in sections with real app copy (type, buttons with a loading→success cycle, fields, pills and stars, toasts and shake, placeholders, spinners, skeletons and mark, plate details, all states with a 429 countdown, headline, grain), with pinned language and theme pills."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -42,12 +59,5 @@
     "AC": 4,
     "T": 2,
     "R": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:a08c8a849339efacf4119ffbeb40f7666c1056a2a06a23e4bb4901681f8cc5da",
-    "at": "2026-10-26T11:17:03.793Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

@@ -45,7 +45,7 @@ Visual QA gets one place to look at the whole design system. In debug builds, th
 
 ## Tasks
 
-- [ ] T1: The gallery's sections and demos, with its language and theme pills, and widget tests
+- [x] T1: The gallery's sections and demos, with its language and theme pills, and widget tests
   - files: lib/design/gallery/design_gallery_page.dart, lib/design/gallery/gallery_sections.dart, test/design/gallery_test.dart
   - ac: AC1, AC2, AC4
   - verify: fvm flutter test test/design/gallery_test.dart test/features/discover/discover_route_test.dart

@@ -1,22 +1,18 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
-import 'package:ecoeats/design/painters/logo_mark.dart';
-import 'package:ecoeats/design/painters/plate_illustration.dart';
+import 'package:ecoeats/design/gallery/gallery_sections.dart';
 import 'package:ecoeats/design/theme.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/tokens/spacing.dart';
 import 'package:ecoeats/design/tokens/typography.dart';
-import 'package:ecoeats/design/widgets/dish_image.dart';
-import 'package:ecoeats/design/widgets/eco_button.dart';
-import 'package:ecoeats/design/widgets/eco_text_field.dart';
-import 'package:ecoeats/design/widgets/plate_spinner.dart';
-import 'package:ecoeats/design/widgets/rating_stars.dart';
 import 'package:ecoeats/design/widgets/segmented_pills.dart';
-import 'package:ecoeats/design/widgets/skeleton.dart';
-import 'package:ecoeats/design/widgets/state_view.dart';
+import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// Every design component on one page, in light or dark, for visual QA.
-/// Debug builds only: the router does not register it in release.
+/// Every design component on one page, in light or dark and in Spanish or
+/// English, for visual QA. Debug builds only: the router does not register
+/// it in release.
 @RoutePage()
 class DesignGalleryPage extends StatefulWidget {
   const new({super.key});
@@ -26,8 +22,19 @@ class DesignGalleryPage extends StatefulWidget {
 }
 
 class _DesignGalleryPageState extends State<DesignGalleryPage> {
+  /// Local to the gallery: the customer's stored appearance stays as it is.
   Brightness? _brightness;
-  var _pill = 'Todos';
+
+  /// The language the app had: the gallery hands it back when it closes.
+  final AppLocale _entryLocale = LocaleSettings.currentLocale;
+
+  @override
+  void dispose() {
+    if (LocaleSettings.currentLocale != _entryLocale) {
+      unawaited(LocaleSettings.setLocale(_entryLocale));
+    }
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,135 +43,60 @@ class _DesignGalleryPageState extends State<DesignGalleryPage> {
       data: ecoTheme(brightness),
       child: Builder(
         builder: (context) {
+          final t = context.t;
           final palette = context.palette;
           return Scaffold(
+            backgroundColor: palette.paper,
             appBar: AppBar(
-              title: const Text('Design gallery', style: EcoType.titleSmall),
-              actions: [
-                Switch(
-                  value: brightness == .dark,
-                  onChanged: (dark) =>
-                      setState(() => _brightness = dark ? .dark : .light),
-                ),
-              ],
+              backgroundColor: palette.paper,
+              title: Text(
+                'Design gallery',
+                style: EcoType.titleSmall.copyWith(color: palette.ink),
+              ),
             ),
-            body: ListView(
-              padding: const EdgeInsets.all(Space.gutter),
-              children: [
-                const _Section('Type'),
-                Text(
-                  'Comida colombiana,\nsin afán.',
-                  style: EcoType.displayWonk.copyWith(color: palette.ink),
-                ),
-                Text(
-                  'Headline',
-                  style: EcoType.headline.copyWith(color: palette.ink),
-                ),
-                Text(
-                  'Body 16/24, Instrument Sans.',
-                  style: EcoType.body.copyWith(color: palette.ink),
-                ),
-                Text(
-                  r'$ 28.000',
-                  style: EcoType.numeric.copyWith(color: palette.ink),
-                ),
-                const _Section('Buttons'),
-                EcoButton(label: 'Entrar', onPressed: () {}),
-                const SizedBox(height: Space.sm),
-                EcoButton(
-                  label: 'Crear cuenta',
-                  variant: .secondary,
-                  onPressed: () {},
-                ),
-                const SizedBox(height: Space.sm),
-                const EcoButton(label: 'Cargando', loading: true),
-                const SizedBox(height: Space.sm),
-                const EcoButton(label: 'Deshabilitado'),
-                const _Section('Selection'),
-                SegmentedPills<String>(
-                  padding: EdgeInsets.zero,
-                  values: const [
-                    'Todos',
-                    'Destacados',
-                    'Altos en proteína',
-                    'Ligeros',
-                  ],
-                  selected: _pill,
-                  labelOf: (value) => value,
-                  onChanged: (value) => setState(() => _pill = value),
-                ),
-                const SizedBox(height: Space.sm),
-                const RatingStars(rating: 4.7, size: 18),
-                const _Section('Fields'),
-                const EcoTextField(label: 'Correo', hint: 'tu@correo.com'),
-                const SizedBox(height: Space.md),
-                const EcoTextField(
-                  label: 'Contraseña',
-                  obscureText: true,
-                  error: 'Mínimo 6 caracteres.',
-                ),
-                const _Section('Media'),
-                const SizedBox(
-                  height: 220,
-                  child: DishImage(
-                    url: null,
-                    name: 'Bandeja Paisa',
-                    borderRadius: BorderRadius.all(.circular(Radii.lg)),
+            body: CustomScrollView(
+              slivers: [
+                PinnedHeaderSliver(
+                  child: ColoredBox(
+                    color: palette.paper,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: Space.sm),
+                      child: Column(
+                        spacing: Space.xs,
+                        children: [
+                          SegmentedPills<AppLocale>(
+                            values: AppLocale.values,
+                            selected: LocaleSettings.currentLocale,
+                            labelOf: (locale) => switch (locale) {
+                              .es => t.profile.language.spanish,
+                              .en => t.profile.language.english,
+                            },
+                            onChanged: (locale) =>
+                                unawaited(LocaleSettings.setLocale(locale)),
+                          ),
+                          SegmentedPills<Brightness>(
+                            values: Brightness.values.reversed.toList(),
+                            selected: brightness,
+                            labelOf: (choice) => switch (choice) {
+                              .light => t.profile.appearance.light,
+                              .dark => t.profile.appearance.dark,
+                            },
+                            onChanged: (choice) =>
+                                setState(() => _brightness = choice),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-                const _Section('Loading'),
-                const Row(
-                  spacing: Space.md,
-                  children: [
-                    PlateSpinner(),
-                    PlateSpinner(progress: 0.6),
-                    LogoMark(size: 48),
-                  ],
-                ),
-                const SizedBox(height: Space.md),
-                const Skeleton(height: 120, radius: Radii.lg),
-                const SizedBox(height: Space.xs),
-                const Skeleton(width: 180, height: 16),
-                const _Section('States'),
-                const PlateIllustration(),
-                SizedBox(
-                  height: 360,
-                  child: StateView(
-                    kind: .rateLimited,
-                    title: 'Vas muy rápido.',
-                    message: 'Espera un momento y vuelve a intentarlo.',
-                    actionLabel: 'Reintentar',
-                    onAction: () {},
-                    cooldown: const Duration(seconds: 42),
-                    cooldownLabel: _countdown,
-                  ),
+                const SliverPadding(
+                  padding: EdgeInsets.symmetric(horizontal: Space.gutter),
+                  sliver: SliverToBoxAdapter(child: GallerySections()),
                 ),
               ],
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-String _countdown(Duration left) {
-  final seconds = left.inSeconds.toString().padLeft(2, '0');
-  return 'Intenta en 0:$seconds';
-}
-
-class _Section extends StatelessWidget {
-  const new(this.title);
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: Space.xl, bottom: Space.sm),
-      child: Text(
-        title.toUpperCase(),
-        style: EcoType.overline.copyWith(color: context.palette.muted),
       ),
     );
   }
