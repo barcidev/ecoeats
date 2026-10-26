@@ -55,7 +55,7 @@ Choosing and being told things feels tactile. A filter or setting choice moves o
   - files: lib/design/widgets/rating_stars.dart, test/design/widgets/selection_test.dart
   - ac: AC2
   - verify: fvm flutter test test/design/widgets/selection_test.dart
-- [ ] T3: Toast over a blurred backdrop that can be flicked away, with widget tests
+- [x] T3: Toast over a blurred backdrop that can be flicked away, with widget tests
   - files: lib/design/widgets/toast.dart, test/design/widgets/selection_test.dart
   - ac: AC3, AC4
   - verify: fvm dart run build_runner build -d && fvm dart run slang && fvm flutter analyze && fvm flutter test

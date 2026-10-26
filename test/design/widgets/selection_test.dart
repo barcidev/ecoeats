@@ -230,4 +230,76 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Tu sesión venció.'), findsNothing);
   });
+
+  group('Toast', () {
+    const note = 'Tu sesión venció.';
+
+    Future<void> showToast(WidgetTester tester, [String message = note]) async {
+      await tester.tap(find.text('show $message'));
+      await tester.pumpAndSettle();
+    }
+
+    Widget launcher(List<String> messages) => _app(
+      Builder(
+        builder: (context) => Column(
+          mainAxisSize: .min,
+          children: [
+            for (final message in messages)
+              TextButton(
+                onPressed: () => Toast.show(context, message),
+                child: Text('show $message'),
+              ),
+          ],
+        ),
+      ),
+    );
+
+    testWidgets('it sits over a blurred backdrop', (tester) async {
+      await tester.pumpWidget(launcher([note]));
+      await showToast(tester);
+      expect(
+        find.ancestor(
+          of: find.text(note),
+          matching: find.byType(BackdropFilter),
+        ),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('a flick up sends it away at once', (tester) async {
+      await tester.pumpWidget(launcher([note]));
+      await showToast(tester);
+      await tester.fling(find.text(note), const Offset(0, -60), 800);
+      await tester.pumpAndSettle();
+      expect(find.text(note), findsNothing);
+    });
+
+    testWidgets('a short drag springs back and it stays its full time', (
+      tester,
+    ) async {
+      await tester.pumpWidget(launcher([note]));
+      await showToast(tester);
+      final resting = tester.getTopLeft(find.text(note));
+
+      await tester.pump(const Duration(seconds: 2));
+      await tester.drag(find.text(note), const Offset(0, -10));
+      await tester.pumpAndSettle();
+      expect(tester.getTopLeft(find.text(note)), resting);
+
+      // The three seconds start again on release.
+      await tester.pump(const Duration(milliseconds: 2500));
+      expect(find.text(note), findsOneWidget);
+      await tester.pump(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
+      expect(find.text(note), findsNothing);
+    });
+
+    testWidgets('a new one replaces the one showing', (tester) async {
+      await tester.pumpWidget(launcher([note, 'Carta al día.']));
+      await showToast(tester);
+      await showToast(tester, 'Carta al día.');
+      expect(find.text(note), findsNothing);
+      expect(find.text('Carta al día.'), findsOneWidget);
+    });
+  });
 }
