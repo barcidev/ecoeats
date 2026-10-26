@@ -6,6 +6,13 @@
   "branch": "specty/20261025-session-and-auth-interceptor",
   "baseCommit": "39e58a3b18b3e64c6dce0b9e50fa29a899139bf7",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:8dc82f624c83882cd24520baf6e40310b2360e0f82f56151ded60327ffb95041",
+    "at": "2026-10-26T00:34:15.667Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 9,
@@ -32,7 +39,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "0ae0f697ec4281f67cd91d4cda10f48e33d80f22",
+      "startedAt": "2026-10-26T00:34:16.510Z",
+      "doneAt": "2026-10-26T00:36:09.445Z",
+      "summary": "decodeJwt reads sub/email/role/exp into a JwtClaims record (null when malformed or without sub/exp); freezed Session with isExpiredAt/remainingAt; TokenStore interface with a flutter_secure_storage implementation for the token and first names by email."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -41,12 +58,5 @@
     "A": 4,
     "AC": 6,
     "T": 3
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:8dc82f624c83882cd24520baf6e40310b2360e0f82f56151ded60327ffb95041",
-    "at": "2026-10-26T00:34:15.667Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }
