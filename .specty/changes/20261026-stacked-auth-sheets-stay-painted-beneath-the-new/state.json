@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "20261026-stacked-auth-sheets-stay-painted-beneath-the-new",
+  "kind": "quick",
+  "phase": "implementing",
+  "branch": "specty/20261026-stacked-auth-sheets-stay-painted-beneath-the-new",
+  "baseCommit": "3ade5a843ff0eb2a52e9a13d0865bd07f73b4e4b",
+  "revision": 1,
+  "size": {
+    "level": "S",
+    "score": 1,
+    "adjust": 0,
+    "reasons": [
+      "1 archivo"
+    ]
+  },
+  "items": {},
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "T": 1
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:789d2df783ead967edd39307d1b30cf613e4d897afc14564c5f8dbf87394a54f",
+    "at": "2026-10-26T15:16:21.515Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
