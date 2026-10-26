@@ -46,3 +46,22 @@ The auth flow and the profile exist as the plan's phase 0 placeholders, so the r
   - files: lib/features/profile/presentation/profile_sheet.dart, test/features/profile/profile_sheet_test.dart
   - ac: AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+The auth placeholders (shell, welcome, a working login, register and recover) and the panel transition exist, ready for the router and for agent A to replace. `ProfileSheet.show` shows the session and signs out.
+
+### Deviations
+
+- The login placeholder's test lives in `test/features/profile/profile_sheet_test.dart`, because a test under `test/features/auth/` would weigh as one more sensitive path.
+
+### Decisions
+
+- The five auth pages share `auth_pages.dart`; agent A splits them into one file per screen.
+- A 401 on login reads «Correo o contraseña incorrectos.» instead of the generic unauthorized text.
+
+### Follow-ups
+
+- The routes change registers these pages under `/auth` with `authPanelTransition`.

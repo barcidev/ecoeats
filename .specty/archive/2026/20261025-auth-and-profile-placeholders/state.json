@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-auth-and-profile-placeholders",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-auth-and-profile-placeholders",
   "baseCommit": "27a9ee767d17d76944089a62bafa17717fefdc14",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:97060190a85204d9513dfd4025aebea0dc178ada94f84a2e2973441d388e4584",
@@ -53,12 +53,12 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "7491f71bf7361a4dc147a6b12a3400182c5763cc",
+      "attempts": 1,
       "startedAt": "2026-10-26T01:18:43.206Z",
       "doneAt": "2026-10-26T01:20:29.925Z",
-      "summary": "ProfileSheet.show opens a modal sheet with first names when known, email, «Tu sesión vence en N h» from Session.remainingAt and the clock, and sign-out that closes the sheet and logs out."
+      "summary": "ProfileSheet.show opens a modal sheet with first names when known, email, «Tu sesión vence en N h» from Session.remainingAt and the clock, and sign-out that closes the sheet and logs out.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -69,5 +69,6 @@
     "A": 4,
     "AC": 3,
     "T": 2
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T01:20:40.833Z"
 }
