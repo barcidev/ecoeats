@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "id": "20261026-android-icon-and-splash-adaptive-and-monochrome",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-android-icon-and-splash-adaptive-and-monochrome",
+  "baseCommit": "11a0b5797e0a4fd7a761c0be09513685a5f51c31",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 12,
+    "adjust": 0,
+    "reasons": [
+      "12 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:3928949b6852a294df5f8f18b1b1aa688fb672ff882f9792b193163aae1576dd",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:52665d123ff8f29f4c860eed5743daebbc072f4ad0109119a36ce50a33b1c42d",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:f354d7a71e1f1718fc9b1b5670ad8f0bafdaf0857044d0e51a50cb6d5edf04de",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:686fb87f88f333e4d64ddaa2d33b047d393817494d059e0f0a609700223ced2f",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 3,
+    "T": 2,
+    "R": 1
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:54f856da32aaf46017c48bbad0a4fced23bfcc786caf9b8a0283c7e249fdde7b",
+    "at": "2026-10-26T11:33:53.675Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
