@@ -6,6 +6,13 @@
   "branch": "specty/20261025-login-screen-validation-autofill-error-states-wi",
   "baseCommit": "babf8ba8803349f991a4b9cb5c1e636408aaa798",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:a5297d718c038bbaf7daa4805fa1012842452fd6cd0130ba2267d09b59ad32d3",
+    "at": "2026-10-26T03:23:14.566Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 16,
@@ -37,7 +44,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "8b9dc594cf42248c3fe0d9a9c21c02c95f850b25",
+      "startedAt": "2026-10-26T03:23:18.937Z",
+      "doneAt": "2026-10-26T09:21:07.948Z",
+      "summary": "AuthPanel (sheet with overline, title, subtitle and a bottom footer) moved to its own file, and a Countdown that ticks each second from the app clock and reports the end once."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -47,12 +64,5 @@
     "AC": 8,
     "T": 3,
     "R": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:a5297d718c038bbaf7daa4805fa1012842452fd6cd0130ba2267d09b59ad32d3",
-    "at": "2026-10-26T03:23:14.566Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

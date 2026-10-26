@@ -5,7 +5,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ecoeats/core/network/app_failure.dart';
 import 'package:ecoeats/core/session/session_controller.dart';
 import 'package:ecoeats/design/painters/logo_mark.dart';
-import 'package:ecoeats/design/tokens/eco_icons.dart';
 import 'package:ecoeats/design/tokens/motion.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/tokens/spacing.dart';
@@ -14,8 +13,8 @@ import 'package:ecoeats/design/widgets/eco_button.dart';
 import 'package:ecoeats/design/widgets/eco_text_field.dart';
 import 'package:ecoeats/design/widgets/grain_overlay.dart';
 import 'package:ecoeats/design/widgets/mask_reveal_text.dart';
-import 'package:ecoeats/design/widgets/pressable.dart';
 import 'package:ecoeats/design/widgets/toast.dart';
+import 'package:ecoeats/features/auth/presentation/widgets/auth_panel.dart';
 import 'package:ecoeats/i18n/failure_text.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:flutter/services.dart';
@@ -474,7 +473,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final t = context.t.auth.login;
-    return _AuthPanel(
+    return AuthPanel(
       title: t.title,
       children: [
         EcoTextField(
@@ -506,7 +505,7 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      _AuthPanel(title: context.t.auth.register.title, children: const []);
+      AuthPanel(title: context.t.auth.register.title, children: const []);
 }
 
 @RoutePage()
@@ -515,61 +514,5 @@ class RecoverPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      _AuthPanel(title: context.t.auth.recover.title, children: const []);
-}
-
-class _AuthPanel extends StatelessWidget {
-  const new({required this.title, required this.children});
-
-  final String title;
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    final palette = context.palette;
-    // A sheet over the backdrop: the photo stays visible above its top edge.
-    return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.paddingOf(context).top + 40),
-      child: DecoratedBox(
-        decoration: ShapeDecoration(
-          color: palette.raised,
-          shape: const RoundedSuperellipseBorder(
-            borderRadius: .vertical(top: .circular(Radii.lg)),
-          ),
-        ),
-        child: _panelBody(context, palette),
-      ),
-    );
-  }
-
-  Widget _panelBody(BuildContext context, EcoPalette palette) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: SafeArea(
-        top: false,
-        child: AutofillGroup(
-          child: ListView(
-            padding: const EdgeInsets.all(Space.gutter),
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Pressable(
-                  semanticLabel: context.t.common.actions.back,
-                  onPressed: () => context.router.maybePop(),
-                  child: Padding(
-                    padding: const EdgeInsets.all(Space.xs),
-                    child: Icon(EcoIcons.arrowLeft, color: palette.ink),
-                  ),
-                ),
-              ),
-              const SizedBox(height: Space.lg),
-              Text(title, style: EcoType.headline.copyWith(color: palette.ink)),
-              const SizedBox(height: Space.xl),
-              ...children,
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+      AuthPanel(title: context.t.auth.recover.title, children: const []);
 }
