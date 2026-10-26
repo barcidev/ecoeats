@@ -28,6 +28,7 @@ class EcoTextField extends StatefulWidget {
     this.suffix,
     this.enabled = true,
     this.autofocus = false,
+    this.textCapitalization = TextCapitalization.none,
     super.key,
   });
 
@@ -46,6 +47,9 @@ class EcoTextField extends StatefulWidget {
   final Widget? suffix;
   final bool enabled;
   final bool autofocus;
+
+  /// How the keyboard starts each word; names start with a capital.
+  final TextCapitalization textCapitalization;
 
   @override
   State<EcoTextField> createState() => _EcoTextFieldState();
@@ -137,18 +141,47 @@ class _EcoTextFieldState extends State<EcoTextField>
     _reduced = Motion.reduced(context);
     final palette = context.palette;
     final message = widget.error;
-    final focused = _focus.hasFocus;
-    final labelColor = switch ((message, focused)) {
+    final labelColor = switch ((message, _focus.hasFocus)) {
       (_?, _) => palette.achiote,
       (null, true) when widget.enabled => palette.ink,
       _ => palette.muted,
     };
-    final base = message == null ? palette.line : palette.achiote;
-    final active = message == null ? palette.ink : palette.achiote;
     final change = _reduced ? Duration.zero : Motion.quick;
-    final showHint = focused && _text.text.isEmpty;
 
-    final field = TextField(
+    return MergeSemantics(
+      child: Column(
+        crossAxisAlignment: .start,
+        children: [
+          Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: _labelHeight),
+                child: _field(palette),
+              ),
+              Positioned(
+                left: 0,
+                top: 0,
+                right: 0,
+                child: _label(labelColor, change),
+              ),
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: _underline(palette, change),
+              ),
+            ],
+          ),
+          _errorLine(palette, change),
+        ],
+      ),
+    );
+  }
+
+  Widget _field(EcoPalette palette) {
+    final showHint = _focus.hasFocus && _text.text.isEmpty;
+    return TextField(
       controller: _text,
       focusNode: _focus,
       obscureText: widget.obscureText,
@@ -160,6 +193,7 @@ class _EcoTextFieldState extends State<EcoTextField>
       onSubmitted: widget.onSubmitted,
       enabled: widget.enabled,
       autofocus: widget.autofocus,
+      textCapitalization: widget.textCapitalization,
       style: EcoType.body.copyWith(color: palette.ink),
       cursorColor: palette.achiote,
       decoration: InputDecoration(
@@ -172,7 +206,9 @@ class _EcoTextFieldState extends State<EcoTextField>
         border: InputBorder.none,
       ),
     );
+  }
 
+  Widget _label(Color labelColor, Duration change) {
     // Centered on the input line: the room above it, the content padding and
     // half of what the body line has left around the grown label.
     final restingTop =
@@ -182,7 +218,7 @@ class _EcoTextFieldState extends State<EcoTextField>
                 _labelHeight * _restingScale) /
             2;
 
-    final label = IgnorePointer(
+    return IgnorePointer(
       child: AnimatedBuilder(
         animation: _float,
         builder: (context, child) {
@@ -207,8 +243,13 @@ class _EcoTextFieldState extends State<EcoTextField>
         ),
       ),
     );
+  }
 
-    final underline = TweenAnimationBuilder<Color?>(
+  Widget _underline(EcoPalette palette, Duration change) {
+    final message = widget.error;
+    final base = message == null ? palette.line : palette.achiote;
+    final active = message == null ? palette.ink : palette.achiote;
+    return TweenAnimationBuilder<Color?>(
       tween: ColorTween(end: base),
       duration: change,
       builder: (context, baseColor, _) => AnimatedBuilder(
@@ -223,9 +264,12 @@ class _EcoTextFieldState extends State<EcoTextField>
         ),
       ),
     );
+  }
 
-    // A new error slides in; a fixed one leaves at once, while the room it
-    // took closes smoothly, so the form never shows a stale message.
+  // A new error slides in; a fixed one leaves at once, while the room it
+  // took closes smoothly, so the form never shows a stale message.
+  Widget _errorLine(EcoPalette palette, Duration change) {
+    final message = widget.error;
     final errorText = message == null
         ? const SizedBox(width: double.infinity)
         : TweenAnimationBuilder<double>(
@@ -249,7 +293,7 @@ class _EcoTextFieldState extends State<EcoTextField>
             ),
           );
     // A zero-length AnimatedSize re-dirties itself during layout.
-    final errorLine = _reduced
+    return _reduced
         ? errorText
         : AnimatedSize(
             duration: Motion.quick,
@@ -257,26 +301,6 @@ class _EcoTextFieldState extends State<EcoTextField>
             alignment: Alignment.topLeft,
             child: errorText,
           );
-
-    return MergeSemantics(
-      child: Column(
-        crossAxisAlignment: .start,
-        children: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: _labelHeight),
-                child: field,
-              ),
-              Positioned(left: 0, top: 0, right: 0, child: label),
-              Positioned(left: 0, right: 0, bottom: 0, child: underline),
-            ],
-          ),
-          errorLine,
-        ],
-      ),
-    );
   }
 }
 

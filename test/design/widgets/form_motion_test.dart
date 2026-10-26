@@ -65,6 +65,22 @@ void main() {
       expect(find.text('Revisa el correo.'), findsOneWidget);
     });
 
+    testWidgets('capitalizes only when asked', (tester) async {
+      await tester.pumpWidget(_app(const EcoTextField(label: 'Correo')));
+      expect(
+        tester.widget<TextField>(find.byType(TextField)).textCapitalization,
+        TextCapitalization.none,
+      );
+
+      await tester.pumpWidget(
+        _app(const EcoTextField(label: 'Nombres', textCapitalization: .words)),
+      );
+      expect(
+        tester.widget<TextField>(find.byType(TextField)).textCapitalization,
+        TextCapitalization.words,
+      );
+    });
+
     testWidgets('the label rests on the line and rises with focus or text', (
       tester,
     ) async {

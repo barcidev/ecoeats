@@ -30,7 +30,7 @@ Al escribir nombres y apellidos en el registro, el teclado empieza cada palabra 
 
 ## Tareas
 
-- [ ] T1: `EcoTextField` acepta `textCapitalization`, con test en test/design/widgets/form_motion_test.dart
+- [x] T1: `EcoTextField` acepta `textCapitalization`, con test en test/design/widgets/form_motion_test.dart
   - files: lib/design/widgets/eco_text_field.dart
   - ac: AC1, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/design/widgets test/design/widgets && fvm flutter analyze && fvm flutter test test/design
