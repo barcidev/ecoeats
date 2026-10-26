@@ -7,3 +7,6 @@
 {"ts":"2026-10-26T11:34:24.884Z","actor":"agent","tool":"claude-code","event":"task.started","data":{"task":"T2","baseCommit":"d230b160aa4709a7d5c61004e5670aefc1549fc3"}}
 {"ts":"2026-10-26T11:38:12.911Z","actor":"specty","event":"task.verified","data":{"task":"T2","cmd":"fvm dart run flutter_native_splash:create && fvm flutter build apk --debug && fvm flutter analyze && fvm flutter test","exit":0,"ms":47890,"tree":"sha256:928fbb68a2db0ceceeb29e4abdfb33e1fadc0b69a72243e3d847a282164d482b"}}
 {"ts":"2026-10-26T11:38:13.032Z","actor":"agent","tool":"claude-code","event":"task.completed","data":{"task":"T2","summary":"flutter_native_splash.yaml draws the mark on Mantel/Fogón paper for the classic and the Android 12+ splash, keeps the portrait lock (android_screen_orientation); seen on the Pixel 9 emulator in light and dark, with the adaptive icon in the drawer."}}
+{"ts":"2026-10-26T11:38:20.492Z","actor":"agent","tool":"claude-code","event":"change.accepted","data":{"revision":1,"delegated":true}}
+{"ts":"2026-10-26T13:58:06.710Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":2,"hash":"sha256:e05ce220e18e6e301432bba9a3e1babfd32a4a61d11f33d819903634303f6536","size":"L","warnings":2}}
+{"ts":"2026-10-26T13:58:10.860Z","actor":"agent","tool":"claude-code","event":"change.closed","data":{"delegated":true}}

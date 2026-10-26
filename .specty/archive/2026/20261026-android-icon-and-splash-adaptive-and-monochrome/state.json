@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261026-android-icon-and-splash-adaptive-and-monochrome",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-android-icon-and-splash-adaptive-and-monochrome",
   "baseCommit": "11a0b5797e0a4fd7a761c0be09513685a5f51c31",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:54f856da32aaf46017c48bbad0a4fced23bfcc786caf9b8a0283c7e249fdde7b",
@@ -51,12 +51,12 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "d230b160aa4709a7d5c61004e5670aefc1549fc3",
+      "attempts": 1,
       "startedAt": "2026-10-26T11:34:24.883Z",
       "doneAt": "2026-10-26T11:38:13.031Z",
-      "summary": "flutter_native_splash.yaml draws the mark on Mantel/Fogón paper for the classic and the Android 12+ splash, keeps the portrait lock (android_screen_orientation); seen on the Pixel 9 emulator in light and dark, with the adaptive icon in the drawer."
+      "summary": "flutter_native_splash.yaml draws the mark on Mantel/Fogón paper for the classic and the Android 12+ splash, keeps the portrait lock (android_screen_orientation); seen on the Pixel 9 emulator in light and dark, with the adaptive icon in the drawer.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -68,5 +68,6 @@
     "AC": 3,
     "T": 2,
     "R": 1
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T13:58:06.709Z"
 }

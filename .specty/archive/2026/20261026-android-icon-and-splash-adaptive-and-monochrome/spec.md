@@ -50,3 +50,23 @@ On Android, EcoEats looks like itself before its first frame. The launcher shows
 ## Risks
 
 - R1: The generators may not match the Flutter 3.47 Android template, or may overwrite phase 0's theme settings. Mitigation: review the diff of `styles.xml` and the manifest after each run and restore anything they drop; if a generator fails, write the resources by hand and note it.
+
+## Closing
+
+### Summary
+
+On Android, EcoEats shows its mark before the first frame. The launcher has an adaptive icon (the plate mark over «Mantel» paper) with a monochrome layer for themed icons, plus legacy icons in every density. The splash shows the mark on day paper or night paper, through the classic launch background and through the Android 12+ splash API. A debug APK was built and run on the Pixel 9 emulator (API 35): the drawer icon and the light and dark splash look as designed, and the app opens on the welcome behind it.
+
+### Deviations
+
+- `flutter_native_splash` rewrites the manifest's activity and dropped phase 0's `android:screenOrientation="portrait"`. `android_screen_orientation: portrait` in its config makes the generator keep the lock on every run. The manifest is left with only the generator's formatting, which it rewrites each time.
+- `flutter_launcher_icons` adds a 16 % inset to adaptive layers by default. With sources that already keep the safe zone, that shrank the mark to about a third of the icon, so `adaptive_icon_foreground_inset: 0`.
+
+### Decisions
+
+- Both generators read their own YAML at the root, so `pubspec.yaml` is untouched. They keep `ios: false` until C9.
+- The splash's added window items (`forceDarkAllowed`, cutout mode and the like) are the generator's standard ones, and they only apply while launching. Edge-to-edge is still set from Dart.
+
+### Follow-ups
+
+- C9 turns iOS on in both configs and checks the launch screen on the iPhone 15 Pro simulator.
