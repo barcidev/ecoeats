@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "id": "20261025-dishes-data-layer",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261025-dishes-data-layer",
+  "baseCommit": "30cf5bb6b54f374001fb1879e4bfb1ebaa828cda",
+  "revision": 1,
+  "size": {
+    "level": "M",
+    "score": 10,
+    "adjust": 0,
+    "reasons": [
+      "10 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:4d508c7e2160b7cabe6ebf7d0cfa98e35d77e9703dc3f493f58007b2ebac510c",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:fcc7e4b6b35f3bf3bcebae98a483774a4ec7636b4989650f3daefe092453cbbf",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:7166299d4ef699f44a292e313c1ff5dd3ce8a9f76c93d8b16e6ebd6a4dd6c1a3",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:f569097d281170d3d9060af508b067e8e3a259c02e930c066f33ba812b91e708",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 4,
+    "T": 3
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:154f8ae06ba59bb34deb33ea622bfae6a8f539fec49c69f77b6f73b221fd8f76",
+    "at": "2026-10-26T00:40:06.738Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
