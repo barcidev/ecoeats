@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-translations-setup",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-translations-setup",
   "baseCommit": "6b3579552014437bd023486b037bed23cbe5bcdd",
   "revision": 1,
@@ -52,12 +52,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "640b7ac2865c98318f045675d45fc89f3e76d044",
+      "attempts": 1,
       "startedAt": "2026-10-26T01:10:06.925Z",
       "doneAt": "2026-10-26T01:11:50.060Z",
-      "summary": "Base keys for auth (welcome, login, register, recover titles), dishes (greetings, La carta, plural count, gone detail), discover (title, hint, see dish, counter) and profile (session, appearance, language, sign out), es and en."
+      "summary": "Base keys for auth (welcome, login, register, recover titles), dishes (greetings, La carta, plural count, gone detail), discover (title, hint, see dish, counter) and profile (session, appearance, language, sign out), es and en.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "4391809bb31436300a312271d9f4e40fc23832fb",
+      "startedAt": "2026-10-26T01:11:51.273Z",
+      "doneAt": "2026-10-26T01:13:57.215Z",
+      "summary": "errors namespace complete in es/en (offline, timeout, 429, server with Ref. {id}, not found, unauthorized, session expired, validation, conflicts, unknown); failureCopy/failureMessage map AppFailure to it, using the server message only in Spanish as a fallback."
     }
   },
   "pending": {

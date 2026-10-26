@@ -1,0 +1,22 @@
+offline:
+  title: You're offline.
+  message: Check your connection; we'll be right here when you're back.
+timeout:
+  title: The kitchen is taking a while.
+  message: Give it another try in a moment.
+rateLimited:
+  title: Easy there.
+  message: Take a breath before trying again.
+server:
+  title: Something burned in the kitchen.
+  message: We're on it. Try again in a moment.
+  reference: Ref. {id}
+notFound: We couldn't find what you were looking for.
+unauthorized: Your session isn't valid anymore. Sign in again.
+sessionExpired: Your session ended. Sign in again to keep going.
+validation: Check the highlighted fields.
+conflict:
+  email: There's already an account with that email.
+  document: There's already an account with that ID number.
+  other: That's already registered.
+unknown: Something went wrong. Try again.
