@@ -1,10 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cupertino_ui/cupertino_ui.dart'
+    show CupertinoSliverRefreshControl, RefreshIndicatorMode;
 import 'package:ecoeats/design/tokens/motion.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/tokens/spacing.dart';
 import 'package:ecoeats/design/tokens/typography.dart';
+import 'package:ecoeats/design/widgets/plate_spinner.dart';
 import 'package:ecoeats/features/dishes/application/catalog_filter.dart';
 import 'package:ecoeats/features/dishes/application/catalog_views.dart';
+import 'package:ecoeats/features/dishes/application/dishes_provider.dart';
 import 'package:ecoeats/features/dishes/domain/dish_filter.dart';
 import 'package:ecoeats/features/dishes/presentation/home/carta.dart';
 import 'package:ecoeats/features/dishes/presentation/home/discover_banner.dart';
@@ -63,6 +67,10 @@ class _HomePageState extends ConsumerState<HomePage> {
             search: _search,
             onSearchChanged: filters.search,
             onSearchCleared: _clearSearch,
+          ),
+          CupertinoSliverRefreshControl(
+            onRefresh: ref.read(dishesProvider.notifier).refresh,
+            builder: _plateRefresh,
           ),
           // A search is a question: only its answers stay on screen.
           if (!searching && featured.isNotEmpty) ...[
@@ -134,4 +142,23 @@ class _HomePageState extends ConsumerState<HomePage> {
       ),
     );
   }
+}
+
+/// The pull-to-refresh indicator: a plate whose rim fills with the pull and
+/// turns once the menu is being fetched again.
+Widget _plateRefresh(
+  BuildContext context,
+  RefreshIndicatorMode mode,
+  double pulledExtent,
+  double triggerDistance,
+  double indicatorExtent,
+) {
+  final pulled = (pulledExtent / triggerDistance).clamp(0.0, 1.0);
+  final turning = mode == .armed || mode == .refresh;
+  return Center(
+    child: Opacity(
+      opacity: mode == .done ? 0 : pulled,
+      child: PlateSpinner(size: 28, progress: turning ? null : pulled),
+    ),
+  );
 }

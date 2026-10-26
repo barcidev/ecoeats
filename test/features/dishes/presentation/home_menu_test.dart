@@ -1,6 +1,7 @@
 import 'package:ecoeats/features/dishes/presentation/detail/dish_detail_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../../helpers/app_harness.dart';
 import '../../../helpers/dish_fixtures.dart';
@@ -82,5 +83,25 @@ void main() {
     await bootApp(tester, dishes: [sampleDish('mote')]);
     await _scrollTo(tester, find.text('1 plato'));
     expect(find.text('1 plato'), findsOneWidget);
+  });
+
+  testWidgets('pulling the menu down fetches it again', (tester) async {
+    final arepa = sampleDish('mote').copyWith(
+      id: 'arepa',
+      name: 'Arepa de Huevo',
+    );
+    final repository = MockDishRepository();
+    var calls = 0;
+    when(repository.fetchAll).thenAnswer(
+      (_) async => calls++ == 0 ? sampleDishes : [...sampleDishes, arepa],
+    );
+    await bootApp(tester, repository: repository);
+
+    await tester.fling(_menu.first, const Offset(0, 500), 2000);
+    await tester.pumpAndSettle();
+
+    verify(repository.fetchAll).called(2);
+    await _scrollTo(tester, find.text('13 platos'));
+    expect(find.text('13 platos'), findsOneWidget);
   });
 }

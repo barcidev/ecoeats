@@ -47,15 +47,24 @@
   "tasks": {
     "T1": {
       "status": "done",
+      "baseCommit": "1ff919b987ea262839c9bd885b5cf2d6554202f2",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:24:37.117Z",
+      "doneAt": "2026-10-26T02:33:28.008Z",
+      "summary": "Pinned MenuFilters (category pills fading before the sort button, hairline when pinned) with a sort sheet; CartaRow with photo, name, ingredient taste, price and rating read as one sentence, staggered on first load; colophon with plural count.",
       "scopeExtra": [
         "lib/features/dishes/presentation/home/home_header.dart",
         "test/features/dishes/presentation/preview/**"
-      ],
+      ]
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
       "attempts": 1,
-      "baseCommit": "1ff919b987ea262839c9bd885b5cf2d6554202f2",
-      "startedAt": "2026-10-26T02:24:37.117Z",
-      "doneAt": "2026-10-26T02:33:28.008Z",
-      "summary": "Pinned MenuFilters (category pills fading before the sort button, hairline when pinned) with a sort sheet; CartaRow with photo, name, ingredient taste, price and rating read as one sentence, staggered on first load; colophon with plural count."
+      "baseCommit": "efb4ed5339f741b35660eda77f677d30b7c2e851",
+      "startedAt": "2026-10-26T02:33:28.281Z",
+      "doneAt": "2026-10-26T02:34:32.177Z",
+      "summary": "CupertinoSliverRefreshControl under the header calls dishesProvider.refresh with a PlateSpinner indicator that fills with the pull and turns while refreshing; bouncing physics keep the pull natural."
     }
   },
   "pending": {
