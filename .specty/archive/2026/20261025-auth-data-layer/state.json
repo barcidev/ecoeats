@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-auth-data-layer",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-auth-data-layer",
   "baseCommit": "2eef7c3ff25a794b81d5cf0987ca9bcd1e669d8c",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:ed1d5c46a568b3c6b55e5df7094226e5ea6c9828ef3f94fcfec0bc10ff18361f",
@@ -48,12 +48,12 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "9023fba1eb402b134390588a25d647cd9dbf2065",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:32:01.160Z",
       "doneAt": "2026-10-26T00:33:07.970Z",
-      "summary": "AuthRepository normalizes emails (trim, lowercase), trims names, document and OTP, keeps passwords as typed, and exposes login, register (no token), forgot, verify and reset as a keepAlive provider."
+      "summary": "AuthRepository normalizes emails (trim, lowercase), trims names, document and OTP, keeps passwords as typed, and exposes login, register (no token), forgot, verify and reset as a keepAlive provider.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -64,5 +64,6 @@
     "A": 3,
     "AC": 3,
     "T": 2
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T00:33:18.520Z"
 }

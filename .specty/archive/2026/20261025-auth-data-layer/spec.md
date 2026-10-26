@@ -44,3 +44,22 @@ The app can call the five security endpoints of the API (register, login, forgot
   - files: lib/features/auth/data/auth_repository.dart, test/features/auth/data/auth_repository_test.dart
   - ac: AC1, AC2, AC3
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+`AuthApi` calls the five security endpoints with the production contract's keys. `AuthRepository` normalizes what the user types before sending it, and every error arrives as an `AppFailure`.
+
+### Deviations
+
+- None.
+
+### Decisions
+
+- The DTOs use English field names mapped to the API's Spanish keys with `@JsonKey`.
+- Passwords are never trimmed; emails, names, document and OTP are.
+
+### Follow-ups
+
+- The session change stores the token, decodes the JWT and adds the auto-login after register.
