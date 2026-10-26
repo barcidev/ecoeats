@@ -52,7 +52,7 @@ The catalog has its data: a freezed `Dish` read from the production contract (wi
   - files: lib/features/dishes/data/dish_api.dart, lib/features/dishes/data/dish_repository.dart, lib/features/dishes/application/dishes_provider.dart, test/features/dishes/data/dish_repository_test.dart, test/features/dishes/application/dishes_provider_test.dart
   - ac: AC2, AC3
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes
-- [ ] T3: Placeholder pages and transitions
+- [x] T3: Placeholder pages and transitions
   - files: lib/features/dishes/presentation/dish_transitions.dart, lib/features/dishes/presentation/home/home_page.dart, lib/features/dishes/presentation/detail/dish_detail_page.dart, test/features/dishes/domain/dish_test.dart
   - ac: AC4
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test

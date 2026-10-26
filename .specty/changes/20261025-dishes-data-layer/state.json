@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-dishes-data-layer",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-dishes-data-layer",
   "baseCommit": "30cf5bb6b54f374001fb1879e4bfb1ebaa828cda",
   "revision": 1,
@@ -51,12 +51,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "8dfdc10c717fb725db36cc8f61282ac98b39ec52",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:42:03.106Z",
       "doneAt": "2026-10-26T00:43:33.258Z",
-      "summary": "DishApi (GET /api/dish and /api/dish/{id} through request()), thin DishRepository, autoDispose dishesProvider whose refresh() keeps the previous list in loading and error states."
+      "summary": "DishApi (GET /api/dish and /api/dish/{id} through request()), thin DishRepository, autoDispose dishesProvider whose refresh() keeps the previous list in loading and error states.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "73b7e12b5d56bd559421c13f1c7d492326b08878",
+      "startedAt": "2026-10-26T00:43:33.509Z",
+      "doneAt": "2026-10-26T00:44:34.652Z",
+      "summary": "HeroSource enum and dishHeroTag (dish-<id>-<source>), emphasized fade transition, @RoutePage HomePage placeholder listing names and DishDetailPage with @PathParam id, optional initial dish and heroSource."
     }
   },
   "pending": {

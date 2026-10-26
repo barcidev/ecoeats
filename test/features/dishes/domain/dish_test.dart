@@ -1,4 +1,5 @@
 import 'package:ecoeats/features/dishes/domain/dish.dart';
+import 'package:ecoeats/features/dishes/presentation/dish_transitions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 const Map<String, Object?> _bandejaPaisa = {
@@ -16,6 +17,12 @@ const Map<String, Object?> _bandejaPaisa = {
 };
 
 void main() {
+  test('hero tags carry the dish and where it flies from', () {
+    expect(dishHeroTag('a1', .carousel), 'dish-a1-carousel');
+    expect(dishHeroTag('a1', .list), 'dish-a1-list');
+    expect(dishHeroTag('a1', .discover), 'dish-a1-discover');
+  });
+
   group('Dish.fromJson', () {
     test('reads the contract, typo included', () {
       final dish = Dish.fromJson(_bandejaPaisa);
