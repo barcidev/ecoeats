@@ -1,0 +1,3 @@
+{"ts":"2026-10-26T01:15:34.988Z","actor":"agent","tool":"claude-code","event":"change.created","data":{"kind":"standard","branch":"specty/20261025-auth-and-profile-copy-in-spanish-and-english","epic":"20261025-access-and-account-agent-a","slice":"C2"}}
+{"ts":"2026-10-26T01:16:39.842Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":1,"hash":"sha256:c7bf87627836c10c2950f3bb3db8e0e7bb57563cb334d6e7ba430e4a407fc4ed","size":"M","warnings":0}}
+{"ts":"2026-10-26T01:16:41.595Z","actor":"agent","tool":"claude-code","event":"spec.approved","data":{"revision":1,"hash":"sha256:c7bf87627836c10c2950f3bb3db8e0e7bb57563cb334d6e7ba430e4a407fc4ed","channel":"delegated","delegated":true}}
