@@ -74,4 +74,50 @@ void main() {
 
     expect(find.byKey(AchioteSweep.key), findsNothing);
   });
+
+  group('covered', () {
+    late int covered;
+
+    Future<void> play(WidgetTester tester) async {
+      covered = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: ecoTheme(.light),
+          home: Builder(
+            builder: (context) => TextButton(
+              onPressed: () => AchioteSweep.play(
+                context,
+                origin: const Offset(200, 600),
+                onCovered: () => covered++,
+              ),
+              child: const Text('Entrar'),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('Entrar'));
+      await tester.pump();
+    }
+
+    testWidgets('is reported once, when the disc has grown', (tester) async {
+      await play(tester);
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(covered, 0);
+
+      await tester.pump(const Duration(milliseconds: 250));
+      expect(covered, 1);
+
+      await tester.pumpAndSettle();
+      expect(covered, 1);
+    });
+
+    testWidgets('is reported at once with reduced motion', (tester) async {
+      tester.platformDispatcher.accessibilityFeaturesTestValue =
+          const FakeAccessibilityFeatures(disableAnimations: true);
+      await play(tester);
+
+      expect(covered, 1);
+      expect(find.byKey(AchioteSweep.key), findsNothing);
+    });
+  });
 }

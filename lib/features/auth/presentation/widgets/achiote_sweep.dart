@@ -5,22 +5,30 @@ import 'package:ecoeats/design/tokens/motion.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// After a sign-in, an achiote disc grows from the button until it covers
-/// the app, holds while Home settles beneath, and then fades away.
+/// After a sign-in, an achiote disc grows from the button's check until it
+/// covers the app, holds while Home settles beneath, and then fades away.
 ///
-/// It lives in the root overlay, above the navigator: the session change
-/// makes the app replace the auth pages with Home at once, and the sweep has
-/// to outlive the page that started it.
+/// It lives in the root overlay, above the navigator, so it outlives the
+/// page that started it when the app replaces the auth pages with Home.
 abstract final class AchioteSweep {
   static const duration = Duration(milliseconds: 1100);
 
   @visibleForTesting
   static const key = Key('achiote-sweep');
 
-  /// Starts the sweep at [origin], in global coordinates. With reduced motion
-  /// there is none: the route change alone is the crossfade.
-  static void play(BuildContext context, {required Offset origin}) {
-    if (Motion.reduced(context)) return;
+  /// Starts the sweep at [origin], in global coordinates, and calls
+  /// [onCovered] once the disc covers the app. With reduced motion there is
+  /// none, the route change alone is the crossfade, and the app counts as
+  /// covered at once.
+  static void play(
+    BuildContext context, {
+    required Offset origin,
+    VoidCallback? onCovered,
+  }) {
+    if (Motion.reduced(context)) {
+      onCovered?.call();
+      return;
+    }
     final overlay = Overlay.of(context, rootOverlay: true);
     final box = overlay.context.findRenderObject() as RenderBox?;
     final center = box?.globalToLocal(origin) ?? origin;
@@ -32,6 +40,7 @@ abstract final class AchioteSweep {
         key: key,
         center: center,
         color: color,
+        onCovered: onCovered,
         onDone: () => entry
           ..remove()
           ..dispose(),
@@ -46,18 +55,25 @@ class _Sweep extends StatefulWidget {
     required this.center,
     required this.color,
     required this.onDone,
+    this.onCovered,
     super.key,
   });
 
   final Offset center;
   final Color color;
   final VoidCallback onDone;
+  final VoidCallback? onCovered;
 
   @override
   State<_Sweep> createState() => _SweepState();
 }
 
 class _SweepState extends State<_Sweep> with SingleTickerProviderStateMixin {
+  /// Where the growth ends in the run: from here on the disc covers the app.
+  static const _grown = 0.45;
+
+  var _covered = false;
+
   late final _run = AnimationController(
     vsync: this,
     duration: AchioteSweep.duration,
@@ -66,7 +82,7 @@ class _SweepState extends State<_Sweep> with SingleTickerProviderStateMixin {
   // Grows over the first 45 %, holds while Home arrives, fades at the end.
   late final _grow = CurvedAnimation(
     parent: _run,
-    curve: const Interval(0, 0.45, curve: Motion.emphasized),
+    curve: const Interval(0, _grown, curve: Motion.emphasized),
   );
   late final _fade = CurvedAnimation(
     parent: _run,
@@ -76,7 +92,16 @@ class _SweepState extends State<_Sweep> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    _run.addListener(_onProgress);
     unawaited(_run.forward().whenComplete(widget.onDone));
+  }
+
+  // An interval's status follows the whole run, so the end of the growth is
+  // read from the run's value.
+  void _onProgress() {
+    if (_covered || _run.value < _grown) return;
+    _covered = true;
+    widget.onCovered?.call();
   }
 
   @override

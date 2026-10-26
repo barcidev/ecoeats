@@ -6,6 +6,13 @@
   "branch": "specty/20261026-login-and-registration-celebrate-on-the-button-a",
   "baseCommit": "40efd7c2c197eca00a479f4d2be7af3bc49b4381",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:e96caf68b73e77a8765c63d6399ec102f0e67ed256f79bf419449c64ebd09cbd",
+    "at": "2026-10-26T14:32:56.384Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 12,
@@ -37,7 +44,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "510fbae6187bf33e99c2ff051612a1d390b4a850",
+      "startedAt": "2026-10-26T14:32:56.738Z",
+      "doneAt": "2026-10-26T14:35:37.695Z",
+      "summary": "AchioteSweep.play takes onCovered, reported once when the disc reaches the farthest corner (at once with reduced motion); 2 new tests."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -46,12 +63,5 @@
     "A": 5,
     "AC": 5,
     "T": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:e96caf68b73e77a8765c63d6399ec102f0e67ed256f79bf419449c64ebd09cbd",
-    "at": "2026-10-26T14:32:56.384Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

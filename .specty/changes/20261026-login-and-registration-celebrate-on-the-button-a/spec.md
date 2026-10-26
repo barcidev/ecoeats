@@ -38,7 +38,7 @@ Al entrar o crear la cuenta, el botón celebra antes de soltar la pantalla: se a
 
 ## Tareas
 
-- [ ] T1: La barrida avisa cuando cubre la app, con tests en test/features/auth/presentation/widgets/achiote_sweep_test.dart
+- [x] T1: La barrida avisa cuando cubre la app, con tests en test/features/auth/presentation/widgets/achiote_sweep_test.dart
   - files: lib/features/auth/presentation/widgets/achiote_sweep.dart
   - ac: AC2, AC4
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth
