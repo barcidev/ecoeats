@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-native-platforms",
   "kind": "quick",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-native-platforms",
   "baseCommit": "8a5149fc0f84b639c8abf6380cfff6da1643e488",
   "revision": 1,
@@ -25,12 +25,12 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "6957d4b056d0d3ed484eba8811a18a9eeefbeb91",
+      "attempts": 1,
       "startedAt": "2026-10-26T09:50:29.589Z",
       "doneAt": "2026-10-26T09:53:24.751Z",
-      "summary": "Android host project (from the cancelled change: INTERNET, EcoEats label, portrait, predictive back) and iOS host project from flutter create (EcoEats display name, es/en localizations, portrait); analyzer excludes both. APK and iOS simulator builds pass."
+      "summary": "Android host project (from the cancelled change: INTERNET, EcoEats label, portrait, predictive back) and iOS host project from flutter create (EcoEats display name, es/en localizations, portrait); analyzer excludes both. APK and iOS simulator builds pass.",
+      "scopeExtra": []
     }
   },
   "pending": {

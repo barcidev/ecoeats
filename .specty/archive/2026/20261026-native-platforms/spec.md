@@ -22,3 +22,9 @@ The app runs on Android and iOS. `flutter create` (3.47.8, `co.ecoeats.ecoeats`)
   - files: analysis_options.yaml, android/**, ios/**
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test && fvm flutter build apk --debug && fvm flutter build ios --simulator --debug
   - type: chore
+
+## Closing
+
+### Summary
+
+Android host project (from the cancelled change: INTERNET, EcoEats label, portrait, predictive back) and iOS host project from flutter create (EcoEats display name, es/en localizations, portrait); analyzer excludes both. APK and iOS simulator builds pass.
