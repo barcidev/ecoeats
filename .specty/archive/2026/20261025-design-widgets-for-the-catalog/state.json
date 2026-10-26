@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "id": "20261025-design-widgets-for-the-catalog",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-design-widgets-for-the-catalog",
+  "baseCommit": "169e4b95e06609208696559e671a84601d078b6c",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:9c0c4ae0dc4326b66492f89543d4147038f58736f2d44c37de70c766b8cd9283",
+    "at": "2026-10-26T00:45:47.120Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "L",
+    "score": 12,
+    "adjust": 0,
+    "reasons": [
+      "12 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:e4ceedde42fdd2e90b8461e79814c356d120e9d612151f521f43007555b56c02",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:77f267a6a03d0fe9c22fa6bfdd90ec6e8a1f7a8c90a769b9d43083cdb0fd01c4",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:5416f385c0182dc497d396cd928a9648dcfc61981617919701e2fcff592a8945",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:2f2ae5406323ff3cb4d0f4bd52b2cfbe1bbefeeaf2a8efbcb1047116e5261fbe",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "d11129c1e7eac18e89047001692b0b94b0594678",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:45:47.443Z",
+      "doneAt": "2026-10-26T00:48:39.314Z",
+      "summary": "Pressable (scale on press, haptic, merged button semantics; a semanticLabel replaces the child's texts), PlateSpinner (spinning or progress rim, still with reduced motion), EcoButton primary/secondary/quiet with loading spinner and disabled dim.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "b09e8113bf71203ed2f4e9a4950573dd5684426a",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:48:39.598Z",
+      "doneAt": "2026-10-26T00:50:11.697Z",
+      "summary": "PlateIllustration (plate, fork, knife and a leaf in the accent), pulsing Skeleton blocks (still with reduced motion), StateView with kind-tinted illustration, texts, footnote and a ticking cooldown that enables the action at zero.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "8891707f4504481acd438edca649b05ac43fc1e6",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:50:12.313Z",
+      "doneAt": "2026-10-26T00:53:47.429Z",
+      "summary": "SegmentedPills (scrolling pills with selected semantics), fractional RatingStars, single top Toast with tones; EcoIcons reads Phosphor fonts through const IconData because phosphor_flutter 2.1 does not compile on Flutter 3.47.",
+      "scopeExtra": [
+        "lib/design/tokens/eco_icons.dart"
+      ]
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 5,
+    "T": 3,
+    "S": 1
+  },
+  "closingSubmittedAt": "2026-10-26T00:54:06.399Z"
+}
