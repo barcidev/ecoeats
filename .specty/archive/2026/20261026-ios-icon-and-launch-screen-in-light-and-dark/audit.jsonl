@@ -7,3 +7,6 @@
 {"ts":"2026-10-26T13:59:53.300Z","actor":"agent","tool":"claude-code","event":"task.started","data":{"task":"T2","baseCommit":"7b4ac446038844473ea44e6ae6edd28f2608b973"}}
 {"ts":"2026-10-26T14:03:51.361Z","actor":"specty","event":"task.verified","data":{"task":"T2","cmd":"fvm dart run flutter_native_splash:create && fvm flutter build ios --simulator --debug && fvm flutter analyze && fvm flutter test","exit":0,"ms":75032,"tree":"sha256:726bc46668fe3670110f73571755d5fd6b3ecbfb0623e0a56ce97426294ec459"}}
 {"ts":"2026-10-26T14:03:51.492Z","actor":"agent","tool":"claude-code","event":"task.completed","data":{"task":"T2","summary":"flutter_native_splash.yaml turns iOS on: launch screen with the mark on Mantel/Fogón paper, seen on the iPhone 15 Pro simulator in light and dark with the new icon on the home screen; Info.plist keeps languages and portrait, project.pbxproj restored."}}
+{"ts":"2026-10-26T14:03:57.247Z","actor":"agent","tool":"claude-code","event":"change.accepted","data":{"revision":1,"delegated":true}}
+{"ts":"2026-10-26T14:04:06.557Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":2,"hash":"sha256:5e16fad22dd2e64f79d6101b16abb859af24fc54b8fea502f835a4d35880d5d5","size":"S","warnings":2}}
+{"ts":"2026-10-26T14:04:07.223Z","actor":"agent","tool":"claude-code","event":"change.closed","data":{"delegated":true}}

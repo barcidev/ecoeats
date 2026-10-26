@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261026-ios-icon-and-launch-screen-in-light-and-dark",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-ios-icon-and-launch-screen-in-light-and-dark",
   "baseCommit": "106b782b0162718c4e4d99338b665790855f5f16",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:9c213e7e4ceff2581abd636ab73100624e299accc9998cd7d51bdb7dbc9d6378",
@@ -51,12 +51,12 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "7b4ac446038844473ea44e6ae6edd28f2608b973",
+      "attempts": 1,
       "startedAt": "2026-10-26T13:59:53.300Z",
       "doneAt": "2026-10-26T14:03:51.490Z",
-      "summary": "flutter_native_splash.yaml turns iOS on: launch screen with the mark on Mantel/Fogón paper, seen on the iPhone 15 Pro simulator in light and dark with the new icon on the home screen; Info.plist keeps languages and portrait, project.pbxproj restored."
+      "summary": "flutter_native_splash.yaml turns iOS on: launch screen with the mark on Mantel/Fogón paper, seen on the iPhone 15 Pro simulator in light and dark with the new icon on the home screen; Info.plist keeps languages and portrait, project.pbxproj restored.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -68,5 +68,6 @@
     "AC": 3,
     "T": 2,
     "R": 1
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T14:04:06.554Z"
 }

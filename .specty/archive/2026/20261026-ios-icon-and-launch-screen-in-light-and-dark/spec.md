@@ -51,3 +51,22 @@ On iOS, EcoEats shows its mark before the first frame, as on Android. The home s
 ## Risks
 
 - R1: As on Android, the splash generator may rewrite `Info.plist` and drop phase 0 keys. Mitigation: review the diff and keep the plist as phase 0 left it, unless a key is needed for the launch screen.
+
+## Closing
+
+### Summary
+
+On iOS, EcoEats shows its mark before the first frame, as on Android. The app icon set is drawn from the opaque brand icon, and the launch screen shows the mark on «Mantel» paper or «Fogón» paper, following the phone's appearance. A simulator build ran on the iPhone 15 Pro: the launch screen in light and dark, and the icon on the home screen, look as designed. `Info.plist` keeps its languages, name and portrait lock.
+
+### Deviations
+
+- `flutter_launcher_icons` 0.14 rewrites every `ASSETCATALOG_*` build setting in `project.pbxproj` with the icon's name, which breaks `ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS`. No option avoids it. The icon keeps the default name `AppIcon`, so the project needs no change: it was restored to its previous version, T1's verification broke it again, and T2 restored it for good. The config file now says to undo it after each run.
+- `flutter_native_splash` reformats `Info.plist` and adds `UIStatusBarHidden = false`. The content is otherwise the same, and the generator's format is kept because every run rewrites it.
+
+### Decisions
+
+- `remove_alpha_ios: true` keeps the icon set opaque, as the App Store requires, even though the source already is.
+
+### Follow-ups
+
+- Reporting the `ASSETCATALOG_*` rewrite upstream to flutter_launcher_icons would remove the manual undo.
