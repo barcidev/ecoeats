@@ -51,12 +51,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "1301680bbf5ea7a0e42e189c2a57d5307b9808cf",
+      "attempts": 1,
       "startedAt": "2026-10-26T09:40:03.510Z",
       "doneAt": "2026-10-26T09:41:46.893Z",
-      "summary": "registerController walks the two steps, signs up through the session (sign-in and stored first names included), maps 400 keys and 409 fields to RegisterField, returns to the first step holding a refused field, and keeps the 429 wait; 9 unit tests."
+      "summary": "registerController walks the two steps, signs up through the session (sign-in and stored first names included), maps 400 keys and 409 fields to RegisterField, returns to the first step holding a refused field, and keeps the 429 wait; 9 unit tests.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "f7236f6abcd452b5c6f3c55d1d4d48d4302e4d03",
+      "startedAt": "2026-10-26T09:41:47.180Z",
+      "doneAt": "2026-10-26T09:43:00.071Z",
+      "summary": "PasswordRules: the length rule waits (circle) until met, the byte rule holds (check) until broken (achiote x), and a hint about accents and emoji appears near the limit; each rule reads its state to screen readers; 4 widget tests."
     }
   },
   "pending": {

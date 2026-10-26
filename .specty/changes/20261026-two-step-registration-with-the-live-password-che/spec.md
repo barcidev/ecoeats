@@ -46,7 +46,7 @@ A new customer creates an account in two short steps, who they are (first names,
   - files: lib/features/auth/application/register_controller.dart
   - ac: AC3, AC4, AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth/application
-- [ ] T2: Password checklist, with widget tests in test/features/auth/presentation/widgets/password_checklist_test.dart
+- [x] T2: Password checklist, with widget tests in test/features/auth/presentation/widgets/password_checklist_test.dart
   - files: lib/features/auth/presentation/widgets/password_checklist.dart
   - ac: AC2
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth
