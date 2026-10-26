@@ -51,3 +51,22 @@ A dish opens the way the plan describes: its photo flies from where it was tappe
   - files: lib/features/dishes/presentation/detail/swipe_to_dismiss.dart, lib/features/dishes/presentation/detail/dish_detail_page.dart, test/features/dishes/presentation/dish_detail_test.dart
   - ac: AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+The detail opens under the source's hero tag. The photo fills the top 58 %, scrolls away at half speed, stretches when pulled and rounds into the content sheet, which rises a beat later. The sheet holds the overline, the name, fractional stars read as «4,9 de 5», the price, the description, carbohydrate and protein bars that fill while their figures count, and the ingredients numbered 01, 02…. A newer server copy replaces the list's, and a 404 says the dish is off the menu and leads back. Pulling the page down shrinks it over Home and closes it past 120 px.
+
+### Deviations
+
+- The sheet's rounded shoulders are drawn inside the photo header, because a `SliverAppBar` paints above the slivers that follow it, so an overlapping sheet would hide behind the photo.
+
+### Decisions
+
+- The release of a pull is detected from the first ballistic update without drag details: a drag that ends overscrolled goes straight to ballistic and dispatches no `ScrollEndNotification`.
+- The macro bars share a 100 g scale and the API's grams only; no calories appear.
+
+### Follow-ups
+
+- Agent C's `DishHero` adds the flight shuttle with radius and text interpolation, and Discover's «Ver plato ↑» opens this route with `heroSource: discover`.
