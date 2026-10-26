@@ -59,3 +59,24 @@ The top of Home looks and behaves like the plan's editorial front page: a large 
   - files: lib/features/dishes/presentation/home/featured_carousel.dart, lib/features/dishes/presentation/home/discover_banner.dart, lib/features/dishes/presentation/home/home_page.dart, test/features/dishes/presentation/home_carousel_test.dart
   - ac: AC4, AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+Home opens with a masthead (date in the active language, a greeting and a headline that follow the time of day, and the avatar to the profile) that folds into a blurred bar keeping the search. Under it come the featured carousel with inner parallax, scaled side cards, an indicator and spoken labels, and the «Modo descubrir» banner that opens Discover from the tapped point. Searching leaves only the results.
+
+### Deviations
+
+- T1 wrote the header tests first (scope extension), and T2 extended them with the night, English, nameless and folding cases.
+- The thumbnails in the fan use hairline borders instead of shadows, following the design rules.
+
+### Decisions
+
+- The masthead height follows the text scale, and the price and rating line under each card wraps instead of overflowing.
+- Text over photos uses Fogón's ink in both themes, because it always sits on a dark scrim.
+- Visual QA used throwaway golden renders with the real fonts, since the native platforms change is still blocked; they were not committed.
+
+### Follow-ups
+
+- The next change replaces the plain list with the pinned filter pills, the sort sheet, «La carta» rows, pull-to-refresh, the colophon and the empty, error, offline and 429 states.
