@@ -1,0 +1,17 @@
+# Launcher icons, generated from the brand sources that
+# tool/brand/export_brand_test.dart draws with LogoMark. Regenerate with:
+#   fvm dart run flutter_launcher_icons
+flutter_launcher_icons:
+  image_path: assets/brand/icon.png
+
+  android: true
+  min_sdk_android: 21
+  # The mark over «Mantel» paper; Android 13+ tints the monochrome layer.
+  adaptive_icon_background: "#F4EEE4"
+  adaptive_icon_foreground: assets/brand/icon_foreground.png
+  adaptive_icon_monochrome: assets/brand/icon_monochrome.png
+  # The sources already keep the mark inside the 66 % safe zone; another
+  # inset would shrink it to a third of the icon.
+  adaptive_icon_foreground_inset: 0
+
+  ios: false

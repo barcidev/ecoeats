@@ -38,7 +38,7 @@ On Android, EcoEats looks like itself before its first frame. The launcher shows
 
 ## Tasks
 
-- [ ] T1: Adaptive and monochrome launcher icon
+- [x] T1: Adaptive and monochrome launcher icon
   - files: flutter_launcher_icons.yaml, android/app/src/main/res/**
   - ac: AC1
   - verify: fvm dart run flutter_launcher_icons

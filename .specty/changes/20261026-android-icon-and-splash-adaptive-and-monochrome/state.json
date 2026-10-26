@@ -6,6 +6,13 @@
   "branch": "specty/20261026-android-icon-and-splash-adaptive-and-monochrome",
   "baseCommit": "11a0b5797e0a4fd7a761c0be09513685a5f51c31",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:54f856da32aaf46017c48bbad0a4fced23bfcc786caf9b8a0283c7e249fdde7b",
+    "at": "2026-10-26T11:33:53.675Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 12,
@@ -32,7 +39,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "39e6460712fee1c6753894fb474cbe38321e1ecd",
+      "startedAt": "2026-10-26T11:33:54.008Z",
+      "doneAt": "2026-10-26T11:34:24.621Z",
+      "summary": "flutter_launcher_icons.yaml generates the legacy launcher icon from icon.png and an API 26+ adaptive icon (foreground over #F4EEE4 paper, monochrome layer), with no extra inset since the sources keep the safe zone."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -42,12 +59,5 @@
     "AC": 3,
     "T": 2,
     "R": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:54f856da32aaf46017c48bbad0a4fced23bfcc786caf9b8a0283c7e249fdde7b",
-    "at": "2026-10-26T11:33:53.675Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }
