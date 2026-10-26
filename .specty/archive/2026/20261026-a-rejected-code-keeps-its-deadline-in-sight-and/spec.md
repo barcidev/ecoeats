@@ -41,3 +41,22 @@ En el paso del código, cuando el código fue rechazado, la persona sigue viendo
   - ac: AC3, AC4
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test
   - type: refactor
+
+## Cierre
+
+### Resumen
+
+En el paso del código, un código rechazado muestra el aviso de intentos en achiote y debajo la cuenta «Vence en mm:ss», que sigue corriendo; bloqueado y vencido conservan solo su aviso. `Validators.normalizeEmail` ya no existe: la app normaliza con el `normalizeEmail` del repositorio, y el test que comprobaba la copia ahora comprueba esa función con la misma aserción. La suite completa (419 tests) y `flutter analyze` pasan.
+
+### Desviaciones
+
+- `_codeStep` se partió en `_codeStatus` y `_codeLinks`: la revisión `function-lines` de Specty limita las funciones a 50 líneas y con la cuenta llegaba a 72.
+- La verificación completa corrió con el Flutter fijado por fvm primero en el PATH.
+
+### Decisiones
+
+- La cuenta del código es un solo `Countdown` que el estado normal y el de rechazo comparten.
+
+### Pendientes
+
+- La revisión `format` de Specty mira todo el repositorio y marca `lib/design/theme.dart`, `lib/design/tokens/motion.dart` y `lib/design/tokens/spacing.dart` sin formatear (fase 0); un cambio de diseño puede formatearlos.

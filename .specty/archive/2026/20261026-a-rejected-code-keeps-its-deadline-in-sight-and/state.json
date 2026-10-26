@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261026-a-rejected-code-keeps-its-deadline-in-sight-and",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-a-rejected-code-keeps-its-deadline-in-sight-and",
   "baseCommit": "4e1e710df3384ed0ad8aba3f076a90f7b25b459b",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:9c58d5c2b487af32afdca0682ddb9afc8d6422303e323a92511575cd2fb7322a",
@@ -44,12 +44,12 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "e502c50debff012d8d3ad54619afd756b80afdb4",
+      "attempts": 1,
       "startedAt": "2026-10-26T14:54:30.029Z",
       "doneAt": "2026-10-26T14:55:25.109Z",
-      "summary": "Removed Validators.normalizeEmail; its test now checks the repository's normalizeEmail, the one the app sends."
+      "summary": "Removed Validators.normalizeEmail; its test now checks the repository's normalizeEmail, the one the app sends.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -60,5 +60,6 @@
     "A": 2,
     "AC": 4,
     "T": 2
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T14:55:49.070Z"
 }
