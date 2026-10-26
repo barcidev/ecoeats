@@ -55,7 +55,7 @@ The brand mark and the app's drawings become finished line art. The logo draws i
   - files: lib/design/painters/plate_illustration.dart, test/design/painters_test.dart
   - ac: AC2
   - verify: fvm flutter test test/design/painters_test.dart
-- [ ] T3: StateView with its drawing per kind, its entrance and the emptying hourglass, with widget tests
+- [x] T3: StateView with its drawing per kind, its entrance and the emptying hourglass, with widget tests
   - files: lib/design/widgets/state_view.dart, test/design/widgets/state_view_test.dart
   - ac: AC3, AC4
   - verify: fvm dart run build_runner build -d && fvm dart run slang && fvm flutter analyze && fvm flutter test
