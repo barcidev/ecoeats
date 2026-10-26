@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "id": "20261025-media-brand-and-form-widgets",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-media-brand-and-form-widgets",
+  "baseCommit": "cfd131a2ee2d5ad3844d05ca8c9b7dd16ba7e361",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:969867be44a0b6d21371aaac7b9c625a8e1618d6b0ed334ee33c3fee984eb87d",
+    "at": "2026-10-26T00:56:32.076Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "L",
+    "score": 15,
+    "adjust": 0,
+    "reasons": [
+      "13 files",
+      "2 modules"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:45ab4430fb5cdbf435b4e0b012c328d7f1f876037d71b660e7005757f883334b",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:0f4150540ef9a8bb21f2575ab818c305dd68bad0a0725fe2773fc3887baff81c",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:8ef188eae71cac4ba879236ce1f316df49c8e870fef16c2c5e8615dba52eb8e7",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:03c49324c3ff4f7fdd862a8e13b4a3f931ea2bbd52de3cbf7005d1a5856d5c14",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "c43b29712d6366301b40f505d51c4ec780550fef",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:56:32.411Z",
+      "doneAt": "2026-10-26T00:58:04.233Z",
+      "summary": "DishImage: CachedNetworkImage keyed without X-Amz-* params, decoded at laid-out width × dpr, with a DishPlaceholder (stable palette gradient, plate drawing, Fraunces italic initials) while loading and on error; simple DishHero.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "1b9c771786e7532699e72e04fe6e2aa4fe0b8807",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:58:04.568Z",
+      "doneAt": "2026-10-26T01:00:11.177Z",
+      "summary": "EcoTextField (overline label, underline that turns achiote on error, animated error line, autofill and formatters), Shake on trigger change with haptic and damped swings, MaskRevealText sliding each line out of a clip with a 120 ms gap.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "f67bfd44dd2bbf761d33f91d83fdfe2325aa0987",
+      "attempts": 1,
+      "startedAt": "2026-10-26T01:00:12.183Z",
+      "doneAt": "2026-10-26T01:04:44.051Z",
+      "summary": "GrainOverlay (fixed-seed dots), LogoMark drawing its rim by progress with the leaf growing in, debug DesignGalleryPage with a light/dark switch, DiscoverPage placeholder taking revealOrigin, revealRoute with CircleRevealClipper (fade with reduced motion).",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 5,
+    "T": 3
+  },
+  "closingSubmittedAt": "2026-10-26T01:04:55.523Z"
+}
