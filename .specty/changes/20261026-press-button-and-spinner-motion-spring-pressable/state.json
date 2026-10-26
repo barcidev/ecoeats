@@ -50,12 +50,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "d6604917c53e5c84f65d9a1a6187a3d32d9060a8",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:11:58.841Z",
       "doneAt": "2026-10-26T10:16:23.690Z",
-      "summary": "Pressable sinks and springs back with Motion.spring, keeping velocity, rests exactly at 1, plays a selection click and never scales with reduced motion (read in build, safe during teardown)."
+      "summary": "Pressable sinks and springs back with Motion.spring, keeping velocity, rests exactly at 1, plays a selection click and never scales with reduced motion (read in build, safe during teardown).",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "94798241f2e879cbeb731c26cc8740e02447a052",
+      "startedAt": "2026-10-26T10:16:24.350Z",
+      "doneAt": "2026-10-26T10:18:52.714Z",
+      "summary": "PlateSpinner's arc now chases itself (eased head and tail, 1.25 turns per cycle, continuous across cycles, tested through plateSpinnerArc); Shake runs a loose damped spring with a medium haptic and rests exactly at 0."
     }
   },
   "pending": {

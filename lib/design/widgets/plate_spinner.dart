@@ -4,8 +4,27 @@ import 'package:ecoeats/design/tokens/motion.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:flutter/widgets.dart';
 
-/// A plate seen from above whose rim fills or turns: the app's only loading
-/// indicator.
+/// One chase of the rim: long enough to read as calm, short enough to feel
+/// alive.
+const _cycle = Duration(milliseconds: 1400);
+
+/// The spinning arc at [t] of a cycle, in turns from the top of the plate.
+///
+/// The head runs ahead in the first half and the tail catches up in the
+/// second, so the arc grows and shrinks as it turns. The base rotation of
+/// 1.25 turns per cycle plus the tail's 0.75 adds up to whole turns, so a
+/// cycle ends exactly where the next one starts.
+@visibleForTesting
+({double start, double sweep}) plateSpinnerArc(double t) {
+  const reach = 0.75;
+  const shortest = 0.04;
+  final head = reach * Curves.easeInOut.transform((t * 2).clamp(0, 1));
+  final tail = reach * Curves.easeInOut.transform((t * 2 - 1).clamp(0, 1));
+  return (start: t * 1.25 + tail, sweep: math.max(shortest, head - tail));
+}
+
+/// A plate seen from above whose rim fills or chases itself: the app's only
+/// loading indicator.
 class PlateSpinner extends StatefulWidget {
   const new({this.size = 24, this.color, this.progress, super.key});
 
@@ -21,10 +40,7 @@ class PlateSpinner extends StatefulWidget {
 
 class _PlateSpinnerState extends State<PlateSpinner>
     with SingleTickerProviderStateMixin {
-  late final _turn = AnimationController(
-    vsync: this,
-    duration: Motion.signature,
-  );
+  late final _turn = AnimationController(vsync: this, duration: _cycle);
 
   @override
   void didChangeDependencies() {
@@ -108,10 +124,11 @@ class _PlatePainter extends CustomPainter {
         rim,
       );
     } else {
+      final arc = plateSpinnerArc(turn);
       canvas.drawArc(
         rect,
-        turn * math.pi * 2 - math.pi / 2,
-        math.pi * 0.6,
+        arc.start * math.pi * 2 - math.pi / 2,
+        arc.sweep * math.pi * 2,
         false,
         rim,
       );

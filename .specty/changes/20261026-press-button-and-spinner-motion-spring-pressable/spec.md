@@ -59,7 +59,7 @@ The app's tap targets, main button, loader and refusal shake move like physical 
   - files: lib/design/widgets/pressable.dart, test/design/widgets/pressable_test.dart
   - ac: AC1
   - verify: fvm flutter test test/design/widgets/pressable_test.dart
-- [ ] T2: Chasing PlateSpinner and spring Shake, with their tests
+- [x] T2: Chasing PlateSpinner and spring Shake, with their tests
   - files: lib/design/widgets/plate_spinner.dart, lib/design/widgets/shake.dart, test/design/widgets/plate_spinner_test.dart, test/design/widgets/form_motion_test.dart
   - ac: AC4, AC5
   - verify: fvm flutter test test/design/widgets/plate_spinner_test.dart test/design/widgets/form_motion_test.dart

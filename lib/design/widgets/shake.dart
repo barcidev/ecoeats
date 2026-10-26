@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'dart:math' as math;
 
 import 'package:ecoeats/design/tokens/motion.dart';
+import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
@@ -24,38 +24,48 @@ class Shake extends StatefulWidget {
 }
 
 class _ShakeState extends State<Shake> with SingleTickerProviderStateMixin {
-  late final _shake = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 420),
+  // Looser and far less damped than Motion.spring: the panel swings about
+  // three times, each weaker, before it rests.
+  static const _swing = SpringDescription(
+    mass: 1,
+    stiffness: 1400,
+    damping: 14,
   );
+
+  /// The sideways kick, in logical pixels per second: about 11 px of reach.
+  static const _kick = 420.0;
+
+  // Below a tenth of a pixel the swings are invisible; stop there.
+  static const _rest = Tolerance(distance: 0.1, velocity: 5);
+
+  late final _offset = AnimationController.unbounded(vsync: this);
 
   @override
   void didUpdateWidget(Shake oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.trigger == null || widget.trigger == oldWidget.trigger) return;
     if (widget.haptic) unawaited(HapticFeedback.mediumImpact());
-    if (!Motion.reduced(context)) _shake.forward(from: 0);
+    if (Motion.reduced(context)) return;
+    unawaited(
+      _offset
+          .animateWith(SpringSimulation(_swing, 0, 0, _kick, tolerance: _rest))
+          .then((_) => _offset.value = 0),
+    );
   }
 
   @override
   void dispose() {
-    _shake.dispose();
+    _offset.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: _shake,
+      animation: _offset,
       child: widget.child,
-      builder: (context, child) {
-        final t = _shake.value;
-        // Three swings that lose strength until the panel settles.
-        final dx = t == 0 || t == 1
-            ? 0.0
-            : math.sin(t * math.pi * 6) * 10 * (1 - t);
-        return Transform.translate(offset: Offset(dx, 0), child: child);
-      },
+      builder: (context, child) =>
+          Transform.translate(offset: Offset(_offset.value, 0), child: child),
     );
   }
 }

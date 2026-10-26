@@ -2,15 +2,36 @@ import 'package:ecoeats/design/theme.dart';
 import 'package:ecoeats/design/widgets/eco_text_field.dart';
 import 'package:ecoeats/design/widgets/mask_reveal_text.dart';
 import 'package:ecoeats/design/widgets/shake.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 
-Widget _app(Widget child) => MaterialApp(
+Widget _app(Widget child, {bool reduceMotion = false}) => MaterialApp(
   theme: ecoTheme(.light),
+  builder: (context, child) => MediaQuery(
+    data: MediaQuery.of(context).copyWith(disableAnimations: reduceMotion),
+    child: child!,
+  ),
   home: Scaffold(
     body: Padding(padding: const EdgeInsets.all(24), child: child),
   ),
 );
+
+/// Records the haptics the widgets ask the platform for.
+List<String> _recordHaptics(WidgetTester tester) {
+  final haptics = <String>[];
+  final messenger = tester.binding.defaultBinaryMessenger
+    ..setMockMethodCallHandler(SystemChannels.platform, (call) async {
+      if (call.method == 'HapticFeedback.vibrate') {
+        haptics.add(call.arguments as String);
+      }
+      return null;
+    });
+  addTearDown(
+    () => messenger.setMockMethodCallHandler(SystemChannels.platform, null),
+  );
+  return haptics;
+}
 
 double _shakeOffset(WidgetTester tester) => tester
     .widget<Transform>(
@@ -58,6 +79,56 @@ void main() {
 
     await tester.pumpAndSettle();
     expect(_shakeOffset(tester), 0);
+  });
+
+  testWidgets('Shake swings several times, each weaker, with a haptic', (
+    tester,
+  ) async {
+    final haptics = _recordHaptics(tester);
+    Widget shake(int attempt) =>
+        _app(Shake(trigger: attempt, child: const Text('panel')));
+
+    await tester.pumpWidget(shake(0));
+    await tester.pumpWidget(shake(1));
+    expect(haptics, ['HapticFeedbackType.mediumImpact']);
+
+    final offsets = <double>[];
+    for (var frame = 0; frame < 60; frame++) {
+      await tester.pump(const Duration(milliseconds: 10));
+      offsets.add(_shakeOffset(tester));
+    }
+    var turns = 0;
+    for (var i = 1; i < offsets.length; i++) {
+      if (offsets[i].sign != 0 && offsets[i].sign == -offsets[i - 1].sign) {
+        turns++;
+      }
+    }
+    expect(turns, greaterThanOrEqualTo(4));
+    double strongest(Iterable<double> values) =>
+        values.map((value) => value.abs()).reduce((a, b) => a > b ? a : b);
+    expect(
+      strongest(offsets.sublist(30, 45)),
+      lessThan(strongest(offsets.sublist(0, 15)) / 2),
+    );
+
+    await tester.pumpAndSettle();
+    expect(_shakeOffset(tester), 0);
+  });
+
+  testWidgets('with reduced motion Shake only plays its haptic', (
+    tester,
+  ) async {
+    final haptics = _recordHaptics(tester);
+    Widget shake(int attempt) => _app(
+      Shake(trigger: attempt, child: const Text('panel')),
+      reduceMotion: true,
+    );
+
+    await tester.pumpWidget(shake(0));
+    await tester.pumpWidget(shake(1));
+    await tester.pump(const Duration(milliseconds: 60));
+    expect(_shakeOffset(tester), 0);
+    expect(haptics, ['HapticFeedbackType.mediumImpact']);
   });
 
   testWidgets('MaskRevealText ends with every line in place', (tester) async {
