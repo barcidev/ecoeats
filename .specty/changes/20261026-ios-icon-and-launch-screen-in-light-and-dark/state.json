@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-ios-icon-and-launch-screen-in-light-and-dark",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-ios-icon-and-launch-screen-in-light-and-dark",
   "baseCommit": "106b782b0162718c4e4d99338b665790855f5f16",
   "revision": 1,
@@ -42,12 +42,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "8216957ccceb2a33216b04ea73c41b49c37aabed",
+      "attempts": 1,
       "startedAt": "2026-10-26T13:58:48.416Z",
       "doneAt": "2026-10-26T13:59:53.020Z",
-      "summary": "flutter_launcher_icons.yaml turns iOS on (alpha removed): the AppIcon set is drawn from the opaque brand icon. The generator's pbxproj bug (every ASSETCATALOG_* setting renamed) is documented in the config and undone in T2."
+      "summary": "flutter_launcher_icons.yaml turns iOS on (alpha removed): the AppIcon set is drawn from the opaque brand icon. The generator's pbxproj bug (every ASSETCATALOG_* setting renamed) is documented in the config and undone in T2.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "7b4ac446038844473ea44e6ae6edd28f2608b973",
+      "startedAt": "2026-10-26T13:59:53.300Z",
+      "doneAt": "2026-10-26T14:03:51.490Z",
+      "summary": "flutter_native_splash.yaml turns iOS on: launch screen with the mark on Mantel/Fogón paper, seen on the iPhone 15 Pro simulator in light and dark with the new icon on the home screen; Info.plist keeps languages and portrait, project.pbxproj restored."
     }
   },
   "pending": {

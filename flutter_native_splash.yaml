@@ -20,5 +20,5 @@ flutter_native_splash:
   # The generator rewrites the manifest's activity; without this it drops the
   # app's portrait lock.
   android_screen_orientation: portrait
-  ios: false
+  ios: true
   web: false

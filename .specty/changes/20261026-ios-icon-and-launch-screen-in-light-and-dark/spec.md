@@ -43,7 +43,7 @@ On iOS, EcoEats shows its mark before the first frame, as on Android. The home s
   - files: flutter_launcher_icons.yaml, ios/Runner/Assets.xcassets
   - ac: AC1
   - verify: fvm dart run flutter_launcher_icons
-- [ ] T2: Light and dark launch screen, built and seen on the iPhone 15 Pro simulator
+- [x] T2: Light and dark launch screen, built and seen on the iPhone 15 Pro simulator
   - files: flutter_native_splash.yaml, ios/Runner/Assets.xcassets, ios/Runner/Base.lproj/LaunchScreen.storyboard, ios/Runner/Info.plist
   - ac: AC1, AC2, AC3
   - verify: fvm dart run flutter_native_splash:create && fvm flutter build ios --simulator --debug && fvm flutter analyze && fvm flutter test
