@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "20261026-point-vs-code-at-the-project-s-pinned-flutter-sd",
+  "kind": "quick",
+  "phase": "implementing",
+  "branch": "specty/20261026-point-vs-code-at-the-project-s-pinned-flutter-sd",
+  "baseCommit": "e79adb10da0a8380b6db6086549613be3072a8f6",
+  "revision": 1,
+  "size": {
+    "level": "S",
+    "score": 1,
+    "adjust": 0,
+    "reasons": [
+      "1 archivo"
+    ]
+  },
+  "items": {},
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "T": 1
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:3bc2102b56ac11e40674e8508d5eb935c3c4e6d0664683d8323719f17e210815",
+    "at": "2026-10-26T15:51:45.185Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
