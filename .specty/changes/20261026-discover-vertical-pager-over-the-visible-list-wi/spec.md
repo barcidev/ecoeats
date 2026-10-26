@@ -65,7 +65,7 @@ Discover becomes the app's immersive walk through the menu. It opens as a circle
   - files: lib/i18n/es/discover.i18n.yaml, lib/i18n/en/discover.i18n.yaml, lib/features/discover/application/discover_hint.dart, test/features/discover/discover_hint_test.dart
   - ac: AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter test test/features/discover/discover_hint_test.dart test/i18n
-- [ ] T2: The dish slide: full-bleed photo with Ken Burns, leading text, scrims and the discover heroes
+- [x] T2: The dish slide: full-bleed photo with Ken Burns, leading text, scrims and the discover heroes
   - files: lib/features/discover/presentation/discover_slide.dart
   - ac: AC2, AC4, AC6
   - verify: fvm flutter analyze lib/features/discover
