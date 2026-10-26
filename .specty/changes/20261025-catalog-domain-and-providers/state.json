@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "id": "20261025-catalog-domain-and-providers",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261025-catalog-domain-and-providers",
+  "baseCommit": "91c2d608797b85cd6177471cfa7e4b6faae1a3c6",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 13,
+    "adjust": 0,
+    "reasons": [
+      "13 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:816770402f34fc657542de59a58dfbed1683d697a07ba1710606f50629be09d6",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:f7a48778a276503b622b0154b50bbbdf0db2fb2ef5c30f408cb47949e9527ca2",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:03453229866d77f3cd405d93fff35a06893039f37deccc4528c3061590724c18",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:488a50e0bc9a73790c87825eb959810810cce77f56123744534c62743352d608",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 6,
+    "T": 3
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:afac1c8574987d625757d0256e1863dd5e419f5af7691800e162054f9b2e89db",
+    "at": "2026-10-26T02:03:07.767Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
