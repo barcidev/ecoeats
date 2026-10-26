@@ -42,7 +42,7 @@ Al entrar o crear la cuenta, el botón celebra antes de soltar la pantalla: se a
   - files: lib/features/auth/presentation/widgets/achiote_sweep.dart
   - ac: AC2, AC4
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth
-- [ ] T2: Login y registro celebran en el botón y barren desde su check, con tests en test/features/auth/presentation/
+- [x] T2: Login y registro celebran en el botón y barren desde su check, con tests en test/features/auth/presentation/
   - files: lib/features/auth/presentation/login_page.dart, lib/features/auth/presentation/register_page.dart
   - ac: AC1, AC2, AC3, AC4, AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test

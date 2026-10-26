@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecoeats/core/network/app_failure.dart';
 import 'package:ecoeats/core/session/session_controller.dart';
+import 'package:ecoeats/core/session/sign_in_hold.dart';
 import 'package:ecoeats/design/tokens/eco_icons.dart';
 import 'package:ecoeats/design/tokens/motion.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
@@ -45,8 +46,12 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   var _hidden = true;
   var _refusals = 0;
 
+  /// Keeps Home waiting while the button celebrates the new account.
+  SignInHold? _hold;
+
   @override
   void dispose() {
+    _hold?.release();
     for (final controller in [
       _firstNames,
       _lastNames,
@@ -91,6 +96,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       setState(() => _refusals++);
       return;
     }
+    _hold = ref.read(signInHoldProvider);
+    _hold?.hold();
     await _controller.submit(
       documentNumber: _document.text,
       firstNames: _firstNames.text,
@@ -100,22 +107,26 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     );
   }
 
+  /// Runs once the button has drawn its check: the sweep is born there and
+  /// lets Home come when it covers the app.
+  void _celebrate() {
+    TextInput.finishAutofillContext();
+    final box = _button.currentContext?.findRenderObject() as RenderBox?;
+    AchioteSweep.play(
+      context,
+      origin: box == null
+          ? MediaQuery.sizeOf(context).center(Offset.zero)
+          : box.localToGlobal(box.size.center(Offset.zero)),
+      onCovered: _hold?.release,
+    );
+  }
+
   void _onRegister(RegisterState? previous, RegisterState next) {
-    if (next.succeeded && !(previous?.succeeded ?? false)) {
-      TextInput.finishAutofillContext();
-      final box = _button.currentContext?.findRenderObject() as RenderBox?;
-      AchioteSweep.play(
-        context,
-        origin: box == null
-            ? MediaQuery.sizeOf(context).center(Offset.zero)
-            : box.localToGlobal(box.size.center(Offset.zero)),
-      );
-      return;
-    }
     final answered = (previous?.submitting ?? false) && !next.submitting;
-    if (answered && next.rejectedFields.isNotEmpty) {
-      setState(() => _refusals++);
-    }
+    if (!answered || next.failure == null) return;
+    // Nothing to celebrate: Home must not wait for this attempt.
+    _hold?.release();
+    if (next.rejectedFields.isNotEmpty) setState(() => _refusals++);
   }
 
   @override
@@ -319,8 +330,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       key: _button,
       label: t.auth.register.submit,
       loading: state.submitting,
-      // After a success the sweep covers the screen; the button just rests.
-      onPressed: state.succeeded ? null : _submit,
+      success: state.succeeded,
+      onSuccess: _celebrate,
+      onPressed: _submit,
     );
   }
 

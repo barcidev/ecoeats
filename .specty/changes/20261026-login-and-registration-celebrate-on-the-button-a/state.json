@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-login-and-registration-celebrate-on-the-button-a",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-login-and-registration-celebrate-on-the-button-a",
   "baseCommit": "40efd7c2c197eca00a479f4d2be7af3bc49b4381",
   "revision": 1,
@@ -47,12 +47,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "510fbae6187bf33e99c2ff051612a1d390b4a850",
+      "attempts": 1,
       "startedAt": "2026-10-26T14:32:56.738Z",
       "doneAt": "2026-10-26T14:35:37.695Z",
-      "summary": "AchioteSweep.play takes onCovered, reported once when the disc reaches the farthest corner (at once with reduced motion); 2 new tests."
+      "summary": "AchioteSweep.play takes onCovered, reported once when the disc reaches the farthest corner (at once with reduced motion); 2 new tests.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "b25392c465ee6e9e090687787793100d7ec682f8",
+      "startedAt": "2026-10-26T14:35:37.997Z",
+      "doneAt": "2026-10-26T14:39:42.437Z",
+      "summary": "Login and registration hold Home before sending, pass success and onSuccess to their button, start the achiote sweep from the drawn check and release the hold when it covers the app; failures and leaving release it too."
     }
   },
   "pending": {

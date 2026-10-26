@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecoeats/core/network/app_failure.dart';
 import 'package:ecoeats/core/session/session_controller.dart';
+import 'package:ecoeats/core/session/sign_in_hold.dart';
 import 'package:ecoeats/design/tokens/eco_icons.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/tokens/spacing.dart';
@@ -41,8 +42,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   /// Each refusal shakes the form once more.
   var _refusals = 0;
 
+  /// Keeps Home waiting while the button celebrates a sign-in.
+  SignInHold? _hold;
+
   @override
   void dispose() {
+    _hold?.release();
     _email.dispose();
     _password.dispose();
     _passwordFocus.dispose();
@@ -66,9 +71,25 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       setState(() => _refusals++);
       return;
     }
+    _hold = ref.read(signInHoldProvider);
+    _hold?.hold();
     await ref
         .read(loginControllerProvider.notifier)
         .submit(email: _email.text, password: _password.text);
+  }
+
+  /// Runs once the button has drawn its check: the sweep is born there and
+  /// lets Home come when it covers the app.
+  void _celebrate() {
+    TextInput.finishAutofillContext();
+    final box = _button.currentContext?.findRenderObject() as RenderBox?;
+    AchioteSweep.play(
+      context,
+      origin: box == null
+          ? MediaQuery.sizeOf(context).center(Offset.zero)
+          : box.localToGlobal(box.size.center(Offset.zero)),
+      onCovered: _hold?.release,
+    );
   }
 
   /// Recovery ends by handing back the email it reset; the password field
@@ -85,23 +106,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   void _onLogin(LoginState? previous, LoginState next) {
-    if (next.succeeded && !(previous?.succeeded ?? false)) {
-      TextInput.finishAutofillContext();
-      final box = _button.currentContext?.findRenderObject() as RenderBox?;
-      AchioteSweep.play(
-        context,
-        origin: box == null
-            ? MediaQuery.sizeOf(context).center(Offset.zero)
-            : box.localToGlobal(box.size.center(Offset.zero)),
-      );
-      return;
-    }
+    final answered = (previous?.submitting ?? false) && !next.submitting;
+    if (!answered || next.failure == null) return;
+    // Nothing to celebrate: Home must not wait for this attempt.
+    _hold?.release();
     // Only what the API refused about the typing shakes; a lost connection
     // is nobody's mistake.
-    final answered = (previous?.submitting ?? false) && !next.submitting;
-    if (answered &&
-        (next.failure is UnauthorizedFailure ||
-            next.failure is ValidationFailure)) {
+    if (next.failure is UnauthorizedFailure ||
+        next.failure is ValidationFailure) {
       setState(() => _refusals++);
     }
   }
@@ -199,8 +211,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       key: _button,
       label: t.auth.login.submit,
       loading: state.submitting,
-      // After a success the sweep covers the screen; the button just rests.
-      onPressed: state.succeeded ? null : _submit,
+      success: state.succeeded,
+      onSuccess: _celebrate,
+      onPressed: _submit,
     );
   }
 

@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:ecoeats/core/network/app_failure.dart';
 import 'package:ecoeats/core/session/session.dart';
 import 'package:ecoeats/core/session/session_controller.dart';
+import 'package:ecoeats/core/session/sign_in_hold.dart';
 import 'package:ecoeats/design/theme.dart';
+import 'package:ecoeats/design/widgets/eco_button.dart';
 import 'package:ecoeats/design/widgets/shake.dart';
 import 'package:ecoeats/features/auth/presentation/auth_pages.dart';
 import 'package:ecoeats/features/auth/presentation/widgets/achiote_sweep.dart';
@@ -211,7 +215,21 @@ void main() {
     expect(session.registrations, [
       ['1032456789', 'Jorge', 'Palacio', 'jorge@example.com', 'secreta1'],
     ]);
+    expect(find.byKey(EcoButton.checkKey), findsOneWidget);
+    expect(find.byKey(AchioteSweep.key), findsNothing);
+    final hold = ProviderScope.containerOf(
+      tester.element(find.byType(RegisterPage)),
+    ).read(signInHoldProvider);
+    var home = false;
+    unawaited(hold.wait().then((_) => home = true));
+
+    // The check takes 760 ms; the sweep is born once it is drawn.
+    await tester.pump(const Duration(milliseconds: 800));
     expect(find.byKey(AchioteSweep.key), findsOneWidget);
+    expect(home, isFalse);
+
+    await tester.pump(const Duration(milliseconds: 600));
+    expect(home, isTrue);
     await tester.pumpAndSettle();
   });
 }

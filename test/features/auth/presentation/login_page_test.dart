@@ -1,10 +1,14 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:ecoeats/core/network/app_failure.dart';
 import 'package:ecoeats/core/session/session.dart';
 import 'package:ecoeats/core/session/session_controller.dart';
+import 'package:ecoeats/core/session/sign_in_hold.dart';
 import 'package:ecoeats/design/theme.dart';
 import 'package:ecoeats/design/tokens/eco_icons.dart';
 import 'package:ecoeats/design/tokens/motion.dart';
+import 'package:ecoeats/design/widgets/eco_button.dart';
 import 'package:ecoeats/design/widgets/plate_spinner.dart';
 import 'package:ecoeats/design/widgets/shake.dart';
 import 'package:ecoeats/features/auth/data/auth_repository.dart';
@@ -110,6 +114,10 @@ void main() {
 
   bool vibrated() =>
       platform.any((call) => call.method == 'HapticFeedback.vibrate');
+
+  SignInHold holdOf(WidgetTester tester) =>
+      ProviderScope.containerOf(tester.element(find.byType(LoginPage)))
+          .read(signInHoldProvider);
 
   group('before sending', () {
     testWidgets('empty fields refuse with a shake and send nothing', (
@@ -245,8 +253,8 @@ void main() {
       expect(session.logins, hasLength(2));
     });
 
-    testWidgets('success morphs the button, sweeps and saves the '
-        'credentials', (tester) async {
+    testWidgets('success draws the check, then sweeps from it and lets Home '
+        'come once covered', (tester) async {
       session.answer = () =>
           Future<void>.delayed(const Duration(milliseconds: 50));
       await pumpLogin(tester);
@@ -254,17 +262,42 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
       expect(find.byType(PlateSpinner), findsOneWidget);
+      var home = false;
+      unawaited(holdOf(tester).wait().then((_) => home = true));
 
       await tester.pump(const Duration(milliseconds: 60));
       await tester.pump();
+      expect(find.byKey(EcoButton.checkKey), findsOneWidget);
+      expect(find.byKey(AchioteSweep.key), findsNothing);
+
+      // The check takes 760 ms; the sweep is born once it is drawn.
+      await tester.pump(const Duration(milliseconds: 800));
       expect(find.byKey(AchioteSweep.key), findsOneWidget);
       expect(
         platform.map((call) => call.method),
         contains('TextInput.finishAutofillContext'),
       );
+      expect(home, isFalse);
+
+      await tester.pump(const Duration(milliseconds: 600));
+      expect(home, isTrue);
 
       await tester.pumpAndSettle();
       expect(find.byKey(AchioteSweep.key), findsNothing);
+    });
+
+    testWidgets('a refused sign-in lets Home go without waiting', (
+      tester,
+    ) async {
+      session.answer = _fails(const AppFailure.unauthorized());
+      await pumpLogin(tester);
+      await fill(tester, _email, 'mala');
+      await submit(tester);
+
+      var home = false;
+      unawaited(holdOf(tester).wait().then((_) => home = true));
+      await tester.pump();
+      expect(home, isTrue);
     });
 
     testWidgets('with reduced motion a success does not sweep and a refusal '
@@ -279,7 +312,12 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
       await tester.pump();
+      await tester.pump();
       expect(find.byKey(AchioteSweep.key), findsNothing);
+      var home = false;
+      unawaited(holdOf(tester).wait().then((_) => home = true));
+      await tester.pump();
+      expect(home, isTrue);
     });
   });
 
