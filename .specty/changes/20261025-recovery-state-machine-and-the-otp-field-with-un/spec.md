@@ -50,7 +50,7 @@ Password recovery has its logic ready before its screens: a `recoveryController`
   - files: lib/features/auth/application/clock.dart, lib/features/auth/application/recovery_controller.dart
   - ac: AC1, AC2, AC3, AC4, AC5, AC6, AC10
   - verify: fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth/application
-- [ ] T2: OTP field, with widget tests in test/features/auth/presentation/widgets/otp_field_test.dart
+- [x] T2: OTP field, with widget tests in test/features/auth/presentation/widgets/otp_field_test.dart
   - files: lib/features/auth/presentation/widgets/otp_field.dart
   - ac: AC7, AC8, AC9, AC10
   - verify: fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth

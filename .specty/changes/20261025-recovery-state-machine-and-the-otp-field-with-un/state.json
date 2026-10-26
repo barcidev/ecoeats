@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-recovery-state-machine-and-the-otp-field-with-un",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-recovery-state-machine-and-the-otp-field-with-un",
   "baseCommit": "39e58a3b18b3e64c6dce0b9e50fa29a899139bf7",
   "revision": 1,
@@ -47,12 +47,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "dad0ca0cd78baa31a7c4e47eb064688a4f4584ad",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:55:19.456Z",
       "doneAt": "2026-10-26T00:58:25.012Z",
-      "summary": "Recovery state machine (freezed email, code, password and done steps with deadlines, attempts and 429 blocking) and an injectable auth clock, with 19 unit tests."
+      "summary": "Recovery state machine (freezed email, code, password and done steps with deadlines, attempts and 429 blocking) and an injectable auth clock, with 19 unit tests.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "93cfd08e92bf178ed907983fa0d0e6507d4aa2d1",
+      "startedAt": "2026-10-26T00:58:25.306Z",
+      "doneAt": "2026-10-26T01:02:13.591Z",
+      "summary": "OtpField: one hidden text field drawn as six squircle boxes with digit-only paste and one-time-code autofill, a single completion report, and an error that clears with a haptic; 8 widget tests."
     }
   },
   "pending": {
