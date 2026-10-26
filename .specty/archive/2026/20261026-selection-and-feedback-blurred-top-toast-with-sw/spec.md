@@ -64,3 +64,23 @@ Choosing and being told things feels tactile. A filter or setting choice moves o
 
 - R1: The menu filters mask the pill row with a `ShaderMask`, and the profile sheet lays pills inside a bottom sheet. Mitigation: the indicator lives inside the row's own scroll view, so it is masked and clipped with the pills; T1 runs the menu and profile tests.
 - R2: Measuring after each frame could loop. Mitigation: `setState` runs only when the measured rect changed.
+
+## Closing
+
+### Summary
+
+Choices and notes feel tactile. One ink pill slides and stretches from the old option to the new one, and the row scrolls the pick into view. Ratings fill exactly the share of the last star they earned, on drawn stars as wide as their box. Toasts drop over frosted glass, pause while touched, spring back from a short drag and can be thrown away with a flick. The full suite passes with 379 tests.
+
+### Deviations
+
+- None from the plan. The existing «replaces the current toast» behavior got a test of its own, and with the old banner that test failed. The replaced toast is now disposed with its timer cancelled, so nothing from it outlives the new one.
+
+### Decisions
+
+- The pill indicator is measured after each frame and only `setState`s when the rect changes. The pill paints its own ink until the first measure, so no frame shows light text on paper.
+- `starPath` builds a soft five-point star and then fits its real bounds to the box width, so the star's drawn width and its box are the same.
+- A thrown toast keeps the finger's velocity through a `FrictionSimulation`, with a brisk minimum for slow pushes.
+
+### Follow-ups
+
+- The carousel and the menu row still draw a single star from the icon font (agent B's files). If a dish card should match these stars, `RatingStars(size: 12)` with one star or a shared star widget can replace them later.
