@@ -34,6 +34,18 @@ void main() {
     }
   });
 
+  test('dishes are counted in the plural of each language', () {
+    expect(es.dishes.home.count(n: 12), '12 platos');
+    expect(en.dishes.home.count(n: 12), '12 dishes');
+    expect(es.dishes.home.count(n: 1), '1 plato');
+    expect(en.dishes.home.count(n: 1), '1 dish');
+  });
+
+  test('English has its own voice', () {
+    expect(es.auth.welcome.headline, 'Comida colombiana, sin afán.');
+    expect(en.auth.welcome.headline, 'Colombian food, unhurried.');
+  });
+
   test('shared copy reads naturally in each language', () {
     expect(es.common.retryIn(time: '0:42'), 'Intenta en 0:42');
     expect(en.common.retryIn(time: '0:42'), 'Try again in 0:42');

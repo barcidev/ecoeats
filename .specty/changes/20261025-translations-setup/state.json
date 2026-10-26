@@ -43,12 +43,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "1d5001659307aec7194d01def5dc506e173251de",
+      "attempts": 1,
       "startedAt": "2026-10-26T01:07:43.284Z",
       "doneAt": "2026-10-26T01:10:06.498Z",
-      "summary": "common namespace in es/en (appName, loading, retryIn {time}, actions); yaml dev dependency; test that both languages define the same keys per namespace file."
+      "summary": "common namespace in es/en (appName, loading, retryIn {time}, actions); yaml dev dependency; test that both languages define the same keys per namespace file.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "640b7ac2865c98318f045675d45fc89f3e76d044",
+      "startedAt": "2026-10-26T01:10:06.925Z",
+      "doneAt": "2026-10-26T01:11:50.060Z",
+      "summary": "Base keys for auth (welcome, login, register, recover titles), dishes (greetings, La carta, plural count, gone detail), discover (title, hint, see dish, counter) and profile (session, appearance, language, sign out), es and en."
     }
   },
   "pending": {

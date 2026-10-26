@@ -1,0 +1,12 @@
+greeting:
+  morning: Buenos días
+  afternoon: Buenas tardes
+  evening: Buenas noches
+  named: "{greeting}, {name}."
+home:
+  carta: La carta
+  count:
+    one: 1 plato
+    other: "{n} platos"
+detail:
+  gone: Este plato ya no está en la carta.

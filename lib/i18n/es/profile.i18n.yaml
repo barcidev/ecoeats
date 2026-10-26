@@ -1,0 +1,13 @@
+title: Tu perfil
+sessionEndsIn: Tu sesión vence en {hours} h
+appearance:
+  title: Apariencia
+  system: Sistema
+  light: Claro
+  dark: Oscuro
+language:
+  title: Idioma
+  system: Sistema
+signOut:
+  action: Cerrar sesión
+  confirm: ¿Cerrar sesión?

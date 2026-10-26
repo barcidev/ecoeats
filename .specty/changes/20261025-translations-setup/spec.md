@@ -57,7 +57,7 @@ The app speaks Spanish (base) and English through slang, one namespace per owner
   - ac: AC1
   - verify: fvm dart run slang && fvm flutter analyze && fvm flutter test test/i18n
   - type: chore
-- [ ] T2: Feature namespaces with their base keys
+- [x] T2: Feature namespaces with their base keys
   - files: lib/i18n/es/auth.i18n.yaml, lib/i18n/en/auth.i18n.yaml, lib/i18n/es/dishes.i18n.yaml, lib/i18n/en/dishes.i18n.yaml, lib/i18n/es/discover.i18n.yaml, lib/i18n/en/discover.i18n.yaml, lib/i18n/es/profile.i18n.yaml, lib/i18n/en/profile.i18n.yaml, test/i18n/translations_test.dart
   - ac: AC1, AC2
   - verify: fvm dart run slang && fvm flutter analyze && fvm flutter test test/i18n

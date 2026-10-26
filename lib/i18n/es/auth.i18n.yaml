@@ -1,0 +1,17 @@
+welcome:
+  headline: Comida colombiana, sin afán.
+  signIn: Entrar
+  createAccount: Crear cuenta
+login:
+  title: Hola otra vez.
+  email: Correo
+  password: Contraseña
+  submit: Entrar
+  forgot: ¿Olvidaste tu contraseña?
+  noAccount: ¿No tienes cuenta?
+  createOne: Crear una
+  wrongCredentials: Correo o contraseña incorrectos.
+register:
+  title: Crea tu cuenta.
+recover:
+  title: Recupera tu contraseña.

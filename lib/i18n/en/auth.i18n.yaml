@@ -1,0 +1,17 @@
+welcome:
+  headline: Colombian food, unhurried.
+  signIn: Sign in
+  createAccount: Create account
+login:
+  title: Good to see you again.
+  email: Email
+  password: Password
+  submit: Sign in
+  forgot: Forgot your password?
+  noAccount: New here?
+  createOne: Create an account
+  wrongCredentials: That email and password don't match.
+register:
+  title: Make yourself at home.
+recover:
+  title: Let's get you back in.

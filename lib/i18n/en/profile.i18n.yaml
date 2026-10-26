@@ -1,0 +1,13 @@
+title: Your profile
+sessionEndsIn: Your session ends in {hours} h
+appearance:
+  title: Appearance
+  system: System
+  light: Light
+  dark: Dark
+language:
+  title: Language
+  system: System
+signOut:
+  action: Sign out
+  confirm: Sign out now?
