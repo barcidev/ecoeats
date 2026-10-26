@@ -11,11 +11,7 @@ abstract final class Motion {
   static const signature = Duration(milliseconds: 900);
 
   static const emphasized = Cubic(0.2, 0, 0, 1);
-  static const spring = SpringDescription(
-    mass: 1,
-    stiffness: 380,
-    damping: 30,
-  );
+  static const spring = SpringDescription(mass: 1, stiffness: 380, damping: 30);
 
   /// Lists stagger only on their first load, and only the first items.
   static const stagger = Duration(milliseconds: 40);

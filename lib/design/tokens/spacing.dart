@@ -21,10 +21,13 @@ abstract final class Radii {
   static const double md = 20;
   static const double lg = 28;
 
-  static const RoundedSuperellipseBorder squircleSm =
-      RoundedSuperellipseBorder(borderRadius: BorderRadius.all(.circular(sm)));
-  static const RoundedSuperellipseBorder squircleMd =
-      RoundedSuperellipseBorder(borderRadius: BorderRadius.all(.circular(md)));
-  static const RoundedSuperellipseBorder squircleLg =
-      RoundedSuperellipseBorder(borderRadius: BorderRadius.all(.circular(lg)));
+  static const RoundedSuperellipseBorder squircleSm = RoundedSuperellipseBorder(
+    borderRadius: BorderRadius.all(.circular(sm)),
+  );
+  static const RoundedSuperellipseBorder squircleMd = RoundedSuperellipseBorder(
+    borderRadius: BorderRadius.all(.circular(md)),
+  );
+  static const RoundedSuperellipseBorder squircleLg = RoundedSuperellipseBorder(
+    borderRadius: BorderRadius.all(.circular(lg)),
+  );
 }

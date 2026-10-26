@@ -2,10 +2,17 @@
   "schema": 1,
   "id": "20261026-format-the-phase-0-design-tokens-and-theme",
   "kind": "quick",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-format-the-phase-0-design-tokens-and-theme",
   "baseCommit": "3fd74fbe33a3534377a5da4e128cc4c12f0b0f1b",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:0c4599f232250ec3b232cdcba2f054c3a7a36f6e39c73db59cb8f532f1c2e9e3",
+    "at": "2026-10-26T15:28:49.949Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "S",
     "score": 3,
@@ -15,19 +22,22 @@
     ]
   },
   "items": {},
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "451397e6df2203c00ea50e42a7dbb8f1472edde7",
+      "startedAt": "2026-10-26T15:28:50.304Z",
+      "doneAt": "2026-10-26T15:31:07.578Z",
+      "summary": "Formatted lib/design/theme.dart and the motion and spacing tokens with dart format; only line breaks changed."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
   },
   "maxIds": {
     "T": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:0c4599f232250ec3b232cdcba2f054c3a7a36f6e39c73db59cb8f532f1c2e9e3",
-    "at": "2026-10-26T15:28:49.949Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

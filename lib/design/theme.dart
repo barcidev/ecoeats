@@ -47,9 +47,7 @@ ThemeData ecoTheme(Brightness brightness) {
 
   final overlay = light
       ? SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent)
-      : SystemUiOverlayStyle.light.copyWith(
-          statusBarColor: Colors.transparent,
-        );
+      : SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent);
 
   return ThemeData(
     brightness: brightness,
