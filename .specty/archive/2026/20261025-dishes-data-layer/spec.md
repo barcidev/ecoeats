@@ -56,3 +56,22 @@ The catalog has its data: a freezed `Dish` read from the production contract (wi
   - files: lib/features/dishes/presentation/dish_transitions.dart, lib/features/dishes/presentation/home/home_page.dart, lib/features/dishes/presentation/detail/dish_detail_page.dart, test/features/dishes/domain/dish_test.dart
   - ac: AC4
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+The catalog reads the production contract into a freezed `Dish` through `DishApi` and `DishRepository`, and `dishesProvider` refreshes without blanking the screen. Home and the detail exist as `@RoutePage` placeholders, with a fade transition and hero tags that carry their source.
+
+### Deviations
+
+- None.
+
+### Decisions
+
+- `dishesProvider` is autoDispose: Home holds it, and a logout that leaves Home drops the list with the session.
+- `refresh()` completes even on failure and leaves the error in the state, so pull-to-refresh always releases its spinner.
+
+### Follow-ups
+
+- The catalog changes add the domain helpers, the filtered providers, `dishDetail(id)` and the real screens.
