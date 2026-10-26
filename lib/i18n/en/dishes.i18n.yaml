@@ -19,6 +19,21 @@ discover:
   title: Discover mode
   subtitle: One dish at a time, full screen.
   open: Open discover mode
+filters:
+  all: All
+  featured: Featured
+  highProtein: High in protein
+  light: Light
+sort:
+  button: "Sort: {sort}"
+  title: Sort the menu
+  alphabetical: A–Z
+  topRated: Best rated
+  priceLow: Price, low to high
+  priceHigh: Price, high to low
+  mostProtein: Most protein
+row:
+  semantics: "{name}. {price}. Rated {rating}. {protein} g of protein."
 home:
   carta: The menu
   count:

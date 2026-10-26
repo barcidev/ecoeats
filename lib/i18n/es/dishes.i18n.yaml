@@ -19,6 +19,21 @@ discover:
   title: Modo descubrir
   subtitle: Un plato a la vez, a pantalla completa.
   open: Abrir el modo descubrir
+filters:
+  all: Todos
+  featured: Destacados
+  highProtein: Altos en proteína
+  light: Ligeros
+sort:
+  button: "Ordenar: {sort}"
+  title: Ordenar la carta
+  alphabetical: A–Z
+  topRated: Mejor calificados
+  priceLow: Precio, de menor a mayor
+  priceHigh: Precio, de mayor a menor
+  mostProtein: Más proteína
+row:
+  semantics: "{name}. {price}. Calificación {rating}. {protein} g de proteína."
 home:
   carta: La carta
   count:

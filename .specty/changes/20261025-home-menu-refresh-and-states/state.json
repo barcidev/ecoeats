@@ -6,6 +6,13 @@
   "branch": "specty/20261025-home-menu-refresh-and-states",
   "baseCommit": "11a0e071b9d549f843e20d4321630a149bd1fc16",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:2c5bcda452b2dae28ffbfbcf32c566658899bc89f5904158b17a6a95c004e4f0",
+    "at": "2026-10-26T02:24:36.770Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 10,
@@ -37,7 +44,20 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [
+        "lib/features/dishes/presentation/home/home_header.dart",
+        "test/features/dishes/presentation/preview/**"
+      ],
+      "attempts": 1,
+      "baseCommit": "1ff919b987ea262839c9bd885b5cf2d6554202f2",
+      "startedAt": "2026-10-26T02:24:37.117Z",
+      "doneAt": "2026-10-26T02:33:28.008Z",
+      "summary": "Pinned MenuFilters (category pills fading before the sort button, hairline when pinned) with a sort sheet; CartaRow with photo, name, ingredient taste, price and rating read as one sentence, staggered on first load; colophon with plural count."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -45,13 +65,7 @@
   "maxIds": {
     "A": 5,
     "AC": 6,
-    "T": 3
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:2c5bcda452b2dae28ffbfbcf32c566658899bc89f5904158b17a6a95c004e4f0",
-    "at": "2026-10-26T02:24:36.770Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
+    "T": 3,
+    "S": 1
   }
 }

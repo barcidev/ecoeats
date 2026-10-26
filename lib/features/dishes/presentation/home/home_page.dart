@@ -1,12 +1,16 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ecoeats/design/tokens/motion.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/tokens/spacing.dart';
 import 'package:ecoeats/design/tokens/typography.dart';
 import 'package:ecoeats/features/dishes/application/catalog_filter.dart';
 import 'package:ecoeats/features/dishes/application/catalog_views.dart';
+import 'package:ecoeats/features/dishes/domain/dish_filter.dart';
+import 'package:ecoeats/features/dishes/presentation/home/carta.dart';
 import 'package:ecoeats/features/dishes/presentation/home/discover_banner.dart';
 import 'package:ecoeats/features/dishes/presentation/home/featured_carousel.dart';
 import 'package:ecoeats/features/dishes/presentation/home/home_header.dart';
+import 'package:ecoeats/features/dishes/presentation/home/menu_filters.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
@@ -30,6 +34,9 @@ class _HomePageState extends ConsumerState<HomePage> {
     super.dispose();
   }
 
+  /// Rows rise into place only the first time the menu appears.
+  var _entered = false;
+
   void _clearSearch() {
     _search.clear();
     ref.read(catalogFilterProvider.notifier).clearSearch();
@@ -38,9 +45,14 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     final palette = context.palette;
-    final searching = ref.watch(catalogFilterProvider).isSearching;
+    final filter = ref.watch(catalogFilterProvider);
+    final searching = filter.isSearching;
+    final filters = ref.read(catalogFilterProvider.notifier);
     final visible = ref.watch(visibleDishesProvider).value ?? const [];
     final featured = ref.watch(featuredDishesProvider).value ?? const [];
+    if (visible.isNotEmpty && !_entered) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _entered = true);
+    }
     return Scaffold(
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(
@@ -49,7 +61,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         slivers: [
           HomeHeader(
             search: _search,
-            onSearchChanged: ref.read(catalogFilterProvider.notifier).search,
+            onSearchChanged: filters.search,
             onSearchCleared: _clearSearch,
           ),
           // A search is a question: only its answers stay on screen.
@@ -77,20 +89,44 @@ class _HomePageState extends ConsumerState<HomePage> {
                 child: DiscoverBanner(dishes: visible),
               ),
             ),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: Space.gutter,
-              vertical: Space.md,
+          if (visible.isNotEmpty || filter != const DishFilter()) ...[
+            const SliverToBoxAdapter(child: SizedBox(height: Space.xl)),
+            MenuFilters(
+              filter: filter,
+              onCategory: filters.select,
+              onSort: filters.sortBy,
             ),
-            sliver: SliverList.separated(
-              itemCount: visible.length,
-              separatorBuilder: (_, _) => const SizedBox(height: Space.sm),
-              itemBuilder: (context, index) => Text(
-                visible[index].name,
-                style: EcoType.titleSmall.copyWith(color: palette.ink),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  Space.gutter,
+                  Space.lg,
+                  Space.gutter,
+                  Space.xs,
+                ),
+                child: Text(
+                  context.t.dishes.home.carta,
+                  style: EcoType.headline.copyWith(color: palette.ink),
+                ),
               ),
             ),
-          ),
+            SliverList.separated(
+              itemCount: visible.length,
+              separatorBuilder: (_, _) => Divider(
+                indent: Space.gutter,
+                endIndent: Space.gutter,
+                color: palette.line,
+              ),
+              itemBuilder: (context, index) => CartaRow(
+                key: ValueKey(visible[index].id),
+                dish: visible[index],
+                index: index,
+                entrance: !_entered && index < Motion.maxStaggered,
+              ),
+            ),
+            if (visible.isNotEmpty)
+              SliverToBoxAdapter(child: CartaColophon(count: visible.length)),
+          ],
           SliverToBoxAdapter(
             child: SizedBox(height: MediaQuery.paddingOf(context).bottom),
           ),

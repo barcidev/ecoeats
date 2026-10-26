@@ -45,7 +45,7 @@ follows:
 
 ## Tasks
 
-- [ ] T1: Pinned filters, sort sheet, rows and colophon
+- [x] T1: Pinned filters, sort sheet, rows and colophon
   - files: lib/features/dishes/presentation/home/menu_filters.dart, lib/features/dishes/presentation/home/carta.dart, lib/features/dishes/presentation/home/home_page.dart, lib/i18n/es/dishes.i18n.yaml, lib/i18n/en/dishes.i18n.yaml, test/features/dishes/presentation/home_menu_test.dart
   - ac: AC1, AC2
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes test/i18n

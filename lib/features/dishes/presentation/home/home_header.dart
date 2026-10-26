@@ -165,26 +165,32 @@ class _Masthead extends StatelessWidget {
             opacity: (1 - folded * 1.6).clamp(0.0, 1.0),
             child: Transform.translate(
               offset: Offset(0, -Space.md * folded),
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: Column(
-                  mainAxisSize: .min,
-                  crossAxisAlignment: .start,
-                  children: [
-                    Text(
-                      greeting,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: EcoType.headline.copyWith(color: palette.ink),
-                    ),
-                    const SizedBox(height: Space.xxs),
-                    Text(
-                      headline,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: EcoType.body.copyWith(color: palette.muted),
-                    ),
-                  ],
+              // While the masthead folds, the greeting keeps its size and is
+              // clipped instead of squeezed.
+              child: ClipRect(
+                child: OverflowBox(
+                  alignment: Alignment.bottomLeft,
+                  minHeight: 0,
+                  maxHeight: double.infinity,
+                  child: Column(
+                    mainAxisSize: .min,
+                    crossAxisAlignment: .start,
+                    children: [
+                      Text(
+                        greeting,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: EcoType.headline.copyWith(color: palette.ink),
+                      ),
+                      const SizedBox(height: Space.xxs),
+                      Text(
+                        headline,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: EcoType.body.copyWith(color: palette.muted),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
