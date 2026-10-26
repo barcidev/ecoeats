@@ -48,7 +48,7 @@ The catalog has its data: a freezed `Dish` read from the production contract (wi
   - files: lib/features/dishes/domain/dish.dart, test/features/dishes/domain/dish_test.dart
   - ac: AC1
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes
-- [ ] T2: DishApi, DishRepository and dishesProvider
+- [x] T2: DishApi, DishRepository and dishesProvider
   - files: lib/features/dishes/data/dish_api.dart, lib/features/dishes/data/dish_repository.dart, lib/features/dishes/application/dishes_provider.dart, test/features/dishes/data/dish_repository_test.dart, test/features/dishes/application/dishes_provider_test.dart
   - ac: AC2, AC3
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes

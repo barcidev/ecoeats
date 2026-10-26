@@ -42,12 +42,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "863525b6325f07931bf1eebd4f160205ccedb0db",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:40:07.073Z",
       "doneAt": "2026-10-26T00:42:02.834Z",
-      "summary": "Freezed Dish reads the production contract: thumbails→thumbnail, flagHeader→featured, price/rating as doubles even from integers."
+      "summary": "Freezed Dish reads the production contract: thumbails→thumbnail, flagHeader→featured, price/rating as doubles even from integers.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "8dfdc10c717fb725db36cc8f61282ac98b39ec52",
+      "startedAt": "2026-10-26T00:42:03.106Z",
+      "doneAt": "2026-10-26T00:43:33.258Z",
+      "summary": "DishApi (GET /api/dish and /api/dish/{id} through request()), thin DishRepository, autoDispose dishesProvider whose refresh() keeps the previous list in loading and error states."
     }
   },
   "pending": {
