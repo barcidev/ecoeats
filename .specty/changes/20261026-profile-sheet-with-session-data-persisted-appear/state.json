@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-profile-sheet-with-session-data-persisted-appear",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-profile-sheet-with-session-data-persisted-appear",
   "baseCommit": "173e2b9bc0c7519f5fa193e97e596b6278911a1e",
   "revision": 1,
@@ -60,12 +60,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "6ecd26919d8eaa899e5f615793d83ad8c1880256",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:12:07.284Z",
       "doneAt": "2026-10-26T10:13:29.830Z",
-      "summary": "The app follows themeModeController, and main waits for the stored appearance and language together with the session before removing the splash."
+      "summary": "The app follows themeModeController, and main waits for the stored appearance and language together with the session before removing the splash.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "ef0344f7c2ba17fa28ca8232f9e79d240e5b3bd3",
+      "startedAt": "2026-10-26T10:13:30.151Z",
+      "doneAt": "2026-10-26T10:19:41.953Z",
+      "summary": "Real profile sheet: initial, name, email and session expiry (or its last hour), appearance and language pills applied at once and persisted, and a sign-out that asks in place; phase 0's sign-out test now confirms first, with user approval."
     }
   },
   "pending": {
