@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-dish-detail",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-dish-detail",
   "baseCommit": "3c222dde75585a0b9a2a6be6379ca5dba3fc1de4",
   "revision": 1,
@@ -47,14 +47,23 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [
-        "test/features/dishes/presentation/preview/**"
-      ],
-      "attempts": 1,
       "baseCommit": "5a1b1f7295cedeef2fd465e2d68df40ff648f89f",
+      "attempts": 1,
       "startedAt": "2026-10-26T02:41:39.697Z",
       "doneAt": "2026-10-26T02:46:17.110Z",
-      "summary": "Detail page: stretching parallax photo header under the source's hero tag with rounded shoulders, content rising 120 ms in (overline, name, «4,9 de 5» stars, price, description), maíz/aguacate macro bars with counting figures, numbered ingredients, gone and error states."
+      "summary": "Detail page: stretching parallax photo header under the source's hero tag with rounded shoulders, content rising 120 ms in (overline, name, «4,9 de 5» stars, price, description), maíz/aguacate macro bars with counting figures, numbered ingredients, gone and error states.",
+      "scopeExtra": [
+        "test/features/dishes/presentation/preview/**"
+      ]
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "5f3d80ff1562cc3cc29bf0942bca5bebf57efa77",
+      "startedAt": "2026-10-26T02:46:17.830Z",
+      "doneAt": "2026-10-26T02:48:06.569Z",
+      "summary": "SwipeToDismiss scales the page toward 0.9 with growing corners while pulled past the top (Home shows behind the non-opaque route), ticks a haptic at the threshold and closes on release past 120 px, detecting the release from the first ballistic update."
     }
   },
   "pending": {

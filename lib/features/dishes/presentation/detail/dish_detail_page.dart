@@ -14,6 +14,7 @@ import 'package:ecoeats/features/dishes/application/dish_detail_provider.dart';
 import 'package:ecoeats/features/dishes/domain/dish.dart';
 import 'package:ecoeats/features/dishes/domain/image_url.dart';
 import 'package:ecoeats/features/dishes/presentation/detail/dish_detail_body.dart';
+import 'package:ecoeats/features/dishes/presentation/detail/swipe_to_dismiss.dart';
 import 'package:ecoeats/features/dishes/presentation/dish_transitions.dart';
 import 'package:ecoeats/i18n/failure_text.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
@@ -67,16 +68,20 @@ class DishDetailPage extends ConsumerWidget {
       content = const Center(child: PlateSpinner(size: 32));
     }
 
-    return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(child: content),
-          Positioned(
-            top: MediaQuery.paddingOf(context).top + Space.xs,
-            left: Space.gutter,
-            child: _CloseButton(label: t.dishes.detail.close),
-          ),
-        ],
+    // The route is not opaque: while the page shrinks, Home shows behind it.
+    return SwipeToDismiss(
+      onDismiss: () => context.router.maybePop(),
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Positioned.fill(child: content),
+            Positioned(
+              top: MediaQuery.paddingOf(context).top + Space.xs,
+              left: Space.gutter,
+              child: _CloseButton(label: t.dishes.detail.close),
+            ),
+          ],
+        ),
       ),
     );
   }

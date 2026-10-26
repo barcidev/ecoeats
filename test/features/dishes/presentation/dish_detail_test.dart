@@ -111,4 +111,23 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(DishDetailPage), findsNothing);
   });
+
+  testWidgets('pulling the page down far enough closes it', (tester) async {
+    await bootApp(tester, repository: _catalog());
+    await _openBandeja(tester);
+
+    await tester.drag(_detailScroll, const Offset(0, 500));
+    await tester.pumpAndSettle();
+    expect(find.byType(DishDetailPage), findsNothing);
+    expect(find.text('DESTACADOS'), findsOneWidget);
+  });
+
+  testWidgets('a short pull springs back', (tester) async {
+    await bootApp(tester, repository: _catalog());
+    await _openBandeja(tester);
+
+    await tester.drag(_detailScroll, const Offset(0, 60));
+    await tester.pumpAndSettle();
+    expect(find.byType(DishDetailPage), findsOneWidget);
+  });
 }

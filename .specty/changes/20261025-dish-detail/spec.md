@@ -47,7 +47,7 @@ A dish opens the way the plan describes: its photo flies from where it was tappe
   - files: lib/features/dishes/presentation/detail/dish_detail_page.dart, lib/features/dishes/presentation/detail/dish_detail_body.dart, lib/features/dishes/presentation/detail/macro_bars.dart, lib/i18n/es/dishes.i18n.yaml, lib/i18n/en/dishes.i18n.yaml, test/features/dishes/presentation/dish_detail_test.dart
   - ac: AC1, AC2, AC3, AC4
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes test/i18n
-- [ ] T2: Pull down to close
+- [x] T2: Pull down to close
   - files: lib/features/dishes/presentation/detail/swipe_to_dismiss.dart, lib/features/dishes/presentation/detail/dish_detail_page.dart, test/features/dishes/presentation/dish_detail_test.dart
   - ac: AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
