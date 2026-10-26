@@ -57,7 +57,7 @@ The app has one way to talk to the EcoEats API and one vocabulary for what goes 
   - files: lib/core/config/env.dart, lib/core/network/api_envelope.dart, lib/core/network/dio_provider.dart, lib/core/network/health.dart, test/helpers/fake_http_adapter.dart, test/core/network/api_envelope_test.dart
   - ac: AC3, AC4
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/core
-- [ ] T3: Formatters per language
+- [x] T3: Formatters per language
   - files: lib/core/format/formatters.dart, test/core/format/formatters_test.dart
   - ac: AC5
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
