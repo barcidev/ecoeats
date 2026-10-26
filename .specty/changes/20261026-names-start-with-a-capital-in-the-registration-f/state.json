@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-names-start-with-a-capital-in-the-registration-f",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-names-start-with-a-capital-in-the-registration-f",
   "baseCommit": "8407dcb0912ac28e5126413a3b4800e4295438a2",
   "revision": 1,
@@ -32,12 +32,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "2f5cf1566f8df09923f2a5da4dfdbc9a069298c9",
+      "attempts": 1,
       "startedAt": "2026-10-26T15:01:54.937Z",
       "doneAt": "2026-10-26T15:05:41.307Z",
-      "summary": "EcoTextField takes an optional textCapitalization (none by default); its build is split into field, label, underline and error line to stay within 50 lines per function; widget test."
+      "summary": "EcoTextField takes an optional textCapitalization (none by default); its build is split into field, label, underline and error line to stay within 50 lines per function; widget test.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "e7808cc4828de42e79076c2857ba1e1d385b1551",
+      "startedAt": "2026-10-26T15:05:41.604Z",
+      "doneAt": "2026-10-26T15:07:15.577Z",
+      "summary": "First and last names in registration start each word with a capital; the step 1 field message moved to its own method."
     }
   },
   "pending": {

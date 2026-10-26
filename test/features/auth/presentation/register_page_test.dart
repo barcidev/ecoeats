@@ -111,6 +111,22 @@ void main() {
     expect(shakes(tester), isNotNull);
   });
 
+  testWidgets('names start each word with a capital, the document does not', (
+    tester,
+  ) async {
+    await pumpRegister(tester);
+    final fields = tester
+        .widgetList<TextField>(find.byType(TextField))
+        .map((field) => field.textCapitalization)
+        .toList();
+
+    expect(fields, [
+      TextCapitalization.words,
+      TextCapitalization.words,
+      TextCapitalization.none,
+    ]);
+  });
+
   testWidgets('step 2 opens after a valid step 1, and going back keeps what '
       'was typed', (tester) async {
     await pumpRegister(tester);

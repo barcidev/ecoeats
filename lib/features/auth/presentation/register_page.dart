@@ -174,25 +174,36 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     );
   }
 
+  /// The message under a step 1 field: what the API refused about it, or,
+  /// after the first try, the rule it breaks.
+  String? _aboutMessage(
+    Translations t,
+    RegisterState state,
+    RegisterField field,
+    String value,
+    String required,
+  ) {
+    if (state.rejectedFields.contains(field)) {
+      return _refusal(t, state, field);
+    }
+    if (!_triedAbout) return null;
+    final document = field == .documentNumber;
+    return switch (document
+        ? Validators.document(value)
+        : Validators.names(value)) {
+      null => null,
+      .required => required,
+      _ => t.auth.fieldErrors.tooLong(
+        max: document ? Validators.maxDocumentLength : Validators.maxNameLength,
+      ),
+    };
+  }
+
   Widget _aboutFields(Translations t, RegisterState state, {Key? key}) {
     final copy = t.auth.register.about;
     final errors = t.auth.fieldErrors;
-    String? check(RegisterField field, String value, String required) {
-      if (state.rejectedFields.contains(field)) {
-        return _refusal(t, state, field);
-      }
-      if (!_triedAbout) return null;
-      final max = field == .documentNumber
-          ? Validators.maxDocumentLength
-          : Validators.maxNameLength;
-      return switch (field == .documentNumber
-          ? Validators.document(value)
-          : Validators.names(value)) {
-        null => null,
-        .required => required,
-        _ => errors.tooLong(max: max),
-      };
-    }
+    String? check(RegisterField field, String value, String required) =>
+        _aboutMessage(t, state, field, value, required);
 
     return Column(
       key: key,
@@ -207,6 +218,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
             errors.firstNamesRequired,
           ),
           textInputAction: TextInputAction.next,
+          textCapitalization: .words,
           autofillHints: const [AutofillHints.givenName],
           onChanged: _edited,
         ),
@@ -216,6 +228,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           controller: _lastNames,
           error: check(.lastNames, _lastNames.text, errors.lastNamesRequired),
           textInputAction: TextInputAction.next,
+          textCapitalization: .words,
           autofillHints: const [AutofillHints.familyName],
           onChanged: _edited,
         ),
