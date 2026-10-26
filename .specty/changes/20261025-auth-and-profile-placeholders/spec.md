@@ -38,7 +38,7 @@ The auth flow and the profile exist as the plan's phase 0 placeholders, so the r
 
 ## Tasks
 
-- [ ] T1: Auth placeholders and panel transition
+- [x] T1: Auth placeholders and panel transition
   - files: lib/features/auth/presentation/auth_pages.dart, lib/features/auth/presentation/auth_transitions.dart, test/features/profile/profile_sheet_test.dart
   - ac: AC1
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features
