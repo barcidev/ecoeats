@@ -49,3 +49,22 @@ The login screen gets a `loginController` that signs in through the session, tel
   - files: lib/features/auth/application/login_controller.dart
   - ac: AC1, AC2, AC3, AC4, AC5, AC6
   - verify: fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth
+
+## Closing
+
+### Summary
+
+`loginController` signs in through `sessionController.login` and tracks the attempt in a freezed `LoginState`: submitting, succeeded, the failure, the fields a 400 rejected (`rejectedFields`, read by the API's `email` and `password` keys) and `blockedUntil` from a 429's `Retry-After`. It ignores a submit while one runs or while the wait lasts, and `dismissFailure` keeps the wait. Recovery now reads the core `clockProvider` and the duplicate auth clock is gone. 7 unit tests run against the real session with a mocked repository; the whole suite (161 tests) and `flutter analyze` pass.
+
+### Deviations
+
+- T2's test was written together with the controller instead of before it. To make up for it, two mutations were tried (without the double-submit guard, and without the 429 wait) and each one made its test fail.
+
+### Decisions
+
+- The tests use the real `sessionController` with a mocked repository and an in-memory token store, so they also prove that a successful login leaves a session.
+
+### Follow-ups
+
+- C5: signing in sets the session at once. If the router re-checks its guards when the session changes, it could leave the login before the achiote sweep plays; the screen must hold the navigation until the sweep ends.
+- `Validators.normalizeEmail` (C1) still duplicates `normalizeEmail` in `auth_repository.dart`.
