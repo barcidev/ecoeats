@@ -42,7 +42,7 @@ The auth flow and the profile exist as the plan's phase 0 placeholders, so the r
   - files: lib/features/auth/presentation/auth_pages.dart, lib/features/auth/presentation/auth_transitions.dart, test/features/profile/profile_sheet_test.dart
   - ac: AC1
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features
-- [ ] T2: Profile sheet contract
+- [x] T2: Profile sheet contract
   - files: lib/features/profile/presentation/profile_sheet.dart, test/features/profile/profile_sheet_test.dart
   - ac: AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test

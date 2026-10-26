@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-auth-and-profile-placeholders",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-auth-and-profile-placeholders",
   "baseCommit": "27a9ee767d17d76944089a62bafa17717fefdc14",
   "revision": 1,
@@ -44,12 +44,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "add6e5e7442a7f8cd86c94524ef63acd96db08e9",
+      "attempts": 1,
       "startedAt": "2026-10-26T01:15:16.349Z",
       "doneAt": "2026-10-26T01:18:42.483Z",
-      "summary": "auth_pages.dart: AuthShellPage (paper, grain, nested AutoRouter), WelcomePage, a working LoginPage (session login, loading button, toast with translated failure, 401 as wrong credentials) and Register/Recover stubs navigating by path; authPanelTransition."
+      "summary": "auth_pages.dart: AuthShellPage (paper, grain, nested AutoRouter), WelcomePage, a working LoginPage (session login, loading button, toast with translated failure, 401 as wrong credentials) and Register/Recover stubs navigating by path; authPanelTransition.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "7491f71bf7361a4dc147a6b12a3400182c5763cc",
+      "startedAt": "2026-10-26T01:18:43.206Z",
+      "doneAt": "2026-10-26T01:20:29.925Z",
+      "summary": "ProfileSheet.show opens a modal sheet with first names when known, email, «Tu sesión vence en N h» from Session.remainingAt and the clock, and sign-out that closes the sheet and logs out."
     }
   },
   "pending": {
