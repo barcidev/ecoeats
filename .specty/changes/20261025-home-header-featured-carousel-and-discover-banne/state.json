@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "20261025-home-header-featured-carousel-and-discover-banne",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261025-home-header-featured-carousel-and-discover-banne",
+  "baseCommit": "2b1367d7fe5f4786a7dfeba911ee1d3cb7000fa5",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 12,
+    "adjust": 0,
+    "reasons": [
+      "10 files",
+      "2 modules"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:0794cc47c61e99adae039b5192715aae0169a0010fcb6c5c0f5f4b99a3b9fb46",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:0cf7237de85ef64d4076c3b9e78374b7e937d33e81cfcfc79e96260bc86e0783",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:d7734c05e75bdbc57f5a11395fef90087f8439041aca151909492aacd6bf57c6",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:feae3e902cd15bace59362f5e2815a3d647a570b0753634c0ee1ba32aff6b802",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:d6aec49375b8235dc47d7b4fcd2fff526087007aab9fefd425a6005599d55a96",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 5,
+    "T": 3
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:cd8ea4b75e4fc8bf6563cc0443386ee83e61696fe33c60766779cdbcf2cc5f98",
+    "at": "2026-10-26T02:11:12.065Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
