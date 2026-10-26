@@ -56,3 +56,24 @@ The profile sheet that Home's avatar opens becomes the real one: it shows who is
   - files: lib/features/profile/presentation/profile_sheet.dart, test/features/profile/profile_sheet_test.dart
   - ac: AC1, AC2, AC3, AC4, AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/profile test/features/profile && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+The profile sheet is the real one: an achiote initial with the first names when known, the email, and «Tu sesión vence en N h» or that it ends within the hour; pills for the appearance (Sistema, Claro, Oscuro) and the language (Sistema, Español, English, each in its own name) that apply at once; and a sign-out that turns into its question with «Cancelar» and «Cerrar sesión». `themeModeController` and `localeController` are keep-alive async controllers persisted in `shared_preferences`; the locale one applies the choice through slang, with the device language for Sistema. `app.dart` follows the chosen theme mode and `main` waits for both choices with the session before removing the splash. 11 new tests (8 controller, 3 sheet) and phase 0's sign-out test updated; the whole suite (326 tests) and `flutter analyze` pass.
+
+### Deviations
+
+- Phase 0's «signs out and closes» test now confirms before signing out, as the user approved.
+- The sheet opens with `isScrollControlled` and scrolls, so it fits small phones; `ProfileSheet.show` keeps its signature.
+
+### Decisions
+
+- The sheet's tests store Spanish as the language choice: the test device speaks English, and Sistema now follows it.
+- After a render review, the pills lose `SegmentedPills`' default side padding inside the sheet, so they line up with the rest of the content.
+- Renders of the recovery screens (rejected code in light, drawn check in dark), pending since C8, were checked from this slice's folder: the OTP boxes, the attempts message and the check read well.
+
+### Follow-ups
+
+- On the code step, while a rejected code's message shows, the «Vence en» countdown is hidden; showing both would keep the deadline visible (`recover_page.dart`).

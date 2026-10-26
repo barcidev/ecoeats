@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261026-profile-sheet-with-session-data-persisted-appear",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-profile-sheet-with-session-data-persisted-appear",
   "baseCommit": "173e2b9bc0c7519f5fa193e97e596b6278911a1e",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:3ddd9e46e0156cf20bd962c63a3830c3b72ca8ffaeae81b111a85a20e5852ec1",
@@ -69,12 +69,12 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "ef0344f7c2ba17fa28ca8232f9e79d240e5b3bd3",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:13:30.151Z",
       "doneAt": "2026-10-26T10:19:41.953Z",
-      "summary": "Real profile sheet: initial, name, email and session expiry (or its last hour), appearance and language pills applied at once and persisted, and a sign-out that asks in place; phase 0's sign-out test now confirms first, with user approval."
+      "summary": "Real profile sheet: initial, name, email and session expiry (or its last hour), appearance and language pills applied at once and persisted, and a sign-out that asks in place; phase 0's sign-out test now confirms first, with user approval.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -85,5 +85,6 @@
     "A": 6,
     "AC": 5,
     "T": 3
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T10:19:53.950Z"
 }
