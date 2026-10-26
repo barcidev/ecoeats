@@ -231,6 +231,29 @@ class FormMessage extends StatelessWidget {
   }
 }
 
+/// The eye at the end of a password field: it says what tapping it will do,
+/// show or hide what was typed.
+class PasswordToggle extends StatelessWidget {
+  const new({required this.hidden, required this.onToggle, super.key});
+
+  final bool hidden;
+  final VoidCallback onToggle;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t.auth.password;
+    return Pressable(
+      semanticLabel: hidden ? t.show : t.hide,
+      onPressed: onToggle,
+      child: Icon(
+        hidden ? EcoIcons.eye : EcoIcons.eyeSlash,
+        size: 20,
+        color: context.palette.muted,
+      ),
+    );
+  }
+}
+
 /// A quiet, underlined action inside a panel.
 class TextLink extends StatelessWidget {
   const new({required this.label, required this.onPressed, super.key});

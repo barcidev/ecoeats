@@ -1,5 +1,6 @@
 import 'package:ecoeats/core/session/session_controller.dart';
 import 'package:ecoeats/design/theme.dart';
+import 'package:ecoeats/design/tokens/eco_icons.dart';
 import 'package:ecoeats/features/auth/presentation/widgets/auth_panel.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -45,6 +46,33 @@ void main() {
       await tester.tap(find.bySemanticsLabel('Volver'));
       expect(backs, 1);
     });
+  });
+
+  testWidgets('the password toggle says what it will do and flips', (
+    tester,
+  ) async {
+    var hidden = true;
+    await tester.pumpWidget(
+      host(
+        StatefulBuilder(
+          builder: (context, setState) => Center(
+            child: PasswordToggle(
+              hidden: hidden,
+              onToggle: () => setState(() => hidden = !hidden),
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(find.bySemanticsLabel('Mostrar contraseña'), findsOneWidget);
+    expect(find.byIcon(EcoIcons.eye), findsOneWidget);
+
+    await tester.tap(find.byType(PasswordToggle));
+    await tester.pump();
+
+    expect(hidden, isFalse);
+    expect(find.bySemanticsLabel('Ocultar contraseña'), findsOneWidget);
+    expect(find.byIcon(EcoIcons.eyeSlash), findsOneWidget);
   });
 
   group('Countdown', () {

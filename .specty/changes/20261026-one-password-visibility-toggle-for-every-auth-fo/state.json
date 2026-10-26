@@ -6,6 +6,13 @@
   "branch": "specty/20261026-one-password-visibility-toggle-for-every-auth-fo",
   "baseCommit": "b2d7d9baeb673752b4c45ff8f55241bd363b228f",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:18e20a6a5665cd2ce2e4d3cd7860789daad5f0a1588cfb1724ddc710076e8203",
+    "at": "2026-10-26T14:46:24.196Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 16,
@@ -21,7 +28,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "6606e2deeeb6b04d565839e4ddecca56499036a8",
+      "startedAt": "2026-10-26T14:46:24.825Z",
+      "doneAt": "2026-10-26T14:48:36.555Z",
+      "summary": "PasswordToggle in auth_panel.dart: the eye or crossed eye, announced as show or hide, flipping on tap; widget test."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -30,12 +47,5 @@
     "A": 1,
     "AC": 3,
     "T": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:18e20a6a5665cd2ce2e4d3cd7860789daad5f0a1588cfb1724ddc710076e8203",
-    "at": "2026-10-26T14:46:24.196Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

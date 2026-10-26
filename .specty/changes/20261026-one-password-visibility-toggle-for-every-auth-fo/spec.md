@@ -32,7 +32,7 @@ El ojo que muestra u oculta la contraseña es una sola pieza compartida en lugar
 
 ## Tareas
 
-- [ ] T1: El toggle compartido, con su test en test/features/auth/presentation/widgets/auth_panel_test.dart
+- [x] T1: El toggle compartido, con su test en test/features/auth/presentation/widgets/auth_panel_test.dart
   - files: lib/features/auth/presentation/widgets/auth_panel.dart
   - ac: AC1, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth
