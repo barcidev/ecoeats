@@ -11,7 +11,6 @@ import 'package:ecoeats/design/tokens/typography.dart';
 import 'package:ecoeats/design/widgets/eco_button.dart';
 import 'package:ecoeats/design/widgets/eco_text_field.dart';
 import 'package:ecoeats/design/widgets/plate_spinner.dart';
-import 'package:ecoeats/design/widgets/pressable.dart';
 import 'package:ecoeats/design/widgets/shake.dart';
 import 'package:ecoeats/design/widgets/toast.dart';
 import 'package:ecoeats/features/auth/application/recovery_controller.dart';
@@ -311,16 +310,9 @@ class _RecoverPageState extends ConsumerState<RecoverPage> {
           textInputAction: TextInputAction.next,
           autofillHints: const [AutofillHints.newPassword],
           onChanged: (_) => setState(() {}),
-          suffix: Pressable(
-            semanticLabel: _hidden
-                ? t.auth.password.show
-                : t.auth.password.hide,
-            onPressed: () => setState(() => _hidden = !_hidden),
-            child: Icon(
-              _hidden ? EcoIcons.eye : EcoIcons.eyeSlash,
-              size: 20,
-              color: context.palette.muted,
-            ),
+          suffix: PasswordToggle(
+            hidden: _hidden,
+            onToggle: () => setState(() => _hidden = !_hidden),
           ),
         ),
         const SizedBox(height: Space.sm),

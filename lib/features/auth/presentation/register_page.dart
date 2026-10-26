@@ -4,11 +4,9 @@ import 'package:ecoeats/core/session/session_controller.dart';
 import 'package:ecoeats/core/session/sign_in_hold.dart';
 import 'package:ecoeats/design/tokens/eco_icons.dart';
 import 'package:ecoeats/design/tokens/motion.dart';
-import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/tokens/spacing.dart';
 import 'package:ecoeats/design/widgets/eco_button.dart';
 import 'package:ecoeats/design/widgets/eco_text_field.dart';
-import 'package:ecoeats/design/widgets/pressable.dart';
 import 'package:ecoeats/design/widgets/shake.dart';
 import 'package:ecoeats/features/auth/application/register_controller.dart';
 import 'package:ecoeats/features/auth/application/validators.dart';
@@ -295,16 +293,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           autofillHints: const [AutofillHints.newPassword],
           onChanged: _edited,
           onSubmitted: (_) => _submit(),
-          suffix: Pressable(
-            semanticLabel: _hidden
-                ? t.auth.password.show
-                : t.auth.password.hide,
-            onPressed: () => setState(() => _hidden = !_hidden),
-            child: Icon(
-              _hidden ? EcoIcons.eye : EcoIcons.eyeSlash,
-              size: 20,
-              color: context.palette.muted,
-            ),
+          suffix: PasswordToggle(
+            hidden: _hidden,
+            onToggle: () => setState(() => _hidden = !_hidden),
           ),
         ),
         const SizedBox(height: Space.sm),

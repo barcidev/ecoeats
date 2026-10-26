@@ -36,7 +36,7 @@ El ojo que muestra u oculta la contraseña es una sola pieza compartida en lugar
   - files: lib/features/auth/presentation/widgets/auth_panel.dart
   - ac: AC1, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth
-- [ ] T2: Login, registro y recuperación usan el toggle
+- [x] T2: Login, registro y recuperación usan el toggle
   - files: lib/features/auth/presentation/login_page.dart, lib/features/auth/presentation/register_page.dart, lib/features/auth/presentation/recover_page.dart
   - ac: AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test

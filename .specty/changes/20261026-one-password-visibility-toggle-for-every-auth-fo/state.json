@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-one-password-visibility-toggle-for-every-auth-fo",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-one-password-visibility-toggle-for-every-auth-fo",
   "baseCommit": "b2d7d9baeb673752b4c45ff8f55241bd363b228f",
   "revision": 1,
@@ -31,12 +31,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "6606e2deeeb6b04d565839e4ddecca56499036a8",
+      "attempts": 1,
       "startedAt": "2026-10-26T14:46:24.825Z",
       "doneAt": "2026-10-26T14:48:36.555Z",
-      "summary": "PasswordToggle in auth_panel.dart: the eye or crossed eye, announced as show or hide, flipping on tap; widget test."
+      "summary": "PasswordToggle in auth_panel.dart: the eye or crossed eye, announced as show or hide, flipping on tap; widget test.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "53cf8c0dfc475ac01416e788e5acb15fd5eb330e",
+      "startedAt": "2026-10-26T14:48:37.046Z",
+      "doneAt": "2026-10-26T14:49:49.528Z",
+      "summary": "Login, registration and recovery use the shared PasswordToggle instead of their own copies."
     }
   },
   "pending": {
