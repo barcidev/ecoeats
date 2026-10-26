@@ -63,7 +63,7 @@ The app's tap targets, main button, loader and refusal shake move like physical 
   - files: lib/design/widgets/plate_spinner.dart, lib/design/widgets/shake.dart, test/design/widgets/plate_spinner_test.dart, test/design/widgets/form_motion_test.dart
   - ac: AC4, AC5
   - verify: fvm flutter test test/design/widgets/plate_spinner_test.dart test/design/widgets/form_motion_test.dart
-- [ ] T3: EcoButton that morphs into the loader and expands on success, with a widget test for every state
+- [x] T3: EcoButton that morphs into the loader and expands on success, with a widget test for every state
   - files: lib/design/widgets/eco_button.dart, test/design/widgets/pressable_test.dart
   - ac: AC2, AC3, AC6
   - verify: fvm dart run build_runner build -d && fvm dart run slang && fvm flutter analyze && fvm flutter test

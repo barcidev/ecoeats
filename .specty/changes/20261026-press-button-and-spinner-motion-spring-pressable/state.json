@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-press-button-and-spinner-motion-spring-pressable",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-press-button-and-spinner-motion-spring-pressable",
   "baseCommit": "fcae91ba50c73a5cb2f03b72faa2875f851ee80b",
   "revision": 1,
@@ -59,12 +59,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "94798241f2e879cbeb731c26cc8740e02447a052",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:16:24.350Z",
       "doneAt": "2026-10-26T10:18:52.714Z",
-      "summary": "PlateSpinner's arc now chases itself (eased head and tail, 1.25 turns per cycle, continuous across cycles, tested through plateSpinnerArc); Shake runs a loose damped spring with a medium haptic and rests exactly at 0."
+      "summary": "PlateSpinner's arc now chases itself (eased head and tail, 1.25 turns per cycle, continuous across cycles, tested through plateSpinnerArc); Shake runs a loose damped spring with a medium haptic and rests exactly at 0.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "15fcab63bd8cec3ac7d29af45ee41fc0ab01bbf1",
+      "startedAt": "2026-10-26T10:18:53.559Z",
+      "doneAt": "2026-10-26T10:24:29.246Z",
+      "summary": "EcoButton narrows into a spinning circle inside its full slot while loading, widens back with a drawn check on success (light haptic, onSuccess once), crossfades with reduced motion; no LayoutBuilder so intrinsic layouts keep working."
     }
   },
   "pending": {
