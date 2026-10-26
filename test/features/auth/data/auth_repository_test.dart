@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:ecoeats/core/network/app_failure.dart';
 import 'package:ecoeats/features/auth/data/auth_api.dart';
 import 'package:ecoeats/features/auth/data/auth_dtos.dart';
+import 'package:ecoeats/features/auth/data/auth_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/fake_http_adapter.dart';
@@ -59,6 +61,84 @@ void main() {
         'apellidos': 'Palacio',
         'correo': 'jorge@example.com',
         'password': 'secreta1',
+      });
+    });
+  });
+
+  group('AuthRepository', () {
+    test('login normalizes the email and returns the token', () async {
+      adapter.ok('POST', '/api/securities/login', {
+        'id': 'u1',
+        'email': 'jorge@example.com',
+        'token': 'jwt',
+        'tokenFirebaseAuth': '',
+      });
+      final login = await AuthRepository(AuthApi(dio))
+          .login(email: '  Jorge@Example.COM ', password: ' secreta1');
+      expect(login.token, 'jwt');
+      expect(adapter.requests.single.data, {
+        'email': 'jorge@example.com',
+        'password': ' secreta1',
+      });
+    });
+
+    test('wrong credentials are unauthorized', () async {
+      adapter.reply(
+        'POST',
+        '/api/securities/login',
+        status: 401,
+        body: {'success': false, 'message': 'Credenciales inválidas'},
+      );
+      await expectLater(
+        AuthRepository(AuthApi(dio))
+            .login(email: 'jorge@example.com', password: 'mala'),
+        throwsA(isA<UnauthorizedFailure>()),
+      );
+    });
+
+    test('register trims names and normalizes the email', () async {
+      adapter.reply(
+        'POST',
+        '/api/securities/register',
+        status: 201,
+        body: {
+          'success': true,
+          'message': 'Usuario registrado correctamente',
+          'data': {'user': _user},
+        },
+      );
+      final user = await AuthRepository(AuthApi(dio)).register(
+        documentNumber: ' 1032456789 ',
+        firstNames: ' Jorge ',
+        lastNames: 'Palacio ',
+        email: 'JORGE@example.com',
+        password: 'secreta1',
+      );
+      expect(user.firstNames, 'Jorge');
+      expect(adapter.requests.single.data, {
+        'numero_documento': '1032456789',
+        'nombres': 'Jorge',
+        'apellidos': 'Palacio',
+        'correo': 'jorge@example.com',
+        'password': 'secreta1',
+      });
+    });
+
+    test('recovery calls send the normalized email', () async {
+      adapter
+        ..ok('POST', '/api/securities/forgot-password', null)
+        ..ok('POST', '/api/securities/verify-otp', {'valid': true});
+      final repository = AuthRepository(AuthApi(dio));
+      await repository.forgotPassword(' Jorge@example.com');
+      final valid = await repository.verifyOtp(
+        email: 'Jorge@example.com',
+        otp: ' 123456 ',
+      );
+      expect(valid, isTrue);
+      expect(adapter.requests.first.data, {'email': 'jorge@example.com'});
+      expect(adapter.requests.last.data, {
+        'email': 'jorge@example.com',
+        'otp': '123456',
       });
     });
   });

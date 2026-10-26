@@ -40,7 +40,7 @@ The app can call the five security endpoints of the API (register, login, forgot
   - files: lib/features/auth/data/auth_dtos.dart, lib/features/auth/data/auth_api.dart, test/features/auth/data/auth_repository_test.dart
   - ac: AC2, AC3
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/auth
-- [ ] T2: AuthRepository
+- [x] T2: AuthRepository
   - files: lib/features/auth/data/auth_repository.dart, test/features/auth/data/auth_repository_test.dart
   - ac: AC1, AC2, AC3
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
