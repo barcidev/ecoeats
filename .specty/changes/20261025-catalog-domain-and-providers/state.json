@@ -6,6 +6,13 @@
   "branch": "specty/20261025-catalog-domain-and-providers",
   "baseCommit": "91c2d608797b85cd6177471cfa7e4b6faae1a3c6",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:afac1c8574987d625757d0256e1863dd5e419f5af7691800e162054f9b2e89db",
+    "at": "2026-10-26T02:03:07.767Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 13,
@@ -32,7 +39,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "dc2d0a4c7f56e68e470e0c57ba83bc6a8c6a7a0f",
+      "startedAt": "2026-10-26T02:03:08.129Z",
+      "doneAt": "2026-10-26T02:04:59.812Z",
+      "summary": "parseIngredients splits on commas outside parentheses (nested depth, trims, drops empties and a final period); foldForSearch/matchesSearch ignore case, accents, ñ and combining marks, all words required; sizedImageUrl buckets Unsplash widths 400–1600 with q=75, auto=format."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -41,12 +58,5 @@
     "A": 4,
     "AC": 6,
     "T": 3
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:afac1c8574987d625757d0256e1863dd5e419f5af7691800e162054f9b2e89db",
-    "at": "2026-10-26T02:03:07.767Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }
