@@ -93,3 +93,31 @@ A customer can enter EcoEats the way the plan describes for agent A: a welcome o
 - R1: Phase 0 lands later than this epic or its contracts differ from the plan. Mitigation: each slice writes its spec when it starts, against `main`; C1 has no dependency, so work can start now.
 - R2: A slice finds it needs a file it did not list, and `**/auth/**` makes every addition weigh more. Mitigation: a scope request with its reason, decided in delegated mode and recorded in the audit; if a slice would exceed size L, it splits.
 - R3: The OTP flow needs a real inbox, and repeated logins hit the 429 limit. Mitigation: unit and widget tests use a fake repository; the real check uses the single shared test account, and the user runs the OTP flow with their own email.
+
+## Closing
+
+### Summary
+
+Agent A's access and account are done in nine closed slices. A guest lands on a welcome over a living backdrop (three seed dishes with Ken Burns and crossfade, scrim and grain) that never restarts between auth pages; panels rise as stacked sheets while the photo steps back to 0.94 and darkens. The welcome draws its logo, reveals its headline under a mask and offers its two actions. Login checks its fields, works with saved credentials, says what the API refused in the app's words with a shake and a haptic, counts down a 429 on its button and sweeps into Home in achiote. Registration takes two steps with a live password checklist (6 characters to 72 bytes), sends each refusal to its step and field, signs in on its own and keeps the first names for the greeting. Recovery walks a freezed state machine through email, an emailed code (OTP field with paste and autofill, 15-minute and 60 s countdowns, masked email, rejected, locked and expired codes) and a new password, then draws a check and hands the email back to login. The profile sheet shows the session, persists appearance and language (applied before the first frame) and confirms the sign-out. Everything reads in Spanish and English, and reduced motion turns the motion into crossfades. The suite grew from 45 to 326 tests and `flutter analyze` is clean.
+
+### Deviations
+
+- Two of phase 0's tests changed with the user's approval: `test/app_test.dart` finds the welcome headline by its semantics label, and the profile sign-out test confirms first.
+- The welcome stayed inside C3 instead of a slice of its own: the epic's spec is locked while it is implemented, so C3 kept the shell, backdrop, welcome and photos within size L by keeping them in `auth_pages.dart`, which later slices emptied as each page moved to its own file.
+- The photo credit lives in `assets/photos/CREDITS.md` (Unsplash, with the source URLs) instead of on screen, because the seed does not record the photographers.
+
+### Decisions
+
+- Pages navigate inside the auth shell with relative paths; absolute ones pushed a second shell (a phase 0 bug, fixed in C3).
+- The achiote sweep lives in the root overlay, since the app replaces the auth stack with Home the moment the session changes.
+- The backdrop runs two rounds after a still intro and then rests, sparing the GPU and letting the app tests settle.
+- The duplicate auth clock was dropped for the core `clockProvider`, which every countdown reads.
+
+### Follow-ups
+
+- No native platforms exist yet, so every visual check was made on golden renders; a pass on simulators (iPhone 17 Pro, SE and Pixel 9) and the real OTP flow with a real inbox are pending.
+- Making the auth child routes non-opaque in `app_router.dart` would keep the stacked-sheet look after the transition ends.
+- `EcoTextField` could take `textCapitalization` for names (agent C).
+- The show/hide password toggle repeats in three screens and could become a shared piece.
+- On the recovery code step, the expiry countdown could stay visible next to a rejected code's message.
+- `Validators.normalizeEmail` duplicates `normalizeEmail` in `auth_repository.dart`.

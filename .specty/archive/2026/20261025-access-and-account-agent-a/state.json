@@ -2,10 +2,17 @@
   "schema": 1,
   "id": "20261025-access-and-account-agent-a",
   "kind": "epic",
-  "phase": "implementing",
+  "phase": "done",
   "branch": "specty/20261025-access-and-account-agent-a",
   "baseCommit": "a88f4e7f41d49a805fe625760b6ea3cb3a08dc69",
-  "revision": 1,
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:9d7ee4a2d28d6a0b01d5e16fdf516bac48c8ce66cdeaaed0703a0552b7b2c8f9",
+    "at": "2026-10-26T00:23:31.630Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "S",
     "score": 0,
@@ -67,11 +74,5 @@
     "C": 9,
     "R": 3
   },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:9d7ee4a2d28d6a0b01d5e16fdf516bac48c8ce66cdeaaed0703a0552b7b2c8f9",
-    "at": "2026-10-26T00:23:31.630Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
-  }
+  "closingSubmittedAt": "2026-10-26T10:21:48.917Z"
 }
