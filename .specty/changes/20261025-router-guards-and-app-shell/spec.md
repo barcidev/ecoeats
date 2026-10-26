@@ -48,7 +48,7 @@ The app runs end to end: `main.dart` keeps the native splash until the stored se
   - files: lib/router/guards.dart, test/router/guards_test.dart
   - ac: AC4
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze lib/router test/router && fvm flutter test test/router
-- [ ] T2: Router and app shell
+- [x] T2: Router and app shell
   - files: lib/router/app_router.dart, lib/app.dart, lib/main.dart, test/smoke_test.dart, test/app_test.dart
   - ac: AC1, AC2, AC3, AC4, AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test

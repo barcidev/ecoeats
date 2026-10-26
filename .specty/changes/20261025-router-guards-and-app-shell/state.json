@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-router-guards-and-app-shell",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-router-guards-and-app-shell",
   "baseCommit": "88670f751e4c3bae7af960ff5adc4fc25ce8ac32",
   "revision": 1,
@@ -47,12 +47,23 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "2042c852ceb0811b8550dd8c1f2f483036782c13",
+      "attempts": 1,
       "startedAt": "2026-10-26T01:24:16.374Z",
       "doneAt": "2026-10-26T01:27:07.453Z",
-      "summary": "AuthGuard redirects guests to the welcome with redirectUntil(replace: true) and lets signed-in users through; GuestGuard aborts auth routes for signed-in users and replaces the stack with Home unless re-evaluating. Both take the session check and target route as parameters."
+      "summary": "AuthGuard redirects guests to the welcome with redirectUntil(replace: true) and lets signed-in users through; GuestGuard aborts auth routes for signed-in users and replaces the stack with Home unless re-evaluating. Both take the session check and target route as parameters.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [
+        "lib/router/guards.dart"
+      ],
+      "attempts": 1,
+      "baseCommit": "546419ed787a12ef205ebda7fcb86fec871c967c",
+      "startedAt": "2026-10-26T01:27:08.954Z",
+      "doneAt": "2026-10-26T02:00:51.853Z",
+      "summary": "AppRouter with every plan route; App navigates on session start and end, opens from startingLink, shows the expired toast on its own overlay and follows system theme and language; main keeps the splash until the session is read."
     }
   },
   "pending": {
