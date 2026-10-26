@@ -185,3 +185,105 @@ class _CountdownState extends ConsumerState<Countdown> {
     return widget.builder(context, left.isNegative ? Duration.zero : left);
   }
 }
+
+/// One line under the form for what the API answered, announced to screen
+/// readers when it appears.
+class FormMessage extends StatelessWidget {
+  const new(this.message, {super.key});
+
+  final String? message;
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    final text = message;
+    return AnimatedSize(
+      duration: const Duration(milliseconds: 160),
+      alignment: .topLeft,
+      child: text == null
+          ? const SizedBox(width: double.infinity)
+          : Padding(
+              padding: const EdgeInsets.only(top: Space.sm),
+              child: Semantics(
+                liveRegion: true,
+                child: Row(
+                  crossAxisAlignment: .start,
+                  children: [
+                    Icon(
+                      EcoIcons.warningCircle,
+                      size: 18,
+                      color: palette.achiote,
+                    ),
+                    const SizedBox(width: Space.xs),
+                    Expanded(
+                      child: Text(
+                        text,
+                        style: EcoType.bodySmall.copyWith(
+                          color: palette.achiote,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+    );
+  }
+}
+
+/// A quiet, underlined action inside a panel.
+class TextLink extends StatelessWidget {
+  const new({required this.label, required this.onPressed, super.key});
+
+  final String label;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    return Pressable(
+      onPressed: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: Space.sm),
+        child: Text(
+          label,
+          style: EcoType.label.copyWith(
+            color: palette.ink,
+            decoration: TextDecoration.underline,
+            decorationColor: palette.line,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// A question and its link at the foot of a panel, such as «¿No tienes cuenta?
+/// Crear una».
+class PanelFooter extends StatelessWidget {
+  const new({
+    required this.question,
+    required this.action,
+    required this.onPressed,
+    super.key,
+  });
+
+  final String question;
+  final String action;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: .center,
+      children: [
+        Text(
+          question,
+          style: EcoType.bodySmall.copyWith(color: context.palette.muted),
+        ),
+        const SizedBox(width: Space.xs),
+        TextLink(label: action, onPressed: onPressed),
+      ],
+    );
+  }
+}

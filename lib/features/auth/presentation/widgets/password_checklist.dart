@@ -72,7 +72,9 @@ class _Rule extends StatelessWidget {
       .pending => palette.muted,
       .broken => palette.achiote,
     };
+    // Its own node, so a form around it does not merge the rules together.
     return Semantics(
+      container: true,
       label: '$label, ${state == .met ? t.met : t.missing}',
       excludeSemantics: true,
       child: Row(
