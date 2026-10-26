@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-design-widgets-for-the-catalog",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-design-widgets-for-the-catalog",
   "baseCommit": "169e4b95e06609208696559e671a84601d078b6c",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:9c0c4ae0dc4326b66492f89543d4147038f58736f2d44c37de70c766b8cd9283",
@@ -60,14 +60,14 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [
-        "lib/design/tokens/eco_icons.dart"
-      ],
-      "attempts": 1,
       "baseCommit": "8891707f4504481acd438edca649b05ac43fc1e6",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:50:12.313Z",
       "doneAt": "2026-10-26T00:53:47.429Z",
-      "summary": "SegmentedPills (scrolling pills with selected semantics), fractional RatingStars, single top Toast with tones; EcoIcons reads Phosphor fonts through const IconData because phosphor_flutter 2.1 does not compile on Flutter 3.47."
+      "summary": "SegmentedPills (scrolling pills with selected semantics), fractional RatingStars, single top Toast with tones; EcoIcons reads Phosphor fonts through const IconData because phosphor_flutter 2.1 does not compile on Flutter 3.47.",
+      "scopeExtra": [
+        "lib/design/tokens/eco_icons.dart"
+      ]
     }
   },
   "pending": {
@@ -79,5 +79,6 @@
     "AC": 5,
     "T": 3,
     "S": 1
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T00:54:06.399Z"
 }

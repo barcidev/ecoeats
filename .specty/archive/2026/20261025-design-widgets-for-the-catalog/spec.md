@@ -59,3 +59,22 @@ The design widgets the catalog builds on exist with their final public API and a
   - files: lib/design/widgets/segmented_pills.dart, lib/design/widgets/rating_stars.dart, lib/design/widgets/toast.dart, test/design/widgets/selection_test.dart
   - ac: AC4, AC5
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+The catalog's design widgets exist with their public API and a working implementation drawn from the tokens: Pressable, EcoButton, PlateSpinner, PlateIllustration, Skeleton, StateView with its cooldown, SegmentedPills, RatingStars and Toast.
+
+### Deviations
+
+- New `lib/design/tokens/eco_icons.dart` (scope S1): phosphor_flutter 2.1.0, the newest, subclasses `IconData`, which Flutter 3.47 made final, so importing it breaks compilation. The app keeps the package only for its fonts and reads them through const `IconData`.
+
+### Decisions
+
+- A `semanticLabel` on Pressable replaces the child's texts, so buttons are read once.
+- StateView takes a `kind` that tints its illustration, ready for agent C's per-state drawings.
+
+### Follow-ups
+
+- The next change adds DishImage, DishHero, EcoTextField, GrainOverlay, Shake, MaskRevealText, LogoMark and the gallery, and formats `lib/design` (tokens and theme are not dart-formatted yet).
