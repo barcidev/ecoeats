@@ -42,12 +42,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "0ae0f697ec4281f67cd91d4cda10f48e33d80f22",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:34:16.510Z",
       "doneAt": "2026-10-26T00:36:09.445Z",
-      "summary": "decodeJwt reads sub/email/role/exp into a JwtClaims record (null when malformed or without sub/exp); freezed Session with isExpiredAt/remainingAt; TokenStore interface with a flutter_secure_storage implementation for the token and first names by email."
+      "summary": "decodeJwt reads sub/email/role/exp into a JwtClaims record (null when malformed or without sub/exp); freezed Session with isExpiredAt/remainingAt; TokenStore interface with a flutter_secure_storage implementation for the token and first names by email.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "f5d166dda05f0a69ecddaf9e55c42a5fbd696329",
+      "startedAt": "2026-10-26T00:36:09.768Z",
+      "doneAt": "2026-10-26T00:37:39.739Z",
+      "summary": "keepAlive SessionController restores a live token (drops expired or corrupt ones), login stores the token only on success, register saves first names then logs in, logout, and a synchronous onUnauthorized that raises SessionExpired once; clockProvider for tests."
     }
   },
   "pending": {

@@ -50,7 +50,7 @@ The app keeps one session: the 24 h JWT is stored securely, restored at start (a
   - files: lib/core/session/jwt.dart, lib/core/session/session.dart, lib/core/session/token_store.dart, test/core/session/jwt_test.dart
   - ac: AC1
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/core
-- [ ] T2: Session controller
+- [x] T2: Session controller
   - files: lib/core/session/session_controller.dart, test/core/session/session_controller_test.dart
   - ac: AC2, AC3, AC4, AC5
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/core
