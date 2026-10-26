@@ -56,7 +56,7 @@ Opening a dish feels like one continuous object moving, not two screens swapping
   - files: lib/design/widgets/dish_image.dart, test/design/widgets/dish_image_test.dart
   - ac: AC1
   - verify: fvm flutter test test/design/widgets/dish_image_test.dart
-- [ ] T2: DishHero shuttle that bends the radius and crossfades, and DishNameHero that blends the text style, with flight tests
+- [x] T2: DishHero shuttle that bends the radius and crossfades, and DishNameHero that blends the text style, with flight tests
   - files: lib/design/widgets/dish_hero.dart, test/design/widgets/dish_hero_test.dart
   - ac: AC2
   - verify: fvm flutter test test/design/widgets/dish_hero_test.dart test/design/widgets/dish_image_test.dart

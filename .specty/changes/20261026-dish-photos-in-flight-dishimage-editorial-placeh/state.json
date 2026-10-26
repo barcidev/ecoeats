@@ -47,12 +47,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "914c58595eda7a5a09b8c092adb1493bfe085524",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:58:34.476Z",
       "doneAt": "2026-10-26T10:59:50.352Z",
-      "summary": "DishPlaceholder adds a soft raised-paper light from the upper left over its name-seeded gradient; tests now pin stable colors, Fraunces italic initials, the 280 ms fade and the broken-photo fallback."
+      "summary": "DishPlaceholder adds a soft raised-paper light from the upper left over its name-seeded gradient; tests now pin stable colors, Fraunces italic initials, the 280 ms fade and the broken-photo fallback.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "559b8d9791f34034969088d362e5a63a76554590",
+      "startedAt": "2026-10-26T10:59:50.657Z",
+      "doneAt": "2026-10-26T11:01:43.300Z",
+      "summary": "DishHero's shuttle bends the corner radius between both heroes and melts the lower photo into the upper one; new DishNameHero blends size, weight and color in each font and crosses them mid-flight; both just crossfade with reduced motion."
     }
   },
   "pending": {
