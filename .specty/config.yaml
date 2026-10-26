@@ -11,8 +11,8 @@ sensitive:
   ["**/migrations/**", "**/auth/**", ".github/**", "**/.env*", "**/infra/**"]
 verify:
   timeoutSec: 600
-  default: "flutter test"
-  full: "flutter analyze && flutter test"
+  default: "fvm flutter test"
+  full: "fvm flutter analyze && fvm flutter test"
 scope:
   implicitTests: true
   generated: []
