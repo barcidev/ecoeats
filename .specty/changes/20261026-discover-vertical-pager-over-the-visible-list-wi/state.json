@@ -65,12 +65,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "149361bcdb27e771371a2c8c45efe48e48f035ff",
+      "attempts": 1,
       "startedAt": "2026-10-26T11:07:19.421Z",
       "doneAt": "2026-10-26T11:08:44.882Z",
-      "summary": "DiscoverSlide: full-bleed photo under the discover DishHero with a 9 s Ken Burns while active, words that lead (1.3) and a photo that trails within its 1.1 zoom, scrims, featured overline, flying name, price, stars, description and «Ver plato»."
+      "summary": "DiscoverSlide: full-bleed photo under the discover DishHero with a 9 s Ken Burns while active, words that lead (1.3) and a photo that trails within its 1.1 zoom, scrims, featured overline, flying name, price, stars, description and «Ver plato».",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "7c28594e97c4ffa7c5f82d0037850fb19aa12ce1",
+      "startedAt": "2026-10-26T11:08:45.152Z",
+      "doneAt": "2026-10-26T11:11:35.042Z",
+      "summary": "DiscoverPage snapshots the visible list, pages vertically with implicit scrolling (next photo built offstage), ticks a light haptic and dismisses the hint per settled page, with counter, rail, close, hint bubble, loading, error and empty states in a dark room."
     }
   },
   "pending": {

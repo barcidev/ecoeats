@@ -69,7 +69,7 @@ Discover becomes the app's immersive walk through the menu. It opens as a circle
   - files: lib/features/discover/presentation/discover_slide.dart
   - ac: AC2, AC4, AC6
   - verify: fvm flutter analyze lib/features/discover
-- [ ] T3: The pager with its counter, rail, haptic, precache, hint, close, empty and loading states, with widget tests (reduced motion included)
+- [x] T3: The pager with its counter, rail, haptic, precache, hint, close, empty and loading states, with widget tests (reduced motion included)
   - files: lib/features/discover/presentation/discover_page.dart, lib/features/discover/presentation/discover_chrome.dart, test/features/discover/discover_page_test.dart
   - ac: AC1, AC2, AC3, AC4, AC5, AC6
   - verify: fvm flutter test test/features/discover/discover_page_test.dart
