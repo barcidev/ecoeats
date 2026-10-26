@@ -18,3 +18,9 @@ VS Code analiza el proyecto con el Flutter global (3.44.8, Dart 3.12), que no co
   - files: .vscode/settings.json
   - verify: python3 -I -c "import json,sys; d=json.load(open('.vscode/settings.json')); sys.exit(0 if d['dart.flutterSdkPath'] == '.fvm/versions/3.47.8' else 1)"
   - type: chore
+
+## Cierre
+
+### Resumen
+
+Added .vscode/settings.json pointing the Dart extension at .fvm/versions/3.47.8 and keeping .fvm out of search and file watching.

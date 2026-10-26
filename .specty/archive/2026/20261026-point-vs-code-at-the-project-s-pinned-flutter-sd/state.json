@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-point-vs-code-at-the-project-s-pinned-flutter-sd",
   "kind": "quick",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-point-vs-code-at-the-project-s-pinned-flutter-sd",
   "baseCommit": "e79adb10da0a8380b6db6086549613be3072a8f6",
   "revision": 1,
@@ -25,12 +25,12 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "1eccf58a1b330543e042f9c7bae6871c0fc88d41",
+      "attempts": 1,
       "startedAt": "2026-10-26T15:51:45.816Z",
       "doneAt": "2026-10-26T15:51:52.772Z",
-      "summary": "Added .vscode/settings.json pointing the Dart extension at .fvm/versions/3.47.8 and keeping .fvm out of search and file watching."
+      "summary": "Added .vscode/settings.json pointing the Dart extension at .fvm/versions/3.47.8 and keeping .fvm out of search and file watching.",
+      "scopeExtra": []
     }
   },
   "pending": {
