@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-login-screen-validation-autofill-error-states-wi",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-login-screen-validation-autofill-error-states-wi",
   "baseCommit": "babf8ba8803349f991a4b9cb5c1e636408aaa798",
   "revision": 1,
@@ -56,12 +56,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "9beed4db6d8d954931d76fcdbdf62358cd21595f",
+      "attempts": 1,
       "startedAt": "2026-10-26T09:21:08.252Z",
       "doneAt": "2026-10-26T09:22:32.311Z",
-      "summary": "AchioteSweep: an achiote disc in the root overlay that grows from the button to the farthest corner, holds while Home arrives and fades, outliving the route change; skipped with reduced motion."
+      "summary": "AchioteSweep: an achiote disc in the root overlay that grows from the button to the farthest corner, holds while Home arrives and fades, outliving the route change; skipped with reduced motion.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "432b256ed70a7f24d15c240727f1063e97fd4223",
+      "startedAt": "2026-10-26T09:22:32.594Z",
+      "doneAt": "2026-10-26T09:27:58.329Z",
+      "summary": "Real login screen with live field checks, autofill, refusals that shake with a haptic, a 429 countdown on the button, and the achiote sweep on success; 10 widget tests."
     }
   },
   "pending": {
