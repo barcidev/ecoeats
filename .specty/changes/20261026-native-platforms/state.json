@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "20261026-native-platforms",
+  "kind": "quick",
+  "phase": "implementing",
+  "branch": "specty/20261026-native-platforms",
+  "baseCommit": "8a5149fc0f84b639c8abf6380cfff6da1643e488",
+  "revision": 1,
+  "size": {
+    "level": "S",
+    "score": 3,
+    "adjust": 0,
+    "reasons": [
+      "3 files"
+    ]
+  },
+  "items": {},
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "T": 1
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:b25c7ac8bb9811865fb44dff548e34fc366e47c29579eb34c8440efb0c1d0582",
+    "at": "2026-10-26T09:50:29.203Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
