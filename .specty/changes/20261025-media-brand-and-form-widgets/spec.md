@@ -52,7 +52,7 @@ The rest of the design contracts exist with a simple but working implementation:
   - files: lib/design/widgets/dish_image.dart, lib/design/widgets/dish_hero.dart, test/design/widgets/dish_image_test.dart
   - ac: AC1, AC2
   - verify: fvm flutter analyze && fvm flutter test test/design
-- [ ] T2: EcoTextField, Shake and MaskRevealText
+- [x] T2: EcoTextField, Shake and MaskRevealText
   - files: lib/design/widgets/eco_text_field.dart, lib/design/widgets/shake.dart, lib/design/widgets/mask_reveal_text.dart, test/design/widgets/form_motion_test.dart
   - ac: AC3, AC4
   - verify: fvm flutter analyze && fvm flutter test test/design

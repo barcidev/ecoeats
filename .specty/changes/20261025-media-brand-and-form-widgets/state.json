@@ -43,12 +43,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "c43b29712d6366301b40f505d51c4ec780550fef",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:56:32.411Z",
       "doneAt": "2026-10-26T00:58:04.233Z",
-      "summary": "DishImage: CachedNetworkImage keyed without X-Amz-* params, decoded at laid-out width × dpr, with a DishPlaceholder (stable palette gradient, plate drawing, Fraunces italic initials) while loading and on error; simple DishHero."
+      "summary": "DishImage: CachedNetworkImage keyed without X-Amz-* params, decoded at laid-out width × dpr, with a DishPlaceholder (stable palette gradient, plate drawing, Fraunces italic initials) while loading and on error; simple DishHero.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "1b9c771786e7532699e72e04fe6e2aa4fe0b8807",
+      "startedAt": "2026-10-26T00:58:04.568Z",
+      "doneAt": "2026-10-26T01:00:11.177Z",
+      "summary": "EcoTextField (overline label, underline that turns achiote on error, animated error line, autofill and formatters), Shake on trigger change with haptic and damped swings, MaskRevealText sliding each line out of a clip with a 120 ms gap."
     }
   },
   "pending": {
