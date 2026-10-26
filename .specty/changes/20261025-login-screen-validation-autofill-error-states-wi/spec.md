@@ -48,7 +48,7 @@ The login placeholder becomes the real screen: it checks the fields before sendi
   - files: lib/features/auth/presentation/widgets/auth_panel.dart, lib/features/auth/presentation/auth_pages.dart
   - ac: AC4
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test
-- [ ] T2: Achiote sweep, with widget tests in test/features/auth/presentation/widgets/achiote_sweep_test.dart
+- [x] T2: Achiote sweep, with widget tests in test/features/auth/presentation/widgets/achiote_sweep_test.dart
   - files: lib/features/auth/presentation/widgets/achiote_sweep.dart
   - ac: AC5, AC7
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth

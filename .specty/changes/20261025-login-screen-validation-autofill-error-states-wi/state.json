@@ -47,12 +47,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "8b9dc594cf42248c3fe0d9a9c21c02c95f850b25",
+      "attempts": 1,
       "startedAt": "2026-10-26T03:23:18.937Z",
       "doneAt": "2026-10-26T09:21:07.948Z",
-      "summary": "AuthPanel (sheet with overline, title, subtitle and a bottom footer) moved to its own file, and a Countdown that ticks each second from the app clock and reports the end once."
+      "summary": "AuthPanel (sheet with overline, title, subtitle and a bottom footer) moved to its own file, and a Countdown that ticks each second from the app clock and reports the end once.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "9beed4db6d8d954931d76fcdbdf62358cd21595f",
+      "startedAt": "2026-10-26T09:21:08.252Z",
+      "doneAt": "2026-10-26T09:22:32.311Z",
+      "summary": "AchioteSweep: an achiote disc in the root overlay that grows from the button to the farthest corner, holds while Home arrives and fades, outliving the route change; skipped with reduced motion."
     }
   },
   "pending": {
