@@ -69,3 +69,25 @@ Forms, headlines and placeholders get the motion and texture of printed matter. 
 
 - R1: Auth tests may type into fields, read errors or settle in ways the new motion changes. Mitigation: the label text, the error text and the `EditableText` stay; T1 runs the auth tests, and T3 the whole suite.
 - R2: `decodeImageFromPixels` does not complete under fake async in widget tests. Mitigation: the overlay draws nothing until the tile is ready, and the grain test awaits the tile inside `runAsync`.
+
+## Closing
+
+### Summary
+
+Forms, headlines and placeholders now move and feel like printed matter. A field's uppercase label rests on its line and rises when the field is used, the underline inks itself from the left, and errors slide in. Headline masks no longer cut accents or descenders. Skeletons share one light that crosses the screen, and the paper grain is seeded noise made at runtime. The full suite passes with 354 tests.
+
+### Deviations
+
+- A field's error slides in but leaves at once, while the room it took closes smoothly. An existing login test expects a fixed error to be gone on the next frame, and a fading stale message would read as still wrong.
+- Scope S1: `EcoButton` (C1) skipped `AnimatedSize` under reduced motion. A zero-length `AnimatedSize` re-dirties itself during layout whenever a non-expanded label changes width, as the 429 countdown does every second. It came with a regression test.
+- The grain tile is 256 px, not the 128 px the spec assumed, so its repeat never shows on a phone-sized surface.
+
+### Decisions
+
+- `EcoUnderlinePainter` is public and `@visibleForTesting`, so tests can read the underline's progress and colors. `shimmerBandX` and `grainTile` are exposed the same way.
+- The skeleton keeps no shared ancestor. Each block reads the frame timestamp, so a light crosses the whole screen even across blocks mounted at different times, and screens need no extra widget.
+- A headline's slot reaches 0.3 em past its line box, and each line starts 2 × 0.3 em further down, so it starts fully hidden and rests unclipped.
+
+### Follow-ups
+
+- Visual QA on a device (Impeller) for the grain shader and the shimmer comes with the design gallery slice (C10).

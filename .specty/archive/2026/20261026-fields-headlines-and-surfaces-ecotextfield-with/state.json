@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261026-fields-headlines-and-surfaces-ecotextfield-with",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-fields-headlines-and-surfaces-ecotextfield-with",
   "baseCommit": "ce4122ec8618e40aef328cebc92d593fd02f5bff",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:ee0980500f97b4d14e3b6d06425d7d50685b4f5ee376f9c394a21c9a5febade7",
@@ -70,12 +70,12 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "56c8de431634b9b183647f828fdb90d7efef23b1",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:32:35.801Z",
       "doneAt": "2026-10-26T10:35:39.653Z",
-      "summary": "Skeleton paints through a RenderBox whose light band comes from the frame clock and its screen position, so all blocks shine in step; GrainOverlay tiles a seeded 256 px runtime noise image through an ImageShader, made once."
+      "summary": "Skeleton paints through a RenderBox whose light band comes from the frame clock and its screen position, so all blocks shine in step; GrainOverlay tiles a seeded 256 px runtime noise image through an ImageShader, made once.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -88,5 +88,6 @@
     "T": 3,
     "R": 2,
     "S": 1
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T10:36:02.075Z"
 }
