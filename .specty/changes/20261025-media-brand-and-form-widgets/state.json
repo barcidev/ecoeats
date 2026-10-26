@@ -6,6 +6,13 @@
   "branch": "specty/20261025-media-brand-and-form-widgets",
   "baseCommit": "cfd131a2ee2d5ad3844d05ca8c9b7dd16ba7e361",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:969867be44a0b6d21371aaac7b9c625a8e1618d6b0ed334ee33c3fee984eb87d",
+    "at": "2026-10-26T00:56:32.076Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 15,
@@ -33,7 +40,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "c43b29712d6366301b40f505d51c4ec780550fef",
+      "startedAt": "2026-10-26T00:56:32.411Z",
+      "doneAt": "2026-10-26T00:58:04.233Z",
+      "summary": "DishImage: CachedNetworkImage keyed without X-Amz-* params, decoded at laid-out width × dpr, with a DishPlaceholder (stable palette gradient, plate drawing, Fraunces italic initials) while loading and on error; simple DishHero."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -42,12 +59,5 @@
     "A": 4,
     "AC": 5,
     "T": 3
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:969867be44a0b6d21371aaac7b9c625a8e1618d6b0ed334ee33c3fee984eb87d",
-    "at": "2026-10-26T00:56:32.076Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

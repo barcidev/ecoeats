@@ -48,7 +48,7 @@ The rest of the design contracts exist with a simple but working implementation:
 
 ## Tasks
 
-- [ ] T1: DishImage and DishHero
+- [x] T1: DishImage and DishHero
   - files: lib/design/widgets/dish_image.dart, lib/design/widgets/dish_hero.dart, test/design/widgets/dish_image_test.dart
   - ac: AC1, AC2
   - verify: fvm flutter analyze && fvm flutter test test/design
