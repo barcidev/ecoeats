@@ -12,18 +12,28 @@ part 'catalog_views.g.dart';
 @riverpod
 AsyncValue<List<Dish>> visibleDishes(Ref ref) {
   final filter = ref.watch(catalogFilterProvider);
-  return ref.watch(dishesProvider).whenData(filter.apply);
+  return _mapKeepingData(ref.watch(dishesProvider), filter.apply);
 }
 
 /// The carousel: featured dishes, whatever the filter says.
 @riverpod
 AsyncValue<List<Dish>> featuredDishes(Ref ref) {
-  return ref
-      .watch(dishesProvider)
-      .whenData(
-        (dishes) => [
-          for (final dish in dishes)
-            if (dish.featured) dish,
-        ],
-      );
+  return _mapKeepingData(
+    ref.watch(dishesProvider),
+    (dishes) => [
+      for (final dish in dishes)
+        if (dish.featured) dish,
+    ],
+  );
+}
+
+// `whenData` drops the list when a refresh fails, which would empty the menu.
+// While there is a list it stays on screen; the list's own provider tells
+// the failure.
+AsyncValue<List<Dish>> _mapKeepingData(
+  AsyncValue<List<Dish>> dishes,
+  List<Dish> Function(List<Dish> dishes) map,
+) {
+  if (dishes.value case final value?) return AsyncData(map(value));
+  return dishes.whenData(map);
 }

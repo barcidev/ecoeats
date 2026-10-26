@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "id": "20261025-dish-detail",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-dish-detail",
+  "baseCommit": "3c222dde75585a0b9a2a6be6379ca5dba3fc1de4",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:7d198b35dd3f0cd7ef1cddd7ba11aad4735ff75bf112ce88ff740528f177ca53",
+    "at": "2026-10-26T02:41:39.374Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "M",
+    "score": 9,
+    "adjust": 0,
+    "reasons": [
+      "7 files",
+      "2 modules"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:623bc61ee693cf88d50aef177989a5d0cdf234d26b90e9caff2b4d08b8f80586",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:94cf3456ef84a9b6268857f904c38219b14e4a1e6d15b0dfd379abaa822c7ee5",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:d286e88621a03bff62922e2236f9898357f2f53c8e348937214a2b4cdf56e163",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:61df942eb769804a329aa9fe3cfa9efcb6e32a18789d1754d7584977786f8a96",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:be3fd3cc82bbcc6853ecc7a852bd9005cefbc1bac2e643517a4aac271de465d9",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "5a1b1f7295cedeef2fd465e2d68df40ff648f89f",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:41:39.697Z",
+      "doneAt": "2026-10-26T02:46:17.110Z",
+      "summary": "Detail page: stretching parallax photo header under the source's hero tag with rounded shoulders, content rising 120 ms in (overline, name, «4,9 de 5» stars, price, description), maíz/aguacate macro bars with counting figures, numbered ingredients, gone and error states.",
+      "scopeExtra": [
+        "test/features/dishes/presentation/preview/**"
+      ]
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "5f3d80ff1562cc3cc29bf0942bca5bebf57efa77",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:46:17.830Z",
+      "doneAt": "2026-10-26T02:48:06.569Z",
+      "summary": "SwipeToDismiss scales the page toward 0.9 with growing corners while pulled past the top (Home shows behind the non-opaque route), ticks a haptic at the threshold and closes on release past 120 px, detecting the release from the first ballistic update.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 5,
+    "T": 2
+  },
+  "closingSubmittedAt": "2026-10-26T02:48:25.353Z"
+}

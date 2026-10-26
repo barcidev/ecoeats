@@ -54,6 +54,19 @@ void main() {
     });
   });
 
+  test('a failed refresh keeps the visible and featured dishes', () async {
+    container
+      ..listen(visibleDishesProvider, (_, _) {})
+      ..listen(featuredDishesProvider, (_, _) {});
+    when(repository.fetchAll).thenThrow(const AppFailure.offline());
+
+    await container.read(dishesProvider.notifier).refresh();
+
+    expect(container.read(dishesProvider).hasError, isTrue);
+    expect(container.read(visibleDishesProvider).value, hasLength(12));
+    expect(container.read(featuredDishesProvider).value, hasLength(4));
+  });
+
   test('featuredDishes ignores the filter', () {
     container.read(catalogFilterProvider.notifier).select(.light);
     final featured = container.read(featuredDishesProvider).value!;
