@@ -6,6 +6,13 @@
   "branch": "specty/20261026-two-step-registration-with-the-live-password-che",
   "baseCommit": "dceb8fb16e74a7b6232a4d5d883dc461663f2ca1",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:54cdb6ae106f8b4405ab0b44d24a704a5463c65f3a07f9fbb5b08f6dcc7226b5",
+    "at": "2026-10-26T09:40:03.136Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 16,
@@ -41,7 +48,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "1301680bbf5ea7a0e42e189c2a57d5307b9808cf",
+      "startedAt": "2026-10-26T09:40:03.510Z",
+      "doneAt": "2026-10-26T09:41:46.893Z",
+      "summary": "registerController walks the two steps, signs up through the session (sign-in and stored first names included), maps 400 keys and 409 fields to RegisterField, returns to the first step holding a refused field, and keeps the 429 wait; 9 unit tests."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -51,12 +68,5 @@
     "AC": 6,
     "T": 3,
     "R": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:54cdb6ae106f8b4405ab0b44d24a704a5463c65f3a07f9fbb5b08f6dcc7226b5",
-    "at": "2026-10-26T09:40:03.136Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

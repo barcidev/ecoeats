@@ -42,7 +42,7 @@ A new customer creates an account in two short steps, who they are (first names,
 
 ## Tasks
 
-- [ ] T1: Register controller, with unit tests in test/features/auth/application/register_controller_test.dart
+- [x] T1: Register controller, with unit tests in test/features/auth/application/register_controller_test.dart
   - files: lib/features/auth/application/register_controller.dart
   - ac: AC3, AC4, AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth/application
