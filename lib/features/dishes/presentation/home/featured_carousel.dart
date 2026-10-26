@@ -178,10 +178,10 @@ class _Card extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: .start,
                   children: [
-                    Text(
-                      dish.name,
+                    DishNameHero(
+                      tag: dishNameHeroTag(dish.id, .carousel),
+                      name: dish.name,
                       maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
                       style: EcoType.title.copyWith(color: onPhoto),
                     ),
                     const SizedBox(height: Space.xs),

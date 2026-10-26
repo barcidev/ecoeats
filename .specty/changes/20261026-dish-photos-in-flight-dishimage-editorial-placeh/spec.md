@@ -60,7 +60,7 @@ Opening a dish feels like one continuous object moving, not two screens swapping
   - files: lib/design/widgets/dish_hero.dart, test/design/widgets/dish_hero_test.dart
   - ac: AC2
   - verify: fvm flutter test test/design/widgets/dish_hero_test.dart test/design/widgets/dish_image_test.dart
-- [ ] T3: Catalog names fly into the detail headline
+- [x] T3: Catalog names fly into the detail headline
   - files: lib/features/dishes/presentation/dish_transitions.dart, lib/features/dishes/presentation/home/featured_carousel.dart, lib/features/dishes/presentation/home/carta.dart, lib/features/dishes/presentation/detail/dish_detail_body.dart, lib/features/dishes/presentation/detail/dish_detail_page.dart
   - ac: AC3, AC4
   - verify: fvm dart run build_runner build -d && fvm dart run slang && fvm flutter analyze && fvm flutter test

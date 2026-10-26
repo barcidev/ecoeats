@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-dish-photos-in-flight-dishimage-editorial-placeh",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-dish-photos-in-flight-dishimage-editorial-placeh",
   "baseCommit": "36f68820fff7af8d5b426470b2206da1ec2c4e7d",
   "revision": 1,
@@ -56,12 +56,21 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "559b8d9791f34034969088d362e5a63a76554590",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:59:50.657Z",
       "doneAt": "2026-10-26T11:01:43.300Z",
-      "summary": "DishHero's shuttle bends the corner radius between both heroes and melts the lower photo into the upper one; new DishNameHero blends size, weight and color in each font and crosses them mid-flight; both just crossfade with reduced motion."
+      "summary": "DishHero's shuttle bends the corner radius between both heroes and melts the lower photo into the upper one; new DishNameHero blends size, weight and color in each font and crosses them mid-flight; both just crossfade with reduced motion.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "6c34803414f50b4c9b420640ce82b15c77f175a0",
+      "startedAt": "2026-10-26T11:01:43.558Z",
+      "doneAt": "2026-10-26T11:03:19.059Z",
+      "summary": "Carousel card, menu row and detail headline wrap the dish name in DishNameHero under dishNameHeroTag; the detail body gets the page's hero source; a detail test checks the names cross mid-flight and land."
     }
   },
   "pending": {

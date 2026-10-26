@@ -153,7 +153,9 @@ class _DishScroll extends StatelessWidget {
           ),
         ),
         SliverToBoxAdapter(
-          child: _RisingSheet(child: DishDetailBody(dish: dish)),
+          child: _RisingSheet(
+            child: DishDetailBody(dish: dish, heroSource: heroSource),
+          ),
         ),
       ],
     );

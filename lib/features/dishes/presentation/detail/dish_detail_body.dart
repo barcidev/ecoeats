@@ -2,19 +2,24 @@ import 'package:ecoeats/core/format/formatters.dart';
 import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/tokens/spacing.dart';
 import 'package:ecoeats/design/tokens/typography.dart';
+import 'package:ecoeats/design/widgets/dish_hero.dart';
 import 'package:ecoeats/design/widgets/rating_stars.dart';
 import 'package:ecoeats/features/dishes/domain/dish.dart';
 import 'package:ecoeats/features/dishes/domain/ingredients.dart';
 import 'package:ecoeats/features/dishes/presentation/detail/macro_bars.dart';
+import 'package:ecoeats/features/dishes/presentation/dish_transitions.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:material_ui/material_ui.dart';
 
 /// Everything under the photo: what the dish is, what it costs, what it
 /// brings and what goes into it.
 class DishDetailBody extends StatelessWidget {
-  const new({required this.dish, super.key});
+  const new({required this.dish, this.heroSource = .list, super.key});
 
   final Dish dish;
+
+  /// Where the page was opened from, so the name lands on the right card.
+  final HeroSource heroSource;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +47,11 @@ class DishDetailBody extends StatelessWidget {
             style: EcoType.overline.copyWith(color: palette.achiote),
           ),
           const SizedBox(height: Space.xs),
-          Text(dish.name, style: EcoType.headline.copyWith(color: palette.ink)),
+          DishNameHero(
+            tag: dishNameHeroTag(dish.id, heroSource),
+            name: dish.name,
+            style: EcoType.headline.copyWith(color: palette.ink),
+          ),
           const SizedBox(height: Space.md),
           Row(
             children: [

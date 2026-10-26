@@ -90,10 +90,10 @@ class CartaRow extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: .start,
                 children: [
-                  Text(
-                    dish.name,
+                  DishNameHero(
+                    tag: dishNameHeroTag(dish.id, .list),
+                    name: dish.name,
                     maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
                     style: EcoType.titleSmall.copyWith(color: palette.ink),
                   ),
                   const SizedBox(height: Space.xxs),
