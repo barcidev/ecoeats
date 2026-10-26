@@ -1,4 +1,5 @@
 import 'package:ecoeats/design/painters/logo_mark.dart';
+import 'package:ecoeats/design/painters/plate_illustration.dart';
 import 'package:ecoeats/design/theme.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
@@ -62,6 +63,84 @@ void main() {
           )
           ..restore(),
       );
+    });
+  });
+
+  group('PlateIllustration', () {
+    const accent = Color(0xFF4D6B2F);
+
+    Future<RenderObject> plate(
+      WidgetTester tester, {
+      PlateDetail detail = .leaf,
+      double progress = 1,
+    }) async {
+      await tester.pumpWidget(
+        _app(
+          PlateIllustration(
+            color: _ink,
+            accent: accent,
+            detail: detail,
+            progress: progress,
+          ),
+        ),
+      );
+      return tester.renderObject(_canvasOf(PlateIllustration));
+    }
+
+    bool inAccent(Symbol method, List<dynamic> arguments) =>
+        arguments.whereType<Paint>().any(
+          // Paint keeps its channels as floats: compare the 32-bit value.
+          (paint) => paint.color.toARGB32() == accent.toARGB32(),
+        );
+
+    testWidgets('the leaf is its detail unless told otherwise', (tester) async {
+      expect(const PlateIllustration().detail, PlateDetail.leaf);
+    });
+
+    for (final detail in PlateDetail.values) {
+      testWidgets('draws its ${detail.name} in the accent color', (
+        tester,
+      ) async {
+        final canvas = await plate(tester, detail: detail);
+        expect(canvas, paints..something(inAccent));
+        expect(tester.takeException(), isNull);
+      });
+    }
+
+    testWidgets('crumbs are a few loose dots', (tester) async {
+      var crumbs = 0;
+      expect(
+        await plate(tester, detail: .crumbs),
+        paints..everything((method, arguments) {
+          if (method == #drawCircle && inAccent(method, arguments)) crumbs++;
+          return true;
+        }),
+      );
+      expect(crumbs, greaterThanOrEqualTo(3));
+    });
+
+    testWidgets('the hourglass sand moves from the top bulb to the bottom', (
+      tester,
+    ) async {
+      int sand(RenderObject canvas) {
+        var count = 0;
+        expect(
+          canvas,
+          paints..everything((method, arguments) {
+            if (method == #drawPath &&
+                (arguments[1] as Paint).style == PaintingStyle.fill &&
+                (arguments[1] as Paint).color.toARGB32() == accent.toARGB32()) {
+              count++;
+            }
+            return true;
+          }),
+        );
+        return count;
+      }
+
+      expect(sand(await plate(tester, detail: .hourglass)), 1);
+      expect(sand(await plate(tester, detail: .hourglass, progress: 0.5)), 2);
+      expect(sand(await plate(tester, detail: .hourglass, progress: 0)), 1);
     });
   });
 }

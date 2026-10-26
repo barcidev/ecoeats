@@ -51,7 +51,7 @@ The brand mark and the app's drawings become finished line art. The logo draws i
   - files: lib/design/painters/logo_mark.dart, test/design/painters_test.dart
   - ac: AC1
   - verify: fvm flutter test test/design/painters_test.dart test/features/auth/presentation/auth_shell_test.dart
-- [ ] T2: PlateIllustration details for each state, with tests
+- [x] T2: PlateIllustration details for each state, with tests
   - files: lib/design/painters/plate_illustration.dart, test/design/painters_test.dart
   - ac: AC2
   - verify: fvm flutter test test/design/painters_test.dart

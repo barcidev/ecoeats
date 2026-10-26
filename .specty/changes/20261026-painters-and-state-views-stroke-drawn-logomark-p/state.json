@@ -46,12 +46,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "0f8f761c76779d068a24903b36d7b2996ca94e02",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:39:48.452Z",
       "doneAt": "2026-10-26T10:43:44.386Z",
-      "summary": "LogoMark draws its rim from the top as one stroke (path metrics), then a lighter well, then a stalked leaf whose vein is cut out with BlendMode.clear; progress keeps its 0–1 meaning for the welcome."
+      "summary": "LogoMark draws its rim from the top as one stroke (path metrics), then a lighter well, then a stalked leaf whose vein is cut out with BlendMode.clear; progress keeps its 0–1 meaning for the welcome.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "529a3cfe01bbeeebd2b1c6a4e6251005597ec7a0",
+      "startedAt": "2026-10-26T10:43:44.682Z",
+      "doneAt": "2026-10-26T10:46:26.145Z",
+      "summary": "PlateIllustration gains PlateDetail (leaf, crumbs, smoke, cut cord, hourglass) drawn in the accent color, and progress for the hourglass sand moving from the top bulb to the base."
     }
   },
   "pending": {
