@@ -17,3 +17,9 @@ Cuando un panel de auth se abre sobre otro (por ejemplo, recuperar sobre el logi
 - [x] T1: Las rutas hijas de la shell de auth no son opacas, con test en test/router/app_router_test.dart
   - files: lib/router/app_router.dart
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/router test/router && fvm flutter analyze && fvm flutter test
+
+## Cierre
+
+### Resumen
+
+The recover route is not opaque, so the login stays painted behind it, shrunk like a stacked sheet; router test, and the recovery round-trip test looks its fields up inside RecoverPage.

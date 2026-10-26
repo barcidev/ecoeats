@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-stacked-auth-sheets-stay-painted-beneath-the-new",
   "kind": "quick",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-stacked-auth-sheets-stay-painted-beneath-the-new",
   "baseCommit": "3ade5a843ff0eb2a52e9a13d0865bd07f73b4e4b",
   "revision": 1,
@@ -25,14 +25,14 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [
-        "test/features/auth/presentation/login_page_test.dart"
-      ],
-      "attempts": 1,
       "baseCommit": "94dca8dabc06ccec826d30730d53bf4af61d4928",
+      "attempts": 1,
       "startedAt": "2026-10-26T15:16:21.898Z",
       "doneAt": "2026-10-26T15:21:16.339Z",
-      "summary": "The recover route is not opaque, so the login stays painted behind it, shrunk like a stacked sheet; router test, and the recovery round-trip test looks its fields up inside RecoverPage."
+      "summary": "The recover route is not opaque, so the login stays painted behind it, shrunk like a stacked sheet; router test, and the recovery round-trip test looks its fields up inside RecoverPage.",
+      "scopeExtra": [
+        "test/features/auth/presentation/login_page_test.dart"
+      ]
     }
   },
   "pending": {
