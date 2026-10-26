@@ -1,0 +1,3 @@
+{"ts":"2026-10-26T11:04:56.883Z","actor":"agent","tool":"claude-code","event":"change.created","data":{"kind":"standard","branch":"specty/20261026-discover-vertical-pager-over-the-visible-list-wi","epic":"20261025-design-motion-brand-and-discover-agent-c","slice":"C6"}}
+{"ts":"2026-10-26T11:05:49.608Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":1,"hash":"sha256:ea6cdf5ea5156470e50ec964db045a2b56d5923f1802c806e65574e581f8915b","size":"L","warnings":1}}
+{"ts":"2026-10-26T11:05:49.911Z","actor":"agent","tool":"claude-code","event":"spec.approved","data":{"revision":1,"hash":"sha256:ea6cdf5ea5156470e50ec964db045a2b56d5923f1802c806e65574e581f8915b","channel":"delegated","delegated":true}}

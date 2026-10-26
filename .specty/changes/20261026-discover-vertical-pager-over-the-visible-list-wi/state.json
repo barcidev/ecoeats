@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "20261026-discover-vertical-pager-over-the-visible-list-wi",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-discover-vertical-pager-over-the-visible-list-wi",
+  "baseCommit": "1ec4d2cd80a3705e5fa7358b52d5a3bdc3572009",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 13,
+    "adjust": 0,
+    "reasons": [
+      "10 files",
+      "2 modules",
+      "4 tasks"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:5c8a94a540026c3d86f5367954948eee03ce09c612f51d3bfb62a9d6e87bffcf",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:7352f17939d07e27664f8a2e7adbc0e39fb629d6a2f5cca53faffc2e3296356a",
+      "decision": "confirmed"
+    },
+    "A3": {
+      "hash": "sha256:b4d4c87ccffb6e6092f6331ed02a3f406825ab8c3b97ed739a1447422788f1f1",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:bb0716350239f17fd71f8e5c54b1a209679719323f5703dab5a68abe58f49b8c",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:f23444bb76bbe41d654d2c1a13ea4d4f0a2e54a38e6a181d24e8e1d1f0e930e5",
+      "decision": "implicit"
+    },
+    "A6": {
+      "hash": "sha256:4aecea5bbcd6f4dfb41cf1becc3487988593dbdf6d2d74e6bf6c9c8eec4e8654",
+      "decision": "implicit"
+    },
+    "A7": {
+      "hash": "sha256:ac9f994626d69d328116f3f99ce00cfcc2ea9ae734c3aa195ae43698b94a2a55",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 7,
+    "AC": 7,
+    "T": 4,
+    "R": 3
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ea6cdf5ea5156470e50ec964db045a2b56d5923f1802c806e65574e581f8915b",
+    "at": "2026-10-26T11:05:49.901Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
