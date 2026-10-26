@@ -6,6 +6,13 @@
   "branch": "specty/20261025-auth-data-layer",
   "baseCommit": "2eef7c3ff25a794b81d5cf0987ca9bcd1e669d8c",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ed1d5c46a568b3c6b55e5df7094226e5ea6c9828ef3f94fcfec0bc10ff18361f",
+    "at": "2026-10-26T00:29:50.778Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 16,
@@ -29,7 +36,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "812d9a8c4d77831c332963a21cdefdf8b041c5eb",
+      "startedAt": "2026-10-26T00:29:51.129Z",
+      "doneAt": "2026-10-26T00:32:00.898Z",
+      "summary": "Freezed DTOs (RegisterRequest, RegisteredUser, LoginResponse) map the Spanish keys to English names; AuthApi posts the five /api/securities endpoints through request() and is a keepAlive provider."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -38,12 +55,5 @@
     "A": 3,
     "AC": 3,
     "T": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:ed1d5c46a568b3c6b55e5df7094226e5ea6c9828ef3f94fcfec0bc10ff18361f",
-    "at": "2026-10-26T00:29:50.778Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }
