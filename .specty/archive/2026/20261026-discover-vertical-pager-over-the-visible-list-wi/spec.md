@@ -83,3 +83,25 @@ Discover becomes the app's immersive walk through the menu. It opens as a circle
 - R1: Full-screen photos and a zoom on every frame can drop frames on older phones. Mitigation: the Ken Burns runs only on the active page through a `Transform`, the photo decodes at screen width, and Discover is profiled on device with the gallery QA (C10).
 - R2: Heroes in an offstage page could collide with the visible one. Mitigation: each page's tags carry its dish id, and Flutter skips heroes in offstage subtrees.
 - R3: Pushing the detail over Discover, whose route is not a page route, could show Discover through the detail's transparent route. Mitigation: that is the intended swipe-down-to-close effect; the detail paints its own paper.
+
+## Closing
+
+### Summary
+
+Discover is the app's immersive walk. It opens as a circle growing from the touch, with a shaded edge and a page that settles from 1.04. Then it pages vertically through a snapshot of Home's visible dishes, one full-bleed dish at a time, with a slow push-in on the active photo, words that lead the drag, a counter «01 / 12», a progress rail and a light tick per settled page. The next photo is already built offstage. A first-time hint nods upward until the first swipe or tap, and stays gone. «Ver plato» flies the photo and the name into the detail, and loading, error and empty states sit in the same dark room. The full suite passes with 401 tests.
+
+### Deviations
+
+- The Ken Burns is one 9 s push-in that then holds, instead of reversing forever, and the hint's arrow nods three times. An existing catalog test (`the banner opens Discover`) settles after opening Discover, and an endless animation never does. A screen that comes to rest also saves battery. The scope request added the slide and the chrome files to T4.
+- The text leads at 1.3 and the photo trails at 0.92 of the page, not 1.25 and 0.65. Keeping the photo's lag inside the slack of a 1.1 resting zoom means the `DishHero` keeps the page's exact rect and no edge ever shows.
+- The phase 0 route tests now run inside a `ProviderScope` and a `TranslationProvider` with an empty catalog, so the page rests on its empty state and the route can settle. Their assertions did not change. A new test covers the shaded edge.
+
+### Decisions
+
+- Discover is always dark (`ecoTheme(.dark)`, light status bar), whatever the app's theme, because its words sit on photos.
+- The counter rounds the live page, so it changes halfway through a swipe. The haptic and the hint dismissal wait for the scroll to end.
+- «Ver plato ↑» is read as «Ver plato»: the arrow is drawn as an icon, so screen readers do not say «flecha».
+
+### Follow-ups
+
+- Visual QA of Discover with real fonts, and on device, comes with the design gallery slice (C10).
