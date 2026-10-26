@@ -38,7 +38,7 @@ A sign-in screen can finish its celebration (the button's drawn check, then the 
   - files: lib/core/session/sign_in_hold.dart
   - ac: AC1
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/core/session test/core/session && fvm flutter analyze && fvm flutter test test/core/session
-- [ ] T2: The app waits for a held sign-in before moving to Home
+- [x] T2: The app waits for a held sign-in before moving to Home
   - files: lib/app.dart, test/app_test.dart
   - ac: AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/app.dart test/app_test.dart && fvm flutter analyze && fvm flutter test

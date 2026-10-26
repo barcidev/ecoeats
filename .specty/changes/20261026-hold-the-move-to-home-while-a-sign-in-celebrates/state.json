@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-hold-the-move-to-home-while-a-sign-in-celebrates",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-hold-the-move-to-home-while-a-sign-in-celebrates",
   "baseCommit": "9ffecc64076591e32a9044cea5764e703d3a3c7a",
   "revision": 1,
@@ -39,12 +39,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "39f8d288e52482e55f363ace216bae6a5fae2d0f",
+      "attempts": 1,
       "startedAt": "2026-10-26T14:27:46.129Z",
       "doneAt": "2026-10-26T14:28:55.353Z",
-      "summary": "SignInHold: a keep-alive hold a sign-in screen sets before sending credentials and releases after its celebration; wait() completes at once without a hold, on release, or 3 s after it began."
+      "summary": "SignInHold: a keep-alive hold a sign-in screen sets before sending credentials and releases after its celebration; wait() completes at once without a hold, on release, or 3 s after it began.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "839b0fefd5cb4a4f01fad4f7eb8f3f581f3c8bac",
+      "startedAt": "2026-10-26T14:28:55.650Z",
+      "doneAt": "2026-10-26T14:30:50.032Z",
+      "summary": "The app awaits the sign-in hold before replacing the stack with Home; moves to the welcome stay immediate; app test for a held sign-in."
     }
   },
   "pending": {

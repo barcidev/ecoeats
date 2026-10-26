@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:ecoeats/app.dart';
 import 'package:ecoeats/core/session/session.dart';
 import 'package:ecoeats/core/session/session_controller.dart';
+import 'package:ecoeats/core/session/sign_in_hold.dart';
 import 'package:ecoeats/core/session/token_store.dart';
 import 'package:ecoeats/features/dishes/data/dish_repository.dart';
 import 'package:ecoeats/features/dishes/domain/dish.dart';
@@ -103,6 +104,22 @@ void main() {
   testWidgets('a guest starts on the welcome', (tester) async {
     await _boot(tester);
     expect(find.bySemanticsLabel(_headline), findsOneWidget);
+  });
+
+  testWidgets('Home waits for a held sign-in', (tester) async {
+    final container = await _boot(tester);
+    final hold = container.read(signInHoldProvider)..hold();
+    await container
+        .read(sessionControllerProvider.notifier)
+        .login(email: 'jorge@example.com', password: 'secreta1');
+    await tester.pump(const Duration(seconds: 1));
+    final router = container.read(appRouterProvider);
+    expect(router.stack.map((route) => route.name), ['AuthShellRoute']);
+
+    hold.release();
+    await tester.pumpAndSettle();
+    expect(router.stack.map((route) => route.name), ['HomeRoute']);
+    expect(find.text('Ajiaco santafereño'), findsOneWidget);
   });
 
   testWidgets('a stored session starts on Home', (tester) async {

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ecoeats/core/session/session_controller.dart';
+import 'package:ecoeats/core/session/sign_in_hold.dart';
 import 'package:ecoeats/design/theme.dart';
 import 'package:ecoeats/design/widgets/toast.dart';
 import 'package:ecoeats/features/profile/application/theme_mode_controller.dart';
@@ -27,11 +28,14 @@ class App extends ConsumerWidget {
     ref
       ..listen(sessionControllerProvider.select(signedIn), (previous, next) {
         if (previous == next) return;
-        unawaited(
-          router.replaceAll([
+        final hold = ref.read(signInHoldProvider);
+        unawaited(() async {
+          // A sign-in screen may still be celebrating; Home waits for it.
+          if (next) await hold.wait();
+          await router.replaceAll([
             if (next) const HomeRoute() else const AuthShellRoute(),
-          ]),
-        );
+          ]);
+        }());
       })
       ..listen(sessionExpiredProvider, (_, _) {
         final anchor = _overlayAnchor.currentContext;
