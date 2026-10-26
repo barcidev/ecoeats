@@ -6,6 +6,13 @@
   "branch": "specty/20261025-auth-shell-with-the-living-backdrop-and-the-stac",
   "baseCommit": "2b1367d7fe5f4786a7dfeba911ee1d3cb7000fa5",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:8c3fa6f43ac5b93019b7db1985201ed9e5c6b734b4a31e217badf588a9368e04",
+    "at": "2026-10-26T02:15:05.401Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 14,
@@ -39,7 +46,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "3b6e643d5542ac9360389239fd3cdbfdd71008fe",
+      "startedAt": "2026-10-26T02:15:05.790Z",
+      "doneAt": "2026-10-26T02:15:48.604Z",
+      "summary": "Bundled the seed photos of Ajiaco, Sancocho and Arroz atollado (1000×2000, quality 60) under assets/photos with their Unsplash credits, and declared the folder in pubspec.yaml."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -49,12 +66,5 @@
     "AC": 6,
     "T": 3,
     "R": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:8c3fa6f43ac5b93019b7db1985201ed9e5c6b734b4a31e217badf588a9368e04",
-    "at": "2026-10-26T02:15:05.401Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

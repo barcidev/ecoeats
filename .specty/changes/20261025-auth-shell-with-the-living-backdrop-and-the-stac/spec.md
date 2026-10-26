@@ -43,7 +43,7 @@ The first thing a guest sees feels like the product: three Colombian dishes fill
 
 ## Tasks
 
-- [ ] T1: Bundle the three welcome photos with their credits
+- [x] T1: Bundle the three welcome photos with their credits
   - files: assets/photos/**, pubspec.yaml
   - ac: AC1
   - verify: fvm flutter pub get && test -f assets/photos/ajiaco.jpg && test -f assets/photos/sancocho.jpg && test -f assets/photos/arroz_atollado.jpg
