@@ -6,6 +6,13 @@
   "branch": "specty/20261025-router-guards-and-app-shell",
   "baseCommit": "88670f751e4c3bae7af960ff5adc4fc25ce8ac32",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:c213656b1f4da237a07d6faba8fff9296e9e47454aae7d41b2e4fd0229b08fd2",
+    "at": "2026-10-26T01:24:15.489Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 10,
@@ -37,7 +44,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "2042c852ceb0811b8550dd8c1f2f483036782c13",
+      "startedAt": "2026-10-26T01:24:16.374Z",
+      "doneAt": "2026-10-26T01:27:07.453Z",
+      "summary": "AuthGuard redirects guests to the welcome with redirectUntil(replace: true) and lets signed-in users through; GuestGuard aborts auth routes for signed-in users and replaces the stack with Home unless re-evaluating. Both take the session check and target route as parameters."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -46,12 +63,5 @@
     "A": 5,
     "AC": 5,
     "T": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:c213656b1f4da237a07d6faba8fff9296e9e47454aae7d41b2e4fd0229b08fd2",
-    "at": "2026-10-26T01:24:15.489Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }
