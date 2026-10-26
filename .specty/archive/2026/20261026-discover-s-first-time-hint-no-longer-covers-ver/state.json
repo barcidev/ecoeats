@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-discover-s-first-time-hint-no-longer-covers-ver",
   "kind": "quick",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-discover-s-first-time-hint-no-longer-covers-ver",
   "baseCommit": "a6219d222fbc1a9db9fa0f1123ae9eba77d1f4f5",
   "revision": 1,
@@ -25,14 +25,14 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [
-        "lib/features/discover/presentation/discover_chrome.dart"
-      ],
-      "attempts": 1,
       "baseCommit": "5ed35eb567ae0065a9b67da67d34946c8d92a8b4",
+      "attempts": 1,
       "startedAt": "2026-10-26T11:27:01.707Z",
       "doneAt": "2026-10-26T11:29:38.482Z",
-      "summary": "The hint floats just below the photo's middle, off the words and «Ver plato», and is translucent to hits (IgnorePointer inside a translucent detector): a tap dismisses it, a swipe starting on it turns the page."
+      "summary": "The hint floats just below the photo's middle, off the words and «Ver plato», and is translucent to hits (IgnorePointer inside a translucent detector): a tap dismisses it, a swipe starting on it turns the page.",
+      "scopeExtra": [
+        "lib/features/discover/presentation/discover_chrome.dart"
+      ]
     }
   },
   "pending": {

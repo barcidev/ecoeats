@@ -20,3 +20,9 @@ The first time Discover opens, its swipe-up hint sat at the bottom, right on top
 - [x] T1: Float the first-time hint off the button, with tests
   - files: lib/features/discover/presentation/discover_page.dart, test/features/discover/discover_page_test.dart
   - verify: fvm flutter test test/features/discover
+
+## Closing
+
+### Summary
+
+The hint floats just below the photo's middle, off the words and «Ver plato», and is translucent to hits (IgnorePointer inside a translucent detector): a tap dismisses it, a swipe starting on it turns the page.

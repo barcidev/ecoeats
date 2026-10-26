@@ -6,3 +6,4 @@
 {"ts":"2026-10-26T11:28:37.915Z","actor":"agent","tool":"claude-code","event":"scope.decided","data":{"id":"S1","decision":"approved","delegated":true}}
 {"ts":"2026-10-26T11:29:38.402Z","actor":"specty","event":"task.verified","data":{"task":"T1","cmd":"fvm flutter test test/features/discover","exit":0,"ms":4447,"tree":"sha256:9df84f7dd922804da283b5e6ece68182e52cd7521ebf494b259f4ae4e0a582dc"}}
 {"ts":"2026-10-26T11:29:38.483Z","actor":"agent","tool":"claude-code","event":"task.completed","data":{"task":"T1","summary":"The hint floats just below the photo's middle, off the words and «Ver plato», and is translucent to hits (IgnorePointer inside a translucent detector): a tap dismisses it, a swipe starting on it turns the page."}}
+{"ts":"2026-10-26T11:29:42.239Z","actor":"agent","tool":"claude-code","event":"change.closed","data":{"lane":"quick","delegated":true}}
