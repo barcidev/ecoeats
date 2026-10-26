@@ -59,7 +59,7 @@ void main() {
           dish.copyWith(id: '${dish.id}-$round', name: '${dish.name} $round'),
     ];
     await bootApp(tester, dishes: longMenu);
-    await tester.drag(find.text('Ajiaco Santafereño 0'), const Offset(0, -600));
+    await tester.drag(find.byType(CustomScrollView), const Offset(0, -600));
     await tester.pumpAndSettle();
     expect(find.text('SÁBADO 24 DE OCTUBRE'), findsNothing);
     expect(find.byType(EditableText).hitTestable(), findsOneWidget);

@@ -4,7 +4,10 @@ import 'package:ecoeats/design/tokens/spacing.dart';
 import 'package:ecoeats/design/tokens/typography.dart';
 import 'package:ecoeats/features/dishes/application/catalog_filter.dart';
 import 'package:ecoeats/features/dishes/application/catalog_views.dart';
+import 'package:ecoeats/features/dishes/presentation/home/discover_banner.dart';
+import 'package:ecoeats/features/dishes/presentation/home/featured_carousel.dart';
 import 'package:ecoeats/features/dishes/presentation/home/home_header.dart';
+import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -35,7 +38,9 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     final palette = context.palette;
+    final searching = ref.watch(catalogFilterProvider).isSearching;
     final visible = ref.watch(visibleDishesProvider).value ?? const [];
+    final featured = ref.watch(featuredDishesProvider).value ?? const [];
     return Scaffold(
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(
@@ -47,6 +52,31 @@ class _HomePageState extends ConsumerState<HomePage> {
             onSearchChanged: ref.read(catalogFilterProvider.notifier).search,
             onSearchCleared: _clearSearch,
           ),
+          // A search is a question: only its answers stay on screen.
+          if (!searching && featured.isNotEmpty) ...[
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  Space.gutter,
+                  Space.lg,
+                  Space.gutter,
+                  Space.sm,
+                ),
+                child: Text(
+                  context.t.dishes.featured.title.toUpperCase(),
+                  style: EcoType.overline.copyWith(color: palette.muted),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(child: FeaturedCarousel(dishes: featured)),
+          ],
+          if (!searching && visible.isNotEmpty)
+            SliverPadding(
+              padding: const EdgeInsets.only(top: Space.xl),
+              sliver: SliverToBoxAdapter(
+                child: DiscoverBanner(dishes: visible),
+              ),
+            ),
           SliverPadding(
             padding: const EdgeInsets.symmetric(
               horizontal: Space.gutter,

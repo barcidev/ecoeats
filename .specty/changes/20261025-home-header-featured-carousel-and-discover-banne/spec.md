@@ -55,7 +55,7 @@ The top of Home looks and behaves like the plan's editorial front page: a large 
   - ac: AC1, AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes
   - type: test
-- [ ] T3: Featured carousel and discover banner
+- [x] T3: Featured carousel and discover banner
   - files: lib/features/dishes/presentation/home/featured_carousel.dart, lib/features/dishes/presentation/home/discover_banner.dart, lib/features/dishes/presentation/home/home_page.dart, test/features/dishes/presentation/home_carousel_test.dart
   - ac: AC4, AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test

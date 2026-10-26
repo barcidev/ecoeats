@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-home-header-featured-carousel-and-discover-banne",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-home-header-featured-carousel-and-discover-banne",
   "baseCommit": "2b1367d7fe5f4786a7dfeba911ee1d3cb7000fa5",
   "revision": 1,
@@ -60,12 +60,23 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "eb1fcc86e1873018065e1165cba4566336a7321e",
+      "attempts": 1,
       "startedAt": "2026-10-26T02:17:11.583Z",
       "doneAt": "2026-10-26T02:18:25.860Z",
-      "summary": "Header tests over the running app: night greeting, English date and greeting, nameless greeting, folding on scroll with the search still reachable, avatar to profile and search results; app harness with fake session, catalog and clock."
+      "summary": "Header tests over the running app: night greeting, English date and greeting, nameless greeting, folding on scroll with the search still reachable, avatar to profile and search results; app harness with fake session, catalog and clock.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [
+        "test/features/dishes/presentation/preview/**"
+      ],
+      "attempts": 1,
+      "baseCommit": "ee243424bdf7d13c18a0e01634e279a8c82a4a16",
+      "startedAt": "2026-10-26T02:18:26.141Z",
+      "doneAt": "2026-10-26T02:22:48.844Z",
+      "summary": "FeaturedCarousel: 4:5 PageView with side scale, photo parallax, Fogón-ink caption over a scrim, achiote indicator and «Destacado N de M» labels, opening the detail; DiscoverBanner fans three thumbnails and opens Discover from the touch point; both leave while searching."
     }
   },
   "pending": {
