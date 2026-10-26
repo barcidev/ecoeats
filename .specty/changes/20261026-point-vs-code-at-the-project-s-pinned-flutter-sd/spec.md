@@ -14,7 +14,7 @@ VS Code analiza el proyecto con el Flutter global (3.44.8, Dart 3.12), que no co
 
 ## Tareas
 
-- [ ] T1: Configurar el SDK del proyecto para VS Code
+- [x] T1: Configurar el SDK del proyecto para VS Code
   - files: .vscode/settings.json
   - verify: python3 -I -c "import json,sys; d=json.load(open('.vscode/settings.json')); sys.exit(0 if d['dart.flutterSdkPath'] == '.fvm/versions/3.47.8' else 1)"
   - type: chore
