@@ -1,0 +1,3 @@
+{"ts":"2026-10-26T03:12:39.326Z","actor":"agent","tool":"claude-code","event":"change.created","data":{"kind":"standard","branch":"specty/20261025-login-screen-validation-autofill-error-states-wi","epic":"20261025-access-and-account-agent-a","slice":"C5"}}
+{"ts":"2026-10-26T03:23:11.621Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":1,"hash":"sha256:a5297d718c038bbaf7daa4805fa1012842452fd6cd0130ba2267d09b59ad32d3","size":"L","warnings":3}}
+{"ts":"2026-10-26T03:23:14.934Z","actor":"agent","tool":"claude-code","event":"spec.approved","data":{"revision":1,"hash":"sha256:a5297d718c038bbaf7daa4805fa1012842452fd6cd0130ba2267d09b59ad32d3","channel":"delegated","delegated":true}}
