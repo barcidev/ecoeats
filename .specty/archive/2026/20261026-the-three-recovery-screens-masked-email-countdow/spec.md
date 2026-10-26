@@ -61,3 +61,25 @@ A customer who forgot their password gets back in from the app: they ask for a c
 ## Risks
 
 - R1: `recover_page.dart` holds four screens and a painter and could pass the 500-line limit. Mitigation: the steps share the panel pieces from `auth_panel.dart` and the file stays compact; if it nears the limit, the done screen moves out in a follow-up.
+
+## Closing
+
+### Summary
+
+Recovery is the real screen in `recover_page.dart`, exported from `auth_pages.dart` (which now holds only the shell and the welcome). It renders `recoveryController`'s state as four crossfading screens. The email step refuses a malformed email on its field, says when no account has it, and shows a server failure's words with sending again possible. The code step names where the code went (`j•••@example.com`), counts «Vence en mm:ss» and «Otro código en m:ss», shakes and clears the OTP field on a rejected code with the attempts left in the right plural, locks it when they are spent, shows the expiry as soon as the deadline passes, and confirms a resent code with a toast and a fresh field. The new password step uses the live password rules and a confirmation. The done screen draws a circle and a check, and «Ir a entrar» pops back to login, which fills in the email, clears the password and focuses it. The unused `shell.photoCredit` key is gone. 11 new widget tests (10 recovery, 1 full round trip from login); the whole suite (315 tests) and `flutter analyze` pass.
+
+### Deviations
+
+- None.
+
+### Decisions
+
+- The back arrow follows the controller (`back()` on the code and password steps) and leaves the panel from the email step; from the done screen it also returns the email.
+- The OTP field's shake uses the design `Shake` without its haptic, because the field already plays a heavier one when it is told it was wrong.
+- A 400 on the new password step always names the password (one without fields sends the flow back to the code step), so its Spanish words show on that field and the generic ones in English.
+
+### Follow-ups
+
+- Visual review of the recovery screens was not possible here (the guard forbids files during the closing); it is done on renders from the next slice's folder.
+- The show/hide password toggle now repeats in login, registration and recovery; it could become a shared piece in `auth_panel.dart`.
+- `recover_page.dart` has 422 code lines (warning past 300); the done screen and its painter can move to their own file if it grows.
