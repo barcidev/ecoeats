@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261025-home-menu-refresh-and-states",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261025-home-menu-refresh-and-states",
   "baseCommit": "11a0e071b9d549f843e20d4321630a149bd1fc16",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:2c5bcda452b2dae28ffbfbcf32c566658899bc89f5904158b17a6a95c004e4f0",
@@ -68,17 +68,17 @@
     },
     "T3": {
       "status": "done",
+      "baseCommit": "f794084dd4a8d96236fd7831531f5ed864d17888",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:34:32.918Z",
+      "doneAt": "2026-10-26T02:39:47.796Z",
+      "summary": "HomeSkeleton in the layout's shapes, HomeFailure (offline, 429 with m:ss countdown, server with Ref., unknown) with retry, EmptyMenu for search and category, toast on a failed refresh; catalog views keep mapping the last list when a refresh fails.",
       "scopeExtra": [
         "test/helpers/app_harness.dart",
         "lib/features/dishes/application/catalog_views.dart",
         "test/features/dishes/application/catalog_providers_test.dart",
         "test/features/dishes/presentation/preview/**"
-      ],
-      "attempts": 1,
-      "baseCommit": "f794084dd4a8d96236fd7831531f5ed864d17888",
-      "startedAt": "2026-10-26T02:34:32.918Z",
-      "doneAt": "2026-10-26T02:39:47.796Z",
-      "summary": "HomeSkeleton in the layout's shapes, HomeFailure (offline, 429 with m:ss countdown, server with Ref., unknown) with retry, EmptyMenu for search and category, toast on a failed refresh; catalog views keep mapping the last list when a refresh fails."
+      ]
     }
   },
   "pending": {
@@ -90,5 +90,6 @@
     "AC": 6,
     "T": 3,
     "S": 2
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T02:40:02.852Z"
 }

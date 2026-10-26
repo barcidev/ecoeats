@@ -57,3 +57,25 @@ follows:
   - files: lib/features/dishes/presentation/home/home_states.dart, lib/features/dishes/presentation/home/home_page.dart, lib/i18n/es/dishes.i18n.yaml, lib/i18n/en/dishes.i18n.yaml, test/features/dishes/presentation/home_states_test.dart
   - ac: AC4, AC5, AC6
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+«La carta» is the editorial menu of the plan. Category pills stay pinned under the header and fade before the sort button, which opens a sort sheet. Rows show photo, name, a taste of the ingredients, price and rating and read as one sentence. The pull-to-refresh is plate-shaped, and the colophon counts in the right plural. Loading, empty searches, offline, 429 with its countdown, server failures with their reference and failed refreshes all have a designed state.
+
+### Deviations
+
+- `catalog_views.dart` changed (scope S2): in Riverpod 3.4 `whenData` drops the value of an error, so a failed refresh emptied the menu. The views now keep mapping the last list, and the list's provider reports the failure.
+- `home_header.dart` changed (scope S1): with a longer menu the masthead folds partway, which showed its greeting overflowing; it now keeps its size and is clipped.
+- The app harness disables Riverpod's default retry and can boot without settling, for the pulsing skeleton and the ticking countdown.
+
+### Decisions
+
+- A pinned persistent header must not sit inside a `SliverPadding` and must fill its extent; spacing goes in its own sliver.
+- The colophon count stays lowercase («12 platos») to read as a sentence rather than a label.
+
+### Follow-ups
+
+- `EcoButton(expand: false)` still fills the width inside `StateView`; agent C's premium button can size it to its label.
+- The dish detail screen is the next change.
