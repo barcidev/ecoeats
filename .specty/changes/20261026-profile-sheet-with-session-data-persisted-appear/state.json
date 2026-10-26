@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "20261026-profile-sheet-with-session-data-persisted-appear",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-profile-sheet-with-session-data-persisted-appear",
+  "baseCommit": "173e2b9bc0c7519f5fa193e97e596b6278911a1e",
+  "revision": 1,
+  "size": {
+    "level": "M",
+    "score": 8,
+    "adjust": 0,
+    "reasons": [
+      "6 files",
+      "2 modules"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:a54aa13d277b863a24f2843a77679c14653dfca0971a90ecb4fc6ee2e9c24ed1",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:fb15ac44b862602aaf53f8c8a9cde6331f4ecb186538e5a55e97562422976f63",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:3b0f8a04e11265244127e9d9fb69c32b431805e04956ca1099a82b8443080556",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:a678a99d3de4dde6ffbd4ecebc94582a02179d0f4343484375392e7515bdc968",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:6d1319c8234189b8bce1feb78f076dbac0160631462958958075bfc269943a93",
+      "decision": "implicit"
+    },
+    "A6": {
+      "hash": "sha256:434e7ddce62f1817213cbdcc060f59304a2bb90d2e7ca14f7c2243edb20c548c",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 6,
+    "AC": 5,
+    "T": 3
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:3ddd9e46e0156cf20bd962c63a3830c3b72ca8ffaeae81b111a85a20e5852ec1",
+    "at": "2026-10-26T10:10:22.583Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
