@@ -54,7 +54,7 @@ The app keeps one session: the 24 h JWT is stored securely, restored at start (a
   - files: lib/core/session/session_controller.dart, test/core/session/session_controller_test.dart
   - ac: AC2, AC3, AC4, AC5
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/core
-- [ ] T3: Auth interceptor
+- [x] T3: Auth interceptor
   - files: lib/core/network/auth_interceptor.dart, lib/core/network/dio_provider.dart, test/core/network/auth_interceptor_test.dart
   - ac: AC5, AC6
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
