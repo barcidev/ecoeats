@@ -40,7 +40,7 @@ The login screen gets a `loginController` that signs in through the session, tel
 
 ## Tasks
 
-- [ ] T1: Use the core clock in recovery and delete the auth clock
+- [x] T1: Use the core clock in recovery and delete the auth clock
   - files: lib/features/auth/application/recovery_controller.dart, lib/features/auth/application/clock.dart
   - ac: AC7
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/auth/application/recovery_controller_test.dart
