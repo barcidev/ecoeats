@@ -10,17 +10,16 @@ import 'package:ecoeats/design/tokens/typography.dart';
 import 'package:ecoeats/design/widgets/eco_button.dart';
 import 'package:ecoeats/design/widgets/grain_overlay.dart';
 import 'package:ecoeats/design/widgets/mask_reveal_text.dart';
-import 'package:ecoeats/features/auth/presentation/widgets/auth_panel.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 
 export 'package:ecoeats/features/auth/presentation/login_page.dart';
+export 'package:ecoeats/features/auth/presentation/recover_page.dart';
 export 'package:ecoeats/features/auth/presentation/register_page.dart';
 
-// The recover page is still a phase 0 placeholder; each page
-// that agent A builds lives in its own file and is exported from here, where
-// the router looks for it.
+// Each auth page lives in its own file and is exported from here, where the
+// router looks for it.
 
 /// Hosts the auth pages over one living backdrop that never restarts between
 /// them; while a panel is open, the photo steps back behind it.
@@ -427,13 +426,4 @@ class _WelcomePageState extends State<WelcomePage>
       ),
     );
   }
-}
-
-@RoutePage()
-class RecoverPage extends StatelessWidget {
-  const new({super.key});
-
-  @override
-  Widget build(BuildContext context) =>
-      AuthPanel(title: context.t.auth.recover.title, children: const []);
 }
