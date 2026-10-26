@@ -26,8 +26,8 @@ const _photoLag = 0.08;
 const _restingZoom = 1.1;
 
 /// One dish of Discover, full-bleed. While its page is the active one, the
-/// photo pushes in slowly (Ken Burns); while the finger drags, the words lead
-/// and the photo trails, so the page reads in depth.
+/// photo pushes in slowly once (Ken Burns); while the finger drags, the words
+/// lead and the photo trails, so the page reads in depth.
 class DiscoverSlide extends StatefulWidget {
   const new({
     required this.dish,
@@ -54,7 +54,8 @@ class DiscoverSlide extends StatefulWidget {
 
 class _DiscoverSlideState extends State<DiscoverSlide>
     with SingleTickerProviderStateMixin {
-  // A slow push-in that turns around every nine seconds.
+  // One slow push-in over nine seconds; then the photo holds, so the screen
+  // comes to rest instead of animating for as long as it stays open.
   late final _drift = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 9),
@@ -74,7 +75,7 @@ class _DiscoverSlideState extends State<DiscoverSlide>
 
   void _sync() {
     if (widget.active && !Motion.reduced(context)) {
-      if (!_drift.isAnimating) _drift.repeat(reverse: true);
+      if (!_drift.isAnimating && !_drift.isCompleted) _drift.forward();
     } else {
       _drift.stop();
     }

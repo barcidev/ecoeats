@@ -111,8 +111,8 @@ class DiscoverClose extends StatelessWidget {
   }
 }
 
-/// The first-time hint: a quiet pill with an arrow that nods upward. A tap
-/// hides it.
+/// The first-time hint: a quiet pill with an arrow that nods upward a few
+/// times. A tap hides it.
 class DiscoverHintBubble extends StatefulWidget {
   const new({required this.onDismiss, super.key});
 
@@ -134,8 +134,9 @@ class _DiscoverHintBubbleState extends State<DiscoverHintBubble>
     super.didChangeDependencies();
     if (Motion.reduced(context)) {
       _nod.stop();
-    } else if (!_nod.isAnimating) {
-      _nod.repeat(reverse: true);
+    } else if (!_nod.isAnimating && !_nod.isCompleted) {
+      // Three nods are enough to be noticed; then it rests.
+      _nod.repeat(reverse: true, count: 6);
     }
   }
 

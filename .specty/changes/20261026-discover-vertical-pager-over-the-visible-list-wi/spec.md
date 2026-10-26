@@ -73,7 +73,7 @@ Discover becomes the app's immersive walk through the menu. It opens as a circle
   - files: lib/features/discover/presentation/discover_page.dart, lib/features/discover/presentation/discover_chrome.dart, test/features/discover/discover_page_test.dart
   - ac: AC1, AC2, AC3, AC4, AC5, AC6
   - verify: fvm flutter test test/features/discover/discover_page_test.dart
-- [ ] T4: The softened reveal, and the route tests around a ProviderScope
+- [x] T4: The softened reveal, and the route tests around a ProviderScope
   - files: lib/features/discover/presentation/discover_route.dart, test/features/discover/discover_route_test.dart
   - ac: AC7
   - verify: fvm dart run build_runner build -d && fvm dart run slang && fvm flutter analyze && fvm flutter test

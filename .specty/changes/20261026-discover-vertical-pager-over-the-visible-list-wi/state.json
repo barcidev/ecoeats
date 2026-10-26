@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261026-discover-vertical-pager-over-the-visible-list-wi",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-discover-vertical-pager-over-the-visible-list-wi",
   "baseCommit": "1ec4d2cd80a3705e5fa7358b52d5a3bdc3572009",
   "revision": 1,
@@ -74,12 +74,24 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "7c28594e97c4ffa7c5f82d0037850fb19aa12ce1",
+      "attempts": 1,
       "startedAt": "2026-10-26T11:08:45.152Z",
       "doneAt": "2026-10-26T11:11:35.042Z",
-      "summary": "DiscoverPage snapshots the visible list, pages vertically with implicit scrolling (next photo built offstage), ticks a light haptic and dismisses the hint per settled page, with counter, rail, close, hint bubble, loading, error and empty states in a dark room."
+      "summary": "DiscoverPage snapshots the visible list, pages vertically with implicit scrolling (next photo built offstage), ticks a light haptic and dismisses the hint per settled page, with counter, rail, close, hint bubble, loading, error and empty states in a dark room.",
+      "scopeExtra": []
+    },
+    "T4": {
+      "status": "done",
+      "scopeExtra": [
+        "lib/features/discover/presentation/discover_slide.dart",
+        "lib/features/discover/presentation/discover_chrome.dart"
+      ],
+      "attempts": 1,
+      "baseCommit": "aa086d31e14b94903e739eb971e7f696fcec78df",
+      "startedAt": "2026-10-26T11:11:35.304Z",
+      "doneAt": "2026-10-26T11:14:33.637Z",
+      "summary": "The reveal shades the growing circle's edge (RevealEdgePainter) and settles the page from 1.04; route tests run inside a ProviderScope with an empty catalog; Ken Burns is one 9 s push-in and the hint nods thrice, so Discover settles."
     }
   },
   "pending": {
