@@ -46,12 +46,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "304a97b25feeb1a7488cfdead17040d06a643068",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:50:49.048Z",
       "doneAt": "2026-10-26T10:52:40.159Z",
-      "summary": "SegmentedPills measures the chosen pill after each frame and slides one ink stadium (AnimatedPositioned) to it, recolors labels, and centers the pick with ensureVisible; the pill paints its own ink until first measured."
+      "summary": "SegmentedPills measures the chosen pill after each frame and slides one ink stadium (AnimatedPositioned) to it, recolors labels, and centers the pick with ensureVisible; the pill paints its own ink until first measured.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "5f10f680c5633ac33930c84e6077419a389ed733",
+      "startedAt": "2026-10-26T10:52:40.466Z",
+      "doneAt": "2026-10-26T10:53:47.884Z",
+      "summary": "RatingStars draws soft five-point stars that span their whole box (starPath), keeping one Align per star, so the filled share of the box is exactly the star's share: 4.7 fills 70 % of the fifth."
     }
   },
   "pending": {

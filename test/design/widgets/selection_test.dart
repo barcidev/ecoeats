@@ -136,6 +136,43 @@ void main() {
     });
   });
 
+  test('a drawn star spans the whole width of its box', () {
+    final bounds = starPath(const Size.square(20)).getBounds();
+    expect(bounds.left, closeTo(0, 0.01));
+    expect(bounds.right, closeTo(20, 0.01));
+    expect(bounds.top, greaterThanOrEqualTo(0));
+    expect(bounds.bottom, lessThanOrEqualTo(20));
+  });
+
+  testWidgets('4.7 fills 70 % of the fifth star', (tester) async {
+    await tester.pumpWidget(_app(const RatingStars(rating: 4.7, size: 20)));
+    final fills = tester
+        .widgetList<Align>(
+          find.descendant(
+            of: find.byType(RatingStars),
+            matching: find.byType(Align),
+          ),
+        )
+        .map((align) => align.widthFactor!)
+        .toList();
+    expect(fills.take(4), everyElement(1));
+    expect(fills.last, closeTo(0.7, 1e-9));
+    // The fill clips a star as wide as its box, so 70 % of the box is 70 %
+    // of the star.
+    final lastFill = find
+        .descendant(
+          of: find
+              .descendant(
+                of: find.byType(RatingStars),
+                matching: find.byType(Align),
+              )
+              .last,
+          matching: find.byType(CustomPaint),
+        )
+        .first;
+    expect(tester.getSize(lastFill), const Size.square(20));
+  });
+
   testWidgets('4.5 stars fill four and half of the fifth', (tester) async {
     await tester.pumpWidget(
       _app(const RatingStars(rating: 4.5, semanticLabel: '4,5 de 5')),

@@ -51,7 +51,7 @@ Choosing and being told things feels tactile. A filter or setting choice moves o
   - files: lib/design/widgets/segmented_pills.dart, test/design/widgets/selection_test.dart
   - ac: AC1
   - verify: fvm flutter test test/design/widgets/selection_test.dart test/features/dishes/presentation/home_menu_test.dart test/features/profile
-- [ ] T2: RatingStars drawn so the fill matches the star's width, with tests
+- [x] T2: RatingStars drawn so the fill matches the star's width, with tests
   - files: lib/design/widgets/rating_stars.dart, test/design/widgets/selection_test.dart
   - ac: AC2
   - verify: fvm flutter test test/design/widgets/selection_test.dart
