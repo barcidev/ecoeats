@@ -7,6 +7,7 @@ import 'package:ecoeats/design/tokens/eco_icons.dart';
 import 'package:ecoeats/design/tokens/motion.dart';
 import 'package:ecoeats/design/widgets/plate_spinner.dart';
 import 'package:ecoeats/design/widgets/shake.dart';
+import 'package:ecoeats/features/auth/data/auth_repository.dart';
 import 'package:ecoeats/features/auth/presentation/auth_pages.dart';
 import 'package:ecoeats/features/auth/presentation/widgets/achiote_sweep.dart';
 import 'package:ecoeats/i18n/gen/strings.g.dart';
@@ -17,6 +18,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:mocktail/mocktail.dart';
+
+class _MockAuthRepository extends Mock implements AuthRepository;
 
 class _FakeSession extends SessionController {
   /// What the API does with the next login; it succeeds when null.
@@ -320,5 +324,70 @@ void main() {
     expect(find.text('Crea tu cuenta.'), findsOneWidget);
     final shell = router.innerRouterOf<StackRouter>(AuthShellRoute.name)!;
     expect(shell.stack.map((page) => page.name), isNot(contains('LoginRoute')));
+  });
+
+  testWidgets('recovery hands its email back to login', (tester) async {
+    final auth = _MockAuthRepository();
+    when(() => auth.forgotPassword(any())).thenAnswer((_) async {});
+    when(
+      () => auth.verifyOtp(
+        email: any(named: 'email'),
+        otp: any(named: 'otp'),
+      ),
+    ).thenAnswer((_) async => true);
+    when(
+      () => auth.resetPassword(
+        email: any(named: 'email'),
+        otp: any(named: 'otp'),
+        newPassword: any(named: 'newPassword'),
+      ),
+    ).thenAnswer((_) async {});
+    final router = AppRouter(
+      authGuard: AuthGuard(isSignedIn: () => false),
+      guestGuard: GuestGuard(isSignedIn: () => false),
+    );
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          ...overrides(),
+          authRepositoryProvider.overrideWithValue(auth),
+        ],
+        child: TranslationProvider(
+          child: MaterialApp.router(
+            theme: ecoTheme(.light),
+            routerConfig: router.config(
+              deepLinkBuilder: (_) => const DeepLink([
+                AuthShellRoute(children: [LoginRoute()]),
+              ]),
+            ),
+          ),
+        ),
+      ),
+    );
+    Future<void> frames() async {
+      for (var i = 0; i < 10; i++) {
+        await tester.pump(Motion.slow ~/ 4);
+      }
+    }
+
+    await frames();
+    await tester.enterText(field(1), 'vieja');
+    await tester.tap(find.text('¿Olvidaste tu contraseña?'));
+    await frames();
+    await tester.enterText(field(0), _email);
+    await tester.tap(find.text('Enviar código'));
+    await frames();
+    await tester.enterText(field(0), '123456');
+    await frames();
+    await tester.enterText(field(0), 'nueva clave');
+    await tester.enterText(field(1), 'nueva clave');
+    await tester.tap(find.text('Guardar contraseña'));
+    await frames();
+    await tester.tap(find.text('Ir a entrar'));
+    await frames();
+
+    expect(find.text('Hola otra vez.'), findsOneWidget);
+    expect(tester.widget<EditableText>(field(0)).controller.text, _email);
+    expect(tester.widget<EditableText>(field(1)).controller.text, isEmpty);
   });
 }

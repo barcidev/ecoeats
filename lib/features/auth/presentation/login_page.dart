@@ -71,6 +71,19 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         .submit(email: _email.text, password: _password.text);
   }
 
+  /// Recovery ends by handing back the email it reset; the password field
+  /// waits for the new one.
+  Future<void> _recover() async {
+    final email = await context.router.pushPath<String>('recover');
+    if (!mounted || email == null) return;
+    setState(() {
+      _email.text = email;
+      _password.clear();
+      _tried = false;
+    });
+    _passwordFocus.requestFocus();
+  }
+
   void _onLogin(LoginState? previous, LoginState next) {
     if (next.succeeded && !(previous?.succeeded ?? false)) {
       TextInput.finishAutofillContext();
@@ -159,7 +172,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           alignment: .centerRight,
           child: TextLink(
             label: t.auth.login.forgot,
-            onPressed: busy ? null : () => context.router.pushPath('recover'),
+            onPressed: busy ? null : _recover,
           ),
         ),
         FormMessage(_formMessage(t, state)),

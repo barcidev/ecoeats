@@ -48,7 +48,7 @@ A customer who forgot their password gets back in from the app: they ask for a c
   - files: lib/features/auth/presentation/recover_page.dart, lib/features/auth/presentation/auth_pages.dart
   - ac: AC1, AC2, AC3, AC4, AC5, AC6
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth
-- [ ] T2: Login fills in the email recovery returns, with a widget test in test/features/auth/presentation/login_page_test.dart
+- [x] T2: Login fills in the email recovery returns, with a widget test in test/features/auth/presentation/login_page_test.dart
   - files: lib/features/auth/presentation/login_page.dart
   - ac: AC4, AC6
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth

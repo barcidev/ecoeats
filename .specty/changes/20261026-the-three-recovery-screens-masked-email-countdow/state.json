@@ -52,12 +52,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "3a91841dfdbb6ff6746584d0857d12d9ba5d1a63",
+      "attempts": 1,
       "startedAt": "2026-10-26T09:59:49.832Z",
       "doneAt": "2026-10-26T10:03:57.195Z",
-      "summary": "Recovery screens on recoveryController: masked email, expiry and resend countdowns, rejected, locked and expired codes, live password rules and a drawn check that pops back with the email; 10 widget tests."
+      "summary": "Recovery screens on recoveryController: masked email, expiry and resend countdowns, rejected, locked and expired codes, live password rules and a drawn check that pops back with the email; 10 widget tests.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "56eaf54ab509db493db7129a386d9927f41fbc1b",
+      "startedAt": "2026-10-26T10:03:57.502Z",
+      "doneAt": "2026-10-26T10:05:04.496Z",
+      "summary": "Login waits for recovery's result: the returned email fills its field, the password clears and takes focus; covered by a full recovery round-trip widget test."
     }
   },
   "pending": {
