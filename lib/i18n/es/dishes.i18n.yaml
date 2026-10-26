@@ -3,6 +3,22 @@ greeting:
   afternoon: Buenas tardes
   evening: Buenas noches
   named: "{greeting}, {name}."
+  plain: "{greeting}."
+headline:
+  morning: ¿Qué desayunamos hoy?
+  midday: ¿Qué almorzamos hoy?
+  evening: ¿Qué se te antoja esta noche?
+header:
+  profile: Abrir tu perfil
+  search: Busca un plato o un ingrediente
+  clearSearch: Borrar búsqueda
+featured:
+  title: Destacados
+  card: "Destacado {current} de {total}. {name}, {price}, calificación {rating}."
+discover:
+  title: Modo descubrir
+  subtitle: Un plato a la vez, a pantalla completa.
+  open: Abrir el modo descubrir
 home:
   carta: La carta
   count:

@@ -6,6 +6,13 @@
   "branch": "specty/20261025-home-header-featured-carousel-and-discover-banne",
   "baseCommit": "2b1367d7fe5f4786a7dfeba911ee1d3cb7000fa5",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:cd8ea4b75e4fc8bf6563cc0443386ee83e61696fe33c60766779cdbcf2cc5f98",
+    "at": "2026-10-26T02:11:12.065Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 12,
@@ -37,7 +44,21 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [
+        "test/helpers/app_harness.dart",
+        "test/features/dishes/presentation/home_header_test.dart",
+        "test/features/dishes/presentation/preview/**"
+      ],
+      "attempts": 1,
+      "baseCommit": "5a5229493dd1f289b176d8cd8ec9868608d472f7",
+      "startedAt": "2026-10-26T02:11:12.415Z",
+      "doneAt": "2026-10-26T02:17:11.305Z",
+      "summary": "Pinned SliverAppBar masthead (locale date, day-part greeting with first name, meal headline) that folds into a blurred bar with hairline; avatar opening ProfileSheet; pill search that filters and clears; Home lists visible dishes plainly for now."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -46,12 +67,5 @@
     "A": 5,
     "AC": 5,
     "T": 3
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:cd8ea4b75e4fc8bf6563cc0443386ee83e61696fe33c60766779cdbcf2cc5f98",
-    "at": "2026-10-26T02:11:12.065Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

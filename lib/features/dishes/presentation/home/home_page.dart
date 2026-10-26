@@ -1,27 +1,70 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:ecoeats/features/dishes/application/dishes_provider.dart';
+import 'package:ecoeats/design/tokens/palette.dart';
+import 'package:ecoeats/design/tokens/spacing.dart';
+import 'package:ecoeats/design/tokens/typography.dart';
+import 'package:ecoeats/features/dishes/application/catalog_filter.dart';
+import 'package:ecoeats/features/dishes/application/catalog_views.dart';
+import 'package:ecoeats/features/dishes/presentation/home/home_header.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// Placeholder: lists the dish names until the catalog's Home lands.
 @RoutePage()
-class HomePage extends ConsumerWidget {
+class HomePage extends ConsumerStatefulWidget {
   const new({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final dishes = ref.watch(dishesProvider);
+  ConsumerState<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends ConsumerState<HomePage> {
+  late final _search = TextEditingController(
+    text: ref.read(catalogFilterProvider).query,
+  );
+
+  @override
+  void dispose() {
+    _search.dispose();
+    super.dispose();
+  }
+
+  void _clearSearch() {
+    _search.clear();
+    ref.read(catalogFilterProvider.notifier).clearSearch();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    final visible = ref.watch(visibleDishesProvider).value ?? const [];
     return Scaffold(
-      body: SafeArea(
-        child: switch (dishes) {
-          AsyncData(:final value) => ListView(
-            children: [
-              for (final dish in value) ListTile(title: Text(dish.name)),
-            ],
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
+        ),
+        slivers: [
+          HomeHeader(
+            search: _search,
+            onSearchChanged: ref.read(catalogFilterProvider.notifier).search,
+            onSearchCleared: _clearSearch,
           ),
-          AsyncError(:final error) => Center(child: Text('$error')),
-          _ => const Center(child: CircularProgressIndicator()),
-        },
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Space.gutter,
+              vertical: Space.md,
+            ),
+            sliver: SliverList.separated(
+              itemCount: visible.length,
+              separatorBuilder: (_, _) => const SizedBox(height: Space.sm),
+              itemBuilder: (context, index) => Text(
+                visible[index].name,
+                style: EcoType.titleSmall.copyWith(color: palette.ink),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: MediaQuery.paddingOf(context).bottom),
+          ),
+        ],
       ),
     );
   }

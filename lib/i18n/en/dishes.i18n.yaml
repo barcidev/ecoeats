@@ -3,6 +3,22 @@ greeting:
   afternoon: Good afternoon
   evening: Good evening
   named: "{greeting}, {name}."
+  plain: "{greeting}."
+headline:
+  morning: What's for breakfast?
+  midday: What's for lunch today?
+  evening: What are you craving tonight?
+header:
+  profile: Open your profile
+  search: Find a dish or an ingredient
+  clearSearch: Clear search
+featured:
+  title: Featured
+  card: "Featured {current} of {total}. {name}, {price}, rated {rating}."
+discover:
+  title: Discover mode
+  subtitle: One dish at a time, full screen.
+  open: Open discover mode
 home:
   carta: The menu
   count:

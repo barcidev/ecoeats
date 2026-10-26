@@ -46,7 +46,7 @@ The top of Home looks and behaves like the plan's editorial front page: a large 
 
 ## Tasks
 
-- [ ] T1: Greeting and collapsing header with search
+- [x] T1: Greeting and collapsing header with search
   - files: lib/features/dishes/presentation/home/home_greeting.dart, lib/features/dishes/presentation/home/home_header.dart, lib/features/dishes/presentation/home/home_page.dart, lib/i18n/es/dishes.i18n.yaml, lib/i18n/en/dishes.i18n.yaml
   - ac: AC1, AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes test/i18n
