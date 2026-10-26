@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "20261026-one-password-visibility-toggle-for-every-auth-fo",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-one-password-visibility-toggle-for-every-auth-fo",
+  "baseCommit": "b2d7d9baeb673752b4c45ff8f55241bd363b228f",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 16,
+    "adjust": 0,
+    "reasons": [
+      "4 archivos",
+      "4 rutas sensibles"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:83cfaf2ce9ce2e4c36e4a4fa173daf0bb34d01e45eedfd61293c69aa70c16d91",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 1,
+    "AC": 3,
+    "T": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:18e20a6a5665cd2ce2e4d3cd7860789daad5f0a1588cfb1724ddc710076e8203",
+    "at": "2026-10-26T14:46:24.196Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
