@@ -52,3 +52,25 @@ The app runs end to end: `main.dart` keeps the native splash until the stored se
   - files: lib/router/app_router.dart, lib/app.dart, lib/main.dart, test/smoke_test.dart, test/app_test.dart
   - ac: AC1, AC2, AC3, AC4, AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+The app runs end to end. `main.dart` keeps the splash until the session is read, locks portrait, draws edge to edge, warms the API up and retries only transient failures. `App` builds the router app with both themes, the active language and the expired-session toast. The router registers every route of the plan. Logging in lands on Home, and logging out or a rejected token returns to the welcome with no way back.
+
+### Deviations
+
+- A2 changed during implementation: `redirectUntil` plus `reevaluateListenable` left an empty stack after login, because the re-evaluation re-pushed a stack holding only the auth shell, which `GuestGuard` then refused. Session navigation now lives in one listener in `App` (`replaceAll` to Home or to the welcome), the launch route comes from `startingLink`, and both guards only refuse. The T1 guard tests were rewritten for that behavior.
+- `MaterialUiCompatibilityBridge` is not used: material_ui 1.8 marks it deprecated, and no dependency the app renders needs it.
+- `test/smoke_test.dart` was deleted as planned; `test/app_test.dart` boots the real app instead.
+
+### Decisions
+
+- App-wide toasts render on an overlay above the navigator, so the expired-session toast survives the route change it comes with.
+- Tests load English with `tester.runAsync`, because deferred libraries do not load under the fake clock.
+
+### Follow-ups
+
+- Agent A's login may call `replaceAll([HomeRoute()])` as the plan says; the session listener already does it, and a second identical replace is harmless.
+- The native platforms change is still pending (`project.pbxproj` exceeds Specty's `lines.fail` of 500).
