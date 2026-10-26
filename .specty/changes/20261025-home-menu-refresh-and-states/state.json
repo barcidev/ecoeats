@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "20261025-home-menu-refresh-and-states",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261025-home-menu-refresh-and-states",
+  "baseCommit": "11a0e071b9d549f843e20d4321630a149bd1fc16",
+  "revision": 1,
+  "size": {
+    "level": "M",
+    "score": 10,
+    "adjust": 0,
+    "reasons": [
+      "8 files",
+      "2 modules"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:d1fab1e8dc6110f77b0bd23ab04334d91e12637600f8178e5e9ccfa56faa7d3b",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:fecf4e891f8731db030c1cb4dfe5a5d2e59e65a927eb2bb40904e1a82d2276f1",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:162f4c617855ea48bab57b4ffc1149f464573372dace5d44b0fb71745cca618a",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:bcc4649004202ce97729fb3fb43a2f3fe41b29136d272fb11f0dcf48b51c38ca",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:a736149c773cab5216a9c983f503540b8c583845eb57a6ebd937fa7f7b49586d",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 6,
+    "T": 3
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:2c5bcda452b2dae28ffbfbcf32c566658899bc89f5904158b17a6a95c004e4f0",
+    "at": "2026-10-26T02:24:36.770Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
