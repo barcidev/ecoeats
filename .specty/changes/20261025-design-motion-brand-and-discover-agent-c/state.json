@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "20261025-design-motion-brand-and-discover-agent-c",
+  "kind": "epic",
+  "phase": "implementing",
+  "branch": "specty/20261025-design-motion-brand-and-discover-agent-c",
+  "baseCommit": "babf8ba8803349f991a4b9cb5c1e636408aaa798",
+  "revision": 1,
+  "size": {
+    "level": "S",
+    "score": 0,
+    "adjust": 0,
+    "reasons": [
+      "0 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:bcb5c723f64bcb5c22ce8f3e62e2868935b9038fed474bbbbf0aab46eddebe80",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:db038f97f523c7d844fb122fbd34adc3b9259077ae4023e54cee1a1ef11b2245",
+      "decision": "confirmed"
+    },
+    "A3": {
+      "hash": "sha256:87e28ada8306200650aa8b326a1c935d5b139f14c0b954ee2a062d9ae842a2e3",
+      "decision": "confirmed"
+    },
+    "A4": {
+      "hash": "sha256:f33a13713d9a73e85e6cf3a26b52c97381e53526e756694321f8ac3a1d022a18",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:2f0c7481bb3dd53bfd49a7ea4dcb84d69ff188cad8ed0b4cc6490fb09f6e819a",
+      "decision": "implicit"
+    },
+    "A6": {
+      "hash": "sha256:260e33276e6e327a06c0f27df1b062619f8ba597d53d0984ddd40463b5744fbd",
+      "decision": "implicit"
+    },
+    "A7": {
+      "hash": "sha256:54cc2601329448e915fa8104b8c84692c28c928af54db2f076e7e077d3426a32",
+      "decision": "implicit"
+    },
+    "A8": {
+      "hash": "sha256:12a83e7d9707f1466a42291f6071f4cd68eebd44180a441d632ce9ed85e7658b",
+      "decision": "implicit"
+    },
+    "A9": {
+      "hash": "sha256:7fc7bebffff7e7607f4890335ee6439e7fbe2b7f74c59f868c5fb19c53af2395",
+      "decision": "implicit"
+    },
+    "A10": {
+      "hash": "sha256:7beafc210ce152248df4814dc9e23bd2f8cdfa700b16bef16a2a20c155fa1b31",
+      "decision": "implicit"
+    },
+    "A11": {
+      "hash": "sha256:b7be2cc6aeed1ae3f8077e03a8b3aec5f2e999fce7287923dadb57bf3360aa18",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 11,
+    "AC": 17,
+    "C": 10,
+    "R": 5
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:410b1f157adc7b15d67f6f8c9523ee671c3dc7b8e8887ce9a01c18c38f9b6857",
+    "at": "2026-10-26T10:03:32.749Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "tty"
+  }
+}
