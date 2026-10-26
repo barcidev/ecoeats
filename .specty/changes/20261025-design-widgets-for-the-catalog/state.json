@@ -42,12 +42,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "d11129c1e7eac18e89047001692b0b94b0594678",
+      "attempts": 1,
       "startedAt": "2026-10-26T00:45:47.443Z",
       "doneAt": "2026-10-26T00:48:39.314Z",
-      "summary": "Pressable (scale on press, haptic, merged button semantics; a semanticLabel replaces the child's texts), PlateSpinner (spinning or progress rim, still with reduced motion), EcoButton primary/secondary/quiet with loading spinner and disabled dim."
+      "summary": "Pressable (scale on press, haptic, merged button semantics; a semanticLabel replaces the child's texts), PlateSpinner (spinning or progress rim, still with reduced motion), EcoButton primary/secondary/quiet with loading spinner and disabled dim.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "b09e8113bf71203ed2f4e9a4950573dd5684426a",
+      "startedAt": "2026-10-26T00:48:39.598Z",
+      "doneAt": "2026-10-26T00:50:11.697Z",
+      "summary": "PlateIllustration (plate, fork, knife and a leaf in the accent), pulsing Skeleton blocks (still with reduced motion), StateView with kind-tinted illustration, texts, footnote and a ticking cooldown that enables the action at zero."
     }
   },
   "pending": {

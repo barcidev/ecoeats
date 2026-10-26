@@ -51,7 +51,7 @@ The design widgets the catalog builds on exist with their final public API and a
   - files: lib/design/widgets/pressable.dart, lib/design/widgets/plate_spinner.dart, lib/design/widgets/eco_button.dart, test/design/widgets/pressable_test.dart
   - ac: AC1, AC2
   - verify: fvm flutter analyze && fvm flutter test test/design
-- [ ] T2: PlateIllustration, Skeleton and StateView
+- [x] T2: PlateIllustration, Skeleton and StateView
   - files: lib/design/painters/plate_illustration.dart, lib/design/widgets/skeleton.dart, lib/design/widgets/state_view.dart, test/design/widgets/state_view_test.dart
   - ac: AC3, AC5
   - verify: fvm flutter analyze && fvm flutter test test/design
