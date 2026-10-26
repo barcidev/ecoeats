@@ -48,6 +48,40 @@ void main() {
     expect(en.auth.welcome.headline, 'Colombian food, unhurried.');
   });
 
+  test('a rejected code counts the attempts left in each language', () {
+    expect(
+      es.auth.recover.code.rejected(n: 1),
+      'Ese código no coincide. Te queda 1 intento.',
+    );
+    expect(
+      es.auth.recover.code.rejected(n: 3),
+      'Ese código no coincide. Te quedan 3 intentos.',
+    );
+    expect(
+      en.auth.recover.code.rejected(n: 1),
+      "That code doesn't match. 1 try left.",
+    );
+    expect(
+      en.auth.recover.code.rejected(n: 3),
+      "That code doesn't match. 3 tries left.",
+    );
+  });
+
+  test('each language is named in its own language', () {
+    for (final t in [es, en]) {
+      expect(t.profile.language.spanish, 'Español');
+      expect(t.profile.language.english, 'English');
+    }
+  });
+
+  test('field rules carry their limits', () {
+    expect(
+      es.auth.fieldErrors.tooLong(max: 100),
+      'No puede pasar de 100 caracteres.',
+    );
+    expect(en.auth.password.minLength(min: 6), 'At least 6 characters');
+  });
+
   test('shared copy reads naturally in each language', () {
     expect(es.common.retryIn(time: '0:42'), 'Intenta en 0:42');
     expect(en.common.retryIn(time: '0:42'), 'Try again in 0:42');

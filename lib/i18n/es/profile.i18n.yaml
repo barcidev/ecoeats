@@ -1,5 +1,6 @@
 title: Tu perfil
 sessionEndsIn: Tu sesión vence en {hours} h
+sessionEndsSoon: Tu sesión vence en menos de una hora.
 appearance:
   title: Apariencia
   system: Sistema
@@ -8,6 +9,9 @@ appearance:
 language:
   title: Idioma
   system: Sistema
+  spanish: Español
+  english: English
 signOut:
   action: Cerrar sesión
   confirm: ¿Cerrar sesión?
+  message: Para volver, entra con tu correo y tu contraseña.
