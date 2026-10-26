@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261026-press-button-and-spinner-motion-spring-pressable",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-press-button-and-spinner-motion-spring-pressable",
   "baseCommit": "fcae91ba50c73a5cb2f03b72faa2875f851ee80b",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:b8072361399eea0b52ad0a5bad7c26b609365deea2be506fe02d651cfde765d4",
@@ -68,12 +68,12 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "15fcab63bd8cec3ac7d29af45ee41fc0ab01bbf1",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:18:53.559Z",
       "doneAt": "2026-10-26T10:24:29.246Z",
-      "summary": "EcoButton narrows into a spinning circle inside its full slot while loading, widens back with a drawn check on success (light haptic, onSuccess once), crossfades with reduced motion; no LayoutBuilder so intrinsic layouts keep working."
+      "summary": "EcoButton narrows into a spinning circle inside its full slot while loading, widens back with a drawn check on success (light haptic, onSuccess once), crossfades with reduced motion; no LayoutBuilder so intrinsic layouts keep working.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -85,5 +85,6 @@
     "AC": 6,
     "T": 3,
     "R": 2
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T10:24:46.330Z"
 }

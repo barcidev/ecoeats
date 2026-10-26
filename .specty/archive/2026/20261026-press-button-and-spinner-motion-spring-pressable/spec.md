@@ -72,3 +72,26 @@ The app's tap targets, main button, loader and refusal shake move like physical 
 
 - R1: Auth tests may expect the button's old layout or opacity while loading. Mitigation: the slot keeps its width and the label stays as the semantic label; T3 runs the whole suite.
 - R2: Spring simulations may take long to settle in `pumpAndSettle`. Mitigation: the springs use the default tolerance, and the shake snaps to 0 when it ends.
+
+## Closing
+
+### Summary
+
+Pressable, EcoButton, PlateSpinner and Shake now move physically behind the same API. A press sinks and springs back. The button folds into a spinning plate while loading and opens again with a drawn check on success. The spinner's arc chases itself, and the shake swings on a damped spring. Every existing screen and test keeps working: the full suite passes with 317 tests.
+
+### Deviations
+
+- `EcoButton` no longer uses a `LayoutBuilder` to read its width. The catalog lays its state views out through `SliverFillRemaining`, which asks for intrinsic sizes, and a `LayoutBuilder` cannot answer them. The full width comes from a `double.infinity` box, as the phase 0 button did.
+- The old shake already swung several times with a haptic, so the new shake tests guard behavior that existed before. The change is in how it moves: a spring instead of a sine.
+
+### Decisions
+
+- `EcoButton` exposes `shapeKey` and `checkKey` (`@visibleForTesting`), so tests can measure the painted shape and find the check without depending on private widgets.
+- While the circle narrows, the fading label is clipped at its edge instead of wrapping (`UnconstrainedBox` with `Clip.hardEdge`).
+- Pressable reads reduced motion during build. A tap cancel can arrive while the tree is torn down, when the context can no longer be asked.
+- Every spring rests exactly on its target when its simulation ends, because the simulations stop within their tolerance.
+
+### Follow-ups
+
+- Agent A can pass `success: state.succeeded` to the login button and start `AchioteSweep` from `onSuccess`, so the sweep grows out of the drawn check. Today the button only rests at 40 % opacity during the sweep.
+- `.specty/config.yaml` has no `verify.full`; adding `fvm dart run build_runner build -d && fvm dart run slang && fvm flutter analyze && fvm flutter test` would make every acceptance run the whole suite.
