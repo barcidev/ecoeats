@@ -1,0 +1,3 @@
+{"ts":"2026-10-26T02:14:14.642Z","actor":"agent","tool":"claude-code","event":"change.created","data":{"kind":"standard","branch":"specty/20261025-auth-shell-with-the-living-backdrop-and-the-stac","epic":"20261025-access-and-account-agent-a","slice":"C3"}}
+{"ts":"2026-10-26T02:14:56.241Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":1,"hash":"sha256:8c3fa6f43ac5b93019b7db1985201ed9e5c6b734b4a31e217badf588a9368e04","size":"L","warnings":2}}
+{"ts":"2026-10-26T02:15:05.412Z","actor":"agent","tool":"claude-code","event":"spec.approved","data":{"revision":1,"hash":"sha256:8c3fa6f43ac5b93019b7db1985201ed9e5c6b734b4a31e217badf588a9368e04","channel":"delegated","delegated":true}}

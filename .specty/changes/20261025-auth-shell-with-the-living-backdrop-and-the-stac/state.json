@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "20261025-auth-shell-with-the-living-backdrop-and-the-stac",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261025-auth-shell-with-the-living-backdrop-and-the-stac",
+  "baseCommit": "2b1367d7fe5f4786a7dfeba911ee1d3cb7000fa5",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 14,
+    "adjust": 0,
+    "reasons": [
+      "4 files",
+      "2 modules",
+      "2 sensitive paths",
+      "changes dependencies"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:1bd7f924f5bb3dabba56ee4b6d109614835e19e594d08f0402d7d50bdcb89aaf",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:82ce5eefb79c23599cfecff085a9845f889bcea12338c4fb6ea89b83e478b8fd",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:fb9e5ab172d18464fe604279e64a406438192aa1873f4f80a85afddc86bcbf70",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:fcca70efcde44dca9998b88925e70654fef8a6a80faa805c241f8f0fdbfde6c0",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:f6343b0b9c3b4d076fc77d24fb92d1f6cb25afc87363c1f3880329820c2200a2",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 6,
+    "T": 3,
+    "R": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:8c3fa6f43ac5b93019b7db1985201ed9e5c6b734b4a31e217badf588a9368e04",
+    "at": "2026-10-26T02:15:05.401Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
