@@ -44,3 +44,24 @@ The auth screens can check every field before sending it, with the same rules th
   - files: lib/features/auth/application/validators.dart, test/features/auth/application/validators_test.dart
   - ac: AC1, AC2, AC3, AC4, AC5, AC6
   - verify: fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze lib/features/auth test/features/auth && fvm flutter test test/features/auth/application/validators_test.dart
+
+## Closing
+
+### Summary
+
+`lib/features/auth/application/validators.dart` has the field rules the API enforces, as pure Dart: `Validators` returns a typed `FieldIssue` (or null) for email, names, document, login password, new password, confirmation and the 6-digit code, and `PasswordChecklist` reports the length and byte rules separately, with the bytes used. 22 unit tests cover every rule, including the 72-byte limit with «ñ» and emoji, and ASCII-only digits in the code. The whole suite (45 tests) and `flutter analyze` pass.
+
+### Deviations
+
+- None.
+
+### Decisions
+
+- A password made only of spaces counts as missing, like the API's `@NotBlank`; any other space is part of the password and counts toward its length and bytes.
+- `FieldIssue` has one generic `invalid` for a malformed email or code; the screen knows which field it is and picks the message.
+- The limits are public constants (`Validators.maxNameLength`…), so the copy and the screens can show them without repeating numbers.
+
+### Follow-ups
+
+- C2 adds the message for each `FieldIssue` in Spanish and English.
+- `.specty/config.yaml` has no `verify.full`; with `fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test`, accepting would verify the whole repository.
