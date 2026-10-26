@@ -1,0 +1,3 @@
+{"ts":"2026-10-26T00:24:27.324Z","actor":"agent","tool":"claude-code","event":"change.created","data":{"kind":"standard","branch":"specty/20261025-input-validators-email-names-document-password-6","epic":"20261025-access-and-account-agent-a","slice":"C1"}}
+{"ts":"2026-10-26T00:29:07.355Z","actor":"agent","tool":"claude-code","event":"spec.proposed","data":{"revision":1,"hash":"sha256:ca9cb0f45d6d212106093719838dcdea353cbe1f9388ff6e251e0ac063462d20","size":"M","warnings":0}}
+{"ts":"2026-10-26T00:29:10.248Z","actor":"agent","tool":"claude-code","event":"spec.approved","data":{"revision":1,"hash":"sha256:ca9cb0f45d6d212106093719838dcdea353cbe1f9388ff6e251e0ac063462d20","channel":"delegated","delegated":true}}

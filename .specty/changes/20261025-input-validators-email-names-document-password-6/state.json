@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "20261025-input-validators-email-names-document-password-6",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261025-input-validators-email-names-document-password-6",
+  "baseCommit": "a88f4e7f41d49a805fe625760b6ea3cb3a08dc69",
+  "revision": 1,
+  "size": {
+    "level": "M",
+    "score": 8,
+    "adjust": 0,
+    "reasons": [
+      "2 files",
+      "2 sensitive paths"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:e60204125e39260f07b2e6e204e50afcb37d2b698d759871c9e3f535e04c3d09",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:1a776a9d4c7868165f2d6f8af3db5a43d77971ce9fde2d7d725f1f96850e130b",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:1c5f55265ee72fbdbc63cfcb58da399ccea5264dd989d97ff3e755b41648170e",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:0c5fb751497fe156faa796b969bd0d4d10a9d7cf05fc7165b901be2825252b0a",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:1f91b3762a78a208d5bb5ae4a8169b8c3c293729aa1d2bb6670b0150243afdba",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 6,
+    "T": 1
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ca9cb0f45d6d212106093719838dcdea353cbe1f9388ff6e251e0ac063462d20",
+    "at": "2026-10-26T00:29:10.237Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
