@@ -44,7 +44,7 @@ The profile sheet that Home's avatar opens becomes the real one: it shows who is
 
 ## Tasks
 
-- [ ] T1: Theme mode and locale controllers, with unit tests in test/features/profile/application/
+- [x] T1: Theme mode and locale controllers, with unit tests in test/features/profile/application/
   - files: lib/features/profile/application/theme_mode_controller.dart, lib/features/profile/application/locale_controller.dart
   - ac: AC2, AC3, AC5
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/profile test/features/profile && fvm flutter analyze && fvm flutter test test/features/profile

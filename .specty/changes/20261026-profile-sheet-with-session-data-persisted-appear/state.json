@@ -6,6 +6,13 @@
   "branch": "specty/20261026-profile-sheet-with-session-data-persisted-appear",
   "baseCommit": "173e2b9bc0c7519f5fa193e97e596b6278911a1e",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:3ddd9e46e0156cf20bd962c63a3830c3b72ca8ffaeae81b111a85a20e5852ec1",
+    "at": "2026-10-26T10:10:22.583Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 8,
@@ -41,7 +48,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "99c3fea4200f690673950541be34e5f102dbcdd5",
+      "startedAt": "2026-10-26T10:10:22.992Z",
+      "doneAt": "2026-10-26T10:12:06.974Z",
+      "summary": "themeModeController and localeController: keep-alive async controllers persisted in shared_preferences; the locale one applies the choice through slang (device locale for Sistema); 8 unit tests."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -50,12 +67,5 @@
     "A": 6,
     "AC": 5,
     "T": 3
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:3ddd9e46e0156cf20bd962c63a3830c3b72ca8ffaeae81b111a85a20e5852ec1",
-    "at": "2026-10-26T10:10:22.583Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }
