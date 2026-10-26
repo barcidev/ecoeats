@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "20261026-brand-export-the-flutter-test-script-that-render",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261026-brand-export-the-flutter-test-script-that-render",
+  "baseCommit": "439bf5e76a18b16a6fcb0a0a2d9064569cb90dbd",
+  "revision": 1,
+  "size": {
+    "level": "S",
+    "score": 2,
+    "adjust": 0,
+    "reasons": [
+      "2 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:bb0502ad7e3bf1a82ea5b6c31e440e9b0b7eaf7766379cbeb649bffa79b6016f",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:58d1c2bd8dbbe938f60dc3d69019e61c6217decd36762f7d6820834a202c4ece",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:ff2931e6468c9cdc52ca86bb4745ec16573879929ab5524b254eb4cb4c8d793a",
+      "decision": "confirmed"
+    },
+    "A4": {
+      "hash": "sha256:051af65a6293091905c0e380439bff8b1454c3a6cbc5c384e87469c77770a377",
+      "decision": "confirmed"
+    },
+    "A5": {
+      "hash": "sha256:963027914a3d0a2313a2762785593a240e5b3b3ce151605b562a46f31782c36b",
+      "decision": "confirmed"
+    },
+    "A6": {
+      "hash": "sha256:3a6c8c7472709d2abe65496f9c2599bf548e749dac7e21ef489a6673f9927269",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 6,
+    "AC": 3,
+    "T": 1,
+    "R": 1
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:77a86aff1b909d5f917a3a7d6899d412ff799422bebc356eceda9f467a59b542",
+    "at": "2026-10-26T11:30:45.150Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
