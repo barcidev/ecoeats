@@ -196,11 +196,9 @@ class _RecoverPageState extends ConsumerState<RecoverPage> {
   }
 
   Widget _codeStep(Translations t, RecoveryCode state) {
-    final copy = t.auth.recover.code;
     final expired = state.issue == .expired || !_before(state.expiresAt);
     final usable = !expired && state.issue != .locked;
     final failure = state.failure;
-    void refresh() => setState(() {});
 
     return Column(
       crossAxisAlignment: .stretch,
@@ -212,7 +210,7 @@ class _RecoverPageState extends ConsumerState<RecoverPage> {
           child: OtpField(
             // A new code starts on a fresh, empty field.
             key: ValueKey(state.expiresAt),
-            semanticsLabel: copy.field,
+            semanticsLabel: t.auth.recover.code.field,
             error: state.issue == .rejected || state.issue == .locked,
             enabled: usable && !state.verifying && !_before(state.blockedUntil),
             onCompleted: _controller.verify,
@@ -221,49 +219,71 @@ class _RecoverPageState extends ConsumerState<RecoverPage> {
         const SizedBox(height: Space.md),
         Row(
           children: [
-            Expanded(
-              child: switch (state.issue) {
-                _ when expired => _status(copy.expired, alert: true),
-                .locked => _status(copy.locked, alert: true),
-                .rejected => _status(
-                  copy.rejected(n: state.attemptsLeft),
-                  alert: true,
-                ),
-                _ => Countdown(
-                  until: state.expiresAt,
-                  onDone: refresh,
-                  builder: (context, left) =>
-                      _status(copy.expiresIn(time: Countdown.format(left))),
-                ),
-              },
-            ),
+            Expanded(child: _codeStatus(t, state, expired: expired)),
             if (state.verifying || state.resending)
               const PlateSpinner(size: 18),
           ],
         ),
         FormMessage(failure == null ? null : failureMessage(failure, t)),
         const SizedBox(height: Space.lg),
-        if (_before(state.resendAt))
-          Countdown(
-            until: state.resendAt,
-            onDone: refresh,
-            builder: (context, left) =>
-                _status(copy.resendIn(time: Countdown.format(left))),
-          )
-        else
-          Align(
-            alignment: .centerLeft,
-            child: TextLink(
-              label: copy.resend,
-              onPressed: state.resending ? null : _controller.resend,
-            ),
-          ),
-        Align(
-          alignment: .centerLeft,
-          child: TextLink(label: copy.changeEmail, onPressed: _controller.back),
-        ),
+        ..._codeLinks(t, state),
       ],
     );
+  }
+
+  /// What is wrong with the code, or how long it still lasts.
+  Widget _codeStatus(
+    Translations t,
+    RecoveryCode state, {
+    required bool expired,
+  }) {
+    final copy = t.auth.recover.code;
+    final expiry = Countdown(
+      until: state.expiresAt,
+      onDone: () => setState(() {}),
+      builder: (context, left) =>
+          _status(copy.expiresIn(time: Countdown.format(left))),
+    );
+    return switch (state.issue) {
+      _ when expired => _status(copy.expired, alert: true),
+      .locked => _status(copy.locked, alert: true),
+      // The attempts left first, and the deadline still in sight.
+      .rejected => Column(
+        crossAxisAlignment: .start,
+        children: [
+          _status(copy.rejected(n: state.attemptsLeft), alert: true),
+          const SizedBox(height: Space.xxs),
+          expiry,
+        ],
+      ),
+      _ => expiry,
+    };
+  }
+
+  /// Sending another code once allowed, and starting over with another email.
+  List<Widget> _codeLinks(Translations t, RecoveryCode state) {
+    final copy = t.auth.recover.code;
+    return [
+      if (_before(state.resendAt))
+        Countdown(
+          until: state.resendAt,
+          onDone: () => setState(() {}),
+          builder: (context, left) =>
+              _status(copy.resendIn(time: Countdown.format(left))),
+        )
+      else
+        Align(
+          alignment: .centerLeft,
+          child: TextLink(
+            label: copy.resend,
+            onPressed: state.resending ? null : _controller.resend,
+          ),
+        ),
+      Align(
+        alignment: .centerLeft,
+        child: TextLink(label: copy.changeEmail, onPressed: _controller.back),
+      ),
+    ];
   }
 
   Widget _passwordStep(Translations t, RecoveryPassword state) {

@@ -32,7 +32,7 @@ En el paso del código, cuando el código fue rechazado, la persona sigue viendo
 
 ## Tareas
 
-- [ ] T1: La cuenta sigue visible con un código rechazado, con test en test/features/auth/presentation/recover_page_test.dart
+- [x] T1: La cuenta sigue visible con un código rechazado, con test en test/features/auth/presentation/recover_page_test.dart
   - files: lib/features/auth/presentation/recover_page.dart
   - ac: AC1, AC2, AC4
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth

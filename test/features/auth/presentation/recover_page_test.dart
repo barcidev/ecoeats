@@ -159,6 +159,11 @@ void main() {
       );
       expect(tester.widget<Shake>(find.byType(Shake)).trigger, isNotNull);
       expect(tester.widget<OtpField>(find.byType(OtpField)).error, isTrue);
+      // The deadline stays in sight next to the attempts left.
+      expect(find.text('Vence en 15:00'), findsOneWidget);
+      now = now.add(const Duration(seconds: 1));
+      await tester.pump(const Duration(seconds: 1));
+      expect(find.text('Vence en 14:59'), findsOneWidget);
     });
 
     testWidgets('a code past its deadline asks for a new one', (tester) async {

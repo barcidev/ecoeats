@@ -6,6 +6,13 @@
   "branch": "specty/20261026-a-rejected-code-keeps-its-deadline-in-sight-and",
   "baseCommit": "4e1e710df3384ed0ad8aba3f076a90f7b25b459b",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:9c58d5c2b487af32afdca0682ddb9afc8d6422303e323a92511575cd2fb7322a",
+    "at": "2026-10-26T14:51:57.049Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 8,
@@ -25,7 +32,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "5382804b1725e2ddb62fd923e4123855c3aa213c",
+      "startedAt": "2026-10-26T14:51:57.394Z",
+      "doneAt": "2026-10-26T14:54:29.739Z",
+      "summary": "A rejected code shows the attempts left and, under it, the running «Vence en» countdown; locked and expired codes keep only their message. The code step is split into status and links to stay within 50 lines per function."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -34,12 +51,5 @@
     "A": 2,
     "AC": 4,
     "T": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:9c58d5c2b487af32afdca0682ddb9afc8d6422303e323a92511575cd2fb7322a",
-    "at": "2026-10-26T14:51:57.049Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }
