@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "20261025-auth-data-layer",
+  "kind": "standard",
+  "phase": "implementing",
+  "branch": "specty/20261025-auth-data-layer",
+  "baseCommit": "2eef7c3ff25a794b81d5cf0987ca9bcd1e669d8c",
+  "revision": 1,
+  "size": {
+    "level": "L",
+    "score": 16,
+    "adjust": 0,
+    "reasons": [
+      "4 files",
+      "4 sensitive paths"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:7a7227d194eeb91357da639e59418290a7e1a45df495adbec00a335852736d1e",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:2cd428ab14657cb353350de1b509f0183deb53e79d7dd6bcafc584c201a27318",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:8a47de7c9c294cbcda02968c4242cf54bb132d0aac51381d060b935528519c5d",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 3,
+    "AC": 3,
+    "T": 2
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ed1d5c46a568b3c6b55e5df7094226e5ea6c9828ef3f94fcfec0bc10ff18361f",
+    "at": "2026-10-26T00:29:50.778Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
