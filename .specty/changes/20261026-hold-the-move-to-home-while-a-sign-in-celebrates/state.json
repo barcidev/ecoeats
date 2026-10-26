@@ -6,6 +6,13 @@
   "branch": "specty/20261026-hold-the-move-to-home-while-a-sign-in-celebrates",
   "baseCommit": "9ffecc64076591e32a9044cea5764e703d3a3c7a",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:33668f0083cd9bc068a23b8117d875aa001b969d6c1663e717d47d03fc3d17be",
+    "at": "2026-10-26T14:27:45.763Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 5,
@@ -29,7 +36,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "39f8d288e52482e55f363ace216bae6a5fae2d0f",
+      "startedAt": "2026-10-26T14:27:46.129Z",
+      "doneAt": "2026-10-26T14:28:55.353Z",
+      "summary": "SignInHold: a keep-alive hold a sign-in screen sets before sending credentials and releases after its celebration; wait() completes at once without a hold, on release, or 3 s after it began."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -38,12 +55,5 @@
     "A": 3,
     "AC": 3,
     "T": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:33668f0083cd9bc068a23b8117d875aa001b969d6c1663e717d47d03fc3d17be",
-    "at": "2026-10-26T14:27:45.763Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

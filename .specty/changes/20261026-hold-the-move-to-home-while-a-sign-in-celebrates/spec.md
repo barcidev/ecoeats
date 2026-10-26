@@ -34,7 +34,7 @@ A sign-in screen can finish its celebration (the button's drawn check, then the 
 
 ## Tasks
 
-- [ ] T1: The sign-in hold, with tests in test/core/session/sign_in_hold_test.dart
+- [x] T1: The sign-in hold, with tests in test/core/session/sign_in_hold_test.dart
   - files: lib/core/session/sign_in_hold.dart
   - ac: AC1
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/core/session test/core/session && fvm flutter analyze && fvm flutter test test/core/session
