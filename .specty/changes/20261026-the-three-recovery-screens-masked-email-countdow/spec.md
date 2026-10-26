@@ -44,7 +44,7 @@ A customer who forgot their password gets back in from the app: they ask for a c
 
 ## Tasks
 
-- [ ] T1: Recovery screens, with widget tests in test/features/auth/presentation/recover_page_test.dart
+- [x] T1: Recovery screens, with widget tests in test/features/auth/presentation/recover_page_test.dart
   - files: lib/features/auth/presentation/recover_page.dart, lib/features/auth/presentation/auth_pages.dart
   - ac: AC1, AC2, AC3, AC4, AC5, AC6
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth

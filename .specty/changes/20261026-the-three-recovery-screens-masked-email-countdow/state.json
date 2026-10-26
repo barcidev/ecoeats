@@ -6,6 +6,13 @@
   "branch": "specty/20261026-the-three-recovery-screens-masked-email-countdow",
   "baseCommit": "fcae91ba50c73a5cb2f03b72faa2875f851ee80b",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ed63796a70436421de6d267f0ab903565b432c56b85bdbdeca82806d78f3dc3c",
+    "at": "2026-10-26T09:59:49.157Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 16,
@@ -42,7 +49,17 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "3a91841dfdbb6ff6746584d0857d12d9ba5d1a63",
+      "startedAt": "2026-10-26T09:59:49.832Z",
+      "doneAt": "2026-10-26T10:03:57.195Z",
+      "summary": "Recovery screens on recoveryController: masked email, expiry and resend countdowns, rejected, locked and expired codes, live password rules and a drawn check that pops back with the email; 10 widget tests."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -52,12 +69,5 @@
     "AC": 6,
     "T": 3,
     "R": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:ed63796a70436421de6d267f0ab903565b432c56b85bdbdeca82806d78f3dc3c",
-    "at": "2026-10-26T09:59:49.157Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }
