@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "20261026-format-the-phase-0-design-tokens-and-theme",
+  "kind": "quick",
+  "phase": "implementing",
+  "branch": "specty/20261026-format-the-phase-0-design-tokens-and-theme",
+  "baseCommit": "3fd74fbe33a3534377a5da4e128cc4c12f0b0f1b",
+  "revision": 1,
+  "size": {
+    "level": "S",
+    "score": 3,
+    "adjust": 0,
+    "reasons": [
+      "3 archivos"
+    ]
+  },
+  "items": {},
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "T": 1
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:0c4599f232250ec3b232cdcba2f054c3a7a36f6e39c73db59cb8f532f1c2e9e3",
+    "at": "2026-10-26T15:28:49.949Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
