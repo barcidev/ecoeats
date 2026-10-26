@@ -89,8 +89,11 @@ class AppRouter extends RootStackRouter {
           transitionsBuilder: authPanelTransition,
         ),
         CustomRoute<void>(
+          // Recovery opens over login, which stays painted behind it like a
+          // stacked sheet; the route's barrier still blocks its taps.
           page: RecoverRoute.page,
           path: 'recover',
+          opaque: false,
           transitionsBuilder: authPanelTransition,
         ),
       ],

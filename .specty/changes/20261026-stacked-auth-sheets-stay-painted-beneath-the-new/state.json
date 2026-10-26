@@ -2,10 +2,17 @@
   "schema": 1,
   "id": "20261026-stacked-auth-sheets-stay-painted-beneath-the-new",
   "kind": "quick",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261026-stacked-auth-sheets-stay-painted-beneath-the-new",
   "baseCommit": "3ade5a843ff0eb2a52e9a13d0865bd07f73b4e4b",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:789d2df783ead967edd39307d1b30cf613e4d897afc14564c5f8dbf87394a54f",
+    "at": "2026-10-26T15:16:21.515Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "S",
     "score": 1,
@@ -15,19 +22,25 @@
     ]
   },
   "items": {},
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [
+        "test/features/auth/presentation/login_page_test.dart"
+      ],
+      "attempts": 1,
+      "baseCommit": "94dca8dabc06ccec826d30730d53bf4af61d4928",
+      "startedAt": "2026-10-26T15:16:21.898Z",
+      "doneAt": "2026-10-26T15:21:16.339Z",
+      "summary": "The recover route is not opaque, so the login stays painted behind it, shrunk like a stacked sheet; router test, and the recovery round-trip test looks its fields up inside RecoverPage."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
   },
   "maxIds": {
-    "T": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:789d2df783ead967edd39307d1b30cf613e4d897afc14564c5f8dbf87394a54f",
-    "at": "2026-10-26T15:16:21.515Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
+    "T": 1,
+    "S": 1
   }
 }

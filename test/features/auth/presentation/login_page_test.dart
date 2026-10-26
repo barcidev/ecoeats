@@ -408,17 +408,26 @@ void main() {
       }
     }
 
+    // Login stays in the tree beneath recovery, so recovery's fields are
+    // looked up inside it.
+    Finder recoveryField(int index) => find
+        .descendant(
+          of: find.byType(RecoverPage),
+          matching: find.byType(EditableText),
+        )
+        .at(index);
+
     await frames();
     await tester.enterText(field(1), 'vieja');
     await tester.tap(find.text('¿Olvidaste tu contraseña?'));
     await frames();
-    await tester.enterText(field(0), _email);
+    await tester.enterText(recoveryField(0), _email);
     await tester.tap(find.text('Enviar código'));
     await frames();
-    await tester.enterText(field(0), '123456');
+    await tester.enterText(recoveryField(0), '123456');
     await frames();
-    await tester.enterText(field(0), 'nueva clave');
-    await tester.enterText(field(1), 'nueva clave');
+    await tester.enterText(recoveryField(0), 'nueva clave');
+    await tester.enterText(recoveryField(1), 'nueva clave');
     await tester.tap(find.text('Guardar contraseña'));
     await frames();
     await tester.tap(find.text('Ir a entrar'));
