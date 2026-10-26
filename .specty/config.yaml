@@ -5,9 +5,10 @@ mode: individual
 # Paths under the flow: code that needs an approved spec.
 governed: ["**"]
 # Free paths: documentation and non-code files.
-ignored: ["**/*.md","docs/**"]
+ignored: ["**/*.md", "docs/**", "android/**", "ios/**"]
 # Paths never approved automatically, weighed in the size.
-sensitive: ["**/migrations/**","**/auth/**",".github/**","**/.env*","**/infra/**"]
+sensitive:
+  ["**/migrations/**", "**/auth/**", ".github/**", "**/.env*", "**/infra/**"]
 verify:
   timeoutSec: 600
 scope:
