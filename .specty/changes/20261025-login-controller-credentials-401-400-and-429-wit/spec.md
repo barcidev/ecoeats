@@ -45,7 +45,7 @@ The login screen gets a `loginController` that signs in through the session, tel
   - ac: AC7
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/auth/application/recovery_controller_test.dart
   - type: refactor
-- [ ] T2: Login controller, with unit tests in test/features/auth/application/login_controller_test.dart
+- [x] T2: Login controller, with unit tests in test/features/auth/application/login_controller_test.dart
   - files: lib/features/auth/application/login_controller.dart
   - ac: AC1, AC2, AC3, AC4, AC5, AC6
   - verify: fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth

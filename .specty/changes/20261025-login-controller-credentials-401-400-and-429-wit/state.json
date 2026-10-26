@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-login-controller-credentials-401-400-and-429-wit",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-login-controller-credentials-401-400-and-429-wit",
   "baseCommit": "136eaaf984fa2a9fc77d18f15ac54b3cf5e0536c",
   "revision": 1,
@@ -39,12 +39,21 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "864178fcf6511f4df90d181c3603998579a6ab81",
+      "attempts": 1,
       "startedAt": "2026-10-26T01:07:37.336Z",
       "doneAt": "2026-10-26T01:08:40.846Z",
-      "summary": "Recovery reads the core clockProvider from the session; the duplicate auth clock.dart is deleted."
+      "summary": "Recovery reads the core clockProvider from the session; the duplicate auth clock.dart is deleted.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "5f581957197f8b8a490550fbd9eab56cedfad446",
+      "startedAt": "2026-10-26T01:08:41.197Z",
+      "doneAt": "2026-10-26T01:13:00.301Z",
+      "summary": "loginController signs in through the session and tracks submitting, success, the failure with the 400-rejected fields, and the 429 wait from Retry-After; 7 unit tests against the real session with a mocked repository."
     }
   },
   "pending": {
