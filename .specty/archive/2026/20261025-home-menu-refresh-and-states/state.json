@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "id": "20261025-home-menu-refresh-and-states",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-home-menu-refresh-and-states",
+  "baseCommit": "11a0e071b9d549f843e20d4321630a149bd1fc16",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:2c5bcda452b2dae28ffbfbcf32c566658899bc89f5904158b17a6a95c004e4f0",
+    "at": "2026-10-26T02:24:36.770Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "M",
+    "score": 10,
+    "adjust": 0,
+    "reasons": [
+      "8 files",
+      "2 modules"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:d1fab1e8dc6110f77b0bd23ab04334d91e12637600f8178e5e9ccfa56faa7d3b",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:fecf4e891f8731db030c1cb4dfe5a5d2e59e65a927eb2bb40904e1a82d2276f1",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:162f4c617855ea48bab57b4ffc1149f464573372dace5d44b0fb71745cca618a",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:bcc4649004202ce97729fb3fb43a2f3fe41b29136d272fb11f0dcf48b51c38ca",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:a736149c773cab5216a9c983f503540b8c583845eb57a6ebd937fa7f7b49586d",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "1ff919b987ea262839c9bd885b5cf2d6554202f2",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:24:37.117Z",
+      "doneAt": "2026-10-26T02:33:28.008Z",
+      "summary": "Pinned MenuFilters (category pills fading before the sort button, hairline when pinned) with a sort sheet; CartaRow with photo, name, ingredient taste, price and rating read as one sentence, staggered on first load; colophon with plural count.",
+      "scopeExtra": [
+        "lib/features/dishes/presentation/home/home_header.dart",
+        "test/features/dishes/presentation/preview/**"
+      ]
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "efb4ed5339f741b35660eda77f677d30b7c2e851",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:33:28.281Z",
+      "doneAt": "2026-10-26T02:34:32.177Z",
+      "summary": "CupertinoSliverRefreshControl under the header calls dishesProvider.refresh with a PlateSpinner indicator that fills with the pull and turns while refreshing; bouncing physics keep the pull natural.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "f794084dd4a8d96236fd7831531f5ed864d17888",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:34:32.918Z",
+      "doneAt": "2026-10-26T02:39:47.796Z",
+      "summary": "HomeSkeleton in the layout's shapes, HomeFailure (offline, 429 with m:ss countdown, server with Ref., unknown) with retry, EmptyMenu for search and category, toast on a failed refresh; catalog views keep mapping the last list when a refresh fails.",
+      "scopeExtra": [
+        "test/helpers/app_harness.dart",
+        "lib/features/dishes/application/catalog_views.dart",
+        "test/features/dishes/application/catalog_providers_test.dart",
+        "test/features/dishes/presentation/preview/**"
+      ]
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 6,
+    "T": 3,
+    "S": 2
+  },
+  "closingSubmittedAt": "2026-10-26T02:40:02.852Z"
+}

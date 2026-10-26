@@ -1,0 +1,4 @@
+title: Modo descubrir
+hint: Desliza hacia arriba para ver el siguiente.
+seeDish: Ver plato ↑
+counter: "{current} / {total}"

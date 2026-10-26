@@ -1,0 +1,17 @@
+title: Your profile
+sessionEndsIn: Your session ends in {hours} h
+sessionEndsSoon: Your session ends in less than an hour.
+appearance:
+  title: Appearance
+  system: System
+  light: Light
+  dark: Dark
+language:
+  title: Language
+  system: System
+  spanish: Español
+  english: English
+signOut:
+  action: Sign out
+  confirm: Sign out now?
+  message: To come back, sign in with your email and password.

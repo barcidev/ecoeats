@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "20261025-session-and-auth-interceptor",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-session-and-auth-interceptor",
+  "baseCommit": "39e58a3b18b3e64c6dce0b9e50fa29a899139bf7",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:8dc82f624c83882cd24520baf6e40310b2360e0f82f56151ded60327ffb95041",
+    "at": "2026-10-26T00:34:15.667Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "M",
+    "score": 9,
+    "adjust": 0,
+    "reasons": [
+      "9 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:8e0b703989108dcf7e57e373b2965a83fdc201a2f4f18fb991536d3e57a67da0",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:3d85afe5774e2666c3b918dcfd6f957a2a1b1fb4889583fa3988ef7a8ceb436f",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:0985abd227eeb610a8cb40763360ffb2162d5e621085a905e1871b8ffb72ad27",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:b3dbc98f7aa55fd48af4a6a32997dbd0adda1e80a79cacb0e232b63ed0a0aaf4",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "0ae0f697ec4281f67cd91d4cda10f48e33d80f22",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:34:16.510Z",
+      "doneAt": "2026-10-26T00:36:09.445Z",
+      "summary": "decodeJwt reads sub/email/role/exp into a JwtClaims record (null when malformed or without sub/exp); freezed Session with isExpiredAt/remainingAt; TokenStore interface with a flutter_secure_storage implementation for the token and first names by email.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "f5d166dda05f0a69ecddaf9e55c42a5fbd696329",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:36:09.768Z",
+      "doneAt": "2026-10-26T00:37:39.739Z",
+      "summary": "keepAlive SessionController restores a live token (drops expired or corrupt ones), login stores the token only on success, register saves first names then logs in, logout, and a synchronous onUnauthorized that raises SessionExpired once; clockProvider for tests.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "2714f07ec62af27ee110db0434b044f09da3eb58",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:37:39.996Z",
+      "doneAt": "2026-10-26T00:38:54.870Z",
+      "summary": "AuthInterceptor adds the Bearer token (read from TokenStore per request) except on /api/securities and /health, and calls onUnauthorized on a 401 that carried a token; dioProvider wires it to SessionController.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 6,
+    "T": 3
+  },
+  "closingSubmittedAt": "2026-10-26T00:39:16.897Z"
+}

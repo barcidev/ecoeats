@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "id": "20261025-home-header-featured-carousel-and-discover-banne",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-home-header-featured-carousel-and-discover-banne",
+  "baseCommit": "2b1367d7fe5f4786a7dfeba911ee1d3cb7000fa5",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:cd8ea4b75e4fc8bf6563cc0443386ee83e61696fe33c60766779cdbcf2cc5f98",
+    "at": "2026-10-26T02:11:12.065Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "L",
+    "score": 12,
+    "adjust": 0,
+    "reasons": [
+      "10 files",
+      "2 modules"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:0794cc47c61e99adae039b5192715aae0169a0010fcb6c5c0f5f4b99a3b9fb46",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:0cf7237de85ef64d4076c3b9e78374b7e937d33e81cfcfc79e96260bc86e0783",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:d7734c05e75bdbc57f5a11395fef90087f8439041aca151909492aacd6bf57c6",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:feae3e902cd15bace59362f5e2815a3d647a570b0753634c0ee1ba32aff6b802",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:d6aec49375b8235dc47d7b4fcd2fff526087007aab9fefd425a6005599d55a96",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "5a5229493dd1f289b176d8cd8ec9868608d472f7",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:11:12.415Z",
+      "doneAt": "2026-10-26T02:17:11.305Z",
+      "summary": "Pinned SliverAppBar masthead (locale date, day-part greeting with first name, meal headline) that folds into a blurred bar with hairline; avatar opening ProfileSheet; pill search that filters and clears; Home lists visible dishes plainly for now.",
+      "scopeExtra": [
+        "test/helpers/app_harness.dart",
+        "test/features/dishes/presentation/home_header_test.dart",
+        "test/features/dishes/presentation/preview/**"
+      ]
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "eb1fcc86e1873018065e1165cba4566336a7321e",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:17:11.583Z",
+      "doneAt": "2026-10-26T02:18:25.860Z",
+      "summary": "Header tests over the running app: night greeting, English date and greeting, nameless greeting, folding on scroll with the search still reachable, avatar to profile and search results; app harness with fake session, catalog and clock.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "ee243424bdf7d13c18a0e01634e279a8c82a4a16",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:18:26.141Z",
+      "doneAt": "2026-10-26T02:22:48.844Z",
+      "summary": "FeaturedCarousel: 4:5 PageView with side scale, photo parallax, Fogón-ink caption over a scrim, achiote indicator and «Destacado N de M» labels, opening the detail; DiscoverBanner fans three thumbnails and opens Discover from the touch point; both leave while searching.",
+      "scopeExtra": [
+        "test/features/dishes/presentation/preview/**"
+      ]
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 5,
+    "AC": 5,
+    "T": 3
+  },
+  "closingSubmittedAt": "2026-10-26T02:23:01.977Z"
+}

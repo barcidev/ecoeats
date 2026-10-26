@@ -1,0 +1,82 @@
+welcome:
+  headline: Colombian food, unhurried.
+  subline: Home cooking, with the nutrition laid out.
+  signIn: Sign in
+  createAccount: Create account
+login:
+  title: Good to see you again.
+  subtitle: Sign in to see the menu.
+  email: Email
+  password: Password
+  submit: Sign in
+  forgot: Forgot your password?
+  noAccount: New here?
+  createOne: Create an account
+  wrongCredentials: That email and password don't match.
+register:
+  title: Make yourself at home.
+  step: Step {current} of {total}
+  about:
+    title: First, a little about you.
+    firstNames: First names
+    lastNames: Last names
+    document: ID number
+    documentHint: We only use it to identify your account.
+  access:
+    title: Now, how you'll sign in.
+    email: Email
+    password: Password
+  submit: Create account
+  haveAccount: Already have an account?
+  signIn: Sign in
+recover:
+  title: Let's get you back in.
+  email:
+    message: Tell us your email and we'll send you a 6-digit code.
+    field: Email
+    submit: Send code
+    notFound: We couldn't find an account with that email.
+  code:
+    title: Check your inbox.
+    message: Enter the code we sent to {email}.
+    field: 6-digit code
+    expiresIn: Expires in {time}
+    expired: This code has expired. Ask for a new one.
+    rejected:
+      one: That code doesn't match. {n} try left.
+      other: That code doesn't match. {n} tries left.
+    locked: No tries left for this code. Ask for a new one.
+    resend: Send a new code
+    resendIn: New code in {time}
+    resent: A new code is on its way.
+    changeEmail: Use a different email
+  password:
+    title: Pick a new password.
+    field: New password
+    confirmation: Type it again
+    submit: Save password
+  done:
+    title: All set.
+    message: Sign in with your new password.
+    action: Go to sign in
+password:
+  show: Show password
+  hide: Hide password
+  minLength: At least {min} characters
+  maxBytes: Not too long
+  maxBytesHint: Accents and emoji count for more.
+  met: Done
+  missing: Not yet
+fieldErrors:
+  emailRequired: Enter your email.
+  emailInvalid: That email looks incomplete.
+  emailTooLong: Emails can't go over {max} characters.
+  passwordRequired: Enter your password.
+  passwordTooShort: Use at least {min} characters.
+  passwordTooLong: That's too long; accents and emoji count for more.
+  firstNamesRequired: Enter your first names.
+  lastNamesRequired: Enter your last names.
+  documentRequired: Enter your ID number.
+  tooLong: Keep it to {max} characters or fewer.
+  confirmationRequired: Type your password again.
+  confirmationMismatch: That doesn't match your password.

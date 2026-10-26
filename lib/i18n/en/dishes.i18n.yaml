@@ -1,0 +1,61 @@
+greeting:
+  morning: Good morning
+  afternoon: Good afternoon
+  evening: Good evening
+  named: "{greeting}, {name}."
+  plain: "{greeting}."
+headline:
+  morning: What's for breakfast?
+  midday: What's for lunch today?
+  evening: What are you craving tonight?
+header:
+  profile: Open your profile
+  search: Find a dish or an ingredient
+  clearSearch: Clear search
+featured:
+  title: Featured
+  card: "Featured {current} of {total}. {name}, {price}, rated {rating}."
+discover:
+  title: Discover mode
+  subtitle: One dish at a time, full screen.
+  open: Open discover mode
+filters:
+  all: All
+  featured: Featured
+  highProtein: High in protein
+  light: Light
+sort:
+  button: "Sort: {sort}"
+  title: Sort the menu
+  alphabetical: A–Z
+  topRated: Best rated
+  priceLow: Price, low to high
+  priceHigh: Price, high to low
+  mostProtein: Most protein
+row:
+  semantics: "{name}. {price}. Rated {rating}. {protein} g of protein."
+empty:
+  search: "Nothing on the menu for “{query}”."
+  searchHint: Try another dish or an ingredient.
+  category: Nothing in this category for now.
+  showAll: See the whole menu
+home:
+  carta: The menu
+  count:
+    one: 1 dish
+    other: "{n} dishes"
+detail:
+  gone: This dish is off the menu now.
+  goneHint: We took it off recently; there's more waiting for you.
+  backToMenu: Back to the menu
+  close: Close
+  featured: House favorite
+  fromMenu: From the menu
+  rating: "{rating} out of 5"
+  nutrition: Nutrition
+  perServing: Per serving
+  carbohydrates: Carbohydrates
+  proteins: Protein
+  grams: "{grams} g"
+  macro: "{name}, {grams} g"
+  ingredients: Ingredients

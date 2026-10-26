@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "20261025-dishes-data-layer",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-dishes-data-layer",
+  "baseCommit": "30cf5bb6b54f374001fb1879e4bfb1ebaa828cda",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:154f8ae06ba59bb34deb33ea622bfae6a8f539fec49c69f77b6f73b221fd8f76",
+    "at": "2026-10-26T00:40:06.738Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "M",
+    "score": 10,
+    "adjust": 0,
+    "reasons": [
+      "10 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:4d508c7e2160b7cabe6ebf7d0cfa98e35d77e9703dc3f493f58007b2ebac510c",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:fcc7e4b6b35f3bf3bcebae98a483774a4ec7636b4989650f3daefe092453cbbf",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:7166299d4ef699f44a292e313c1ff5dd3ce8a9f76c93d8b16e6ebd6a4dd6c1a3",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:f569097d281170d3d9060af508b067e8e3a259c02e930c066f33ba812b91e708",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "863525b6325f07931bf1eebd4f160205ccedb0db",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:40:07.073Z",
+      "doneAt": "2026-10-26T00:42:02.834Z",
+      "summary": "Freezed Dish reads the production contract: thumbails→thumbnail, flagHeader→featured, price/rating as doubles even from integers.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "8dfdc10c717fb725db36cc8f61282ac98b39ec52",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:42:03.106Z",
+      "doneAt": "2026-10-26T00:43:33.258Z",
+      "summary": "DishApi (GET /api/dish and /api/dish/{id} through request()), thin DishRepository, autoDispose dishesProvider whose refresh() keeps the previous list in loading and error states.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "73b7e12b5d56bd559421c13f1c7d492326b08878",
+      "attempts": 1,
+      "startedAt": "2026-10-26T00:43:33.509Z",
+      "doneAt": "2026-10-26T00:44:34.652Z",
+      "summary": "HeroSource enum and dishHeroTag (dish-<id>-<source>), emphasized fade transition, @RoutePage HomePage placeholder listing names and DishDetailPage with @PathParam id, optional initial dish and heroSource.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 4,
+    "T": 3
+  },
+  "closingSubmittedAt": "2026-10-26T00:44:41.765Z"
+}

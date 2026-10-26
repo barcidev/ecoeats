@@ -1,0 +1,61 @@
+greeting:
+  morning: Buenos días
+  afternoon: Buenas tardes
+  evening: Buenas noches
+  named: "{greeting}, {name}."
+  plain: "{greeting}."
+headline:
+  morning: ¿Qué desayunamos hoy?
+  midday: ¿Qué almorzamos hoy?
+  evening: ¿Qué se te antoja esta noche?
+header:
+  profile: Abrir tu perfil
+  search: Busca un plato o un ingrediente
+  clearSearch: Borrar búsqueda
+featured:
+  title: Destacados
+  card: "Destacado {current} de {total}. {name}, {price}, calificación {rating}."
+discover:
+  title: Modo descubrir
+  subtitle: Un plato a la vez, a pantalla completa.
+  open: Abrir el modo descubrir
+filters:
+  all: Todos
+  featured: Destacados
+  highProtein: Altos en proteína
+  light: Ligeros
+sort:
+  button: "Ordenar: {sort}"
+  title: Ordenar la carta
+  alphabetical: A–Z
+  topRated: Mejor calificados
+  priceLow: Precio, de menor a mayor
+  priceHigh: Precio, de mayor a menor
+  mostProtein: Más proteína
+row:
+  semantics: "{name}. {price}. Calificación {rating}. {protein} g de proteína."
+empty:
+  search: "Nada en la carta con «{query}»."
+  searchHint: Prueba con otro plato o con un ingrediente.
+  category: Nada en esta categoría por ahora.
+  showAll: Ver toda la carta
+home:
+  carta: La carta
+  count:
+    one: 1 plato
+    other: "{n} platos"
+detail:
+  gone: Este plato ya no está en la carta.
+  goneHint: Lo sacamos hace poco; hay más esperándote.
+  backToMenu: Volver a la carta
+  close: Cerrar
+  featured: Destacado de la casa
+  fromMenu: De la carta
+  rating: "{rating} de 5"
+  nutrition: Nutrición
+  perServing: Por porción
+  carbohydrates: Carbohidratos
+  proteins: Proteínas
+  grams: "{grams} g"
+  macro: "{name}, {grams} g"
+  ingredients: Ingredientes

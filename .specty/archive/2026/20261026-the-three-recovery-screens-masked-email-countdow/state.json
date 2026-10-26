@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "id": "20261026-the-three-recovery-screens-masked-email-countdow",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261026-the-three-recovery-screens-masked-email-countdow",
+  "baseCommit": "fcae91ba50c73a5cb2f03b72faa2875f851ee80b",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ed63796a70436421de6d267f0ab903565b432c56b85bdbdeca82806d78f3dc3c",
+    "at": "2026-10-26T09:59:49.157Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "L",
+    "score": 16,
+    "adjust": 0,
+    "reasons": [
+      "5 files",
+      "2 modules",
+      "3 sensitive paths"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:6b34b3684d66fc8622fe654f9109660d673e4030143fdc5fa95e374b0d1c0ac2",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:9d26a9b5d38c366dfb3817ba27c9690cde99f3177ec51c2aad3cd99f51362b02",
+      "decision": "confirmed"
+    },
+    "A3": {
+      "hash": "sha256:d129a5b5d8b1ed385b27499458ec9887af85b1feab50ca470e6ef03c74a9f517",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:7727e05f642b5e47622fe413b7c74756bb187b4140ad86c5b59837f395e5bf70",
+      "decision": "implicit"
+    },
+    "A5": {
+      "hash": "sha256:cdf41f2edd1bb365d99e09298e70957bff8422c718b09be99effc8467393fc63",
+      "decision": "implicit"
+    },
+    "A6": {
+      "hash": "sha256:73e1a0559f2d2570f61e0f5ac311f5671392baf7adc4cab388fc2ef6d1529df7",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "3a91841dfdbb6ff6746584d0857d12d9ba5d1a63",
+      "attempts": 1,
+      "startedAt": "2026-10-26T09:59:49.832Z",
+      "doneAt": "2026-10-26T10:03:57.195Z",
+      "summary": "Recovery screens on recoveryController: masked email, expiry and resend countdowns, rejected, locked and expired codes, live password rules and a drawn check that pops back with the email; 10 widget tests.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "56eaf54ab509db493db7129a386d9927f41fbc1b",
+      "attempts": 1,
+      "startedAt": "2026-10-26T10:03:57.502Z",
+      "doneAt": "2026-10-26T10:05:04.496Z",
+      "summary": "Login waits for recovery's result: the returned email fills its field, the password clears and takes focus; covered by a full recovery round-trip widget test.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "7abc28556d226ae9b2f87663c8b825dbd5d2fe44",
+      "attempts": 1,
+      "startedAt": "2026-10-26T10:05:04.827Z",
+      "doneAt": "2026-10-26T10:07:05.078Z",
+      "summary": "Removed the unused shell.photoCredit key from the Spanish and English auth copy; the credit lives in assets/photos/CREDITS.md.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 6,
+    "AC": 6,
+    "T": 3,
+    "R": 1
+  },
+  "closingSubmittedAt": "2026-10-26T10:07:42.215Z"
+}

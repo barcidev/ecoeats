@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "20261025-auth-and-profile-copy-in-spanish-and-english",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-auth-and-profile-copy-in-spanish-and-english",
+  "baseCommit": "27a9ee767d17d76944089a62bafa17717fefdc14",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:c7bf87627836c10c2950f3bb3db8e0e7bb57563cb334d6e7ba430e4a407fc4ed",
+    "at": "2026-10-26T01:16:41.538Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "M",
+    "score": 5,
+    "adjust": 0,
+    "reasons": [
+      "5 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:fc73e12f44cd156fd6724f1fc6e960d07ad0dd06ad7990e2cb7814beda43f4ac",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:c3cac1adb8484465646d210738fb86c13a1fcd165009ee6f44f582cb55ee027c",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:3b4badc84673fa5e840038477cdfebb34951914175eb3390878dc6591fc5376e",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:22af992498dd915db4886d53799d65938ff5d0e5b5ae352439fdf5f3a9060b4d",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "c8443c42d87ec1add841f02fe8a6ef75c19af07d",
+      "attempts": 1,
+      "startedAt": "2026-10-26T01:16:42.753Z",
+      "doneAt": "2026-10-26T01:19:46.759Z",
+      "summary": "Auth copy (welcome, login, two-step register, three-step recovery with plural attempts, password checklist, a message per field rule) and profile copy (session expiry, appearance, languages in their own names, sign-out) in Spanish and English, with translation checks.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 4,
+    "T": 1
+  },
+  "closingSubmittedAt": "2026-10-26T01:20:16.728Z"
+}

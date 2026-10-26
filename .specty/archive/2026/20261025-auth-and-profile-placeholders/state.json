@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "20261025-auth-and-profile-placeholders",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-auth-and-profile-placeholders",
+  "baseCommit": "27a9ee767d17d76944089a62bafa17717fefdc14",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:97060190a85204d9513dfd4025aebea0dc178ada94f84a2e2973441d388e4584",
+    "at": "2026-10-26T01:15:16.021Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "L",
+    "score": 12,
+    "adjust": 0,
+    "reasons": [
+      "4 files",
+      "2 modules",
+      "2 sensitive paths"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:200fcd40f94c9b161256bb670273e29c1487571e4b80893bfc537bd1aa681339",
+      "decision": "confirmed"
+    },
+    "A2": {
+      "hash": "sha256:89eebdfaa92c907d8cda2d3a6eed9b26e7735b0d6e5fb693267e49d7ac3c5c8b",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:73a62a7076b078c167318ab0dbc26752832f9e7c5459fcf0136540e39608c226",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:4e37177bfc1a72e0df491b23d45d966690e028cb66d09dfb1f7f5f8974a6b588",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "add6e5e7442a7f8cd86c94524ef63acd96db08e9",
+      "attempts": 1,
+      "startedAt": "2026-10-26T01:15:16.349Z",
+      "doneAt": "2026-10-26T01:18:42.483Z",
+      "summary": "auth_pages.dart: AuthShellPage (paper, grain, nested AutoRouter), WelcomePage, a working LoginPage (session login, loading button, toast with translated failure, 401 as wrong credentials) and Register/Recover stubs navigating by path; authPanelTransition.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "7491f71bf7361a4dc147a6b12a3400182c5763cc",
+      "attempts": 1,
+      "startedAt": "2026-10-26T01:18:43.206Z",
+      "doneAt": "2026-10-26T01:20:29.925Z",
+      "summary": "ProfileSheet.show opens a modal sheet with first names when known, email, «Tu sesión vence en N h» from Session.remainingAt and the clock, and sign-out that closes the sheet and logs out.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 3,
+    "T": 2
+  },
+  "closingSubmittedAt": "2026-10-26T01:20:40.833Z"
+}

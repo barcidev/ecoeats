@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "20261025-catalog-domain-and-providers",
+  "kind": "standard",
+  "phase": "done",
+  "branch": "specty/20261025-catalog-domain-and-providers",
+  "baseCommit": "91c2d608797b85cd6177471cfa7e4b6faae1a3c6",
+  "revision": 2,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:afac1c8574987d625757d0256e1863dd5e419f5af7691800e162054f9b2e89db",
+    "at": "2026-10-26T02:03:07.767Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
+  "size": {
+    "level": "L",
+    "score": 13,
+    "adjust": 0,
+    "reasons": [
+      "13 files"
+    ]
+  },
+  "items": {
+    "A1": {
+      "hash": "sha256:816770402f34fc657542de59a58dfbed1683d697a07ba1710606f50629be09d6",
+      "decision": "implicit"
+    },
+    "A2": {
+      "hash": "sha256:f7a48778a276503b622b0154b50bbbdf0db2fb2ef5c30f408cb47949e9527ca2",
+      "decision": "implicit"
+    },
+    "A3": {
+      "hash": "sha256:03453229866d77f3cd405d93fff35a06893039f37deccc4528c3061590724c18",
+      "decision": "implicit"
+    },
+    "A4": {
+      "hash": "sha256:488a50e0bc9a73790c87825eb959810810cce77f56123744534c62743352d608",
+      "decision": "implicit"
+    }
+  },
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "baseCommit": "dc2d0a4c7f56e68e470e0c57ba83bc6a8c6a7a0f",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:03:08.129Z",
+      "doneAt": "2026-10-26T02:04:59.812Z",
+      "summary": "parseIngredients splits on commas outside parentheses (nested depth, trims, drops empties and a final period); foldForSearch/matchesSearch ignore case, accents, ñ and combining marks, all words required; sizedImageUrl buckets Unsplash widths 400–1600 with q=75, auto=format.",
+      "scopeExtra": []
+    },
+    "T2": {
+      "status": "done",
+      "baseCommit": "ab85e96939f11256875cbff8d253db04ab9759ba",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:05:00.079Z",
+      "doneAt": "2026-10-26T02:07:01.614Z",
+      "summary": "Freezed DishFilter (query, category, sort) whose apply() keeps category and search matches and sorts A–Z, best rated, price up/down or most protein with the folded name breaking ties; DishCategory thresholds 35 g; twelve sample dishes for tests.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "baseCommit": "08a40533711635f518cc7e8bf25dc30a96029c90",
+      "attempts": 1,
+      "startedAt": "2026-10-26T02:07:02.166Z",
+      "doneAt": "2026-10-26T02:08:54.953Z",
+      "summary": "CatalogFilter notifier (search, clear, category, sort); visibleDishes and featuredDishes map the list's AsyncValue synchronously; dishDetail(id) streams the listed copy, then the server's, ending in notFound on a 404.",
+      "scopeExtra": []
+    }
+  },
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "A": 4,
+    "AC": 6,
+    "T": 3
+  },
+  "closingSubmittedAt": "2026-10-26T02:09:07.730Z"
+}

@@ -1,0 +1,22 @@
+offline:
+  title: Sin conexión.
+  message: Revisa tu internet; aquí seguimos cuando vuelvas.
+timeout:
+  title: La cocina se está tardando.
+  message: Inténtalo de nuevo en un momento.
+rateLimited:
+  title: Vas muy rápido.
+  message: Espera un momento antes de volver a intentarlo.
+server:
+  title: Algo se nos quemó en la cocina.
+  message: Ya lo estamos revisando. Inténtalo de nuevo en un momento.
+  reference: Ref. {id}
+notFound: No encontramos lo que buscabas.
+unauthorized: Tu sesión ya no es válida. Entra de nuevo.
+sessionExpired: Tu sesión venció. Entra de nuevo para seguir.
+validation: Revisa los datos marcados.
+conflict:
+  email: Ya hay una cuenta con ese correo.
+  document: Ya hay una cuenta con ese documento.
+  other: Eso ya está registrado.
+unknown: Algo salió mal. Inténtalo de nuevo.
