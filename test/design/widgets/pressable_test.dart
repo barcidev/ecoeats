@@ -284,5 +284,18 @@ void main() {
       expect(find.byKey(EcoButton.checkKey), findsOneWidget);
       expect(successes, 1);
     });
+    testWidgets('with reduced motion a changing label just relays out', (
+      tester,
+    ) async {
+      Widget countdown(String label) => _app(
+        EcoButton(label: label, expand: false, onPressed: () {}),
+        reduceMotion: true,
+      );
+      await tester.pumpWidget(countdown('Intenta en 0:10'));
+      await tester.pumpWidget(countdown('Intenta en 0:9'));
+      await tester.pump();
+      expect(tester.takeException(), isNull);
+      expect(find.text('Intenta en 0:9'), findsOneWidget);
+    });
   });
 }

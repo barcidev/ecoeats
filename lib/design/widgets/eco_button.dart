@@ -158,6 +158,26 @@ class _EcoButtonState extends State<EcoButton>
     // (SliverFillRemaining), which a LayoutBuilder cannot answer.
     final fill = widget.expand;
     final width = round ? EcoButton.height : (fill ? double.infinity : null);
+    final box = SizedBox(
+      width: width,
+      height: EcoButton.height,
+      child: Padding(
+        padding: round
+            ? EdgeInsets.zero
+            : const EdgeInsets.symmetric(horizontal: Space.lg),
+        child: Align(
+          widthFactor: width == null ? 1 : null,
+          // The label keeps its natural width while it fades out of
+          // the narrowing circle, cut at its edge instead of wrapping.
+          child: UnconstrainedBox(
+            constrainedAxis: .vertical,
+            clipBehavior: .hardEdge,
+            child: AnimatedSwitcher(duration: Motion.quick, child: content),
+          ),
+        ),
+      ),
+    );
+
     final shape = TweenAnimationBuilder<double>(
       tween: Tween(end: round ? 1 : 0),
       duration: morph,
@@ -175,29 +195,15 @@ class _EcoButtonState extends State<EcoButton>
         ),
         child: child,
       ),
-      child: AnimatedSize(
-        duration: morph,
-        curve: Motion.emphasized,
-        child: SizedBox(
-          width: width,
-          height: EcoButton.height,
-          child: Padding(
-            padding: round
-                ? EdgeInsets.zero
-                : const EdgeInsets.symmetric(horizontal: Space.lg),
-            child: Align(
-              widthFactor: width == null ? 1 : null,
-              // The label keeps its natural width while it fades out of
-              // the narrowing circle, cut at its edge instead of wrapping.
-              child: UnconstrainedBox(
-                constrainedAxis: .vertical,
-                clipBehavior: .hardEdge,
-                child: AnimatedSwitcher(duration: Motion.quick, child: content),
-              ),
+      // A zero-length AnimatedSize re-dirties itself during layout, so
+      // reduced motion simply relays out.
+      child: reduced
+          ? box
+          : AnimatedSize(
+              duration: Motion.standard,
+              curve: Motion.emphasized,
+              child: box,
             ),
-          ),
-        ),
-      ),
     );
 
     // The slot keeps the full width, so nothing around the button moves

@@ -52,7 +52,7 @@ Forms, headlines and placeholders get the motion and texture of printed matter. 
 
 ## Tasks
 
-- [ ] T1: EcoTextField with a resting and floating label, a drawn underline and a sliding error, with widget tests
+- [x] T1: EcoTextField with a resting and floating label, a drawn underline and a sliding error, with widget tests
   - files: lib/design/widgets/eco_text_field.dart, test/design/widgets/form_motion_test.dart
   - ac: AC1
   - verify: fvm flutter test test/design/widgets/form_motion_test.dart test/features/auth

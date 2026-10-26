@@ -1,4 +1,5 @@
 import 'package:ecoeats/design/theme.dart';
+import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/design/widgets/eco_text_field.dart';
 import 'package:ecoeats/design/widgets/mask_reveal_text.dart';
 import 'package:ecoeats/design/widgets/shake.dart';
@@ -41,6 +42,18 @@ double _shakeOffset(WidgetTester tester) => tester
     .getTranslation()
     .x;
 
+EcoUnderlinePainter _underline(WidgetTester tester) =>
+    tester
+            .widget<CustomPaint>(
+              find.byWidgetPredicate(
+                (widget) =>
+                    widget is CustomPaint &&
+                    widget.painter is EcoUnderlinePainter,
+              ),
+            )
+            .painter!
+        as EcoUnderlinePainter;
+
 void main() {
   group('EcoTextField', () {
     testWidgets('shows its label and error', (tester) async {
@@ -50,6 +63,96 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('CORREO'), findsOneWidget);
       expect(find.text('Revisa el correo.'), findsOneWidget);
+    });
+
+    testWidgets('the label rests on the line and rises with focus or text', (
+      tester,
+    ) async {
+      await tester.pumpWidget(_app(const EcoTextField(label: 'Correo')));
+      await tester.pumpAndSettle();
+      final input = tester.getRect(find.byType(EditableText));
+      final resting = tester.getRect(find.text('CORREO'));
+      expect(resting.top, greaterThanOrEqualTo(input.top));
+
+      await tester.tap(find.byType(EditableText));
+      await tester.pumpAndSettle();
+      final risen = tester.getRect(find.text('CORREO'));
+      expect(risen.bottom, lessThanOrEqualTo(input.top));
+      expect(risen.height, lessThan(resting.height));
+      expect(tester.getRect(find.byType(EditableText)), input);
+
+      FocusManager.instance.primaryFocus?.unfocus();
+      await tester.pumpAndSettle();
+      expect(tester.getRect(find.text('CORREO')), resting);
+
+      await tester.enterText(find.byType(EditableText), 'ana@ecoeats.co');
+      FocusManager.instance.primaryFocus?.unfocus();
+      await tester.pumpAndSettle();
+      expect(tester.getRect(find.text('CORREO')), risen);
+      expect(tester.getRect(find.byType(EditableText)), input);
+    });
+
+    testWidgets('the underline draws itself in ink while focused', (
+      tester,
+    ) async {
+      await tester.pumpWidget(_app(const EcoTextField(label: 'Correo')));
+      await tester.pumpAndSettle();
+      expect(_underline(tester).progress, 0);
+
+      await tester.tap(find.byType(EditableText));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(_underline(tester).progress, inExclusiveRange(0, 1));
+      await tester.pumpAndSettle();
+      expect(_underline(tester).progress, 1);
+      expect(_underline(tester).active, EcoPalette.mantel.ink);
+      expect(_underline(tester).base, EcoPalette.mantel.line);
+    });
+
+    testWidgets('an error slides in under the line and leaves again', (
+      tester,
+    ) async {
+      Widget field(String? error) =>
+          _app(EcoTextField(label: 'Correo', error: error));
+      await tester.pumpWidget(field(null));
+      await tester.pumpAndSettle();
+      final input = tester.getRect(find.byType(EditableText));
+
+      await tester.pumpWidget(field('Revisa el correo.'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 40));
+      final arriving = tester.getRect(find.text('Revisa el correo.'));
+      await tester.pumpAndSettle();
+      final settled = tester.getRect(find.text('Revisa el correo.'));
+      expect(arriving.top, lessThan(settled.top));
+      expect(_underline(tester).base, EcoPalette.mantel.achiote);
+      expect(
+        tester.widget<Text>(find.text('CORREO')).style?.color,
+        EcoPalette.mantel.achiote,
+      );
+      expect(tester.getRect(find.byType(EditableText)), input);
+
+      await tester.pumpWidget(field(null));
+      await tester.pumpAndSettle();
+      expect(find.text('Revisa el correo.'), findsNothing);
+      expect(_underline(tester).base, EcoPalette.mantel.line);
+    });
+
+    testWidgets('with reduced motion the label jumps to its place', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        _app(const EcoTextField(label: 'Correo'), reduceMotion: true),
+      );
+      await tester.pumpAndSettle();
+      final input = tester.getRect(find.byType(EditableText));
+      await tester.tap(find.byType(EditableText));
+      await tester.pump();
+      expect(
+        tester.getRect(find.text('CORREO')).bottom,
+        lessThanOrEqualTo(input.top),
+      );
+      expect(_underline(tester).progress, 1);
     });
 
     testWidgets('an obscured field hides what is typed', (tester) async {

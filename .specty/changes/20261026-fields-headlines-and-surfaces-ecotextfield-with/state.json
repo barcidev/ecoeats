@@ -6,6 +6,13 @@
   "branch": "specty/20261026-fields-headlines-and-surfaces-ecotextfield-with",
   "baseCommit": "ce4122ec8618e40aef328cebc92d593fd02f5bff",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:ee0980500f97b4d14e3b6d06425d7d50685b4f5ee376f9c394a21c9a5febade7",
+    "at": "2026-10-26T10:26:47.661Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 6,
@@ -40,7 +47,19 @@
       "decision": "implicit"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [
+        "lib/design/widgets/eco_button.dart"
+      ],
+      "attempts": 1,
+      "baseCommit": "19089f8c695318627452221a3001878e3c765884",
+      "startedAt": "2026-10-26T10:26:48.054Z",
+      "doneAt": "2026-10-26T10:31:38.448Z",
+      "summary": "EcoTextField: uppercase label rests on the line and rises with focus or text, underline inks from the left, errors slide in and leave at once; no zero-length AnimatedSize under reduced motion (also fixed in EcoButton, S1)."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -49,13 +68,7 @@
     "A": 6,
     "AC": 5,
     "T": 3,
-    "R": 2
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:ee0980500f97b4d14e3b6d06425d7d50685b4f5ee376f9c394a21c9a5febade7",
-    "at": "2026-10-26T10:26:47.661Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
+    "R": 2,
+    "S": 1
   }
 }
