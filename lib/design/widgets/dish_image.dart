@@ -95,6 +95,21 @@ class DishPlaceholder extends StatelessWidget {
           return Stack(
             alignment: Alignment.center,
             children: [
+              // A soft light from the upper left, as on a photographed card.
+              Positioned.fill(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                      center: const Alignment(-0.7, -0.8),
+                      radius: 1.2,
+                      colors: [
+                        palette.raised.withValues(alpha: 0.45),
+                        palette.raised.withValues(alpha: 0),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
               Opacity(
                 opacity: 0.5,
                 child: PlateIllustration(

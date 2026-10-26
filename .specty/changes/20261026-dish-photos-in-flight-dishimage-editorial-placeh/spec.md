@@ -52,7 +52,7 @@ Opening a dish feels like one continuous object moving, not two screens swapping
 
 ## Tasks
 
-- [ ] T1: DishImage editorial placeholder with its light, stable colors and the 280 ms fade, with fallback tests
+- [x] T1: DishImage editorial placeholder with its light, stable colors and the 280 ms fade, with fallback tests
   - files: lib/design/widgets/dish_image.dart, test/design/widgets/dish_image_test.dart
   - ac: AC1
   - verify: fvm flutter test test/design/widgets/dish_image_test.dart
