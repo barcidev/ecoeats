@@ -102,7 +102,7 @@ void main() {
 
   testWidgets('a guest starts on the welcome', (tester) async {
     await _boot(tester);
-    expect(find.text(_headline), findsOneWidget);
+    expect(find.bySemanticsLabel(_headline), findsOneWidget);
   });
 
   testWidgets('a stored session starts on Home', (tester) async {
@@ -122,14 +122,14 @@ void main() {
     await tester.tap(find.text('Entrar'));
     await tester.pumpAndSettle();
     expect(find.text('Ajiaco santafereño'), findsOneWidget);
-    expect(find.text(_headline), findsNothing);
+    expect(find.bySemanticsLabel(_headline), findsNothing);
   });
 
   testWidgets('logging out goes back to the welcome for good', (tester) async {
     final container = await _boot(tester, session: _session);
     await container.read(sessionControllerProvider.notifier).logout();
     await tester.pumpAndSettle();
-    expect(find.text(_headline), findsOneWidget);
+    expect(find.bySemanticsLabel(_headline), findsOneWidget);
 
     final router = container.read(appRouterProvider);
     expect(router.stack.map((route) => route.name), ['AuthShellRoute']);
@@ -141,7 +141,7 @@ void main() {
     final container = await _boot(tester, session: _session);
     container.read(sessionControllerProvider.notifier).onUnauthorized();
     await tester.pumpAndSettle();
-    expect(find.text(_headline), findsOneWidget);
+    expect(find.bySemanticsLabel(_headline), findsOneWidget);
     expect(
       find.text('Tu sesión venció. Entra de nuevo para seguir.'),
       findsOneWidget,
@@ -154,7 +154,7 @@ void main() {
     final guest = await _boot(tester);
     unawaited(guest.read(appRouterProvider).pushPath('/dish/a'));
     await tester.pumpAndSettle();
-    expect(find.text(_headline), findsOneWidget);
+    expect(find.bySemanticsLabel(_headline), findsOneWidget);
   });
 
   testWidgets('a signed-in user cannot reach the auth pages', (tester) async {
@@ -172,8 +172,10 @@ void main() {
     addTearDown(tester.platformDispatcher.clearPlatformBrightnessTestValue);
 
     await _boot(tester);
-    expect(find.text('Colombian food, unhurried.'), findsOneWidget);
-    final context = tester.element(find.text('Colombian food, unhurried.'));
+    expect(find.bySemanticsLabel('Colombian food, unhurried.'), findsOneWidget);
+    final context = tester.element(
+      find.bySemanticsLabel('Colombian food, unhurried.'),
+    );
     expect(MaterialLocalizations.of(context).closeButtonLabel, 'Close');
     expect(Theme.of(context).brightness, Brightness.dark);
   });

@@ -13,6 +13,7 @@ import 'package:ecoeats/design/tokens/typography.dart';
 import 'package:ecoeats/design/widgets/eco_button.dart';
 import 'package:ecoeats/design/widgets/eco_text_field.dart';
 import 'package:ecoeats/design/widgets/grain_overlay.dart';
+import 'package:ecoeats/design/widgets/mask_reveal_text.dart';
 import 'package:ecoeats/design/widgets/pressable.dart';
 import 'package:ecoeats/design/widgets/toast.dart';
 import 'package:ecoeats/i18n/failure_text.dart';
@@ -105,9 +106,9 @@ class _AuthBackdropState extends State<_AuthBackdrop>
   // would keep the GPU busy for someone who left the app on the welcome.
   static const _rounds = 2;
 
-  // The photo holds still while the welcome draws its logo and reveals its
-  // headline: one movement at a time.
-  static const _stillAtFirst = Duration(milliseconds: 1400);
+  // The photo holds still while the welcome plays its intro (1380 ms) and a
+  // beat after it: one movement at a time.
+  static const _stillAtFirst = Duration(milliseconds: 1700);
 
   static const _depthScale = 0.06;
   static const _depthShade = 0.45;
@@ -250,22 +251,23 @@ class _Scrim extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: .topCenter,
-              end: Alignment(0, -0.45),
-              colors: [Color(0x73000000), Color(0x00000000)],
+              end: Alignment(0, -0.5),
+              colors: [Color(0x8C000000), Color(0x00000000)],
             ),
           ),
         ),
         DecoratedBox(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: const Alignment(0, -0.15),
+              begin: .topCenter,
               end: .bottomCenter,
               colors: [
                 paper.withValues(alpha: 0),
-                paper.withValues(alpha: 0.88),
+                paper.withValues(alpha: 0),
+                paper.withValues(alpha: 0.9),
                 paper,
               ],
-              stops: const [0, 0.55, 1],
+              stops: const [0, 0.3, 0.64, 0.82],
             ),
           ),
         ),
@@ -274,39 +276,153 @@ class _Scrim extends StatelessWidget {
   }
 }
 
+/// The first screen a guest sees: the mark draws its plate rim over the
+/// photo, the headline rises line by line, and then the two ways in arrive.
 @RoutePage()
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends StatefulWidget {
   const new({super.key});
+
+  @visibleForTesting
+  static const actionsKey = Key('welcome-actions');
+
+  @override
+  State<WelcomePage> createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage>
+    with SingleTickerProviderStateMixin {
+  // One timeline for the whole intro, so the pieces keep their order.
+  late final _intro = AnimationController(
+    vsync: this,
+    duration: Motion.signature + Motion.slow,
+  );
+  late final _rim = CurvedAnimation(
+    parent: _intro,
+    curve: const Interval(0, 0.65, curve: Curves.easeInOutCubic),
+  );
+  late final CurvedAnimation _subline = _arrival(0.5, 0.85);
+  late final CurvedAnimation _actions = _arrival(0.62, 1);
+
+  // The headline starts while the rim is still closing.
+  static const _headlineDelay = Duration(milliseconds: 300);
+
+  // Over the darkened top of the photo the mark wears the night palette.
+  static const EcoPalette _overPhoto = .fogon;
+
+  CurvedAnimation _arrival(double begin, double end) => CurvedAnimation(
+    parent: _intro,
+    curve: Interval(begin, end, curve: Motion.emphasized),
+  );
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_intro.value > 0 || _intro.isAnimating) return;
+    if (Motion.reduced(context)) {
+      _intro.value = 1;
+    } else {
+      _intro.forward();
+    }
+  }
+
+  @override
+  void dispose() {
+    _intro.dispose();
+    super.dispose();
+  }
+
+  Widget _rise(Animation<double> arrival, Widget child, {Key? key}) {
+    return FadeTransition(
+      key: key,
+      opacity: arrival,
+      child: SlideTransition(
+        position: Tween(
+          begin: const Offset(0, 0.25),
+          end: Offset.zero,
+        ).animate(arrival),
+        child: child,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final t = context.t.auth.welcome;
     final palette = context.palette;
+    // «Comida colombiana, sin afán.» breaks after its comma in both languages.
+    final lines = t.headline.split(RegExp(r'(?<=,)\s+'));
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(Space.gutter),
+          padding: const EdgeInsets.fromLTRB(
+            Space.gutter,
+            Space.md,
+            Space.gutter,
+            Space.gutter,
+          ),
           child: Column(
             crossAxisAlignment: .start,
             children: [
+              Semantics(
+                header: true,
+                label: context.t.common.appName,
+                excludeSemantics: true,
+                child: Row(
+                  children: [
+                    AnimatedBuilder(
+                      animation: _rim,
+                      builder: (context, _) => LogoMark(
+                        size: 40,
+                        progress: _rim.value,
+                        color: _overPhoto.ink,
+                        accent: _overPhoto.aguacate,
+                      ),
+                    ),
+                    const SizedBox(width: Space.sm),
+                    FadeTransition(
+                      opacity: _rim,
+                      child: Text(
+                        context.t.common.appName,
+                        style: EcoType.title.copyWith(color: _overPhoto.ink),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               const Spacer(),
-              const LogoMark(size: 72),
-              const SizedBox(height: Space.lg),
-              Text(
-                t.headline,
+              MaskRevealText(
+                lines: lines,
+                delay: _headlineDelay,
                 style: EcoType.displayWonk.copyWith(color: palette.ink),
               ),
-              const Spacer(),
-              EcoButton(
-                label: t.signIn,
-                onPressed: () => context.router.pushPath('login'),
-              ),
               const SizedBox(height: Space.sm),
-              EcoButton(
-                label: t.createAccount,
-                variant: .secondary,
-                onPressed: () => context.router.pushPath('register'),
+              _rise(
+                _subline,
+                Text(
+                  t.subline,
+                  style: EcoType.body.copyWith(color: palette.muted),
+                ),
+              ),
+              const SizedBox(height: Space.xl),
+              _rise(
+                _actions,
+                key: WelcomePage.actionsKey,
+                Column(
+                  children: [
+                    EcoButton(
+                      label: t.signIn,
+                      onPressed: () => context.router.pushPath('login'),
+                    ),
+                    const SizedBox(height: Space.sm),
+                    EcoButton(
+                      label: t.createAccount,
+                      variant: .secondary,
+                      onPressed: () => context.router.pushPath('register'),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -416,7 +532,7 @@ class _AuthPanel extends StatelessWidget {
       padding: EdgeInsets.only(top: MediaQuery.paddingOf(context).top + 40),
       child: DecoratedBox(
         decoration: ShapeDecoration(
-          color: palette.paper,
+          color: palette.raised,
           shape: const RoundedSuperellipseBorder(
             borderRadius: .vertical(top: .circular(Radii.lg)),
           ),

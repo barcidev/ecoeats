@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261025-auth-shell-with-the-living-backdrop-and-the-stac",
   "kind": "standard",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261025-auth-shell-with-the-living-backdrop-and-the-stac",
   "baseCommit": "2b1367d7fe5f4786a7dfeba911ee1d3cb7000fa5",
   "revision": 1,
@@ -58,12 +58,23 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "229be375f4b0cd88e52d1dde4f45ec160de5928b",
+      "attempts": 1,
       "startedAt": "2026-10-26T02:15:48.880Z",
       "doneAt": "2026-10-26T02:23:16.767Z",
-      "summary": "Living backdrop (three photos with Ken Burns and crossfade, two rounds after a still intro, scrim and grain) that persists across the nested auth router and steps back to 0.94 and darker under a panel; stacked-sheet transition; sheet-shaped panels; relative paths from the welcome."
+      "summary": "Living backdrop (three photos with Ken Burns and crossfade, two rounds after a still intro, scrim and grain) that persists across the nested auth router and steps back to 0.94 and darker under a panel; stacked-sheet transition; sheet-shaped panels; relative paths from the welcome.",
+      "scopeExtra": []
+    },
+    "T3": {
+      "status": "done",
+      "scopeExtra": [
+        "test/app_test.dart"
+      ],
+      "attempts": 1,
+      "baseCommit": "d380599adeae6bbd15b6830cbfc3c6c226c177a9",
+      "startedAt": "2026-10-26T02:23:17.041Z",
+      "doneAt": "2026-10-26T03:11:02.377Z",
+      "summary": "Welcome intro on one timeline (logo rim, masked headline line by line, subline and actions), instant with reduced motion; app_test finds the headline by its semantics label."
     }
   },
   "pending": {
