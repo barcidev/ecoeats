@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261026-one-password-visibility-toggle-for-every-auth-fo",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-one-password-visibility-toggle-for-every-auth-fo",
   "baseCommit": "b2d7d9baeb673752b4c45ff8f55241bd363b228f",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:18e20a6a5665cd2ce2e4d3cd7860789daad5f0a1588cfb1724ddc710076e8203",
@@ -40,12 +40,12 @@
     },
     "T2": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "53cf8c0dfc475ac01416e788e5acb15fd5eb330e",
+      "attempts": 1,
       "startedAt": "2026-10-26T14:48:37.046Z",
       "doneAt": "2026-10-26T14:49:49.528Z",
-      "summary": "Login, registration and recovery use the shared PasswordToggle instead of their own copies."
+      "summary": "Login, registration and recovery use the shared PasswordToggle instead of their own copies.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -56,5 +56,6 @@
     "A": 1,
     "AC": 3,
     "T": 2
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T14:50:56.150Z"
 }

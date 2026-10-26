@@ -41,3 +41,21 @@ El ojo que muestra u oculta la contraseña es una sola pieza compartida en lugar
   - ac: AC2, AC3
   - verify: fvm dart run slang && fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test
   - type: refactor
+
+## Cierre
+
+### Resumen
+
+`PasswordToggle`, en `widgets/auth_panel.dart`, es el ojo al final de un campo de contraseña: muestra el ojo o el ojo tachado, se anuncia «Mostrar contraseña» u «Ocultar contraseña» y cambia al tocarlo. Login, registro y la contraseña nueva de la recuperación lo usan en lugar de sus tres copias. Un test nuevo del toggle; la suite completa (419 tests) y `flutter analyze` pasan.
+
+### Desviaciones
+
+- La aceptación corrió la verificación completa con el Flutter fijado por fvm primero en el PATH, porque el `verify` de la config usa el `flutter` global.
+
+### Decisiones
+
+- El toggle recibe si la contraseña está oculta y qué hacer al tocarlo; cada pantalla sigue dueña de su estado.
+
+### Pendientes
+
+- Ninguno.
