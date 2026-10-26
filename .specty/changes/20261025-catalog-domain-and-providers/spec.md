@@ -53,7 +53,7 @@ The catalog's logic exists and is tested before any of its screens: ingredients 
   - files: lib/features/dishes/domain/ingredients.dart, lib/features/dishes/domain/text_search.dart, lib/features/dishes/domain/image_url.dart, test/features/dishes/domain/ingredients_test.dart, test/features/dishes/domain/text_search_test.dart, test/features/dishes/domain/image_url_test.dart
   - ac: AC1, AC2, AC3
   - verify: fvm flutter analyze && fvm flutter test test/features/dishes/domain
-- [ ] T2: Dish filter
+- [x] T2: Dish filter
   - files: lib/features/dishes/domain/dish_filter.dart, test/helpers/dish_fixtures.dart, test/features/dishes/domain/dish_filter_test.dart
   - ac: AC4
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test test/features/dishes
