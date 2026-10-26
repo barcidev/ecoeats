@@ -2,10 +2,10 @@
   "schema": 1,
   "id": "20261026-painters-and-state-views-stroke-drawn-logomark-p",
   "kind": "standard",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261026-painters-and-state-views-stroke-drawn-logomark-p",
   "baseCommit": "6e9bedcffa218b0289779be12568bb45bfebb992",
-  "revision": 1,
+  "revision": 2,
   "approved": {
     "revision": 1,
     "hash": "sha256:b9f0f39de2603585e5d07ab4f1c713a248a0fc8f0918c12cb66a90871544c2bc",
@@ -64,12 +64,12 @@
     },
     "T3": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "171b611902fdba86da4d8f6a5dd515e4865cb857",
+      "attempts": 1,
       "startedAt": "2026-10-26T10:46:26.446Z",
       "doneAt": "2026-10-26T10:48:18.699Z",
-      "summary": "StateView draws its kind's detail (crumbs, smoke, cut cord in ink, hourglass), rises and fades in with its texts a stagger later (at once with reduced motion), and the hourglass empties smoothly with the cooldown."
+      "summary": "StateView draws its kind's detail (crumbs, smoke, cut cord in ink, hourglass), rises and fades in with its texts a stagger later (at once with reduced motion), and the hourglass empties smoothly with the cooldown.",
+      "scopeExtra": []
     }
   },
   "pending": {
@@ -81,5 +81,6 @@
     "AC": 4,
     "T": 3,
     "R": 2
-  }
+  },
+  "closingSubmittedAt": "2026-10-26T10:48:29.610Z"
 }

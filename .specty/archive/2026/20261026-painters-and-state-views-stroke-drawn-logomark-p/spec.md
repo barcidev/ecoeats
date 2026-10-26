@@ -64,3 +64,24 @@ The brand mark and the app's drawings become finished line art. The logo draws i
 
 - R1: The welcome test reads the mark's progress while it animates. Mitigation: `progress` keeps its 0–1 meaning, and T1 runs the auth shell tests.
 - R2: `saveLayer` for the vein costs a little on every frame of the welcome animation. Mitigation: the layer is bounded to the leaf's rect, and only the leaf uses it.
+
+## Closing
+
+### Summary
+
+The mark and the app's drawings are finished line art. The logo draws its rim from the top in one stroke, then a lighter well, then a stalked leaf whose vein is cut out. The plate drawing takes a detail for each state: leaf, crumbs, smoke, a pulled plug or an hourglass. A state view shows its kind's drawing, rises into place, and empties its hourglass smoothly while a 429 counts down. The full suite passes with 370 tests.
+
+### Deviations
+
+- The leaf got a short stalk. Without it, the slim blade read as a bean in the rendered checks.
+- The offline cord is drawn in ink rather than muted. In the muted plate lines it disappeared.
+
+### Decisions
+
+- Test colors are compared through `toARGB32()`. `Paint` stores its channels as floats, so a color read back from a recorded paint is not `==` to the const it came from.
+- The hourglass sand flows between the one-second ticks through a one-second tween, so it never jumps (instantly with reduced motion).
+- Rendered checks of the mark's stages and of every detail, in light and dark, were reviewed before closing. They were made with a temporary render test that was not committed.
+
+### Follow-ups
+
+- C7 exports this mark to the brand PNGs.
