@@ -47,7 +47,7 @@ Choosing and being told things feels tactile. A filter or setting choice moves o
 
 ## Tasks
 
-- [ ] T1: SegmentedPills with a sliding, resizing indicator that scrolls the choice into view, with widget tests
+- [x] T1: SegmentedPills with a sliding, resizing indicator that scrolls the choice into view, with widget tests
   - files: lib/design/widgets/segmented_pills.dart, test/design/widgets/selection_test.dart
   - ac: AC1
   - verify: fvm flutter test test/design/widgets/selection_test.dart test/features/dishes/presentation/home_menu_test.dart test/features/profile

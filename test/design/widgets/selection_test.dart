@@ -1,19 +1,101 @@
 import 'package:ecoeats/design/painters/plate_illustration.dart';
 import 'package:ecoeats/design/theme.dart';
 import 'package:ecoeats/design/widgets/plate_spinner.dart';
+import 'package:ecoeats/design/widgets/pressable.dart';
 import 'package:ecoeats/design/widgets/rating_stars.dart';
 import 'package:ecoeats/design/widgets/segmented_pills.dart';
 import 'package:ecoeats/design/widgets/toast.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 
-Widget _app(Widget child, {Brightness brightness = .light}) => MaterialApp(
+Widget _app(
+  Widget child, {
+  Brightness brightness = .light,
+  bool reduceMotion = false,
+}) => MaterialApp(
   theme: ecoTheme(brightness),
+  builder: (context, child) => MediaQuery(
+    data: MediaQuery.of(context).copyWith(disableAnimations: reduceMotion),
+    child: child!,
+  ),
   home: Scaffold(body: Center(child: child)),
 );
 
+void _expectRect(Rect actual, Rect expected) {
+  expect(actual.left, closeTo(expected.left, 0.5));
+  expect(actual.top, closeTo(expected.top, 0.5));
+  expect(actual.width, closeTo(expected.width, 0.5));
+  expect(actual.height, closeTo(expected.height, 0.5));
+}
+
 void main() {
   group('SegmentedPills', () {
+    const filters = ['Todos', 'Destacados', 'Altos en proteína', 'Ligeros'];
+
+    Widget pills(
+      String selected, {
+      double width = 600,
+      bool reduceMotion = false,
+    }) => _app(
+      SizedBox(
+        width: width,
+        child: SegmentedPills<String>(
+          values: filters,
+          selected: selected,
+          labelOf: (value) => value,
+          onChanged: (_) {},
+          padding: EdgeInsets.zero,
+        ),
+      ),
+      reduceMotion: reduceMotion,
+    );
+
+    Rect indicator(WidgetTester tester) =>
+        tester.getRect(find.byKey(SegmentedPills.indicatorKey));
+
+    Rect pill(WidgetTester tester, String label) => tester.getRect(
+      find.ancestor(of: find.text(label), matching: find.byType(Pressable)),
+    );
+
+    testWidgets('one indicator slides and stretches to the picked pill', (
+      tester,
+    ) async {
+      await tester.pumpWidget(pills('Todos'));
+      await tester.pumpAndSettle();
+      _expectRect(indicator(tester), pill(tester, 'Todos'));
+
+      await tester.pumpWidget(pills('Ligeros'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final moving = indicator(tester);
+      expect(moving.left, greaterThan(pill(tester, 'Todos').left));
+      expect(moving.left, lessThan(pill(tester, 'Ligeros').left));
+
+      await tester.pumpAndSettle();
+      _expectRect(indicator(tester), pill(tester, 'Ligeros'));
+    });
+
+    testWidgets('the picked pill scrolls into view', (tester) async {
+      await tester.pumpWidget(pills('Todos', width: 200));
+      await tester.pumpAndSettle();
+      await tester.pumpWidget(pills('Ligeros', width: 200));
+      await tester.pumpAndSettle();
+      final row = tester.getRect(find.byType(SingleChildScrollView));
+      final picked = pill(tester, 'Ligeros');
+      expect(picked.left, greaterThanOrEqualTo(row.left));
+      expect(picked.right, lessThanOrEqualTo(row.right));
+      _expectRect(indicator(tester), picked);
+    });
+
+    testWidgets('with reduced motion the indicator jumps', (tester) async {
+      await tester.pumpWidget(pills('Todos', reduceMotion: true));
+      await tester.pumpAndSettle();
+      await tester.pumpWidget(pills('Ligeros', reduceMotion: true));
+      await tester.pump();
+      await tester.pump();
+      _expectRect(indicator(tester), pill(tester, 'Ligeros'));
+    });
+
     testWidgets('a tap reports its value', (tester) async {
       String? chosen;
       await tester.pumpWidget(
