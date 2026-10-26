@@ -46,7 +46,7 @@ Password recovery has its logic ready before its screens: a `recoveryController`
 
 ## Tasks
 
-- [ ] T1: Clock and recovery state machine, with unit tests in test/features/auth/application/recovery_controller_test.dart
+- [x] T1: Clock and recovery state machine, with unit tests in test/features/auth/application/recovery_controller_test.dart
   - files: lib/features/auth/application/clock.dart, lib/features/auth/application/recovery_controller.dart
   - ac: AC1, AC2, AC3, AC4, AC5, AC6, AC10
   - verify: fvm dart run build_runner build -d && fvm dart format --output=none --set-exit-if-changed lib/features/auth test/features/auth && fvm flutter analyze && fvm flutter test test/features/auth/application

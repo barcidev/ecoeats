@@ -6,6 +6,13 @@
   "branch": "specty/20261025-recovery-state-machine-and-the-otp-field-with-un",
   "baseCommit": "39e58a3b18b3e64c6dce0b9e50fa29a899139bf7",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:83584b250fdcff153e3b914f5c47c850f1be64939765b97cf6a0facf744d4a82",
+    "at": "2026-10-26T00:55:18.585Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "L",
     "score": 12,
@@ -37,7 +44,17 @@
       "decision": "confirmed"
     }
   },
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "dad0ca0cd78baa31a7c4e47eb064688a4f4584ad",
+      "startedAt": "2026-10-26T00:55:19.456Z",
+      "doneAt": "2026-10-26T00:58:25.012Z",
+      "summary": "Recovery state machine (freezed email, code, password and done steps with deadlines, attempts and 429 blocking) and an injectable auth clock, with 19 unit tests."
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
@@ -47,12 +64,5 @@
     "AC": 10,
     "T": 2,
     "R": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:83584b250fdcff153e3b914f5c47c850f1be64939765b97cf6a0facf744d4a82",
-    "at": "2026-10-26T00:55:18.585Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }
