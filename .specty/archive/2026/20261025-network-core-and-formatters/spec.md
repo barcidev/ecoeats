@@ -61,3 +61,23 @@ The app has one way to talk to the EcoEats API and one vocabulary for what goes 
   - files: lib/core/format/formatters.dart, test/core/format/formatters_test.dart
   - ac: AC5
   - verify: fvm dart run build_runner build -d && fvm flutter analyze && fvm flutter test
+
+## Closing
+
+### Summary
+
+Every API error now becomes a sealed `AppFailure`, read through one `request()` helper over a configured Dio. `ProviderScope` gets a retry policy limited to transient failures, `/health` works as a warm-up ping whose answer is ignored, and prices, ratings and dates are formatted per language.
+
+### Deviations
+
+- `DioExceptionType.transformTimeout` (new in dio 5.11) also maps to `timeout`.
+- 403 maps to `unauthorized` and 422 to `validation`; the client endpoints never send them, but the API documents them for admin routes.
+
+### Decisions
+
+- Freezed classes use Dart 3.13's constructor shorthand (`const factory offline()`), which freezed 4.0.1 generates correctly.
+- The price uses a plain space after `$`, as the plan writes it.
+
+### Follow-ups
+
+- The session change adds the auth interceptor to `dioProvider` and wires `retryPolicy` and `warmUp` in `main.dart` through the routes change.
