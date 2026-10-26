@@ -1,6 +1,6 @@
 import 'package:ecoeats/core/network/app_failure.dart';
 import 'package:ecoeats/core/network/error_mapper.dart';
-import 'package:ecoeats/features/auth/application/clock.dart';
+import 'package:ecoeats/core/session/session_controller.dart';
 import 'package:ecoeats/features/auth/data/auth_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

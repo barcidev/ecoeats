@@ -1,5 +1,5 @@
 import 'package:ecoeats/core/network/app_failure.dart';
-import 'package:ecoeats/features/auth/application/clock.dart';
+import 'package:ecoeats/core/session/session_controller.dart';
 import 'package:ecoeats/features/auth/application/recovery_controller.dart';
 import 'package:ecoeats/features/auth/data/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
