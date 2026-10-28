@@ -1,0 +1,4 @@
+{"ts":"2026-10-28T21:23:51.337Z","actor":"human","event":"change.created","data":{"kind":"retro","tree":"882bb1010593da30ecc993fcd5a25e2c8cc12e1a"}}
+{"ts":"2026-10-28T21:25:46.740Z","actor":"human","event":"spec.proposed","data":{"revision":1,"hash":"sha256:14c0d9e8b7e2cd67ad0171d4f67eb89f35003a45fc612008a3b8bcc38ee2b118","size":"S","warnings":0}}
+{"ts":"2026-10-28T21:25:53.399Z","actor":"agent","event":"spec.approved","data":{"revision":1,"hash":"sha256:14c0d9e8b7e2cd67ad0171d4f67eb89f35003a45fc612008a3b8bcc38ee2b118","channel":"delegated","delegated":true}}
+{"ts":"2026-10-28T21:25:53.400Z","actor":"agent","event":"retro.confirmed","data":{"mode":"agent","delegated":true}}
