@@ -46,6 +46,7 @@ class MenuFilters extends StatelessWidget {
       delegate: _FiltersDelegate(
         extent: extent,
         filter: filter,
+        palette: context.palette,
         onCategory: onCategory,
         onSort: onSort,
       ),
@@ -57,12 +58,14 @@ class _FiltersDelegate extends SliverPersistentHeaderDelegate {
   const new({
     required this.extent,
     required this.filter,
+    required this.palette,
     required this.onCategory,
     required this.onSort,
   });
 
   final double extent;
   final DishFilter filter;
+  final EcoPalette palette;
   final ValueChanged<DishCategory> onCategory;
   final ValueChanged<DishSort> onSort;
 
@@ -74,7 +77,9 @@ class _FiltersDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(_FiltersDelegate oldDelegate) =>
-      oldDelegate.filter != filter || oldDelegate.extent != extent;
+      oldDelegate.filter != filter ||
+      oldDelegate.extent != extent ||
+      oldDelegate.palette != palette;
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlaps) {

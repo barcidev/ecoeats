@@ -92,6 +92,34 @@ class EcoPalette extends ThemeExtension<EcoPalette> {
       panela: Color.lerp(panela, other.panela, t)!,
     );
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EcoPalette &&
+          runtimeType == other.runtimeType &&
+          paper == other.paper &&
+          raised == other.raised &&
+          ink == other.ink &&
+          muted == other.muted &&
+          line == other.line &&
+          achiote == other.achiote &&
+          aguacate == other.aguacate &&
+          maiz == other.maiz &&
+          panela == other.panela;
+
+  @override
+  int get hashCode => Object.hash(
+    paper,
+    raised,
+    ink,
+    muted,
+    line,
+    achiote,
+    aguacate,
+    maiz,
+    panela,
+  );
 }
 
 extension EcoPaletteContext on BuildContext {

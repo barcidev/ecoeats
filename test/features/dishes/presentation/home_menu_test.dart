@@ -1,7 +1,11 @@
+import 'package:ecoeats/design/tokens/palette.dart';
 import 'package:ecoeats/features/dishes/presentation/detail/dish_detail_page.dart';
+import 'package:ecoeats/features/dishes/presentation/home/menu_filters.dart';
+import 'package:ecoeats/features/profile/application/theme_mode_controller.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../helpers/app_harness.dart';
 import '../../../helpers/dish_fixtures.dart';
@@ -101,5 +105,35 @@ void main() {
     verify(repository.fetchAll).called(2);
     await _scrollTo(tester, find.text('13 platos'));
     expect(find.text('13 platos'), findsOneWidget);
+  });
+  testWidgets('AC1: switching theme updates the pinned filters background', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({});
+    final container = await bootApp(tester);
+    await _scrollTo(tester, find.text('Todos'));
+    Finder headerBox() => find
+        .descendant(
+          of: find.byType(MenuFilters),
+          matching: find.byType(DecoratedBox),
+        )
+        .first;
+
+    expect(
+      (tester.widget<DecoratedBox>(headerBox()).decoration as BoxDecoration)
+          .color,
+      EcoPalette.mantel.paper,
+    );
+
+    await container
+        .read(themeModeControllerProvider.notifier)
+        .choose(ThemeMode.dark);
+    await tester.pumpAndSettle();
+
+    expect(
+      (tester.widget<DecoratedBox>(headerBox()).decoration as BoxDecoration)
+          .color,
+      EcoPalette.fogon.paper,
+    );
   });
 }

@@ -2,10 +2,17 @@
   "schema": 1,
   "id": "20261028-actualizar-color-de-filtros-al-cambiar-de-tema",
   "kind": "quick",
-  "phase": "implementing",
+  "phase": "acceptance",
   "branch": "specty/20261028-actualizar-color-de-filtros-al-cambiar-de-tema",
   "baseCommit": "dce01a093fe2afe0ead9115f9a66c673c3e59780",
   "revision": 1,
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:39c4c8d15247194b510f5d7c85ea4d8f287ec544bbb179b9819e0affb64e6a35",
+    "at": "2026-10-28T20:51:01.535Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  },
   "size": {
     "level": "M",
     "score": 5,
@@ -16,19 +23,22 @@
     ]
   },
   "items": {},
-  "tasks": {},
+  "tasks": {
+    "T1": {
+      "status": "done",
+      "scopeExtra": [],
+      "attempts": 1,
+      "baseCommit": "3adea972dc8e692d46102249f73756ef0400fc4d",
+      "startedAt": "2026-10-28T20:51:01.933Z",
+      "doneAt": "2026-10-28T21:02:49.949Z",
+      "summary": "Pasar paleta a _FiltersDelegate y reconstruir ante cambios de tema"
+    }
+  },
   "pending": {
     "scopeRequests": [],
     "adjustment": null
   },
   "maxIds": {
     "T": 1
-  },
-  "approved": {
-    "revision": 1,
-    "hash": "sha256:39c4c8d15247194b510f5d7c85ea4d8f287ec544bbb179b9819e0affb64e6a35",
-    "at": "2026-10-28T20:51:01.535Z",
-    "by": "Jorge Palacio Barcinilla",
-    "channel": "delegated"
   }
 }

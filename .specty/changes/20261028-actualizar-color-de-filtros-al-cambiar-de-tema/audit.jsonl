@@ -1,3 +1,6 @@
 {"ts":"2026-10-28T20:45:30.750Z","actor":"human","event":"change.created","data":{"kind":"quick","type":"feat","branch":"specty/20261028-actualizar-color-de-filtros-al-cambiar-de-tema","request":"Corrije este error al cambiar de claro a oscuro o viceversa"}}
 {"ts":"2026-10-28T20:49:48.246Z","actor":"human","event":"spec.proposed","data":{"revision":1,"hash":"sha256:39c4c8d15247194b510f5d7c85ea4d8f287ec544bbb179b9819e0affb64e6a35","size":"M","warnings":0}}
 {"ts":"2026-10-28T20:51:01.548Z","actor":"agent","event":"spec.approved","data":{"revision":1,"hash":"sha256:39c4c8d15247194b510f5d7c85ea4d8f287ec544bbb179b9819e0affb64e6a35","channel":"delegated","delegated":true}}
+{"ts":"2026-10-28T20:51:01.933Z","actor":"agent","event":"task.started","data":{"task":"T1","baseCommit":"3adea972dc8e692d46102249f73756ef0400fc4d"}}
+{"ts":"2026-10-28T21:02:49.865Z","actor":"specty","event":"task.verified","data":{"task":"T1","cmd":"fvm flutter test test/features/dishes/presentation/home_menu_test.dart","exit":0,"ms":4201,"tree":"sha256:c66488f93be8e9cd8769d83b05561ec6df43dac18faf03b7b2647924c61f86b8"}}
+{"ts":"2026-10-28T21:02:49.950Z","actor":"human","event":"task.completed","data":{"task":"T1","summary":"Pasar paleta a _FiltersDelegate y reconstruir ante cambios de tema"}}
