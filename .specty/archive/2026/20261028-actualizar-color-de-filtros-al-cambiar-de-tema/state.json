@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261028-actualizar-color-de-filtros-al-cambiar-de-tema",
   "kind": "quick",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261028-actualizar-color-de-filtros-al-cambiar-de-tema",
   "baseCommit": "dce01a093fe2afe0ead9115f9a66c673c3e59780",
   "revision": 1,
@@ -26,12 +26,12 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "3adea972dc8e692d46102249f73756ef0400fc4d",
+      "attempts": 1,
       "startedAt": "2026-10-28T20:51:01.933Z",
       "doneAt": "2026-10-28T21:02:49.949Z",
-      "summary": "Pasar paleta a _FiltersDelegate y reconstruir ante cambios de tema"
+      "summary": "Pasar paleta a _FiltersDelegate y reconstruir ante cambios de tema",
+      "scopeExtra": []
     }
   },
   "pending": {

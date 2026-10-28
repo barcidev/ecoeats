@@ -20,3 +20,9 @@ Al cambiar entre modo claro y oscuro, la barra fija de filtros (`MenuFilters`) c
   - files: lib/design/tokens/palette.dart, lib/features/dishes/presentation/home/menu_filters.dart, test/features/dishes/presentation/home_menu_test.dart
   - verify: fvm flutter test test/features/dishes/presentation/home_menu_test.dart
   - type: fix
+
+## Cierre
+
+### Resumen
+
+Pasar paleta a _FiltersDelegate y reconstruir ante cambios de tema
