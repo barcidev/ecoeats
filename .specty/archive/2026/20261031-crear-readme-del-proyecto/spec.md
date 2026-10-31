@@ -17,3 +17,9 @@ Añadir el archivo `README.md` en la raíz del proyecto para documentar la visi�
 - [x] T1: Redactar y crear README.md
   - files: README.md
   - verify: test -f README.md
+
+## Cierre
+
+### Resumen
+
+Redactar y crear README.md con la documentación completa del proyecto

@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "20261031-crear-readme-del-proyecto",
   "kind": "quick",
-  "phase": "acceptance",
+  "phase": "done",
   "branch": "specty/20261031-crear-readme-del-proyecto",
   "baseCommit": "e658a7e13ad25906188ce899005848bb61590381",
   "revision": 1,
@@ -25,12 +25,12 @@
   "tasks": {
     "T1": {
       "status": "done",
-      "scopeExtra": [],
-      "attempts": 1,
       "baseCommit": "572e73298e4cfe20648a44c51d0079c1fa81bdda",
+      "attempts": 1,
       "startedAt": "2026-10-31T07:29:30.384Z",
       "doneAt": "2026-10-31T07:33:07.099Z",
-      "summary": "Redactar y crear README.md con la documentación completa del proyecto"
+      "summary": "Redactar y crear README.md con la documentación completa del proyecto",
+      "scopeExtra": []
     }
   },
   "pending": {
