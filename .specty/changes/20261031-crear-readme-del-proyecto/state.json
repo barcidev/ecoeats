@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "20261031-crear-readme-del-proyecto",
+  "kind": "quick",
+  "phase": "implementing",
+  "branch": "specty/20261031-crear-readme-del-proyecto",
+  "baseCommit": "e658a7e13ad25906188ce899005848bb61590381",
+  "revision": 1,
+  "size": {
+    "level": "S",
+    "score": 0,
+    "adjust": 0,
+    "reasons": [
+      "0 archivos"
+    ]
+  },
+  "items": {},
+  "tasks": {},
+  "pending": {
+    "scopeRequests": [],
+    "adjustment": null
+  },
+  "maxIds": {
+    "T": 1
+  },
+  "approved": {
+    "revision": 1,
+    "hash": "sha256:3aea7e4be590231374180f0b5f62afe50fbda2d59ee725c9a7cfb30087545b90",
+    "at": "2026-10-31T07:29:29.958Z",
+    "by": "Jorge Palacio Barcinilla",
+    "channel": "delegated"
+  }
+}
